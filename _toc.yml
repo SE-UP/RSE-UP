@@ -4,6 +4,7 @@ title: Research Software Engineering
 
 parts: 
   - caption: Before we start
+    chapters:
       - file: chapters/install.md
       - file: exercises/python_refresher.ipynb
   
