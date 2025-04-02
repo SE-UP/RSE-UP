@@ -1,5 +1,10 @@
 
-# Installing the Software
+# Before you start the course
+
+Before starting the course you should follow the instructions below and solve the questions in the Python Refresher section.
+In case you have difficulty with either, it is advised to visit the labs!
+
+## Installing the Software
 
 In order to conduct our analysis, we need to install the following software:
 
