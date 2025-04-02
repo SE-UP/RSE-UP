@@ -13,7 +13,7 @@ and how to repeat commands to process as many files as we want automatically.
 
  
 
-We'll be working with `zipf` project (found [here](https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials)), which should contain the following files:
+We'll be working with `zipf` project (found [here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials)), which should contain the following files:
 
 ```text
 zipf/
@@ -526,7 +526,7 @@ so we will break it down into pieces:
 
 > **Continuation Prompts May Differ Too**
 >
-> As mentioned in Chapter [Bash Basics](https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_basics.html)
+> As mentioned in Chapter [Bash Basics](https://se-up.github.io/RSE-UP/chapters/bash_basics.html)
 ),
 > there is variation in how different shells look and operate.
 > If you noticed the second, third, and fourth code lines
@@ -790,7 +790,7 @@ Please note that if you create or move any files or directories in your Zipf's L
 you may want to reorganize your files following the outline at the beginning of the next chapter.
 If you accidentally delete necessary files,
 you can start with a fresh copy of the data files
-by following the instructions in Section [Downloading the Data](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started#downloading-the-data).
+by following the instructions in Section [Downloading the Data](https://se-up.github.io/RSE-UP/chapters/getting_started#downloading-the-data).
 
 ### What does `>>` mean? 
 
@@ -1576,7 +1576,7 @@ so we will break it down into pieces:
 
 > **Continuation Prompts May Differ Too**
 >
-> As mentioned in Chapter [ Bash Basics](https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_basics.html),
+> As mentioned in Chapter [ Bash Basics](https://se-up.github.io/RSE-UP/chapters/bash_basics.html),
 > there is variation in how different shells look and operate.
 > If you noticed the second, third, and fourth code lines
 > in your for loop were prefaced with `for`,

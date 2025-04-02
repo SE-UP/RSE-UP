@@ -23,7 +23,7 @@ Jupyter Notebooks transcend disciplinary boundaries by supporting diverse progra
 
 Traditional analysis often focused solely on code, leaving a gap in clear communication and understanding.
 
-Jupyter Notebooks seamlessly integrate code, visualizations, equations, and explanatory text within the same document. This creates a [narrative](https://software-engineering-group-up.github.io/RSE-UP/chapters/comp_narative.html) flow, enabling scientists to not only present results but also explain their thought process and reasoning, crucial for reproducibility and collaboration.
+Jupyter Notebooks seamlessly integrate code, visualizations, equations, and explanatory text within the same document. This creates a [narrative](https://se-up.github.io/RSE-UP/chapters/comp_narative.html) flow, enabling scientists to not only present results but also explain their thought process and reasoning, crucial for reproducibility and collaboration.
 
 ### From Individual Workflows to Collaborative Ecosystems:
 

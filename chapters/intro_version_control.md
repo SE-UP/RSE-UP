@@ -2,7 +2,7 @@
 
 
 To show how Git works, we will apply it to the Zipf's Law project. Our project directory should currently include:
-We'll be working with `zipf` project (found [here](https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials/labs/lab_02)), which should contain the following files:
+We'll be working with `zipf` project (found [here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials/labs/lab_02)), which should contain the following files:
 
 **Use the instructions below as guideline rather than a 1:1 copy paste exercise** 
 

@@ -13,7 +13,7 @@ This book was created by us, the Software Engineering Group at the University of
 Some of the tutorials used were taken from the [Carpentries](https://carpentries.org/) and adjusted. 
 While the material will remain a work in progress, we hope that using this book students and researchers will have a great experience getting into research software engineering!
 
-For projects assignments and course schedule for the summer term of 2024, please refer to our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials).
+For projects assignments and course schedule for the summer term of 2024, please refer to our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials).
 
 
 ## Why should you care about this course?
@@ -35,7 +35,7 @@ This course is designed for students researchers who are already using Python fo
 but you should already be comfortable doing things like reading data from files
 and writing loops, conditionals, and functions.
 
-To make sure that your Python skills are at the expected level, you can either follow our provided [python refresher](https://software-engineering-group-up.github.io/RSE-UP/exercises/python_refresh.html) or if your already experienced with other programming languages you can also checkout out the python tutorials on [Exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
+To make sure that your Python skills are at the expected level, you can either follow our provided [python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresh.html) or if your already experienced with other programming languages you can also checkout out the python tutorials on [Exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
 
 
 ## The Big Picture
@@ -130,18 +130,18 @@ we will show you how to do the following:
 -   Use the Unix shell to efficiently manage your data and code.
 -   Write Python programs that can be used on the command line.
 -   Use Git and GitHub to track and share your work.
--   Work productively in a small team where everyone is welcome.
+-   Work productively in a small team where -upveryone is welcome.
 -   Use Make to automate complex workflows.
 -   Enable users to configure your software without modifying it directly.
 -   Test your software and know which parts have not yet been tested.
 -   Find, handle, and fix errors in your code.
--   Publish your code and research in open and reproducible ways.
+-   Publish your code and research in open a-upd reproducible ways.
 -   Create Python packages that can be installed in standard ways.
 
 
 ## Using this Book
 
-This textbook was written to be used as the material for a (potentially) semester-long course at the university level, although it can also be used for independent self-study.
+This textbook was wr-uptt-upn to be used as the -upate-upial for a (potentially) semester-long course at the university level, although it can also be used for independent self-study.
 <!-- // Participatory live-coding is the anticipated style for teaching the material,
 // rather than lectures simply talking about the code presented {cite:p}`Brow2018, Wils2018`. -->
 The chapters and their content are generally designed to be used in the order given.
@@ -151,17 +151,17 @@ Early chapters have many small exercises; later chapters have fewer but larger e
 <!-- // In order to break up long periods of live-coding while teaching,
 // it may be preferable to stop and complete some of the exercises at key points throughout the chapter, rather than waiting until the end. -->
 
-Possible exercise solutions are provided (Appendix [solutions](https://software-engineering-group-up.github.io/RSE-UP/chapters/solutions.html), in addition to learning objectives (Appendix ref(objectives)) and key points (Appendix ref(keypoints)) for each chapter.
+Possible exercise solutions are provided (Appendix [solutions](https://se-up.github.io/RSE-UP/chapters/solutions.html), in addition to learning objectives (Appendix ref(objectives)) and key points (Appendix ref(keypoints)) for each chapter.
 
 ## Contributing and Re-Use
 
-The source for the book can be found at the ['RSE-UP' GitHub repository](https://software-engineering-group-up.github.io/RSE-UP) and any corrections, additions, or contributions are very welcome. 
+The source for the book can be found at the ['RSE-UP' GitHub repository](https://se-up.github.io/RSE-UP) and any corrections, additions, or contributions are very welcome. 
 Everyone whose work is included will be credited in the acknowledgments.
-Check out our [contributing guidelines](https://github.com/Software-Engineering-Group-UP/RSE-UP/blob/main/CONTRIBUTION.md)
-as well as our [Code of Conduct](https://github.com/Software-Engineering-Group-UP/RSE-UP/blob/main/CODE_OF_CONDUCT.md) for more information on how to contribute.
+Check out our [contributing guidelines](https://github.com/se-up/RSE-UP/blob/main/CONTRIBUTION.md)
+as well as our [Code of Conduct](https://github.com/se-up/RSE-UP/blob/main/CODE_OF_CONDUCT.md) for more information on how to contribute.
 
 The content and code of this book can be freely re-used as it is
-[licensed](https://github.com/Software-Engineering-Group-UP/RSE-UP/blob/main/LICENSE.md) under a  [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) (CC-BY 4.0) and a [MIT License](https://github.com/Software-Engineering-Group-UP/RSE-UP/blob/main/LICENSE-MIT.md), so the material can be used, re-used, and modified, as long as there is attribution to this source.
+[licensed](https://github.com/se-up/RSE-UP/blob/main/LICENSE.md) under a  [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) (CC-BY 4.0) and a [MIT License](https://github.com/se-up/RSE-UP/blob/main/LICENSE-MIT.md), so the material can be used, re-used, and modified, as long as there is attribution to this source.
 
 
 ## Acknowledgements

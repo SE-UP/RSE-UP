@@ -682,7 +682,7 @@ because it allows them to set things up the way they want with very little work.
 
 > **Logging Configuration**
 >
-> Chapter on [Configuration](https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html) explained why and how
+> Chapter on [Configuration](https://se-up.github.io/RSE-UP/chapters/configuration.html) explained why and how
 > to save the configuration that produced a particular result.
 > We clearly also want this information in the log,
 > so we have three options:

@@ -2,7 +2,7 @@
 
 In the following Chapter you will learn about writing documentations suitable for research software projects and software projects in general.
 
-First you will learn what Markdown files are and how to use them, after that we will give an introduction into what a README file is in Git repositories, before moving on to the next section [Documentation](https://software-engineering-group-up.github.io/RSE-UP/chapters/writing_documentation.html)
+First you will learn what Markdown files are and how to use them, after that we will give an introduction into what a README file is in Git repositories, before moving on to the next section [Documentation](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html)
 
 
 ## Markdown Files

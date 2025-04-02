@@ -233,7 +233,7 @@ which means the assertion (and test) passed.
 > rest of the chapter handles this issue for us.
 > [Import statements][python-import] are notoriously tricky,
 > but we'll learn better methods for organizing our code for 
-> function imports in Chapter on [Packaging](https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html).
+> function imports in Chapter on [Packaging](https://se-up.github.io/RSE-UP/chapters/packaging.html).
 
 ## Testing Frameworks 
 
@@ -655,7 +655,7 @@ This doesn't guarantee that the answer is right---if the original answer is wron
 we could carry that mistake forward indefinitely---but
 it does draw attention to any changes (or "regressions").
 
-In [Section Git advanced zipf-verify](https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html#verifying-zipf-s-law))
+In [Section Git advanced zipf-verify](https://se-up.github.io/RSE-UP/chapters/configuration.html#verifying-zipf-s-law))
 we calculated an $\alpha$ of 1.0866646252515038 for *Dracula*.
 Let's use that value to add a regression test to `test_zipfs.py`:
 
@@ -832,7 +832,7 @@ Many programmers are passionate advocates of a practice called
 Rather than writing code and then writing tests,
 they write the tests first and then write just enough code to make those tests pass.
 Once the code is working,
-they clean it up ([Chapter readable code](https://software-engineering-group-up.github.io/RSE-UP/chapters/clean_readable_code.html)) and then move on to the next task.
+they clean it up ([Chapter readable code](https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html)) and then move on to the next task.
 TDD's advocates claim that this leads to better code because:
 
 1.  Writing tests clarifies what the code is actually supposed to do.

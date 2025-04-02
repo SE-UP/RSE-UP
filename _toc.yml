@@ -3,6 +3,10 @@ root: chapters/welcome
 title: Research Software Engineering
 
 parts: 
+  - caption: Before we start
+      - file: chapters/install.md
+      - file: exercises/python_refresher.ipynb
+  
   - caption: Getting Started
     chapters:
       - file: chapters/getting_started.md
@@ -10,7 +14,7 @@ parts:
   - caption: Python, Bash and Git Basics 
     chapters:
       # intro file
-      - file: exercises/python_refresher.ipynb
+  #    - file: exercises/python_refresher.ipynb
       
       - file: chapters/introduction/bash.md
         sections:
