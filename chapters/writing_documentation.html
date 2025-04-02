@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -542,11 +546,11 @@ we should probably rewrite our function.</p>
 For example,
 here’s a function that calculates someone’s age from their birthday,
 which uses a one-line docstring beginning with the active verb “find”:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 
 
-<span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Find current age from birth date.&quot;&quot;&quot;</span>
     <span class="n">valid_date</span> <span class="o">=</span> <span class="s1">&#39;([0-9]</span><span class="si">{4}</span><span class="s1">)-([0-9]</span><span class="si">{2}</span><span class="s1">)-([0-9]</span><span class="si">{2}</span><span class="s1">)$&#39;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">valid_date</span><span class="p">,</span> <span class="n">birthday</span><span class="p">)):</span>
@@ -583,7 +587,7 @@ We don’t have to write full documentation for helper functions
 that are only used inside our package and aren’t meant to be called by users,
 but these should still have at least a comment explaining their purpose.</p>
 <p>Here’s the previous function with a more complete docstring:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Find current age from birth date.</span>
 <span class="sd">    </span>
 <span class="sd">    :param birthday str: birth date</span>
@@ -596,7 +600,7 @@ but these should still have at least a comment explaining their purpose.</p>
 <p>We could format and organize the information in the docstring any way we like,
 but here we’ve decided to use <strong>reStructuredText</strong>,
 which is the default plain-text markup format supported by <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>
-(Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging/packaging.html#documenting-packages">Documenting Packages</a>.
+(Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging/packaging.html#documenting-packages">Documenting Packages</a>.
 The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists">Sphinx documentation</a> describes the precise syntax for
 parameters, returns, exceptions and other items that are typically included
 in a docstring.</p>
@@ -606,7 +610,7 @@ the code itself is somewhat dense and hard to read.
 To address this issue,
 a number of different formats have been proposed.
 Two of the most prominent are <a class="reference external" href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings">Google style</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Find current age from birth date.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
@@ -621,7 +625,7 @@ Two of the most prominent are <a class="reference external" href="https://github
 </pre></div>
 </div>
 <p>and <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> style</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_age</span><span class="p">(</span><span class="n">birthday</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Find current age from birth date.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -746,7 +750,7 @@ is much better than, “Help! Math in Python!!”</p>
 :   A few sentences to explain what we are trying to do
 and why it will help people determine if their question is a close match to ours or not.</p>
 <p>Provide a minimal reprex.
-:   Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/work_teams/working_in_teams.html#bug-reports">Bug Reports</a> explains the value of a <strong>reproducible example</strong>,
+:   Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/work_teams/working_in_teams.html#bug-reports">Bug Reports</a> explains the value of a <strong>reproducible example</strong>,
 and why reprexes should be as short as possible.
 Readers will have a much easier time figuring out if this question and its answers are for them
 if they can see <em>and understand</em> a few lines of code.</p>

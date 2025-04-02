@@ -155,7 +155,7 @@ Before we do that,
 though,
 we should create a **virtual environment** to test how our package installs
 without breaking anything in our main Python installation.
-We exported details of our environment in Chapter [Provenance](https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provenance.html) as a way to document the software we're using;
+We exported details of our environment in Chapter [Provenance](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html) as a way to document the software we're using;
 in this section, we'll use environments to make the software we're creating more robust.
 
 A virtual environment is a layer on top of an existing Python installation.
@@ -175,7 +175,7 @@ Virtual environments also help with package development:
 
 There are multiple ways to manage virtual environments: 
 
-You can manage virtual environments using [`conda`](https://conda.io/) (Appendix [Anaconda](https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html)) or you can use [`pyenv`](https://github.com/pyenv/pyenv). 
+You can manage virtual environments using [`conda`](https://conda.io/) (Appendix [Anaconda](https://se-up.github.io/RSE-UP/chapters/anaconda.html)) or you can use [`pyenv`](https://github.com/pyenv/pyenv). 
 
 Follow the instructions to setup [`PYENV`](https://github.com/pyenv/pyenv)
 Or if you want to stick to Anaconda follow the tutorial [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).  
@@ -397,7 +397,7 @@ written as `package.module:function`;
 the left side is the name we want to use to call this function from the command line.
 In this case we want to call each module's `main` function;
 right now, we do not have one yet since the iput argument `args` are handled elsewhere. Thus we need to create a main function 
-containing the command-line arguments given by the user (Section [Scripting Options](https://software-engineering-group-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)).
+containing the command-line arguments given by the user (Section [Scripting Options](https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)).
 
 Since we can't pass any arguments to `main` when we define entry points in our `setup.py` file,
 so we need to factor this in:
@@ -713,13 +713,13 @@ we can go through the same process to put it on the main [PyPI](https://pypi.org
 > [Anaconda Cloud](https://anaconda.org).
 > The `conda` documentation has [instructions](https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html) for quickly building
 > a `conda` package for a Python module that is already available on PyPI.
-> See [Appendix on Anaconda](https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html) for more information about `conda` and Anaconda Cloud.
+> See [Appendix on Anaconda](https://se-up.github.io/RSE-UP/chapters/anaconda.html) for more information about `conda` and Anaconda Cloud.
 
 ## Documenting Packages 
 
 Now that our package has been distributed,
 we need to think about whether we have provided sufficient documentation.
-Docstrings (Section [Scripting Docstring](https://software-engineering-group-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)) and READMEs
+Docstrings (Section [Scripting Docstring](https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)) and READMEs
 are sufficient to describe most simple packages,
 but as our code base grows larger,
 we will want to complement these manually written sections with automatically generated content,
@@ -733,11 +733,11 @@ In this section we will update our README file with some basic package-level doc
 before using Sphinx and Read the Docs to host that information online
 along with more detailed function-level documentation.
 For further advice on writing documentation for larger and more complex packages,
-see [Appendix Documentation](https://software-engineering-group-up.github.io/RSE-UP/chapters/writing_documentation.html)).
+see [Appendix Documentation](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html)).
 
 ### Including package-level documentation in the `README` 
 
-When a user first encounters a package, they usually want to know what the package is meant to do,instructions on how to install it, and examples of how to use it. We can include these elements in the `README.md` file we started in [Chapter Git Advanced](https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html). At the moment it reads as follows:
+When a user first encounters a package, they usually want to know what the package is meant to do,instructions on how to install it, and examples of how to use it. We can include these elements in the `README.md` file we started in [Chapter Git Advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html). At the moment it reads as follows:
 
 ```bash
 $ cat README.md
@@ -1025,7 +1025,7 @@ Sphinx Landing page
 ```
 
 Before going on,
-note that Sphinx is not included in the installation requirements in `requirements.txt` ([Chapter CI/CD - Testing CLI](https://software-engineering-group-up.github.io/RSE-UP/chapters/advanced_cicd.html).
+note that Sphinx is not included in the installation requirements in `requirements.txt` ([Chapter CI/CD - Testing CLI](https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html).
 Sphinx isn't needed to run, develop, or even test our package,
 but it is needed for building the documentation.
 To note this requirement,
@@ -1046,7 +1046,7 @@ Now that we have generated our package documentation,
 we need to host it online.
 A common option for Python projects is [Read the Docs](https://docs.readthedocs.io/en/latest/), which is a community-supported site that hosts software documentation free of charge.
 
-Just as continuous integration systems automatically re-test things ([Chapter CI/CD - Testing CLI](https://software-engineering-group-up.github.io/RSE-UP/chapters/advanced_cicd.html), Read the Docs integrates with GitHub
+Just as continuous integration systems automatically re-test things ([Chapter CI/CD - Testing CLI](https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html), Read the Docs integrates with GitHub
 so that documentation is automatically re-built
 every time updates are pushed to the project's GitHub repository.
 If we register for Read the Docs with our GitHub account,
@@ -1094,7 +1094,7 @@ python:
 ```
 
 The configuration file uses the now-familiar **YAML** format
-(Section [Configuration Formats](https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html#configuration-file-formats) and Appendix [YAML](https://software-engineering-group-up.github.io/RSE-UP/chapters/yaml.html) to specify the location of the Sphinx configuration script (`docs/conf.py`) and the dependencies for our package (`requirements.txt`).
+(Section [Configuration Formats](https://se-up.github.io/RSE-UP/chapters/configuration.html#configuration-file-formats) and Appendix [YAML](https://se-up.github.io/RSE-UP/chapters/yaml.html) to specify the location of the Sphinx configuration script (`docs/conf.py`) and the dependencies for our package (`requirements.txt`).
 
 Amira has gone through this process and the documentation is now available at:
 
@@ -1103,7 +1103,7 @@ Amira has gone through this process and the documentation is now available at:
 ## Software Journals 
 
 As a final step to releasing our new package,
-we might want to give it a **DOI** so that it can be cited by researchers. As we saw in Section [Provenance Code Scripts](https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance),
+we might want to give it a **DOI** so that it can be cited by researchers. As we saw in Section [Provenance Code Scripts](https://se-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance),
 GitHub [integrates with Zenodo](https://guides.github.com/activities/citable-code/) for precisely this purpose.
 
 While creating a DOI using a site like Zenodo
@@ -1124,7 +1124,7 @@ from people who have seen many research software packages come and go over the y
 
 Once you have obtained a DOI and possibly published with a software journal,
 the last step is to tell users how to cite your new software package.
-This is traditionally done by adding a `CITATION` file to the associated GitHub repository (alongside `README`, `LICENSE`, `CONDUCT` and similar files discussed in Section [Getting Started](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#standard-information)), containing a plain text citation that can be copied and pasted into email as well as entries formatted for various bibliographic systems like [BibTeX](http://www.bibtex.org/).
+This is traditionally done by adding a `CITATION` file to the associated GitHub repository (alongside `README`, `LICENSE`, `CONDUCT` and similar files discussed in Section [Getting Started](https://se-up.github.io/RSE-UP/chapters/getting_started.html#standard-information)), containing a plain text citation that can be copied and pasted into email as well as entries formatted for various bibliographic systems like [BibTeX](http://www.bibtex.org/).
 
 ```bash
 $ cat CITATION.md

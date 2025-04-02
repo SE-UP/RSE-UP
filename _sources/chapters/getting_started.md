@@ -56,7 +56,7 @@ As with good coding style, small pieces in predictable places with readable name
 We can be messy while we are working and then tidy up later, but experience teaches that we will be more productive if we make tidiness a habit.
 
 In building the Zipf's Law project, we'll follow a widely used template for organizing small and medium-sized data analysis projects {cite:p}`Nobl2009`.
-The project will live in a directory called `zipf`, which will also be a Git repository stored on GitHub chapter [Git Command-line](https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_version_control.html).
+The project will live in a directory called `zipf`, which will also be a Git repository stored on GitHub chapter [Git Command-line](https://se-up.github.io/RSE-UP/chapters/intro_version_control.html).
 
 The following is an abbreviated version of the project directory tree
 as it appears toward the end of the book:
@@ -90,25 +90,25 @@ zipf/
 └── ...
 ```
 
-The full, final directory tree is documented in the [Appendix: Tree](https://software-engineering-group-up.github.io/RSE-UP/chapters/tree.html)
+The full, final directory tree is documented in the [Appendix: Tree](https://se-up.github.io/RSE-UP/chapters/tree.html)
 
 ### Standard information
 
 Our project will contain a few standard files that should be present in every research software project, open source or otherwise:
 
 -   `README` includes basic information on our project.
-     We'll create it in Chapter [Git Advanced](https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html),
-     and extend it in Chapter [Packaging](https://software-engineering-group-up.github.io/RSE-UP/chapters/python_packaging.html).
+     We'll create it in Chapter [Git Advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html),
+     and extend it in Chapter [Packaging](https://se-up.github.io/RSE-UP/chapters/python_packaging.html).
 
--   `LICENSE` is the project's license. We'll add it in Section on including a [license](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#include-a-license).
+-   `LICENSE` is the project's license. We'll add it in Section on including a [license](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#include-a-license).
 
--   `CONTRIBUTING` explains how to contribute to the project. We'll add it in [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#make-all-this-obvious-to-newcomers).
+-   `CONTRIBUTING` explains how to contribute to the project. We'll add it in [here](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#make-all-this-obvious-to-newcomers).
 
--   `CONDUCT` is the project's Code of Conduct. We'll add it in [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)
+-   `CONDUCT` is the project's Code of Conduct. We'll add it in [here](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)
 
--   `CITATION` explains how to cite the software. We'll add it [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/python_packaging.html#software-journals).
+-   `CITATION` explains how to cite the software. We'll add it [here](https://se-up.github.io/RSE-UP/chapters/python_packaging.html#software-journals).
 
-Some projects also include a `CONTRIBUTORS` or `AUTHORS` file that lists everyone who has contributed to the project, while others include that information in the `README` (we do this in Chapter [Git Advanced](https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html)
+Some projects also include a `CONTRIBUTORS` or `AUTHORS` file that lists everyone who has contributed to the project, while others include that information in the `README` (we do this in Chapter [Git Advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html)
 or make it a section in `CITATION`.
 These files are often called **boilerplate, meaning they are copied without change from one use to the next.
 
@@ -119,14 +119,14 @@ Following {cite:p}`Nobl2009`, the directories in the repository's root are organ
 -   Runnable programs go in `bin/`
     (an old Unix abbreviation for "binary", meaning "not text").
     This will include both shell scripts,
-    e.g., `book_summary.sh` developed in Chapter [bash dvanced](https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html),,
+    e.g., `book_summary.sh` developed in Chapter [bash dvanced](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html),,
     and Python programs,
-    e.g., `countwords.py`, developed in Chapter [building a CLI with python](https://software-engineering-group-up.github.io/RSE-UP/chapters/python_building_cli.html),).
+    e.g., `countwords.py`, developed in Chapter [building a CLI with python](https://se-up.github.io/RSE-UP/chapters/python_building_cli.html),).
 
 -   Raw data goes in `data/`
     and is never modified after being stored.
     You'll set up this directory
-    and its contents in Section [download the data](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data).
+    and its contents in Section [download the data](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data).
 
 -   Results are put in `results/`.
     This includes cleaned-up data,
@@ -141,19 +141,19 @@ Following {cite:p}`Nobl2009`, the directories in the repository's root are organ
     In this project,
     `docs` will contain automatically generated
     documentation for the Python package, created in
-    Section on [Documentation using Sphinx](https://software-engineering-group-up.github.io/RSE-UP/chapters/python_packaging.html#creating-a-web-page-for-documentation).
+    Section on [Documentation using Sphinx](https://se-up.github.io/RSE-UP/chapters/python_packaging.html#creating-a-web-page-for-documentation).
 
 This structure works well for many computational research projects and
 we encourage its use beyond just this book.
 We will add some more folders and files not directly addressed by {cite:p}`Nobl2009`
-when we talk about testing (Chapter on [Testing](https://software-engineering-group-up.github.io/RSE-UP/chapters/testing_programs.html)),
+when we talk about testing (Chapter on [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)),
 provenance (Chapter ,
-and packaging (Chapter [Packaging](https://software-engineering-group-up.github.io/RSE-UP/chapters/python_packaging.html)).
+and packaging (Chapter [Packaging](https://se-up.github.io/RSE-UP/chapters/python_packaging.html)).
 
 
 ## Downloading the Data
 
-The data files used in the book are archived at an online repository called Figshare (which we discuss in detail in Section on [where to archive data](https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provenance.html#where-to-archive-data) and can be accessed at:
+The data files used in the book are archived at an online repository called Figshare (which we discuss in detail in Section on [where to archive data](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#where-to-archive-data) and can be accessed at:
 
 <https://doi.org/10.6084/m9.figshare.13040516>
 
@@ -177,56 +177,15 @@ zipf/
     └── time_machine.txt
 ```
 
-## Installing the Software
-
-In order to conduct our analysis, we need to install the following software:
-
-1. A **Shell** ( Bash, ZSH, Fish,...)
-2. **Git** version control
-3. A text editor
-4. [Python 3](https://www.python.org) or using [Anaconda](https://www.anaconda.com)( see below)
-5. [GNU Make](https://www.gnu.org/software/make/)
-
-*Note* While Anaconda seems easy to install, depending on the use case it might be more efficient and simpler to use Python [Pip](https://pypi.org/project/pip) to install some necessary packages. 
-
-Comprehensive software installation instructions for Windows, Mac, and Linux operating systems
-(with video tutorials) are maintained by [The Carpentries](https://carpentries.org/)
-as part of their workshop website template at:
-
-<https://carpentries.github.io/workshop-template/#setup>
-
-We can follow those instructions to install the Bash shell, Git, a text editor and Anaconda.
-We recommend Anaconda as the method for installing Python,
-as it includes Conda as well as many of the packages we'll use in this book.
-
-You can check if Make is already on your computer by typing `make -v` into the Bash shell.
-If it is not, you can install it as follows:
-
-- *Linux (Debian/Ubuntu)*: Install it from the Bash shell using `sudo apt-get install make`.
-- *Mac*: Install [Xcode](https://developer.apple.com/xcode/) (via the App Store).
-- *Windows*: Follow the [installation instructions]( https://ubc-mds.github.io/resources_pages/install_ds_stack_windows/#make) maintained by the
-  Master of Data Science program at the University of British Columbia.
-
-### Tools 
-
-To finish your work, you need some environment to code in. Thus, you need some means to edit text. 
-You could install VS Code, Jetbrains Pycharm (free EDU version), or Neovim, Helix, Emacs, there are no requirements, but having an install of VS Code might make it easier, since VS code can run Jupyter notebooks without you having to install the whole Anaconda ecosystem and messing arround with and starting jupyter notebook servers. Instead of running the Notebooks in your Browser, you can use VScode including all python linting etc..
-
-
-## Notes on using Anaconda
-While it is not necessary,  you may use the Anaconda platform, for that go to [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/) and follow the installation instructions for your operating system. For more information on working with anaconda click [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html). 
-
-**AGAIN it is not necessary** 
-
 ## Summary 
 
-Now that our project structure is set up, our data is downloaded, and our software is installed, we are ready to start our analysis.
+Now that our project structure is set up, our data is downloaded, we are ready to start our analysis.
 
 ### Getting ready 
 
 Make sure you've downloaded the required data files
-(following Section [downloading the data ](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data)
-and installed the required software ([as described here](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#installing-the-software)) before progressing to the next chapter.
+(following Section [downloading the data ](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data)
+and installed the required software ([as described here](https://se-up.github.io/RSE-UP/exercises/install.html#installing-the-software)) before progressing to the next chapter.
 
 ## Key Points
 

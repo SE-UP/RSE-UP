@@ -506,12 +506,12 @@ To write a good bug report:
     the operating system we were running on,
     which version of the programming language we ran it with,
     and anything else that might affect behavior.
-    If the software in question uses a logging framework in section [on error logging](https://software-engineering-group-up.github.io/RSE-UP/chapters/error_handling.html#reporting-errors),
+    If the software in question uses a logging framework in section [on error logging](https://se-up.github.io/RSE-UP/chapters/error_handling.html#reporting-errors),
     turn debugging output on and include it with the issue.
 
 6.  Describe each problem separately so that each one can be tackled on its own.
     This parallels the rule about creating a branch in version control for each bug fix or feature
-    discussed in Section [git advanced](https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html).
+    discussed in Section [git advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html).
 
 An example of a well-written bug report with all of the components mentioned above
 is shown in [Figure: bug report](teams-bug-report).
@@ -533,7 +533,7 @@ but you can use an issue template to make it easier for contributors to
 remember and complete documentation about bug reports.
 
 Sometimes the person creating the issue may not know or have the right answer for some of these things, and will be doing their best with limited information about the error.
-Responding with kindness and encouragement is important to maintain a healthy community, and should be enforced by the project's Code of Conduct (Section [teams coc](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)).
+Responding with kindness and encouragement is important to maintain a healthy community, and should be enforced by the project's Code of Conduct (Section [teams coc](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)).
 
 ## Labeling Issues 
 
@@ -937,7 +937,7 @@ This information may be included as sections in the existing `README` file or pu
     explains how to contribute,
     i.e.,
     what naming conventions to use for functions,
-    what tags to put on issues (Section [teams planning]( https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#planning)),
+    what tags to put on issues (Section [teams planning]( https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#planning)),
     or how to install and configure the software needed to start work on the project.
     These instructions can also be included as a section in `README`;
     wherever they go,
@@ -945,7 +945,7 @@ This information may be included as sections in the existing `README` file or pu
     the more likely they are to do so {cite:p}`Stei2014`.
 te
 -   `GOVERNANCE`
-    explains how the project is run (Section [teams martha](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#making-decisions)).
+    explains how the project is run (Section [teams martha](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#making-decisions)).
     It is still uncommon for this to be in a file of its own---it is more often included
     in `README` or `CONTRIBUTING`---but open communities have learned the hard way
     that *not* being explicit about who has a voice in decisions
@@ -1057,8 +1057,8 @@ and ask the supervisor to arrange a meeting to resolve the issue.
 > They will nod as we present our case,
 > then say, "Well, yes, but..." and list a bunch of minor exceptions
 > or cases where others on the team have also fallen short of expectations.
-> Having collaborator guidelines (Section [teams coc](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#teams-coc))
-> and tracking progress (Section [teams workflow](https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#teams-workflow))
+> Having collaborator guidelines (Section [teams coc](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#teams-coc))
+> and tracking progress (Section [teams workflow](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#teams-workflow))
 > are essential for handling them.
 > If we can't back up our complaint,
 > our supervisor will likely be left with the impression that the whole team is dysfunctional.

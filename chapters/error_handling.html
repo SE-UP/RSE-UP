@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -666,7 +670,7 @@ The example below relies on this:
 the second call to <code class="docutils literal notranslate"><span class="pre">sum_reciprocals</span></code> tries to divide by zero,
 but the exception is caught in the calling code
 rather than in the function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_reciprocals</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_reciprocals</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">/</span><span class="n">v</span>
@@ -944,7 +948,7 @@ users could easily fail to catch it.</p></li>
 <p>This pattern is so common that <code class="docutils literal notranslate"><span class="pre">pytest</span></code> provides support for it.
 Instead of the eight lines in our original example,
 we can write:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="c1">#...set up fixture...</span>
@@ -1014,7 +1018,7 @@ which is called <code class="docutils literal notranslate"><span class="pre">roo
 Thus,
 if we run the small program shown below,
 only the warning message appears:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;This is a warning.&#39;</span><span class="p">)</span>
@@ -1026,7 +1030,7 @@ only the warning message appears:</p>
 </div>
 <p>Rewriting the <code class="docutils literal notranslate"><span class="pre">collate.py</span></code> example above using <code class="docutils literal notranslate"><span class="pre">logging</span></code>
 yields code that is less cluttered:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Processing files...&#39;</span><span class="p">)</span>
@@ -1046,7 +1050,7 @@ using <code class="docutils literal notranslate"><span class="pre">logging.basic
 (This has to be done before we make any logging calls—it’s not retroactive.)
 We can also use that function to set the logging level:
 everything at or above the specified level is displayed.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;logging.log&#39;</span><span class="p">)</span>
@@ -1080,7 +1084,7 @@ There may also be a corresponding flag <code class="docutils literal notranslate
 and a flag <code class="docutils literal notranslate"><span class="pre">-l</span></code> or <code class="docutils literal notranslate"><span class="pre">--logfile</span></code> that specifies the name of a log file.
 To log messages to a file while also printing them,
 we can tell <code class="docutils literal notranslate"><span class="pre">logging</span></code> to use two handlers simultaneously:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
@@ -1108,7 +1112,7 @@ will be very grateful if we use <code class="docutils literal notranslate"><span
 because it allows them to set things up the way they want with very little work.</p>
 <blockquote>
 <div><p><strong>Logging Configuration</strong></p>
-<p>Chapter on <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html">Configuration</a> explained why and how
+<p>Chapter on <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/configuration.html">Configuration</a> explained why and how
 to save the configuration that produced a particular result.
 We clearly also want this information in the log,
 so we have three options:</p>

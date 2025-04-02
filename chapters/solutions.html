@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -1252,11 +1256,11 @@ quickly become more troublesome to run in this manner.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">my_ls.py</span></code> script could read as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;List the files in a given directory with a given suffix.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the program.&quot;&quot;&quot;</span>
     <span class="nb">dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span> <span class="k">else</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
     <span class="n">glob_input</span> <span class="o">=</span> <span class="nb">dir</span> <span class="o">+</span> <span class="s1">&#39;*.&#39;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">suffix</span>
@@ -1280,10 +1284,10 @@ quickly become more troublesome to run in this manner.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sentence_endings.py</span></code> script could read as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Count the occurrence of different sentence endings.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">infile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">ending</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">]:</span>
@@ -1816,7 +1820,7 @@ also included later in the settings build rule:</p>
 <ol class="arabic simple">
 <li><p>Make the following additions to <code class="docutils literal notranslate"><span class="pre">plotcounts.py</span></code>:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--style&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
@@ -1824,7 +1828,7 @@ also included later in the settings build rule:</p>
                     <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;matplotlib style&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">style</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
@@ -1854,13 +1858,13 @@ also included later in the settings build rule:</p>
 <p>Next, we add three lines to <code class="docutils literal notranslate"><span class="pre">main</span></code> to act on this option <em>after</em> all of the plotting parameters have been set.
 For now we use <code class="docutils literal notranslate"><span class="pre">return</span></code> to exit from <code class="docutils literal notranslate"><span class="pre">main</span></code> as soon as the parameters have been saved;
 this lets us test our change without overwriting any of our actual plots.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_configuration</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_configuration</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Save configuration to a file.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
         <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">reader</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">style</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
@@ -1913,10 +1917,10 @@ which in turn gives us a starting point for debugging if we need to.</p>
 </section>
 <section id="id60">
 <h3>Exercise 4<a class="headerlink" href="#id60" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">configparser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
 
 
-<span class="k">def</span> <span class="nf">set_plot_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_plot_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the matplotlib parameters.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">param_file</span><span class="p">:</span>
         <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
@@ -1989,10 +1993,10 @@ should read <code class="docutils literal notranslate"><span class="pre">float(d
 <ol class="arabic simple" start="4">
 <li><p><code class="docutils literal notranslate"><span class="pre">test_geometry.py</span></code> should read as follows:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geometry</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geometry</span>
 
 
-<span class="k">def</span> <span class="nf">test_tall_skinny</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_tall_skinny</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test normalization of a tall, skinny rectangle.&quot;&quot;&quot;</span>
     <span class="n">rect</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
     <span class="n">expected_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -2003,7 +2007,7 @@ should read <code class="docutils literal notranslate"><span class="pre">float(d
 <ol class="arabic simple" start="5">
 <li><p>Other tests might include (but are not limited to):</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_short_wide</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_short_wide</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test normalization of a short, wide rectangle.&quot;&quot;&quot;</span>
     <span class="n">rect</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
     <span class="n">expected_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
@@ -2011,7 +2015,7 @@ should read <code class="docutils literal notranslate"><span class="pre">float(d
     <span class="k">assert</span> <span class="n">actual_result</span> <span class="o">==</span> <span class="n">expected_result</span>
 
 
-<span class="k">def</span> <span class="nf">test_negative_coordinates</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_negative_coordinates</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test rectangle normalization with negative coords.&quot;&quot;&quot;</span>
     <span class="n">rect</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
     <span class="n">expected_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
@@ -2068,12 +2072,12 @@ In this case, a better measure might be the largest <strong>absolute error</stro
 <span class="sd">into a single cumulative count.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">import</span> <span class="nn">utilities</span> <span class="k">as</span> <span class="nn">util</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utilities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">util</span>
 
 
 <span class="n">ERRORS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2081,13 +2085,13 @@ In this case, a better measure might be the largest <strong>absolute error</stro
     <span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">update_counts</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">word_counts</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_counts</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">word_counts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Update word counts with data from another reader/file.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">):</span>
         <span class="n">word_counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="n">log_lev</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="k">else</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">log_lev</span><span class="p">)</span>
@@ -2138,12 +2142,12 @@ using the <code class="docutils literal notranslate"><span class="pre">filename<
 <span class="sd">into a single cumulative count.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">import</span> <span class="nn">utilities</span> <span class="k">as</span> <span class="nn">util</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utilities</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">util</span>
 
 
 <span class="n">ERRORS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2151,13 +2155,13 @@ using the <code class="docutils literal notranslate"><span class="pre">filename<
     <span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">update_counts</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">word_counts</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_counts</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">word_counts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Update word counts with data from another reader/file.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">):</span>
         <span class="n">word_counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="n">log_lev</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="k">else</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">log_lev</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">logfile</span><span class="p">)</span>
@@ -2249,10 +2253,10 @@ should now read as follows:</p></li>
 </div>
 </li>
 <li><p>The following additions need to be made to <code class="docutils literal notranslate"><span class="pre">test_zipfs.py</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collate</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_not_csv_error</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_not_csv_error</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Error handling test for csv check&quot;&quot;&quot;</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;data/dracula.txt&#39;</span>
     <span class="n">word_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
@@ -2262,7 +2266,7 @@ should now read as follows:</p></li>
 </div>
 </li>
 <li><p>The following unit test needs to be added to <code class="docutils literal notranslate"><span class="pre">test_zipfs.py</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_missing_file_error</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_missing_file_error</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Error handling test for missing file&quot;&quot;&quot;</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;fake_file.csv&#39;</span>
     <span class="n">word_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
@@ -2518,7 +2522,7 @@ with the software 3) Seek support?</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> should contain a basic description of the package and how to install/use it,
 while <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> should contain:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 
 <span class="n">setup</span><span class="p">(</span>

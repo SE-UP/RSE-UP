@@ -92,7 +92,7 @@ On branch main
 nothing to commit, working directory clean
 ```
 
-To switch to our new branch we can use the `checkout` command that we first saw in Chapter [git command line](https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_version_control.html):
+To switch to our new branch we can use the `checkout` command that we first saw in Chapter [git command line](https://se-up.github.io/RSE-UP/chapters/intro_version_control.html):
 
 ```bash
 $ git checkout new_feature
@@ -213,7 +213,7 @@ With the Editor of choice you could something like this:
 ```text
 # RSE tutorial - Zipf!
 
-In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html).
+In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://se-up.github.io/RSE-UP/chapters/welcome.html).
 
 ```
 
@@ -393,7 +393,7 @@ Let's add some information about the contributors to our work:
 ```text
 # RSE tutorial - Zipf!
 
-In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html).
+In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://se-up.github.io/RSE-UP/chapters/welcome.html).
 
 ## Contributors
 - Niko Bertrand 
@@ -489,7 +489,7 @@ or write something new. Whatever we do, we must remove the `>>>`, `===`, and `<<
 
 These Zipf's Law scripts tally the occurrences of words in text files.
 
-In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html).
+In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://se-up.github.io/RSE-UP/chapters/welcome.html).
 
 ## Contributors
 - Niko Bertrand 
@@ -614,7 +614,7 @@ The hardest thing about using a branch-per-feature workflow is sticking to it fo
 
 ## Using Other People's Work
 
-**NOTE** the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, can not contribute or fork. For instructions on how this works on Github please click [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced_github.html). Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.   
+**NOTE** the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, can not contribute or fork. For instructions on how this works on Github please click [here](https://se-up.github.io/RSE-UP/chapters/git_advanced_github.html). Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.   
 
 So far we have used Git to manage individual work,
 but it really comes into its own when we are working with other people.
@@ -1032,7 +1032,7 @@ or rearrange the project's contents so that they aren't stepping on each other's
 
 ## Summary 
 
-Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others' changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other's work. As we discuss in Section *[Checking style](https://software-engineering-group-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style),
+Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others' changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other's work. As we discuss in Section *[Checking style](https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style),
 doing reviews doesn't just prevent errors from creeping in:
 it is also an effective way to spread understanding and skills.
 

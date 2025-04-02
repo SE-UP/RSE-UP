@@ -1,6 +1,6 @@
 # Building Command-Line Tools with Python 
 
-After the previous chapters, our Zipf repository (found [here](https://gitup.uni-potsdam.de/seg/rse_course/zipf)) should have the following directories and files:
+After the previous chapters, our Zipf repository (found [here](https://gitup.uni-potsdam.de/se-up/rse_course/zipf)) should have the following directories and files:
 
 ```text
 zipf/
@@ -32,7 +32,7 @@ zipf/
 > there are well established conventions and guidelines
 > for good Python style.
 > We follow those guidelines throughout this book
-> and discuss them in detail in the chapter on readable code found [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/clean_readable_code.html#python-style).
+> and discuss them in detail in the chapter on readable code found [here](https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#python-style).
 
 ## Programs and Modules 
 
@@ -267,7 +267,7 @@ Let's try this out in an interactive Python session. (Remember, do not type the 
 $ python
 ```
 ```text
-Python 3.11.5 (default, Jan  8 2024, 13:42:34) 
+Python 3.-up1.5 (default, Jan  8 2024, 13:42:34) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: 
 Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license"
@@ -298,7 +298,7 @@ FILE
 ```
 
 As this example shows, if we ask for help on the module, Python formats and displays all of the docstrings for everything in the file.
-We talk more about what to put in a docstring in the chapter on documentation found [here](https://software-engineering-group-up.github.io/RSE-UP/chapters/introduction/documentation.html).
+We talk more about what to put in a docstring in the chapter on documentation found [here](https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html).
 
 ## Counting Words
 

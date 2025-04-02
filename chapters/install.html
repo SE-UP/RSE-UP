@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Story Telling with Data Computational Narrative &#8212; RSE-UP</title>
+    <title>Before you start the course &#8212; RSE-UP</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/comp_narative';</script>
-    <link rel="canonical" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/comp_narative.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/install';</script>
+    <link rel="canonical" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/install.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Licenses, Software Citation and FAIR" href="license.html" />
-    <link rel="prev" title="Working with Anaconda" href="anaconda.html" />
+    <link rel="next" title="Python Refresher" href="../exercises/python_refresher.html" />
+    <link rel="prev" title="Welcome" href="welcome.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,8 +176,8 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Before you start the course</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
@@ -218,10 +218,10 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction/documentation.html">Introduction to writing Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Narrative</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction/jupyter.html">Introduction to Jupyter Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anaconda.html">Working with Anaconda</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Story Telling with Data Computational Narrative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comp_narative.html">Story Telling with Data Computational Narrative</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Licenses, Software Citation and FAIR</span></p>
 <ul class="nav bd-sidenav">
@@ -371,7 +371,7 @@
       
       
       
-      <li><a href="https://github.com/Software-Engineering-Group-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Fchapters/comp_narative.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Software-Engineering-Group-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Fchapters/install.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +401,7 @@
       
       
       
-      <li><a href="../_sources/chapters/comp_narative.md" target="_blank"
+      <li><a href="../_sources/chapters/install.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -485,7 +485,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Story Telling with Data Computational Narrative</h1>
+    <h1>Before you start the course</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -495,8 +495,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-computational-narratives">What are computational narratives?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-world applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-anaconda">Notes on using Anaconda</a></li>
 </ul>
             </nav>
         </div>
@@ -508,44 +511,46 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="story-telling-with-data-computational-narrative">
-<h1>Story Telling with Data Computational Narrative<a class="headerlink" href="#story-telling-with-data-computational-narrative" title="Link to this heading">#</a></h1>
-<p>Imagine a story that unfolds not just through words, but through a seamless blend of text, data, and even code. That’s the essence of computational narratives, a captivating way to communicate complex ideas using the power of data and computation.</p>
-<p>Here’s a breakdown of what they are and why they gain popularity:</p>
-<section id="what-are-computational-narratives">
-<h2>What are computational narratives?<a class="headerlink" href="#what-are-computational-narratives" title="Link to this heading">#</a></h2>
-<p>Think of them as interactive stories woven from data. They combine:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="before-you-start-the-course">
+<h1>Before you start the course<a class="headerlink" href="#before-you-start-the-course" title="Link to this heading">#</a></h1>
+<p>Before starting the course you should follow the instructions below and solve the questions in the Python Refresher section.
+In case you have difficulty with either, it is advised to visit the labs!</p>
+<section id="installing-the-software">
+<h2>Installing the Software<a class="headerlink" href="#installing-the-software" title="Link to this heading">#</a></h2>
+<p>In order to conduct our analysis, we need to install the following software:</p>
+<ol class="arabic simple">
+<li><p>A <strong>Shell</strong> ( Bash, ZSH, Fish,…)</p></li>
+<li><p><strong>Git</strong> version control</p></li>
+<li><p>A text editor</p></li>
+<li><p><a class="reference external" href="https://www.python.org">Python 3</a> or using <a class="reference external" href="https://www.anaconda.com">Anaconda</a>( see below)</p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a></p></li>
+</ol>
+<p><em>Note</em> While Anaconda seems easy to install, depending on the use case it might be more efficient and simpler to use Python <a class="reference external" href="https://pypi.org/project/pip">Pip</a> to install some necessary packages.</p>
+<p>Comprehensive software installation instructions for Windows, Mac, and Linux operating systems
+(with video tutorials) are maintained by <a class="reference external" href="https://carpentries.org/">The Carpentries</a>
+as part of their workshop website template at:</p>
+<p><a class="reference external" href="https://carpentries.github.io/workshop-template/#setup">https://carpentries.github.io/workshop-template/#setup</a></p>
+<p>We can follow those instructions to install the Bash shell, Git, a text editor and Anaconda.
+We recommend Anaconda as the method for installing Python,
+as it includes Conda as well as many of the packages we’ll use in this book.</p>
+<p>You can check if Make is already on your computer by typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-v</span></code> into the Bash shell.
+If it is not, you can install it as follows:</p>
 <ul class="simple">
-<li><p>Text: Engaging narrative that sets the context and guides the reader.</p></li>
-<li><p>Data: Visualizations, charts, and other forms of data representation that bring the story to life.</p></li>
-<li><p>Code: The magic behind the scenes, allowing readers to explore the data interactively and delve deeper into specific aspects.</p></li>
+<li><p><em>Linux (Debian/Ubuntu)</em>: Install it from the Bash shell using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">make</span></code>.</p></li>
+<li><p><em>Mac</em>: Install <a class="reference external" href="https://developer.apple.com/xcode/">Xcode</a> (via the App Store).</p></li>
+<li><p><em>Windows</em>: Follow the <a class="reference external" href="https://ubc-mds.github.io/resources_pages/install_ds_stack_windows/#make">installation instructions</a> maintained by the
+Master of Data Science program at the University of British Columbia.</p></li>
 </ul>
-<p>This unique blend allows you to:</p>
-<ul class="simple">
-<li><p>Tell stories in new ways: Go beyond static reports and presentations, immersing your audience in an interactive experience.</p></li>
-<li><p>Make data accessible: Break down complex concepts into digestible pieces using clear visuals and interactive elements.</p></li>
-<li><p>Boost understanding: Encourage exploration and discovery, allowing readers to draw their own conclusions from the data.</p></li>
-</ul>
-<p>Why are they considered “papers of the future”?</p>
-<p>Several factors contribute to the excitement surrounding computational narratives:</p>
-<ul class="simple">
-<li><p>Transparency and reproducibility: By showcasing the code and data behind the story, these narratives promote open science and allow others to verify and build upon the findings.</p></li>
-<li><p>Engaging communication: The interactive nature makes information more engaging and accessible, especially for audiences less familiar with technical concepts.</p></li>
-<li><p>New possibilities for storytelling: This approach opens doors to novel ways of presenting research, data journalism, and even educational content.</p></li>
-<li><p>Jupyter Notebooks: A popular tool for computational storytelling</p></li>
-</ul>
-<p>Jupyter Notebooks have become a go-to platform for creating computational narratives. These interactive notebooks allow you to combine text, code, and data visualizations seamlessly, making it easy to craft your story and share it with others. More on Jupyter Notebooks can be found <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/jupyter.html">here</a>.</p>
+<section id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h3>
+<p>To finish your work, you need some environment to code in. Thus, you need some means to edit text.
+You could install VS Code, Jetbrains Pycharm (free EDU version), or Neovim, Helix, Emacs, there are no requirements, but having an install of VS Code might make it easier, since VS code can run Jupyter notebooks without you having to install the whole Anaconda ecosystem and messing arround with and starting jupyter notebook servers. Instead of running the Notebooks in your Browser, you can use VScode including all python linting etc..</p>
 </section>
-<section id="real-world-applications">
-<h2>Real-world applications<a class="headerlink" href="#real-world-applications" title="Link to this heading">#</a></h2>
-<p>Computational narratives are already being used in various fields:</p>
-<ul class="simple">
-<li><p>Science: Researchers are using them to communicate complex findings to a wider audience.</p></li>
-<li><p>Education: Interactive narratives can make learning more engaging and effective.</p></li>
-<li><p>Data journalism: They can help present complex data in a clear and impactful way.</p></li>
-<li><p>Business intelligence: Companies are using them to communicate insights from data to stakeholders.</p></li>
-</ul>
-<p>As technology evolves and storytelling techniques advance, computational narratives are poised to revolutionize how we communicate, learn, and explore data. So, buckle up, the future of storytelling might just be filled with code, data, and captivating narratives!</p>
+</section>
+<section id="notes-on-using-anaconda">
+<h2>Notes on using Anaconda<a class="headerlink" href="#notes-on-using-anaconda" title="Link to this heading">#</a></h2>
+<p>While it is not necessary,  you may use the Anaconda platform, for that go to <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">https://docs.anaconda.com/anaconda/install/</a> and follow the installation instructions for your operating system. For more information on working with anaconda click <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/anaconda.html">here</a>.</p>
+<p><strong>AGAIN it is not necessary</strong></p>
 </section>
 </section>
 
@@ -580,20 +585,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="anaconda.html"
+       href="welcome.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Working with Anaconda</p>
+        <p class="prev-next-title">Welcome</p>
       </div>
     </a>
     <a class="right-next"
-       href="license.html"
+       href="../exercises/python_refresher.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Licenses, Software Citation and FAIR</p>
+        <p class="prev-next-title">Python Refresher</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -613,8 +618,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-computational-narratives">What are computational narratives?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications">Real-world applications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-anaconda">Notes on using Anaconda</a></li>
 </ul>
   </nav></div>
 

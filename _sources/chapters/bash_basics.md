@@ -38,7 +38,7 @@ The Shell
 > In particular, the most recent versions of MacOS use a shell called the Z Shell or `zsh`;
 > we will point out a few differences as we go along.
 
-Please see Section [getting started](https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data) for instructions
+Please see Section [getting started](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data) for instructions
 on how to install and launch the shell on your computer.
 
 ## Exploring Files and Directories 
@@ -53,7 +53,7 @@ $
 
 However, different shells may use a different symbol: in particular,
 the `zsh` shell, which is the default on newer versions of MacOS, uses `%`.
-As we'll see in chapter [Going further with the Unix Shell](https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell), we can customize the prompt to give us more information.
+As we'll see in chapter [Going further with the Unix Shell](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell), we can customize the prompt to give us more information.
 
 > **Don't Type the Dollar Sign**
 >
@@ -73,7 +73,7 @@ amira
 
 > **Learn by Doing**
 > 
-> Amira is one of the posible learners described in Section [intended audience](https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html#intended-audience). 
+> Amira is one of the posible learners described in Section [intended audience](https://se-up.github.io/RSE-UP/chapters/welcome.html#intended-audience). 
 > For the rest of the book,
 > we'll present code and examples from her perspective.
 > You should follow along on your own computer,
@@ -1033,7 +1033,7 @@ Its commands may be cryptic, but few programs have remained in daily use for so 
 The next chapter will explore how we can combine and repeat commands
 in order to create powerful, efficient workflows.
 
-You can continue as is or you may start doing the first part of the shell related exercises [here](https://software-engineering-group-up.github.io/RSE-UP/exercises/bash.html#bash-exercises). 
+You can continue as is or you may start doing the first part of the shell related exercises [here](https://se-up.github.io/RSE-UP/exercises/bash.html#bash-exercises). 
 
 These can be run online, just follow the instruction, right now you will not need a local version of the software, but later on this will be a necessity to follow along. 
 

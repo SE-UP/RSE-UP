@@ -49,7 +49,7 @@ and load it as if it was a library.
 This is clever,
 but means that tools in other languages can't process it.
 
-A second option is [Windows INI format](https://software-engineering-group-up.github.io/RSE-UP/chapters/),
+A second option is [Windows INI format](https://se-up.github.io/RSE-UP/chapters/),
 which is laid out like this:
 
 ```ini
@@ -81,7 +81,7 @@ the keys `logfile`, `quiet`, and `overwrite`
 have the values `/tmp/log.txt`, `false`, and `false` respectively,
 while the value associated with the key `fonts`
 is a list containing `Verdana` and `Serif`.
-For more discussion of YAML, see [Appendix - YAML](https://software-engineering-group-up.github.io/RSE-UP/chapters/yaml.html).
+For more discussion of YAML, see [Appendix - YAML](https://se-up.github.io/RSE-UP/chapters/yaml.html).
 
 ## Matplotlib Configuration 
 
@@ -170,7 +170,7 @@ Since the `matplotlibrc` file sets system-wide defaults,
 we will now have big labels by default for all plotting we do in the future,
 which we may not want.
 Secondly,
-we want to package our Zipf's Law code and make it available to other people (Chapter [packaging](https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html)).
+we want to package our Zipf's Law code and make it available to other people (Chapter [packaging](https://se-up.github.io/RSE-UP/chapters/packaging.html)).
 That package won't include our `matplotlibrc` file,
 and we don't have access to the one on their computer,
 so this solution isn't as reproducible as others.
@@ -281,7 +281,7 @@ mpl.rcParams['ytick.labelsize'] = args.yticksize
 Adding extra command-line arguments is a good solution
 if we only want to change a small number of plot characteristics.
 It also makes our work more reproducible:
-if we use a Makefile to regenerate our plots ([Chapter Intro to make](https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_make.md)),
+if we use a Makefile to regenerate our plots ([Chapter Intro to make](https://se-up.github.io/RSE-UP/chapters/intro_make.md)),
 the settings will all be saved in one place.
 However,
 `matplotlibrc` has hundreds of parameters we could change,
@@ -378,7 +378,7 @@ More generally,
 the problem of configuring a program illustrates the difference
 between "works for me on my machine"
 and "works for everyone, everywhere."
-From reproducible workflows ([Chapter make](https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_make.html) or [chapter workflows with snakemake](https://software-engineering-group-up.github.io/RSE-UP/chapters/snakemake.html) to logging ([Section Reporting Errors](https://software-engineering-group-up.github.io/RSE-UP/chapters/error_handling.md#reporting-errors.html)),
+From reproducible workflows ([Chapter make](https://se-up.github.io/RSE-UP/chapters/intro_make.html) or [chapter workflows with snakemake](https://se-up.github.io/RSE-UP/chapters/snakemake.html) to logging ([Section Reporting Errors](https://se-up.github.io/RSE-UP/chapters/error_handling.md#reporting-errors.html)),
 this difference influences every aspect of a research software engineer's work.
 We don't always have to design for large-scale re-use,
 but knowing what it entails allows us to make a conscious, thoughtful choice.
@@ -390,7 +390,7 @@ but knowing what it entails allows us to make a conscious, thoughtful choice.
 ```
 <!-- Exercise can be used Later
 ## 1) Building with plotting parameters 
-In the `Makefile` created in Chapter [Automation using Make](https://software-engineering-group-up.github.io/RSE-UP/chapters/automate/intro_make.html#),
+In the `Makefile` created in Chapter [Automation using Make](https://se-up.github.io/RSE-UP/chapters/automate/intro_make.html#),
 the build rule involving `plotcount.py` was defined as:
 
 ```makefile
@@ -405,7 +405,7 @@ so that the appropriate commands will be re-run if the plotting parameters chang
 
 Hint: We use the automatic variable `$<` to access the first prerequisite,
 but you'll need `$(word 2,$^)` to access the second.
-Read about automatic variables ([Section Automatic variables](https://software-engineering-group-up.github.io/RSE-UP/chapters/automate/intro_make.html#automatic-variables)) and
+Read about automatic variables ([Section Automatic variables](https://se-up.github.io/RSE-UP/chapters/automate/intro_make.html#automatic-variables)) and
 [functions for string substitution and analysis](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions)
 to understand what that command is doing.
 -->

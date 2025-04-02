@@ -98,7 +98,7 @@ def calculate_age(birthday):
 We could format and organize the information in the docstring any way we like,
 but here we've decided to use **reStructuredText**,
 which is the default plain-text markup format supported by [Sphinx](https://www.sphinx-doc.org/en/master/)
-(Section [Documenting Packages](https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging/packaging.html#documenting-packages).
+(Section [Documenting Packages](https://se-up.github.io/RSE-UP/chapters/packaging/packaging.html#documenting-packages).
 The [Sphinx documentation](https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists) describes the precise syntax for
 parameters, returns, exceptions and other items that are typically included
 in a docstring.
@@ -266,7 +266,7 @@ Give context before giving sample code.
     and why it will help people determine if their question is a close match to ours or not.
 
 Provide a minimal reprex.
-:   Section [Bug Reports](https://software-engineering-group-up.github.io/RSE-UP/chapters/work_teams/working_in_teams.html#bug-reports) explains the value of a **reproducible example**,
+:   Section [Bug Reports](https://se-up.github.io/RSE-UP/chapters/work_teams/working_in_teams.html#bug-reports) explains the value of a **reproducible example**,
     and why reprexes should be as short as possible.
     Readers will have a much easier time figuring out if this question and its answers are for them
     if they can see *and understand* a few lines of code.

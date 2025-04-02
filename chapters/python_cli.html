@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -515,7 +519,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="building-command-line-tools-with-python">
 <h1>Building Command-Line Tools with Python<a class="headerlink" href="#building-command-line-tools-with-python" title="Link to this heading">#</a></h1>
-<p>After the previous chapters, our Zipf repository (found <a class="reference external" href="https://gitup.uni-potsdam.de/seg/rse_course/zipf">here</a>) should have the following directories and files:</p>
+<p>After the previous chapters, our Zipf repository (found <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/zipf">here</a>) should have the following directories and files:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>zipf/
 |__ README.md
 ├── bin
@@ -545,7 +549,7 @@ Fortunately,
 there are well established conventions and guidelines
 for good Python style.
 We follow those guidelines throughout this book
-and discuss them in detail in the chapter on readable code found <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/clean_readable_code.html#python-style">here</a>.</p>
+and discuss them in detail in the chapter on readable code found <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#python-style">here</a>.</p>
 </div></blockquote>
 <section id="programs-and-modules">
 <h2>Programs and Modules<a class="headerlink" href="#programs-and-modules" title="Link to this heading">#</a></h2>
@@ -579,7 +583,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 for more information.
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">print_name</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">print_name</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print_name
@@ -593,7 +597,7 @@ if it isn’t, we should assume that some other code is doing this.</p>
 </pre></div>
 </div>
 <p>but that is considered poor practice, since it makes testing harder (Chapter <strong>TODO</strong> ref(testing)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -608,10 +612,10 @@ if it isn’t, we should assume that some other code is doing this.</p>
 The most commonly used library for doing this in Python is <a class="reference external" href="https://docs.python.org/3/library/argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code></a>, which can handle options with or without arguments, convert arguments from strings to numbers or other types, display help, and many other things.</p>
 <p>The simplest way to explain how <code class="docutils literal notranslate"><span class="pre">argparse</span></code> works is by example.</p>
 <p>Let’s create a short Python program called <code class="docutils literal notranslate"><span class="pre">script_template.py</span></code>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input file:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">infile</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Output file:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">outfile</span><span class="p">)</span>
 
@@ -683,7 +687,7 @@ script_template.py: error: the following arguments are
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
 <p>Our program template is a good starting point, but we improve it right away by adding a bit of documentation.
 To demonstrate, let’s write a function that doubles a number:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
     <span class="s1">&#39;Double the input.&#39;</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">num</span>
 </pre></div>
@@ -710,10 +714,10 @@ We can put whatever text we want into a function’s docstring, but it is usuall
 that is visible inside the file. If we add documentation to our template, it becomes:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Brief description of what the script does.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the program.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input file:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">infile</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Output file:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">outfile</span><span class="p">)</span>
@@ -738,14 +742,14 @@ the help message provided in response to the <code class="docutils literal notra
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.11.5 (default, Jan  8 2024, 13:42:34) 
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.-up1.5 (default, Jan  8 2024, 13:42:34) 
 [Clang 4.0.1 (tags/RELEASE_401/final)] :: 
 Anaconda, Inc. on darwin
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot;
 for more information.
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">template</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">template</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">template</span><span class="o">.</span><span class="vm">__doc__</span>
 </pre></div>
 </div>
@@ -769,7 +773,7 @@ FILE
 </pre></div>
 </div>
 <p>As this example shows, if we ask for help on the module, Python formats and displays all of the docstrings for everything in the file.
-We talk more about what to put in a docstring in the chapter on documentation found <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/introduction/documentation.html">here</a>.</p>
+We talk more about what to put in a docstring in the chapter on documentation found <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html">here</a>.</p>
 </section>
 <section id="counting-words">
 <h2>Counting Words<a class="headerlink" href="#counting-words" title="Link to this heading">#</a></h2>
@@ -777,9 +781,9 @@ We talk more about what to put in a docstring in the chapter on documentation fo
 We start by moving the template into the directory where we store our runnable programs i.e. the <code class="docutils literal notranslate"><span class="pre">bin_building_cli</span></code> or just a <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder.</p>
 <p>Next, let’s write a function that counts how often words appear in a file.
 The <code class="docutils literal notranslate"><span class="pre">word_count</span></code> function processes a list of text lines to count word frequencies, filter these words by a specified minimum length, and calculate the percentage each word represents of the total word count, ultimately printing the results. It first calls <code class="docutils literal notranslate"><span class="pre">calculate_word_counts(lines)</span></code> to create a dictionary mapping words to their counts, removing delimiters and handling case insensitivity. This dictionary is then converted into a sorted list of tuples using <code class="docutils literal notranslate"><span class="pre">word_count_dict_to_tuples(counts)</span></code>, ordered by decreasing count. The function then filters this list with <code class="docutils literal notranslate"><span class="pre">filter_word_counts(sorted_counts,</span> <span class="pre">min_length)</span></code> to include only words of at least the specified length. Next, <code class="docutils literal notranslate"><span class="pre">calculate_percentages(sorted_counts)</span></code> calculates the percentage of the total word count for each word, producing a list of tuples with words, counts, and percentages. Finally, the function <code class="docutils literal notranslate"><span class="pre">prints</span></code> this list, showing the frequency and relative importance of each word in the text.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="k">def</span> <span class="nf">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a file, calculate the frequencies of each word in the file and</span>
 <span class="sd">    save in a new file the words, counts and percentages of the total  in</span>
@@ -800,9 +804,9 @@ The <code class="docutils literal notranslate"><span class="pre">word_count</spa
 </div>
 <p>If we want the word counts in a format like a text file or CSV for easier processing, we can write another small function that takes our <code class="docutils literal notranslate"><span class="pre">list</span></code> object,
 and writes it to standard output as in this case a text file with the name we gave it.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span> 
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span> 
 
-<span class="k">def</span> <span class="nf">save_word_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_word_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save a list of [word, count, percentage] lists to a file, in the form</span>
 <span class="sd">    &quot;word count percentage&quot;, one tuple per line.</span>
@@ -812,7 +816,7 @@ and writes it to standard output as in this case a text file with the name we ga
             <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">count</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a file, calculate the frequencies of each word in the file and</span>
 <span class="sd">    save in a new file the words, counts and percentages of the total  in</span>
@@ -843,9 +847,9 @@ and writes it to standard output as in this case a text file with the name we ga
 </pre></div>
 </div>
 <p>We could also first rewrite this using argp parse or we write a function that is called within count_words that reads out a file.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="k">def</span> <span class="nf">load_text</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_text</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load lines from a plain-text file and return these as a list, with</span>
 <span class="sd">    trailing newlines stripped.</span>
@@ -856,7 +860,7 @@ and writes it to standard output as in this case a text file with the name we ga
 
 <span class="c1"># .... Other functions ...</span>
 
-<span class="k">def</span> <span class="nf">word_count</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">word_count</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a file, calculate the frequencies of each word in the file and</span>
 <span class="sd">    save in a new file the words, counts and percentages of the total  in</span>
@@ -900,7 +904,7 @@ and writes it to standard output as in this case a text file with the name we ga
 Similarly, if no output file is specified, the command sends its results to <strong>standard output</strong> (stdout). This makes it easy to use the command in a pipeline.</p>
 <p>Our program always sends its output to standard output as noted above, we can always redirect it to a file with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.
 If we want <code class="docutils literal notranslate"><span class="pre">count_words.py</span></code> to read from standard input, we only need to change the handling of <code class="docutils literal notranslate"><span class="pre">infile</span></code> in the argument parser and simplify <code class="docutils literal notranslate"><span class="pre">main</span></code> to match:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Run the command line program.&quot;&quot;&quot;</span>
     <span class="n">count_word</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">infile</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">outfile</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
  
@@ -952,11 +956,11 @@ the user must provide them at the command line in the order in which they are sp
 <p>Now that we can get word counts for individual books we can collate the counts for several books.
 This can be done using a loop that adds up the counts of a word from each of the txt files created by <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code>.
 Using the same template as before, we can write a program called <code class="docutils literal notranslate"><span class="pre">collate.py</span></code>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
 
 
-<span class="k">def</span> <span class="nf">load_word_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_word_counts</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a list of (word, count, percentage) tuples from a file where each</span>
 <span class="sd">    line is of the form &quot;word count percentage&quot;. Lines starting with # are</span>
@@ -971,7 +975,7 @@ Using the same template as before, we can write a program called <code class="do
     <span class="k">return</span> <span class="n">counts</span>
 
 
-<span class="k">def</span> <span class="nf">collate_word_counts</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">collate_word_counts</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load word counts from multiple files and combine them into a single list</span>
 <span class="sd">    of (word, count, percentage) tuples. The combined counts are aggregated,</span>
@@ -1025,9 +1029,9 @@ Using the same template as before, we can write a program called <code class="do
 <h2>Writing Our own Modules<a class="headerlink" href="#writing-our-own-modules" title="Link to this heading">#</a></h2>
 <p>In both <code class="docutils literal notranslate"><span class="pre">collate.py</span></code> and <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> we use the function <code class="docutils literal notranslate"><span class="pre">load_word_counts.py</span></code>. aving the same function in two or more places is a bad idea: if we want to improve it or fix a bug, we have to find and change every single script that contains a copy.
 The solution is to put the shared functions in a separate file and load that file as a module. This can be done using a <code class="docutils literal notranslate"><span class="pre">utilities.py</span></code> or as shown in our example kept a single occurance of it in <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> and importing it with the following statement in <code class="docutils literal notranslate"><span class="pre">collate.py</span></code>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">from</span> <span class="nn">wordcount</span> <span class="kn">import</span> <span class="n">load_word_counts</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wordcount</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_word_counts</span>
 </pre></div>
 </div>
 <p>now we can run the following command to collate the results:</p>
@@ -1044,19 +1048,19 @@ The solution is to put the shared functions in a separate file and load that fil
 <p>The last thing for us to do is to plot the word count distribution. Recall that <a class="reference external" href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf’s Law</a> states the second most common word in a body of text
 appears half as often as the most common, the third most common appears a third as often, and so on.
 Mathematically, this might be written as “word frequency is proportional to 1/rank.”</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;AGG&quot;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 <span class="c1"># from collections import Sequence</span>
 
-<span class="kn">from</span> <span class="nn">wordcount</span> <span class="kn">import</span> <span class="n">load_word_counts</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wordcount</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_word_counts</span>
 
 
 
-<span class="k">def</span> <span class="nf">plot_word_counts</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_word_counts</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a list of (word, count, percentage) tuples, plot the counts as a</span>
 <span class="sd">    histogram. Only the first limit tuples are plotted.</span>

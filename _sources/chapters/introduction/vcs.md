@@ -20,5 +20,5 @@ It's also useful from a collaboration viewpoint, because the system keeps a reco
 There are many different version control systems, such as CVS, Subversion, and Mercurial, but the most widely used version control system today is **Git**.
 Many people first encounter it through a GUI like the [Github desktop client](https://desktop.github.com/) or paid tools like [GitKraken](https://www.gitkraken.com/) or terminal application like [GitUI](https://github.com/extrawurst/gitui).
 However, these tools are actually wrappers around Git's original command-line interface,which gives us access to all of Git's features.
-This lesson describes how to perform fundamental operations using that interface; Chapter [Git Advanced](https://software-engineering-group-up.github.io/RSE-UP/exercises/git_advanced.html) then introduces more advanced operations that can be used to implement a smoother research workflow.
+This lesson describes how to perform fundamental operations using that interface; Chapter [Git Advanced](https://se-up.github.io/RSE-UP/exercises/git_advanced.html) then introduces more advanced operations that can be used to implement a smoother research workflow.
 

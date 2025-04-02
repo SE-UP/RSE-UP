@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -616,7 +620,7 @@ local repository could still be synchronized with GitHub:</p>
 We will show how to use <a class="reference external" href="https://setuptools.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">setuptools</span></code></a>,
 which is the lowest common denominator and will allow everyone, regardless of what Python distribution they have, to use our package. To use <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>, we must create a file called <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> in the directory <em>above</em> the root directory of the package. (This is why we require the two-level directory structure described earlier.)
 <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> must have exactly that name, and must contain lines like these:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 
 <span class="n">setup</span><span class="p">(</span>
@@ -657,7 +661,7 @@ Before we do that,
 though,
 we should create a <strong>virtual environment</strong> to test how our package installs
 without breaking anything in our main Python installation.
-We exported details of our environment in Chapter <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provenance.html">Provenance</a> as a way to document the software we’re using;
+We exported details of our environment in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html">Provenance</a> as a way to document the software we’re using;
 in this section, we’ll use environments to make the software we’re creating more robust.</p>
 <p>A virtual environment is a layer on top of an existing Python installation.
 Whenever Python needs to find a package,
@@ -674,7 +678,7 @@ By installing and running our package in a completely empty environment,
 we can ensure that we’re not accidentally relying on other packages being installed.</p></li>
 </ul>
 <p>There are multiple ways to manage virtual environments:</p>
-<p>You can manage virtual environments using <a class="reference external" href="https://conda.io/"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a> (Appendix <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html">Anaconda</a>) or you can use <a class="reference external" href="https://github.com/pyenv/pyenv"><code class="docutils literal notranslate"><span class="pre">pyenv</span></code></a>.</p>
+<p>You can manage virtual environments using <a class="reference external" href="https://conda.io/"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a> (Appendix <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/anaconda.html">Anaconda</a>) or you can use <a class="reference external" href="https://github.com/pyenv/pyenv"><code class="docutils literal notranslate"><span class="pre">pyenv</span></code></a>.</p>
 <p>Follow the instructions to setup <a class="reference external" href="https://github.com/pyenv/pyenv"><code class="docutils literal notranslate"><span class="pre">PYENV</span></code></a>
 Or if you want to stick to Anaconda follow the tutorial <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">here</a>.</p>
 </section>
@@ -719,7 +723,7 @@ We could install these manually,
 but it is more reliable to automate this process
 by listing everything that our package depends on
 using the <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 
 <span class="n">setup</span><span class="p">(</span>
@@ -834,7 +838,7 @@ typing-extensions-3.7.4.3 zipp-3.4.0
 depending on which versions of our dependencies get installed.)</p>
 <p>We can now import our package in a script or a <a class="reference external" href="https://jupyter.org/">Jupyter notebook</a> just as we would any other package.
 For example, to use the function in <code class="docutils literal notranslate"><span class="pre">zipftest</span></code>, we would write:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyzipf</span> <span class="kn">import</span> <span class="n">zipftest</span> <span class="k">as</span> <span class="n">zt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyzipf</span><span class="w"> </span><span class="kn">import</span> <span class="n">zipftest</span> <span class="k">as</span> <span class="n">zt</span>
 
 
 <span class="n">zt</span><span class="o">.</span><span class="n">collection_to_csv</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -851,7 +855,7 @@ The <code class="docutils literal notranslate"><span class="pre">setuptools</spa
 These programs are placed beside those of other packages.
 We tell <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> to do this by defining
 <strong>entry points</strong> in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
 
 <span class="n">setup</span><span class="p">(</span>
@@ -877,11 +881,11 @@ written as <code class="docutils literal notranslate"><span class="pre">package.
 the left side is the name we want to use to call this function from the command line.
 In this case we want to call each module’s <code class="docutils literal notranslate"><span class="pre">main</span></code> function;
 right now, we do not have one yet since the iput argument <code class="docutils literal notranslate"><span class="pre">args</span></code> are handled elsewhere. Thus we need to create a main function
-containing the command-line arguments given by the user (Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Options</a>).</p>
+containing the command-line arguments given by the user (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Options</a>).</p>
 <p>Since we can’t pass any arguments to <code class="docutils literal notranslate"><span class="pre">main</span></code> when we define entry points in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file,
 so we need to factor this in:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Process word counts and generate plots.&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;input_file&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input file with word counts&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;output_file&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Output file or display mode&quot;</span><span class="p">)</span>
@@ -958,7 +962,7 @@ let’s explore what actually happens during installation.
 The short version is that the contents of the package are copied into a directory that Python will search when it imports things.
 In theory we can “install” packages by manually copying source code into the right places, but it’s much more efficient and safer to use a tool specifically made for this purpose, such as <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>Most of the time, these tools copy packages into the Python installation’s <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory, but this is not the only place Python searches. Just as the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment in the shell contains a list of directories it searches. We can look at this list inside the interpreter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
 </pre></div>
 </div>
@@ -1160,14 +1164,14 @@ it can be a good idea to post a <code class="docutils literal notranslate"><span
 <a class="reference external" href="https://anaconda.org">Anaconda Cloud</a>.
 The <code class="docutils literal notranslate"><span class="pre">conda</span></code> documentation has <a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html">instructions</a> for quickly building
 a <code class="docutils literal notranslate"><span class="pre">conda</span></code> package for a Python module that is already available on PyPI.
-See <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html">Appendix on Anaconda</a> for more information about <code class="docutils literal notranslate"><span class="pre">conda</span></code> and Anaconda Cloud.</p>
+See <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/anaconda.html">Appendix on Anaconda</a> for more information about <code class="docutils literal notranslate"><span class="pre">conda</span></code> and Anaconda Cloud.</p>
 </div></blockquote>
 </section>
 <section id="documenting-packages">
 <h2>Documenting Packages<a class="headerlink" href="#documenting-packages" title="Link to this heading">#</a></h2>
 <p>Now that our package has been distributed,
 we need to think about whether we have provided sufficient documentation.
-Docstrings (Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Docstring</a>) and READMEs
+Docstrings (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Docstring</a>) and READMEs
 are sufficient to describe most simple packages,
 but as our code base grows larger,
 we will want to complement these manually written sections with automatically generated content,
@@ -1181,10 +1185,10 @@ In this section we will update our README file with some basic package-level doc
 before using Sphinx and Read the Docs to host that information online
 along with more detailed function-level documentation.
 For further advice on writing documentation for larger and more complex packages,
-see <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/writing_documentation.html">Appendix Documentation</a>).</p>
+see <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/writing_documentation.html">Appendix Documentation</a>).</p>
 <section id="including-package-level-documentation-in-the-readme">
 <h3>Including package-level documentation in the <code class="docutils literal notranslate"><span class="pre">README</span></code><a class="headerlink" href="#including-package-level-documentation-in-the-readme" title="Link to this heading">#</a></h3>
-<p>When a user first encounters a package, they usually want to know what the package is meant to do,instructions on how to install it, and examples of how to use it. We can include these elements in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file we started in <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html">Chapter Git Advanced</a>. At the moment it reads as follows:</p>
+<p>When a user first encounters a package, they usually want to know what the package is meant to do,instructions on how to install it, and examples of how to use it. We can include these elements in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file we started in <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/git_advanced.html">Chapter Git Advanced</a>. At the moment it reads as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>README.md
 </pre></div>
 </div>
@@ -1366,8 +1370,8 @@ The first change relates to the “path setup” section near the head of the fi
 our modules (i.e., <code class="docutils literal notranslate"><span class="pre">countwords.py</span></code>, <code class="docutils literal notranslate"><span class="pre">utilities.py</span></code>, etc.) are located in the <code class="docutils literal notranslate"><span class="pre">../pyzipf</span></code> directory.
 We therefore need to uncomment the relevant lines of the path setup section in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>
 to tell Sphinx where those modules are:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../pyzipf&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1444,7 +1448,7 @@ re-uses our README as the introduction to the documentation (Figure <a class="r
 </figcaption>
 </figure>
 <p>Before going on,
-note that Sphinx is not included in the installation requirements in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>.
+note that Sphinx is not included in the installation requirements in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>.
 Sphinx isn’t needed to run, develop, or even test our package,
 but it is needed for building the documentation.
 To note this requirement,
@@ -1462,7 +1466,7 @@ now only needs run <code class="docutils literal notranslate"><span class="pre">
 <p>Now that we have generated our package documentation,
 we need to host it online.
 A common option for Python projects is <a class="reference external" href="https://docs.readthedocs.io/en/latest/">Read the Docs</a>, which is a community-supported site that hosts software documentation free of charge.</p>
-<p>Just as continuous integration systems automatically re-test things (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>, Read the Docs integrates with GitHub
+<p>Just as continuous integration systems automatically re-test things (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>, Read the Docs integrates with GitHub
 so that documentation is automatically re-built
 every time updates are pushed to the project’s GitHub repository.
 If we register for Read the Docs with our GitHub account,
@@ -1506,7 +1510,7 @@ python:
 </pre></div>
 </div>
 <p>The configuration file uses the now-familiar <strong>YAML</strong> format
-(Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html#configuration-file-formats">Configuration Formats</a> and Appendix <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/yaml.html">YAML</a> to specify the location of the Sphinx configuration script (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>) and the dependencies for our package (<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>).</p>
+(Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/configuration.html#configuration-file-formats">Configuration Formats</a> and Appendix <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/yaml.html">YAML</a> to specify the location of the Sphinx configuration script (<code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>) and the dependencies for our package (<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>).</p>
 <p>Amira has gone through this process and the documentation is now available at:</p>
 <p><a class="reference external" href="https://pyzipf.readthedocs.io/">https://pyzipf.readthedocs.io/</a></p>
 </section>
@@ -1514,7 +1518,7 @@ python:
 <section id="software-journals">
 <h2>Software Journals<a class="headerlink" href="#software-journals" title="Link to this heading">#</a></h2>
 <p>As a final step to releasing our new package,
-we might want to give it a <strong>DOI</strong> so that it can be cited by researchers. As we saw in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance">Provenance Code Scripts</a>,
+we might want to give it a <strong>DOI</strong> so that it can be cited by researchers. As we saw in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance">Provenance Code Scripts</a>,
 GitHub <a class="reference external" href="https://guides.github.com/activities/citable-code/">integrates with Zenodo</a> for precisely this purpose.</p>
 <p>While creating a DOI using a site like Zenodo
 is often the end of the software publishing process,
@@ -1533,7 +1537,7 @@ so the peer review process can be a great way to get critical feedback
 from people who have seen many research software packages come and go over the years.</p>
 <p>Once you have obtained a DOI and possibly published with a software journal,
 the last step is to tell users how to cite your new software package.
-This is traditionally done by adding a <code class="docutils literal notranslate"><span class="pre">CITATION</span></code> file to the associated GitHub repository (alongside <code class="docutils literal notranslate"><span class="pre">README</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONDUCT</span></code> and similar files discussed in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#standard-information">Getting Started</a>), containing a plain text citation that can be copied and pasted into email as well as entries formatted for various bibliographic systems like <a class="reference external" href="http://www.bibtex.org/">BibTeX</a>.</p>
+This is traditionally done by adding a <code class="docutils literal notranslate"><span class="pre">CITATION</span></code> file to the associated GitHub repository (alongside <code class="docutils literal notranslate"><span class="pre">README</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONDUCT</span></code> and similar files discussed in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#standard-information">Getting Started</a>), containing a plain text citation that can be copied and pasted into email as well as entries formatted for various bibliographic systems like <a class="reference external" href="http://www.bibtex.org/">BibTeX</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>CITATION.md
 </pre></div>
 </div>

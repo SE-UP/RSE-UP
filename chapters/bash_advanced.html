@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -522,7 +526,7 @@ and how to combine commands in new ways using pipes and redirection.
 This chapter extends those ideas to show
 how we can create new tools by saving commands in files
 and how to use a more powerful version of <strong>wildcards</strong> to extract data from files.</p>
-<p>We’ll be working with <code class="docutils literal notranslate"><span class="pre">zipf</span></code> project (found <a class="reference external" href="https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials">here</a>), which should contain the following files:</p>
+<p>We’ll be working with <code class="docutils literal notranslate"><span class="pre">zipf</span></code> project (found <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials">here</a>), which should contain the following files:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>zipf/
 └── data
     ├── dracula.txt
@@ -540,7 +544,7 @@ and how to use a more powerful version of <strong>wildcards</strong> to extract 
 if you worked through all of the exercises in the previous chapter.
 Feel free to delete them or move them to a separate directory.
 If you have accidentally deleted files you need,
-you can download them again by following the instructions in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">Downloading the Data</a>.</p>
+you can download them again by following the instructions in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">Downloading the Data</a>.</p>
 </div></blockquote>
 <section id="creating-new-commands">
 <h2>Creating New Commands<a class="headerlink" href="#creating-new-commands" title="Link to this heading">#</a></h2>
@@ -550,7 +554,7 @@ so that we can repeat complex operations with a few keystrokes.
 For historical reasons,
 a file full of shell commands is usually called a <strong>shell script</strong> but it is really just another kind of program.</p>
 <p>Let’s start by creating a new directory for our runnable programs called <code class="docutils literal notranslate"><span class="pre">bin/</span></code>,
-consistent with the project structure described in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#organizing-project-content">Organizing the Project Content</a>.</p>
+consistent with the project structure described in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#organizing-project-content">Organizing the Project Content</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/zipf
 $<span class="w"> </span>mkdir<span class="w"> </span>bin
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bin
@@ -617,7 +621,7 @@ we can pipe the output of our shell script to another command to count how many 
 </div>
 <p>What if we want our script to print the name of the book’s author?
 The command <code class="docutils literal notranslate"><span class="pre">grep</span></code> finds and prints lines that match a pattern.
-We’ll learn more about <code class="docutils literal notranslate"><span class="pre">grep</span></code> in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html#finding-things-in-files">finding thins in files</a>,
+We’ll learn more about <code class="docutils literal notranslate"><span class="pre">grep</span></code> in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#finding-things-in-files">finding thins in files</a>,
 but for now we can edit the script:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nano<span class="w"> </span>book_summary.sh
 </pre></div>
@@ -756,7 +760,7 @@ $<span class="w"> </span>cat<span class="w"> </span>summarize_all_books.sh
 <h2>Finding Things in Files<a class="headerlink" href="#finding-things-in-files" title="Link to this heading">#</a></h2>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> to select lines from a file by position,
 but we also often want to select lines that contain certain values.
-This is called <strong>filtering</strong>, and we usually do it in the shell with the command <code class="docutils literal notranslate"><span class="pre">grep</span></code> that we briefly met in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html#creating-new-commands">creating new commands</a>.
+This is called <strong>filtering</strong>, and we usually do it in the shell with the command <code class="docutils literal notranslate"><span class="pre">grep</span></code> that we briefly met in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#creating-new-commands">creating new commands</a>.
 Its name is an acronym of “global regular expression print,”
 which was a common sequence of operations in early Unix text editors.</p>
 <p>To show how <code class="docutils literal notranslate"><span class="pre">grep</span></code> works,
@@ -920,7 +924,7 @@ to print lines that <em>don’t</em> match the pattern:</p>
 8:
 </pre></div>
 </div>
-<p>As we learned in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_basics.html#moving-around">moving around</a>,
+<p>As we learned in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_basics.html#moving-around">moving around</a>,
 we can write this command as <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-inv</span></code>,
 but probably shouldn’t for the sake of readability.</p>
 <p>If we want to search several files at once, all we have to do is give <code class="docutils literal notranslate"><span class="pre">grep</span></code> all of their names. The easiest way to do this is usually to use wildcards.
@@ -1146,7 +1150,7 @@ $<span class="w"> </span>find<span class="w"> </span>.<span class="w"> </span>-n
 </section>
 <section id="configuring-the-shell">
 <h2>Configuring the Shell<a class="headerlink" href="#configuring-the-shell" title="Link to this heading">#</a></h2>
-<p>As Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_tools.html#repeating-commands-on-many-files">repeating commands on many files</a> explained,
+<p>As Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_tools.html#repeating-commands-on-many-files">repeating commands on many files</a> explained,
 the shell is a program, and it has variables like any other program.
 Some of those variables control the shell’s operations;
 by changing their values we can change how the shell and other programs behave.</p>
@@ -1222,7 +1226,7 @@ unless we type the path in explicitly
 (for example,
 as <code class="docutils literal notranslate"><span class="pre">./analyze</span></code> if we are in <code class="docutils literal notranslate"><span class="pre">/Users/amira</span></code>).</p>
 <p>If we want to see a variable’s value, we can print it using the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command
-introduced at the end of Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_tools.html#redoing-things">redoing things</a>.
+introduced at the end of Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_tools.html#redoing-things">redoing things</a>.
 Let’s look at the value of the variable <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, which keeps track of our home directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>HOME
 </pre></div>
@@ -1239,7 +1243,7 @@ we need to run this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/Users/amira
 </pre></div>
 </div>
-<p>As with loop variables (Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_tools.html#redoing-things">redoing thins</a>,
+<p>As with loop variables (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_tools.html#redoing-things">redoing thins</a>,
 the dollar sign before the variable names tells the shell
 that we want the variable’s value.
 This works just like wildcard expansion—the shell replaces
@@ -1311,7 +1315,7 @@ so we can use them to change the behavior of a familiar command:</p>
 <p>We can find interesting suggestions for other aliases
 by searching online for “sample bashrc”.</p>
 <p>While searching for additional aliases, you’re likely to encounter references to other common shell features to customize, such as the color of your shell’s background and text.</p>
-<p>As mentioned in Chapter <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_basics.html">bash basics</a>, another important feature to consider customizing is your shell prompt.
+<p>As mentioned in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_basics.html">bash basics</a>, another important feature to consider customizing is your shell prompt.
 In addition to a standard symbol (like <code class="docutils literal notranslate"><span class="pre">$</span></code>), your computer may include other information as well, such as the working directory, username, and/or date/time.
 If your shell does not include that information and you would like to see it,
 or if your current prompt is too long and you’d like to shorten it,

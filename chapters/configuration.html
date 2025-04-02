@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -557,7 +561,7 @@ One is to write the configuration as a Python module
 and load it as if it was a library.
 This is clever,
 but means that tools in other languages can’t process it.</p>
-<p>A second option is <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/">Windows INI format</a>,
+<p>A second option is <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/">Windows INI format</a>,
 which is laid out like this:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[section1]</span>
 <span class="na">key1</span><span class="o">=</span><span class="s">value1</span>
@@ -585,7 +589,7 @@ the keys <code class="docutils literal notranslate"><span class="pre">logfile</s
 have the values <code class="docutils literal notranslate"><span class="pre">/tmp/log.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, and <code class="docutils literal notranslate"><span class="pre">false</span></code> respectively,
 while the value associated with the key <code class="docutils literal notranslate"><span class="pre">fonts</span></code>
 is a list containing <code class="docutils literal notranslate"><span class="pre">Verdana</span></code> and <code class="docutils literal notranslate"><span class="pre">Serif</span></code>.
-For more discussion of YAML, see <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/yaml.html">Appendix - YAML</a>.</p>
+For more discussion of YAML, see <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/yaml.html">Appendix - YAML</a>.</p>
 </section>
 <section id="matplotlib-configuration">
 <h2>Matplotlib Configuration<a class="headerlink" href="#matplotlib-configuration" title="Link to this heading">#</a></h2>
@@ -617,7 +621,7 @@ to change the size of the labels:</p>
 <p>Our first configuration possibility is to edit the system-wide Matplotlib runtime configuration file, when we import Matplotlib,
 it uses this file to set the default characteristics of the plot.
 We can find it on our system by running this command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
 <span class="n">mpl</span><span class="o">.</span><span class="n">matplotlib_fname</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -665,7 +669,7 @@ Since the <code class="docutils literal notranslate"><span class="pre">matplotli
 we will now have big labels by default for all plotting we do in the future,
 which we may not want.
 Secondly,
-we want to package our Zipf’s Law code and make it available to other people (Chapter <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html">packaging</a>).
+we want to package our Zipf’s Law code and make it available to other people (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging.html">packaging</a>).
 That package won’t include our <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> file,
 and we don’t have access to the one on their computer,
 so this solution isn’t as reproducible as others.</p>
@@ -679,7 +683,7 @@ a one-line change in <code class="docutils literal notranslate"><span class="pre
 <p>If we don’t want to change the configuration for everyone,
 we can change it for just ourself.
 Matplotlib defines several carefully designed styles for plots:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">available</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -757,7 +761,7 @@ These are stored in a variable called <code class="docutils literal notranslate"
 <p>Adding extra command-line arguments is a good solution
 if we only want to change a small number of plot characteristics.
 It also makes our work more reproducible:
-if we use a Makefile to regenerate our plots (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_make.md">Chapter Intro to make</a>),
+if we use a Makefile to regenerate our plots (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_make.md">Chapter Intro to make</a>),
 the settings will all be saved in one place.
 However,
 <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> has hundreds of parameters we could change,
@@ -787,7 +791,7 @@ we need to add one new option to <code class="docutils literal notranslate"><spa
 </pre></div>
 </div>
 <p>We can use Python’s <code class="docutils literal notranslate"><span class="pre">yaml</span></code> library to read that file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_plot_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_plot_params</span><span class="p">(</span><span class="n">param_file</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the matplotlib parameters.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">param_file</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">param_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
@@ -848,7 +852,7 @@ from people who just want to get their science done.</p>
 the problem of configuring a program illustrates the difference
 between “works for me on my machine”
 and “works for everyone, everywhere.”
-From reproducible workflows (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_make.html">Chapter make</a> or <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/snakemake.html">chapter workflows with snakemake</a> to logging (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/error_handling.md#reporting-errors.html">Section Reporting Errors</a>),
+From reproducible workflows (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_make.html">Chapter make</a> or <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/snakemake.html">chapter workflows with snakemake</a> to logging (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/error_handling.md#reporting-errors.html">Section Reporting Errors</a>),
 this difference influences every aspect of a research software engineer’s work.
 We don’t always have to design for large-scale re-use,
 but knowing what it entails allows us to make a conscious, thoughtful choice.</p>
@@ -867,7 +871,7 @@ each of which overrides previous layers.</p></li>
 </ul>
 <!-- Exercise can be used Later
 ## 1) Building with plotting parameters 
-In the `Makefile` created in Chapter [Automation using Make](https://software-engineering-group-up.github.io/RSE-UP/chapters/automate/intro_make.html#),
+In the `Makefile` created in Chapter [Automation using Make](https://se-up.github.io/RSE-UP/chapters/automate/intro_make.html#),
 the build rule involving `plotcount.py` was defined as:
 
 ```makefile
@@ -882,7 +886,7 @@ so that the appropriate commands will be re-run if the plotting parameters chang
 
 Hint: We use the automatic variable `$<` to access the first prerequisite,
 but you'll need `$(word 2,$^)` to access the second.
-Read about automatic variables ([Section Automatic variables](https://software-engineering-group-up.github.io/RSE-UP/chapters/automate/intro_make.html#automatic-variables)) and
+Read about automatic variables ([Section Automatic variables](https://se-up.github.io/RSE-UP/chapters/automate/intro_make.html#automatic-variables)) and
 [functions for string substitution and analysis](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions)
 to understand what that command is doing.
 -->

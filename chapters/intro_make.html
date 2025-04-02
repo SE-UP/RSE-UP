@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -574,7 +578,7 @@ please see Section <strong>getting-started-install-software</strong> for Window
 <blockquote>
 <div><p><strong>Keep Tracking with Version Control</strong></p>
 <p>We encourage you to use the Git workflow
-from Chapters <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/intro_version_control.html">git command line</a> and <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/git_advanced.html">git advanced</a>
+from Chapters <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_version_control.html">git command line</a> and <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/git_advanced.html">git advanced</a>
 throughout the rest of this book,
 though we won’t continue to remind you.</p>
 </div></blockquote>
@@ -1180,7 +1184,7 @@ we will add a target or rule and forget to update this list.</p>
 <p>A better approach is to format some comments in a special way
 and then extract and display those comments when asked to.
 We’ll use <code class="docutils literal notranslate"><span class="pre">##</span></code> (a double comment marker) to indicate the lines we want displayed
-and <code class="docutils literal notranslate"><span class="pre">grep</span></code> (Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html#finding-things-in-files">bash advanced find</a> to pull these lines out of the file:</p>
+and <code class="docutils literal notranslate"><span class="pre">grep</span></code> (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#finding-things-in-files">bash advanced find</a> to pull these lines out of the file:</p>
 <div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">.PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">all</span> <span class="n">clean</span> <span class="n">help</span> <span class="n">settings</span>
 
 <span class="nv">COUNT</span><span class="o">=</span>bin/countwords.py
@@ -1338,7 +1342,7 @@ that also makes it very flexible:
 a single Makefile can run shell commands and programs written in a variety of languages,
 which makes it a great way to assemble pipelines out of whatever is lying around.</p>
 <p>Programmers have created many replacements for Make in the 45 years since it was first created—so many, in fact, that none have attracted enough users to displace it.</p>
-<p>If you would like to explore them, check out <a class="reference external" href="https://snakemake.readthedocs.io/">Snakemake</a> (for Python) or the <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/snakemake.html">section</a> on workflows using snake make.</p>
+<p>If you would like to explore them, check out <a class="reference external" href="https://snakemake.readthedocs.io/">Snakemake</a> (for Python) or the <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/snakemake.html">section</a> on workflows using snake make.</p>
 <p>If you want to go deeper, <span id="id2">[<a class="reference internal" href="references.html#id76" title="Peter Smith. Software Build Systems: Principles and Experience. Addison-Wesley Professional, 2011. ISBN 978-0321717283. A thorough, readable exploration of how software build systems and tools work.">Smith, 2011</a>]</span> describes the design and implementation of several build managers.</p>
 </section>
 <section id="key-points">

@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -175,13 +175,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -549,7 +553,7 @@ but the core commands and ideas remain the same.
 In particular, the most recent versions of MacOS use a shell called the Z Shell or <code class="docutils literal notranslate"><span class="pre">zsh</span></code>;
 we will point out a few differences as we go along.</p>
 </div></blockquote>
-<p>Please see Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">getting started</a> for instructions
+<p>Please see Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">getting started</a> for instructions
 on how to install and launch the shell on your computer.</p>
 <section id="exploring-files-and-directories">
 <h2>Exploring Files and Directories<a class="headerlink" href="#exploring-files-and-directories" title="Link to this heading">#</a></h2>
@@ -561,7 +565,7 @@ To start, when Bash runs it presents us with a <strong>prompt</strong> to indica
 </div>
 <p>However, different shells may use a different symbol: in particular,
 the <code class="docutils literal notranslate"><span class="pre">zsh</span></code> shell, which is the default on newer versions of MacOS, uses <code class="docutils literal notranslate"><span class="pre">%</span></code>.
-As we’ll see in chapter <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell">Going further with the Unix Shell</a>, we can customize the prompt to give us more information.</p>
+As we’ll see in chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell">Going further with the Unix Shell</a>, we can customize the prompt to give us more information.</p>
 <blockquote>
 <div><p><strong>Don’t Type the Dollar Sign</strong></p>
 <p>We show the <code class="docutils literal notranslate"><span class="pre">$</span></code> prompt so that it’s clear what you are supposed to type,
@@ -577,7 +581,7 @@ but you should <em>not</em> type it yourself.</p>
 </div>
 <blockquote>
 <div><p><strong>Learn by Doing</strong></p>
-<p>Amira is one of the posible learners described in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html#intended-audience">intended audience</a>.
+<p>Amira is one of the posible learners described in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/welcome.html#intended-audience">intended audience</a>.
 For the rest of the book,
 we’ll present code and examples from her perspective.
 You should follow along on your own computer,
@@ -1375,7 +1379,7 @@ is unlikely to think to look for <code class="docutils literal notranslate"><spa
 Its commands may be cryptic, but few programs have remained in daily use for so long.
 The next chapter will explore how we can combine and repeat commands
 in order to create powerful, efficient workflows.</p>
-<p>You can continue as is or you may start doing the first part of the shell related exercises <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/exercises/bash.html#bash-exercises">here</a>.</p>
+<p>You can continue as is or you may start doing the first part of the shell related exercises <a class="reference external" href="https://se-up.github.io/RSE-UP/exercises/bash.html#bash-exercises">here</a>.</p>
 <p>These can be run online, just follow the instruction, right now you will not need a local version of the software, but later on this will be a necessity to follow along.</p>
 </section>
 <section id="key-points">

@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -177,13 +177,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -551,7 +555,7 @@ and the complete set of instructions which generated the figures.</p>
 <p>While some reports, datasets, software packages, and analysis scripts
 can’t be published without violating personal or commercial confidentiality,
 every researcher’s default should be to make all these as widely available as possible.
-Publishing it under an open license (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/working_in_teams.html#include-a-license">Section Team License</a>) is the first step;
+Publishing it under an open license (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#include-a-license">Section Team License</a>) is the first step;
 the sections below describe what else we can do to capture
 the <strong>provenance</strong> of our data analysis.</p>
 <p>Our Zipf’s Law project files are structured as they were at the end of the previous chapter:</p>
@@ -652,7 +656,7 @@ We can tell we’ve done this if:</p>
 <li><p>Data is described with rich metadata.</p></li>
 <li><p>Metadata clearly and explicitly includes the identifier of the data it describes.</p></li>
 <li><p>(Meta)data is registered or indexed in a searchable resource,
-such as the data sharing platforms described in <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provenance.html#where-to-archive-data">Section: where to archive data</a>.</p></li>
+such as the data sharing platforms described in <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#where-to-archive-data">Section: where to archive data</a>.</p></li>
 </ol>
 </section>
 <section id="data-should-be-accessible">
@@ -776,7 +780,7 @@ but in more complex cases we probably want to make life easier for the reader
 (and for our future selves looking to re-run the analysis).
 One way to make things easier is to export a description of
 a complete conda environment
-(<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html#virtual-environments">Section packaging virtual environments</a>; <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/anaconda.html">Appendix Anaconda</a>), or <strong>TODO</strong> <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/pyenv.html">Appendix setting up virtual environment in mac and linux</a>
+(<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging.html#virtual-environments">Section packaging virtual environments</a>; <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/anaconda.html">Appendix Anaconda</a>), or <strong>TODO</strong> <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/pyenv.html">Appendix setting up virtual environment in mac and linux</a>
 which can be saved as YAML using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
 $<span class="w"> </span>cat<span class="w"> </span>environment.yml
@@ -821,7 +825,7 @@ about how well (or whether) they actually make research more reproducible in pra
 <h3>Data processing steps<a class="headerlink" href="#data-processing-steps" title="Link to this heading">#</a></h3>
 <p>The second item that needs to be added to our GitHub repository is a description
 of the data processing steps involved in each key result.
-Assuming the author list on our report is Amira Khan and Sami Virtanen (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/welcome.html#intended-audience">Section</a>,
+Assuming the author list on our report is Amira Khan and Sami Virtanen (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/welcome.html#intended-audience">Section</a>,
 we could add a new Markdown file called <code class="docutils literal notranslate"><span class="pre">KhanVirtanen2020.md</span></code> to the repository
 to describe the steps:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>The code in this repository was used in generating the results
@@ -846,7 +850,7 @@ $ make all
 <h3>Analysis scripts<a class="headerlink" href="#analysis-scripts" title="Link to this heading">#</a></h3>
 <p>Later in this book we will package and release our Zipf’s Law code
 so that it can be downloaded and installed by the wider research community,
-just like any other Python package (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html">Chapter Packaging</a>).
+just like any other Python package (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging.html">Chapter Packaging</a>).
 Doing this is especially helpful if other people might be interested in using and/or extending it,
 but often the scripts and notebooks we write to produce a particular figure or table
 are too case-specific to be of broad interest.

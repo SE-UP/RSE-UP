@@ -58,7 +58,7 @@ Windspharm - AJ Dawson
 ```
 
 The `conda` documentation has [instructions]( https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html) for quickly building
-a `conda` package for a Python module that is already available on [PyPI](https://pypi.org/) ([Section Distribute packaging](https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html#distributing-packages)).
+a `conda` package for a Python module that is already available on [PyPI](https://pypi.org/) ([Section Distribute packaging](https://se-up.github.io/RSE-UP/chapters/packaging.html#distributing-packages)).
 
 ### conda-forge
 
@@ -97,6 +97,6 @@ The advantage that `conda` has over these options is that it is language agnosti
 supports binary packages (i.e., you don't need to compile the source code after installing),
 so it has become the environment manager of choice in data science.
 In this book `conda` is used to export the details of an environment
-when documenting the computational methodology for a report ([Section Provenance - Code](https://software-engineering-group-up.github.io/RSE-UP/chapters/tracking_provenance.html#code-provenance))
+when documenting the computational methodology for a report ([Section Provenance - Code](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#code-provenance))
 and to test how a new package installs without disturbing anything
-in our main Python installation ([Section Packaging a virtual environment](https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html#virtual-environments)).
+in our main Python installation ([Section Packaging a virtual environment](https://se-up.github.io/RSE-UP/chapters/packaging.html#virtual-environments)).

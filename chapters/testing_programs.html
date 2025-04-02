@@ -28,13 +28,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -177,13 +177,17 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Before you start the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
@@ -606,7 +610,7 @@ Adding an assertion makes the requirement clearer,
 and also guarantees that the function will fail as soon as it is called
 rather than returning an error from <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize_scalar</span></code>
 that would be more difficult to interpret/debug.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_power_law_params</span><span class="p">(</span><span class="n">word_counts</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_power_law_params</span><span class="p">(</span><span class="n">word_counts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the power law parameters.</span>
 
@@ -646,7 +650,7 @@ but it typically means the behavior of a single function in one situation.
 In our Zipf’s Law software,
 the <code class="docutils literal notranslate"><span class="pre">count_words</span></code> function in <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> is
 a good candidate for unit testing:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">word_count</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">word_count</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a file, calculate the frequencies of each word in the file and</span>
 <span class="sd">    save in a new file the words, counts and percentages of the total  in</span>
@@ -693,7 +697,7 @@ to blossom.
 </pre></div>
 </div>
 <p>We can then count the words by hand to construct the expected result:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
 
 <span class="n">risk_poem_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;the&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;risk&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -706,9 +710,9 @@ to blossom.
 </div>
 <p>We then generate the actual result by calling <code class="docutils literal notranslate"><span class="pre">count_words</span></code>,
 and use an assertion to check if it is what we expected:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/LOCATION/.../zipf/bin&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">wordcount</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wordcount</span>
 
 <span class="n">lines</span> <span class="o">=</span> <span class="n">wordcount</span><span class="o">.</span><span class="n">load_text</span><span class="p">(</span><span class="n">test_data</span><span class="o">/</span><span class="n">risk</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
 <span class="n">actual_result</span> <span class="o">=</span> <span class="n">wordcount</span><span class="o">.</span><span class="n">calculate_word_counts</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
@@ -729,7 +733,7 @@ especially since the tool we’ll use for the
 rest of the chapter handles this issue for us.
 [Import statements][python-import] are notoriously tricky,
 but we’ll learn better methods for organizing our code for
-function imports in Chapter on <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/packaging.html">Packaging</a>.</p>
+function imports in Chapter on <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging.html">Packaging</a>.</p>
 </div></blockquote>
 </section>
 <section id="testing-frameworks">
@@ -746,12 +750,12 @@ The most widely used test framework for Python is called <a class="reference ext
 <p>Following these rules,
 we can create a <code class="docutils literal notranslate"><span class="pre">test_wordcount.py</span></code> script in your newly created <code class="docutils literal notranslate"><span class="pre">test</span></code> directory
 that contains the test we just developed:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
-<span class="kn">import</span> <span class="nn">wordcount</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wordcount</span>
 
 
-<span class="k">def</span> <span class="nf">test_word_count</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_word_count</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test the counting of words.</span>
 
 <span class="sd">    The example poem is Risk, by Anaïs Nin.</span>
@@ -808,7 +812,7 @@ c = f/r
 (i.e., our test fixture)
 with a constant of proportionality set to a hypothetical maximum word frequency of 600
 (and thus <span class="math notranslate nohighlight">\(r\)</span> ranges from 1 to 600):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
 <span class="n">max_freq</span> <span class="o">=</span> <span class="mi">600</span>
@@ -827,15 +831,15 @@ because we can’t have fractional word counts.)
 Passing this test fixture to <code class="docutils literal notranslate"><span class="pre">get_power_law_params</span></code> in <code class="docutils literal notranslate"><span class="pre">plotcount.py</span></code>
 should give us a value of 1.0.
 To test this, we can add a second test to <code class="docutils literal notranslate"><span class="pre">test_countwords.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">plotcount</span>
-<span class="kn">import</span> <span class="nn">wordcount</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotcount</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wordcount</span>
 
 
-<span class="k">def</span> <span class="nf">test_alpha</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_alpha</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test the calculation of the alpha parameter.</span>
 
 <span class="sd">    The test word counts satisfy the relationship,</span>
@@ -855,7 +859,7 @@ To test this, we can add a second test to <code class="docutils literal notransl
     <span class="k">assert</span> <span class="n">actual_alpha</span> <span class="o">==</span> <span class="n">expected_alpha</span>
 
 
-<span class="k">def</span> <span class="nf">test_word_count</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_word_count</span><span class="p">():</span>
     <span class="c1">#...as before...</span>
 </pre></div>
 </div>
@@ -949,16 +953,16 @@ but the relative error is only 1%.</p>
 we might decide that an absolute error of 0.01 in the estimation of <span class="math notranslate nohighlight">\(\alpha\)</span> is acceptable.
 If we are using <code class="docutils literal notranslate"><span class="pre">pytest</span></code>,
 we can check that values lie within this tolerance using <code class="docutils literal notranslate"><span class="pre">pytest.approx</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
-<span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">plotcounts</span>
-<span class="kn">import</span> <span class="nn">countwords</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotcounts</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">countwords</span>
 
 
-<span class="k">def</span> <span class="nf">test_alpha</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_alpha</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test the calculation of the alpha parameter.</span>
 
 <span class="sd">    The test word counts satisfy the relationship,</span>
@@ -978,7 +982,7 @@ we can check that values lie within this tolerance using <code class="docutils l
     <span class="k">assert</span> <span class="n">actual_alpha</span> <span class="o">==</span> <span class="n">expected_alpha</span>
 
 
-<span class="k">def</span> <span class="nf">test_word_count</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_word_count</span><span class="p">():</span>
     <span class="c1">#...as before...</span>
 </pre></div>
 </div>
@@ -1040,8 +1044,8 @@ We can install it using [<code class="docutils literal notranslate"><span class=
 <p>Borrowing from the word count distribution we created for <code class="docutils literal notranslate"><span class="pre">test_alpha</span></code>,
 we can use the following code to create a text file full of random words
 with a frequency distribution that corresponds to an <span class="math notranslate nohighlight">\(alpha\)</span> of approximately 1.0:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">RandomWordGenerator</span> <span class="kn">import</span> <span class="n">RandomWord</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RandomWordGenerator</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomWord</span>
 
 
 <span class="n">max_freq</span> <span class="o">=</span> <span class="mi">600</span>
@@ -1068,7 +1072,7 @@ KALSfPkrga
 </pre></div>
 </div>
 <p>We can then add this integration test to <code class="docutils literal notranslate"><span class="pre">test_wordcount.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_integration</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_integration</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Test the full word count to alpha parameter workflow.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_data/random_words.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
         <span class="n">word_counts_dict</span> <span class="o">=</span> <span class="n">countwords</span><span class="o">.</span><span class="n">calculate_word_counts</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
@@ -1112,10 +1116,10 @@ regression tests compare today’s answer with a previous one.
 This doesn’t guarantee that the answer is right—if the original answer is wrong,
 we could carry that mistake forward indefinitely—but
 it does draw attention to any changes (or “regressions”).</p>
-<p>In <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/configuration.html#verifying-zipf-s-law">Section Git advanced zipf-verify</a>)
+<p>In <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/configuration.html#verifying-zipf-s-law">Section Git advanced zipf-verify</a>)
 we calculated an <span class="math notranslate nohighlight">\(\alpha\)</span> of 1.0866646252515038 for <em>Dracula</em>.
 Let’s use that value to add a regression test to <code class="docutils literal notranslate"><span class="pre">test_zipfs.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_regression</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_regression</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Regression test for Dracula.&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/dracula.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
         <span class="n">word_counts_dict</span> <span class="o">=</span> <span class="n">countwords</span><span class="o">.</span><span class="n">calculate_word_countss</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
@@ -1272,7 +1276,7 @@ The answer depends on who you ask.</p>
 Rather than writing code and then writing tests,
 they write the tests first and then write just enough code to make those tests pass.
 Once the code is working,
-they clean it up (<a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/clean_readable_code.html">Chapter readable code</a>) and then move on to the next task.
+they clean it up (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html">Chapter readable code</a>) and then move on to the next task.
 TDD’s advocates claim that this leads to better code because:</p>
 <ol class="arabic simple">
 <li><p>Writing tests clarifies what the code is actually supposed to do.</p></li>
