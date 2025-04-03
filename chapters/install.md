@@ -21,7 +21,7 @@ as part of their workshop website template at:
 
 <https://carpentries.github.io/workshop-template/#setup>
 
-We can follow those instructions to install the Bash shell, Git, a text editor and Python (via Anaconda).
+You can follow those instructions to install the Bash shell, Git, a text editor and Python (via Anaconda).
 
 We recommend Anaconda as the method for installing Python,
 as it includes Conda as well as many of the packages we'll use in this book.
