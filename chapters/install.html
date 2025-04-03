@@ -495,11 +495,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-anaconda">Notes on using Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a></li>
 </ul>
             </nav>
         </div>
@@ -513,26 +509,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="before-you-start-the-course">
 <h1>Before you start the course<a class="headerlink" href="#before-you-start-the-course" title="Link to this heading">#</a></h1>
-<p>Before starting the course you should follow the instructions below and solve the questions in the Python Refresher section.
-In case you have difficulty with either, it is advised to visit the labs!</p>
+<p>We will need a number of software tools in the course, so you should make sure to have them installed and running before the first lecture.
+Please follow the instructions below to get set up.
+If you encounter any problems, visit the labs in the first week to get help.</p>
 <section id="installing-the-software">
 <h2>Installing the Software<a class="headerlink" href="#installing-the-software" title="Link to this heading">#</a></h2>
-<p>In order to conduct our analysis, we need to install the following software:</p>
+<p>We need the following software:</p>
 <ol class="arabic simple">
-<li><p>A <strong>Shell</strong> ( Bash, ZSH, Fish,…)</p></li>
+<li><p>A <strong>Shell</strong> (Bash, ZSH, Fish,…)</p></li>
 <li><p><strong>Git</strong> version control</p></li>
-<li><p>A text editor</p></li>
-<li><p><a class="reference external" href="https://www.python.org">Python 3</a> or using <a class="reference external" href="https://www.anaconda.com">Anaconda</a>( see below)</p></li>
+<li><p>A text editor (or IDE)</p></li>
+<li><p><a class="reference external" href="https://www.python.org">Python 3</a> or using <a class="reference external" href="https://www.anaconda.com">Anaconda</a> (see below)</p></li>
 <li><p><a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a></p></li>
 </ol>
-<p><em>Note</em> While Anaconda seems easy to install, depending on the use case it might be more efficient and simpler to use Python <a class="reference external" href="https://pypi.org/project/pip">Pip</a> to install some necessary packages.</p>
 <p>Comprehensive software installation instructions for Windows, Mac, and Linux operating systems
 (with video tutorials) are maintained by <a class="reference external" href="https://carpentries.org/">The Carpentries</a>
 as part of their workshop website template at:</p>
 <p><a class="reference external" href="https://carpentries.github.io/workshop-template/#setup">https://carpentries.github.io/workshop-template/#setup</a></p>
-<p>We can follow those instructions to install the Bash shell, Git, a text editor and Anaconda.
-We recommend Anaconda as the method for installing Python,
+<p>We can follow those instructions to install the Bash shell, Git, a text editor and Python (via Anaconda).</p>
+<p>We recommend Anaconda as the method for installing Python,
 as it includes Conda as well as many of the packages we’ll use in this book.</p>
+<p>Instead of or in addition to a text editor, you might also want to use an actual Integrated Development Environment (IDE) like VS Code, PyCharm, Eclipse or similar.
+Feel free to do so if you like, but it is neither required nor a focus of the course.</p>
 <p>You can check if Make is already on your computer by typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-v</span></code> into the Bash shell.
 If it is not, you can install it as follows:</p>
 <ul class="simple">
@@ -541,16 +539,6 @@ If it is not, you can install it as follows:</p>
 <li><p><em>Windows</em>: Follow the <a class="reference external" href="https://ubc-mds.github.io/resources_pages/install_ds_stack_windows/#make">installation instructions</a> maintained by the
 Master of Data Science program at the University of British Columbia.</p></li>
 </ul>
-<section id="tools">
-<h3>Tools<a class="headerlink" href="#tools" title="Link to this heading">#</a></h3>
-<p>To finish your work, you need some environment to code in. Thus, you need some means to edit text.
-You could install VS Code, Jetbrains Pycharm (free EDU version), or Neovim, Helix, Emacs, there are no requirements, but having an install of VS Code might make it easier, since VS code can run Jupyter notebooks without you having to install the whole Anaconda ecosystem and messing arround with and starting jupyter notebook servers. Instead of running the Notebooks in your Browser, you can use VScode including all python linting etc..</p>
-</section>
-</section>
-<section id="notes-on-using-anaconda">
-<h2>Notes on using Anaconda<a class="headerlink" href="#notes-on-using-anaconda" title="Link to this heading">#</a></h2>
-<p>While it is not necessary,  you may use the Anaconda platform, for that go to <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">https://docs.anaconda.com/anaconda/install/</a> and follow the installation instructions for your operating system. For more information on working with anaconda click <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/anaconda.html">here</a>.</p>
-<p><strong>AGAIN it is not necessary</strong></p>
 </section>
 </section>
 
@@ -618,11 +606,7 @@ You could install VS Code, Jetbrains Pycharm (free EDU version), or Neovim, Heli
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tools">Tools</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-on-using-anaconda">Notes on using Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-software">Installing the Software</a></li>
 </ul>
   </nav></div>
 
