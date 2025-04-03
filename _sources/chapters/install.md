@@ -1,11 +1,8 @@
 
-# Before you start the course
+# Software to Install
 
 We will need a number of software tools in the course, so you should make sure to have them installed and running before the first lecture. 
-Please follow the instructions below to get set up. 
-If you encounter any problems, visit the labs in the first week to get help.
-
-## Installing the Software
+Please follow the instructions below to get set up. If you encounter any problems, visit the labs in the first week to get help.
 
 We need the following software:
 
