@@ -495,17 +495,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-1-python-development-environment-get-set-up">Assignment 1: Python Development Environment - Get Set up!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-2-revitalize-your-python">Assignment 2: Revitalize your Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">2.1 Arithmetics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-branching">2.2 Conditional Branching</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">2.3 While-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-text-processing">2.4 For-Loops, Text Processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">2.5 Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-pandas">2.6 Dataframes, Pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-inheritance">2.7 Classes, Inheritance</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">1. Arithmetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-branching">2. Conditional Branching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">3. While-Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-text-processing">4. For-Loops, Text Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">5. Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-pandas">6. Dataframes, Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-inheritance">7. Classes, Inheritance</a></li>
 </ul>
             </nav>
         </div>
@@ -521,15 +517,8 @@ document.write(`
 <h1>Python Refresher<a class="headerlink" href="#python-refresher" title="Link to this heading">#</a></h1>
 <p>This chapter contains a number of Python exercises that you can use as a refresher, and to check if your level of Python matches the expectations of the course.
 We highly recommend to do them before the first lecture. If you encounter any problems, please visit the labs in the first week, where sample solutions to these exercises will be discussed.</p>
-<section id="assignment-1-python-development-environment-get-set-up">
-<h2>Assignment 1: Python Development Environment - Get Set up!<a class="headerlink" href="#assignment-1-python-development-environment-get-set-up" title="Link to this heading">#</a></h2>
-<p>To get started you need a working Python development environment. You can either install Anaconda, or Python directly.
-For most tasks of the book, you won’t need that many packages, but in most cases using pip install <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">X</span></code> will be enough, This book won’t go into detail on how to do that, but in case you have problems during the course feel free to contact us.</p>
-</section>
-<section id="assignment-2-revitalize-your-python">
-<h2>Assignment 2: Revitalize your Python<a class="headerlink" href="#assignment-2-revitalize-your-python" title="Link to this heading">#</a></h2>
 <section id="arithmetics">
-<h3>2.1 Arithmetics<a class="headerlink" href="#arithmetics" title="Link to this heading">#</a></h3>
+<h2>1. Arithmetics<a class="headerlink" href="#arithmetics" title="Link to this heading">#</a></h2>
 <p>Write a Python program that welcomes the user, asks for their name (string), weight in kg (integer) and height in m (float), computes the body mass index (BMI) from the information
 (weight/height2) and finally displays a message to the user, saying something like:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>Hello<span class="w"> </span>Jim,<span class="w"> </span>your<span class="w"> </span>BMI<span class="w"> </span>is<span class="w"> </span><span class="m">23</span>.4.
@@ -545,7 +534,7 @@ For most tasks of the book, you won’t need that many packages, but in most cas
 </div>
 </section>
 <section id="conditional-branching">
-<h3>2.2 Conditional Branching<a class="headerlink" href="#conditional-branching" title="Link to this heading">#</a></h3>
+<h2>2. Conditional Branching<a class="headerlink" href="#conditional-branching" title="Link to this heading">#</a></h2>
 <p>Extend the BMI calculation program from the previous exercise so that after informing the user about the calculated BMI, it also prints out if the BMI is within the range that is generally
 considered normal (between 18.5 and 25) or higher (above 25) or lower (below 18.5) than that. The output of the modified program should then be something like:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>BMI<span class="w"> </span>calculator.
@@ -565,7 +554,7 @@ Your<span class="w"> </span>BMI<span class="w"> </span>is<span class="w"> </span
 </div>
 </section>
 <section id="while-loops">
-<h3>2.3 While-Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h3>
+<h2>3. While-Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h2>
 <p>Write a simple number-guessing game in Python. It generates a random number between 1 and 100 and asks the user to guess it. If the number guessed is too small or too big, a hint is
 given and the user can try again, unBl they guess the correct number. The output of the program should be something like:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>Can<span class="w"> </span>you<span class="w"> </span>guess<span class="w"> </span>the<span class="w"> </span>number?<span class="w"> </span><span class="m">12</span>
@@ -585,7 +574,7 @@ Yes!
 </div>
 </section>
 <section id="for-loops-text-processing">
-<h3>2.4 For-Loops, Text Processing<a class="headerlink" href="#for-loops-text-processing" title="Link to this heading">#</a></h3>
+<h2>4. For-Loops, Text Processing<a class="headerlink" href="#for-loops-text-processing" title="Link to this heading">#</a></h2>
 <p>Write a simple text analysis program that finds the (first) longest word in a text. It should work on any text, but you can use the “lorem ipsum” as an example:</p>
 <blockquote>
 <div><p>text = “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br />
@@ -608,7 +597,7 @@ The output of your program should report the longest word and its length, like t
 </div>
 </section>
 <section id="functions">
-<h3>2.5 Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<h2>5. Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <p>In our lifeBmes (unless we happen to get veeery old) a leap year occurs every four years. But actually, the rule is a bit more involved: A year is a leap year if it is a multiple of 4, but not a
 multiple of 100, unless it is also a multiple of 400. For example, 1984 and 2000 were leap years, but 1900 and 1985 were not.</p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">is_leap_year(year)</span></code> that tests if the year is a leap year. If so, the function should return <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. Implement the function using only one Boolean expression. You can use the code below to test your function:</p>
@@ -629,7 +618,7 @@ multiple of 100, unless it is also a multiple of 400. For example, 1984 and 2000
 </div>
 </section>
 <section id="dataframes-pandas">
-<h3>2.6 Dataframes, Pandas<a class="headerlink" href="#dataframes-pandas" title="Link to this heading">#</a></h3>
+<h2>6. Dataframes, Pandas<a class="headerlink" href="#dataframes-pandas" title="Link to this heading">#</a></h2>
 <p>The file mcdonalds_menu.csv can be found in the gitUP repository under <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials/-/tree/main/data_sets">/data_sets</a>.  Write a program that reads the content of the file into a dataframe, and displays simple descriptive statistics about the
 numerical values in the data frame. Then add some code to create a barplot that displays the number of items per category.
 The output should look something like:</p>
@@ -644,7 +633,7 @@ The output should look something like:</p>
 </div>
 </section>
 <section id="classes-inheritance">
-<h3>2.7 Classes, Inheritance<a class="headerlink" href="#classes-inheritance" title="Link to this heading">#</a></h3>
+<h2>7. Classes, Inheritance<a class="headerlink" href="#classes-inheritance" title="Link to this heading">#</a></h2>
 <p>Define two classes <code class="docutils literal notranslate"><span class="pre">Person</span></code> and <code class="docutils literal notranslate"><span class="pre">Student</span></code> with the following characteristics: The base class <code class="docutils literal notranslate"><span class="pre">Person</span></code> provides a field <code class="docutils literal notranslate"><span class="pre">name</span></code> and a function <code class="docutils literal notranslate"><span class="pre">printInfo</span></code> to print information about
 the person (i.e., the name). The class <code class="docutils literal notranslate"><span class="pre">Student</span></code> is derived from <code class="docutils literal notranslate"><span class="pre">Person</span></code>. A Student is a Person that in addition has a university, a study program and a number of <code class="docutils literal notranslate"><span class="pre">creditpoints</span></code>. The class <code class="docutils literal notranslate"><span class="pre">Student</span></code> also has a <code class="docutils literal notranslate"><span class="pre">printInfo</span></code> function, which displays information about the university and program in addition to the student’s name. With the functions <code class="docutils literal notranslate"><span class="pre">setCreditPoints</span></code> and <code class="docutils literal notranslate"><span class="pre">getCreditPoints</span></code> the credit points of the student can be set and retrieved</p>
 <div class="cell docutils container">
@@ -654,7 +643,6 @@ the person (i.e., the name). The class <code class="docutils literal notranslate
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -722,17 +710,13 @@ the person (i.e., the name). The class <code class="docutils literal notranslate
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-1-python-development-environment-get-set-up">Assignment 1: Python Development Environment - Get Set up!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-2-revitalize-your-python">Assignment 2: Revitalize your Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">2.1 Arithmetics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-branching">2.2 Conditional Branching</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">2.3 While-Loops</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-text-processing">2.4 For-Loops, Text Processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">2.5 Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-pandas">2.6 Dataframes, Pandas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-inheritance">2.7 Classes, Inheritance</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">1. Arithmetics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-branching">2. Conditional Branching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">3. While-Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-text-processing">4. For-Loops, Text Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">5. Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-pandas">6. Dataframes, Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-inheritance">7. Classes, Inheritance</a></li>
 </ul>
   </nav></div>
 
