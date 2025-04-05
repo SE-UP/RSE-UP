@@ -58,6 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/python_refresher';</script>
     <link rel="canonical" href="https://software-engineering-group-up.github.io/RSE-UP/exercises/python_refresher.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -520,7 +522,7 @@ We highly recommend to do them before the first lecture. If you encounter any pr
 <section id="arithmetics">
 <h2>1. Arithmetics<a class="headerlink" href="#arithmetics" title="Link to this heading">#</a></h2>
 <p>Write a Python program that welcomes the user, asks for their name (string), weight in kg (integer) and height in m (float), computes the body mass index (BMI) from the information
-(weight/height2) and finally displays a message to the user, saying something like:</p>
+(weight/height<span class="math notranslate nohighlight">\(^2\)</span>) and finally displays a message to the user, saying something like:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>Hello<span class="w"> </span>Jim,<span class="w"> </span>your<span class="w"> </span>BMI<span class="w"> </span>is<span class="w"> </span><span class="m">23</span>.4.
 </pre></div>
 </div>
@@ -556,7 +558,7 @@ Your<span class="w"> </span>BMI<span class="w"> </span>is<span class="w"> </span
 <section id="while-loops">
 <h2>3. While-Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h2>
 <p>Write a simple number-guessing game in Python. It generates a random number between 1 and 100 and asks the user to guess it. If the number guessed is too small or too big, a hint is
-given and the user can try again, unBl they guess the correct number. The output of the program should be something like:</p>
+given and the user can try again, until they guess the correct number. The output of the program should be something like:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>Can<span class="w"> </span>you<span class="w"> </span>guess<span class="w"> </span>the<span class="w"> </span>number?<span class="w"> </span><span class="m">12</span>
 You<span class="w"> </span>guessed<span class="w"> </span>too<span class="w"> </span>small!
 Try<span class="w"> </span>again:<span class="w"> </span><span class="m">23</span>
@@ -585,7 +587,7 @@ velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat <br /
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id <br />
 est laborum.”</p>
 </div></blockquote>
-<p>To check if a character c is an alphabetic character, you can call the isalpha() funcBon on it: <code class="docutils literal notranslate"><span class="pre">c.isalpha()</span></code>. It will return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+<p>To check if a character c is an alphabetic character, you can call the isalpha() function on it: <code class="docutils literal notranslate"><span class="pre">c.isalpha()</span></code>. It will return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.
 The output of your program should report the longest word and its length, like this:
 <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">longest</span> <span class="pre">word</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">text</span> <span class="pre">is</span> <span class="pre">&quot;reprehenderit&quot;</span> <span class="pre">(13</span> <span class="pre">characters)</span></code>.</p>
 <div class="cell docutils container">
@@ -598,7 +600,7 @@ The output of your program should report the longest word and its length, like t
 </section>
 <section id="functions">
 <h2>5. Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
-<p>In our lifeBmes (unless we happen to get veeery old) a leap year occurs every four years. But actually, the rule is a bit more involved: A year is a leap year if it is a multiple of 4, but not a
+<p>In our lifetimes (unless we happen to get veeery old) a leap year occurs every four years. But actually, the rule is a bit more involved: A year is a leap year if it is a multiple of 4, but not a
 multiple of 100, unless it is also a multiple of 400. For example, 1984 and 2000 were leap years, but 1900 and 1985 were not.</p>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">is_leap_year(year)</span></code> that tests if the year is a leap year. If so, the function should return <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. Implement the function using only one Boolean expression. You can use the code below to test your function:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tests</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1984</span><span class="p">,</span> <span class="mi">1985</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2018</span><span class="p">]</span>
