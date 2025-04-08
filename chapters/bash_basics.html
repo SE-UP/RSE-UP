@@ -553,7 +553,7 @@ but the core commands and ideas remain the same.
 In particular, the most recent versions of MacOS use a shell called the Z Shell or <code class="docutils literal notranslate"><span class="pre">zsh</span></code>;
 we will point out a few differences as we go along.</p>
 </div></blockquote>
-<p>Please see Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">getting started</a> for instructions
+<p>Please see Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data">Getting Started</a> for instructions
 on how to install and launch the shell on your computer.</p>
 <section id="exploring-files-and-directories">
 <h2>Exploring Files and Directories<a class="headerlink" href="#exploring-files-and-directories" title="Link to this heading">#</a></h2>
@@ -565,7 +565,7 @@ To start, when Bash runs it presents us with a <strong>prompt</strong> to indica
 </div>
 <p>However, different shells may use a different symbol: in particular,
 the <code class="docutils literal notranslate"><span class="pre">zsh</span></code> shell, which is the default on newer versions of MacOS, uses <code class="docutils literal notranslate"><span class="pre">%</span></code>.
-As we’ll see in chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell">Going further with the Unix Shell</a>, we can customize the prompt to give us more information.</p>
+As we’ll see in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell">Bash Advanced</a>, we can customize the prompt to give us more information.</p>
 <blockquote>
 <div><p><strong>Don’t Type the Dollar Sign</strong></p>
 <p>We show the <code class="docutils literal notranslate"><span class="pre">$</span></code> prompt so that it’s clear what you are supposed to type,
@@ -616,7 +616,7 @@ On Amira’s computer the basic filesystem looks as follows:</p>
 <p>At the top is the <strong>root directory</strong> that holds everything else, which we can refer to using a slash character <code class="docutils literal notranslate"><span class="pre">/</span></code> on its own.
 Inside that directory are several other directories, including <code class="docutils literal notranslate"><span class="pre">bin</span></code> (where some built-in programs are stored), <code class="docutils literal notranslate"><span class="pre">data</span></code> (for miscellaneous data files),
 <code class="docutils literal notranslate"><span class="pre">tmp</span></code> (for temporary files that don’t need to be stored long-term),
-and <code class="docutils literal notranslate"><span class="pre">Users</span></code> (where users’ personal directories are located).
+and <code class="docutils literal notranslate"><span class="pre">Users</span></code> (where users’ personal directories are located, also called a home directory).
 We know that <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is stored inside the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code> because its name begins with <code class="docutils literal notranslate"><span class="pre">/</span></code>, and that our current working directory <code class="docutils literal notranslate"><span class="pre">/Users/amira</span></code> is stored inside <code class="docutils literal notranslate"><span class="pre">/Users</span></code> because <code class="docutils literal notranslate"><span class="pre">/Users</span></code> is the first part of its name.
 A name like this is called a <strong>path</strong> because it tells us how to get from one place in the filesystem (e.g., the root directory)
 to another (e.g., Amira’s home directory).</p>
@@ -666,7 +666,7 @@ Desktop/        Library/       Pictures/     zipf/
 Documents/      Movies/        Public/       
 </pre></div>
 </div>
-<p>Here, we can see that almost everything in our home directory is a <strong>subdirectory</strong>the only thing that isn’t is a file called <code class="docutils literal notranslate"><span class="pre">todo.txt</span></code>.</p>
+<p>Here, we can see that almost everything in our home directory is a <strong>subdirectory</strong> the only thing that isn’t is a file called <code class="docutils literal notranslate"><span class="pre">todo.txt</span></code>.</p>
 <blockquote>
 <div><p><strong>Spaces Matter</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">1+2</span></code> and <code class="docutils literal notranslate"><span class="pre">1 + 2</span></code> mean the same thing in mathematics,
@@ -693,7 +693,7 @@ to distinguish them from the built-in options. We can combine options and argume
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>amira/  jun/    sami/
 </pre></div>
 </div>
-<p>but we must put the options (like <code class="docutils literal notranslate"><span class="pre">-F</span></code>) before the names of any files or directories we want to work on, because once the command encounters something that <em>isn’t</em> an option it assumes there aren’t any more:</p>
+<p>But we must put the options (like <code class="docutils literal notranslate"><span class="pre">-F</span></code>) before the names of any files or directories we want to work on, because once the command encounters something that <em>isn’t</em> an option it assumes there aren’t any more:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>/Users<span class="w"> </span>-F
 </pre></div>
 </div>
@@ -810,7 +810,7 @@ we can either use an absolute path:</p>
 </pre></div>
 </div>
 <p>or a special relative path called <code class="docutils literal notranslate"><span class="pre">..</span></code> (two periods in a row with no spaces),which always means “the directory that contains the current one.”
-The directory that contains the one we are in is called the <strong>parent directory</strong>and sure enough,
+The directory that contains the one we are in is called the <strong>parent directory</strong> and sure enough,
 <code class="docutils literal notranslate"><span class="pre">..</span></code> gets us there:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 $<span class="w"> </span><span class="nb">pwd</span>
@@ -931,7 +931,7 @@ $<span class="w"> </span>ls<span class="w"> </span>-F
 </pre></div>
 </div>
 <p>To create a new directory,
-we use the command <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (short for <strong>m</strong>a<strong>k</strong>e <strong>d</strong>irectory):</p>
+we use the command <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> (short for <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>docs
 </pre></div>
 </div>
@@ -992,9 +992,9 @@ $<span class="w"> </span>nano<span class="w"> </span>draft.txt
 it can only work with plain character data,
 not spreadsheets, images, Microsoft Word files, or anything else invented after 1970.
 We use it in this lesson because it runs everywhere,
-and because it is as simple as something can be and still be called an editor.
-// However, that last trait means that we <em>shouldn’t</em> use it for larger tasks
-// like writing a program or a paper. E2R</p>
+and because it is as simple as something can be and still be called an editor.</p>
+<!---// However, that last trait means that we *shouldn't* use it for larger tasks
+// like writing a program or a paper. E2R -->
 <blockquote>
 <div><p><strong>Recycling Pixels</strong></p>
 <p>Unlike most modern editors,
@@ -1150,7 +1150,7 @@ If we use <code class="docutils literal notranslate"><span class="pre">cp</span>
 </pre></div>
 </div>
 <p>If we really want to copy everything,
-we must give <code class="docutils literal notranslate"><span class="pre">cp</span></code> the <code class="docutils literal notranslate"><span class="pre">-r</span></code> option (meaning <strong>recursive</strong>:</p>
+we must give <code class="docutils literal notranslate"><span class="pre">cp</span></code> the <code class="docutils literal notranslate"><span class="pre">-r</span></code> option (meaning <strong>recursive</strong>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>docs<span class="w"> </span>backup
 </pre></div>
 </div>

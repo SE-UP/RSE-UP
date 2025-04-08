@@ -514,7 +514,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcard-expressions">15 Wildcard expressions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-unneeded-files">16 Removing unneeded files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-wildcards">17 Other wildcards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-files-with-different-properties">10 Finding files with different properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-files-with-different-properties">18 Finding files with different properties</a></li>
 </ul>
 </li>
 </ul>
@@ -531,9 +531,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="bash-basics-exercises">
 <h1>Bash Basics Exercises<a class="headerlink" href="#bash-basics-exercises" title="Link to this heading">#</a></h1>
 <p>These exercise should help you either reviewing or learning new shell commands. The exercises can be done localy on Linux, Mac or Windows 11 bash console.
-You can also open this Jupyter Notebook directly in Binder or google collab and do the exercises. In this case be aware that the system runs on linux, which is important when using paths.</p>
-<p>Linux and mac use <code class="docutils literal notranslate"><span class="pre">/</span></code> instead of <code class="docutils literal notranslate"><span class="pre">\</span></code> as an example.</p>
-<p>But First we go through a quick explanation on how to use <strong>BASH</strong> in a jupyter notebook on a linux or mac system.</p>
+You can also open this Jupyter Notebook directly in Binder or google collab and do the exercises. In this case be aware that the system runs on Linux, which is important when using paths.</p>
+<p>Linux and Mac use <code class="docutils literal notranslate"><span class="pre">/</span></code> instead of <code class="docutils literal notranslate"><span class="pre">\</span></code> as an example.</p>
+<p>But first, we go through a quick explanation on how to use <strong>BASH</strong> in a Jupyter Notebook on a Linux or Mac system.</p>
 <section id="using-bash-in-jupyter-notebook">
 <h2>Using Bash in Jupyter Notebook<a class="headerlink" href="#using-bash-in-jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>Depending on what system you use it is important to first figure out the current path on the file system, for that run the next cell.</p>
@@ -573,7 +573,7 @@ After that just run the cell and it should give the output, in this case “hell
 </div>
 </div>
 </div>
-<p>Nothing is printed, since RAND was defined in a separate process which has already exited</p>
+<p>Nothing is printed, since RAND was defined in a separate process which has already exited.</p>
 <p>But, if your notebook code cell starts with <strong>%%bash</strong>, it’s all executed as one script!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,7 +590,7 @@ echo $RAND
 </div>
 </div>
 </div>
-<p>You can also pass python variables into your shell commands, and vise versa!</p>
+<p>You can also pass Python variables into your Shell commands, and vise versa!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also pass python variables into your shell commands, and vise versa!</span>
@@ -612,7 +612,7 @@ echo $RAND
 <h2>Basic Exercises<a class="headerlink" href="#basic-exercises" title="Link to this heading">#</a></h2>
 <p>The exercises below involve creating and moving new files, as well as considering hypothetical files.
 Please note that if you create or move any files or directories in your Zipf’s Law project, you may want to reorganize your files following the outline at the beginning of the next chapter.
-If you accidentally delete necessary files, you can start with a fresh copy of the data files by following the instructions in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/01/1_getting_started.html#downloading-the-data">1 getting started</a>.</p>
+If you accidentally delete necessary files, you can start with a fresh copy of the data files by following the instructions in Section <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/01/1_getting_started.html#downloading-the-data">Getting Started</a>.</p>
 <section id="exploring-more-ls-flags">
 <h3>1 Exploring more <code class="docutils literal notranslate"><span class="pre">ls</span></code> flags<a class="headerlink" href="#exploring-more-ls-flags" title="Link to this heading">#</a></h3>
 <p>What does the command <code class="docutils literal notranslate"><span class="pre">ls</span></code> do when used with the <code class="docutils literal notranslate"><span class="pre">-l</span></code> option?</p>
@@ -860,7 +860,7 @@ The raw files end in <code class="docutils literal notranslate"><span class="pre
 <p>To explore them, explain in plain language what (hypothetical) files the expression <code class="docutils literal notranslate"><span class="pre">novel-????-[ab]*.{txt,pdf}</span></code> matches and why.</p>
 </section>
 <section id="finding-files-with-different-properties">
-<h3>10 Finding files with different properties<a class="headerlink" href="#finding-files-with-different-properties" title="Link to this heading">#</a></h3>
+<h3>18 Finding files with different properties<a class="headerlink" href="#finding-files-with-different-properties" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">find</span></code> command can be given criteria called “tests” to locate files with specific attributes, such as creation time, size, or ownership.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code> to explore these, then write a single command using <code class="docutils literal notranslate"><span class="pre">-type</span></code>, <code class="docutils literal notranslate"><span class="pre">-mtime</span></code>, and <code class="docutils literal notranslate"><span class="pre">-user</span></code> to find all files in or below your Desktop directory that are owned by you and were modified in the last 24 hours.</p>
 <p>Explain why the value for <code class="docutils literal notranslate"><span class="pre">-mtime</span></code> needs to be negative.</p>
@@ -951,7 +951,7 @@ The raw files end in <code class="docutils literal notranslate"><span class="pre
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcard-expressions">15 Wildcard expressions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-unneeded-files">16 Removing unneeded files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-wildcards">17 Other wildcards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-files-with-different-properties">10 Finding files with different properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-files-with-different-properties">18 Finding files with different properties</a></li>
 </ul>
 </li>
 </ul>
