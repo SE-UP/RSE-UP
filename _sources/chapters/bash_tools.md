@@ -137,7 +137,7 @@ rm lengths.txt sorted-lengths.txt
 ```
 
 We can produce the same result more safely and with less typing
-using a **pip**
+using a **pipe**.
 
 ```bash
 $ wc -l *.txt | sort -n
@@ -176,7 +176,7 @@ Bash tool pipe
 ```
 
 We can use `|` to build pipes of any length.
-For example, we can use the command `head` to get just the first three lines of sorted data,which shows us the three shortest books:
+For example, we can use the command `head` to get just the first three lines of sorted data, which shows us the three shortest books:
 
 ```bash
 $ wc -l *.txt | sort -n | head -n 3
@@ -359,8 +359,8 @@ $ cat all.txt
 cat: all.txt: No such file or directory
 ```
 
-Instead,
-every process has a second output channel called **standard error** Programs use it for error messages so that their attempts to tell us something has gone wrong don't vanish silently into an output file.
+Instead, every process has a second output channel called **standard error**.
+Programs use it for error messages so that their attempts to tell us something has gone wrong don't vanish silently into an output file.
 There are ways to redirect standard error, but doing so is almost always a bad idea.
 
 ## Repeating Commands on Many Files 
@@ -526,8 +526,7 @@ so we will break it down into pieces:
 
 > **Continuation Prompts May Differ Too**
 >
-> As mentioned in Chapter [Bash Basics](https://se-up.github.io/RSE-UP/chapters/bash_basics.html)
-),
+> As mentioned in Chapter [Bash Basics](https://se-up.github.io/RSE-UP/chapters/bash_basics.html),
 > there is variation in how different shells look and operate.
 > If you noticed the second, third, and fourth code lines
 > in your for loop were prefaced with `for`,
@@ -778,7 +777,7 @@ jane_eyre.txt.bak  time_machine.txt.bak
 
 ## Summary 
 
-The shell's greatest strength is the way it combines a few powerful ideas with pipes and loops.
+The Shell's greatest strength is the way it combines a few powerful ideas with pipes and loops.
 The next chapter will show how we can make our work more reproducible
 by saving commands in files that we can run over and over again.
 
