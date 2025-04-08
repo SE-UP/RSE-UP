@@ -38,7 +38,7 @@ The Shell
 > In particular, the most recent versions of MacOS use a shell called the Z Shell or `zsh`;
 > we will point out a few differences as we go along.
 
-Please see Section [getting started](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data) for instructions
+Please see Section [Getting Started](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data) for instructions
 on how to install and launch the shell on your computer.
 
 ## Exploring Files and Directories 
@@ -53,7 +53,7 @@ $
 
 However, different shells may use a different symbol: in particular,
 the `zsh` shell, which is the default on newer versions of MacOS, uses `%`.
-As we'll see in chapter [Going further with the Unix Shell](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell), we can customize the prompt to give us more information.
+As we'll see in Chapter [Bash Advanced](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html#configuring-the-shell), we can customize the prompt to give us more information.
 
 > **Don't Type the Dollar Sign**
 >
@@ -111,7 +111,7 @@ Bash basic filesystem
 At the top is the **root directory** that holds everything else, which we can refer to using a slash character `/` on its own.
 Inside that directory are several other directories, including `bin` (where some built-in programs are stored), `data` (for miscellaneous data files),
 `tmp` (for temporary files that don't need to be stored long-term),
-and `Users` (where users' personal directories are located).
+and `Users` (where users' personal directories are located, also called a home directory).
 We know that `/Users` is stored inside the root directory `/` because its name begins with `/`, and that our current working directory `/Users/amira` is stored inside `/Users` because `/Users` is the first part of its name.
 A name like this is called a **path** because it tells us how to get from one place in the filesystem (e.g., the root directory)
 to another (e.g., Amira's home directory).
@@ -170,7 +170,7 @@ Desktop/        Library/       Pictures/     zipf/
 Documents/      Movies/        Public/       
 ```
 
-Here, we can see that almost everything in our home directory is a **subdirectory**the only thing that isn't is a file called `todo.txt`.
+Here, we can see that almost everything in our home directory is a **subdirectory** the only thing that isn't is a file called `todo.txt`.
 
 > **Spaces Matter**
 >
@@ -204,7 +204,7 @@ $ ls -F /Users
 amira/  jun/    sami/
 ```
 
-but we must put the options (like `-F`) before the names of any files or directories we want to work on, because once the command encounters something that *isn't* an option it assumes there aren't any more:
+But we must put the options (like `-F`) before the names of any files or directories we want to work on, because once the command encounters something that *isn't* an option it assumes there aren't any more:
 
 ```bash
 $ ls /Users -F
@@ -349,7 +349,7 @@ $ cd /Users/amira
 ```
 
 or a special relative path called `..` (two periods in a row with no spaces),which always means "the directory that contains the current one."
-The directory that contains the one we are in is called the **parent directory**and sure enough,
+The directory that contains the one we are in is called the **parent directory** and sure enough,
 `..` gets us there:
 
 ```bash
@@ -494,7 +494,7 @@ data/
 ```
 
 To create a new directory,
-we use the command `mkdir` (short for **m**a**k**e **d**irectory):
+we use the command `mkdir` (short for **m**a**k**e **dir**ectory):
 
 ```bash
 $ mkdir docs
@@ -568,8 +568,8 @@ it can only work with plain character data,
 not spreadsheets, images, Microsoft Word files, or anything else invented after 1970.
 We use it in this lesson because it runs everywhere,
 and because it is as simple as something can be and still be called an editor.
-// However, that last trait means that we *shouldn't* use it for larger tasks
-// like writing a program or a paper. E2R
+<!---// However, that last trait means that we *shouldn't* use it for larger tasks
+// like writing a program or a paper. E2R -->
 
 > **Recycling Pixels**
 >
@@ -757,7 +757,7 @@ cp: docs is a directory (not copied).
 ```
 
 If we really want to copy everything,
-we must give `cp` the `-r` option (meaning **recursive**:
+we must give `cp` the `-r` option (meaning **recursive**):
 
 ```bash
 $ cp -r docs backup
