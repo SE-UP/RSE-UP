@@ -565,9 +565,7 @@ i.e., that all changes we make will take place in this branch by default.
 (The active branch is like the <strong>current working directory</strong> in the shell.)</p>
 <blockquote>
 <div><p><strong>Default Branches</strong></p>
-</div></blockquote>
-<blockquote>
-<div><p>In mid-2020, GitHub changed the name of the default branch (the first branch created when a repository is initialized) from “master” to “main.” Owners of repositories may also change the name of the default branch.
+<p>In mid-2020, GitHub changed the name of the default branch (the first branch created when a repository is initialized) from “master” to “main.” Owners of repositories may also change the name of the default branch.
 This means that the name of the default branch may be different among repositories based on when and where it was created, as well as who manages it.</p>
 </div></blockquote>
 </section>
@@ -684,7 +682,7 @@ $<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>-
 </div>
 <p>We can also look inside <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and see our changes.
 If we make another change and commit it, that change will also go into the <code class="docutils literal notranslate"><span class="pre">new_feature</span></code> branch. For instance, we could add some additional information.</p>
-<p>With the Editor of choice you could something like this:</p>
+<p>With your text editor of choice you could do something like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># RSE tutorial - Zipf!
 
 In this folder you find the necessary data and scripts used in the RSE-UP book that can be found [here](https://se-up.github.io/RSE-UP/chapters/welcome.html).
@@ -704,7 +702,7 @@ we can use <code class="docutils literal notranslate"><span class="pre">git</spa
 </pre></div>
 </div>
 <blockquote>
-<div><p><strong>Why should you use a Branches?</strong></p>
+<div><p><strong>Why should you use Branches?</strong></p>
 <p>Why go to all this trouble?
 Imagine we are in the middle of debugging a change like this when we are asked to make final revisions to a paper that was created using the old code.
 If we revert <code class="docutils literal notranslate"><span class="pre">README.md</span></code> to its previous state we might lose our changes.
@@ -763,7 +761,7 @@ there is no need to keep the <code class="docutils literal notranslate"><span cl
 <blockquote>
 <div><p><strong>Not Just the Command Line</strong></p>
 <p>We have been creating, merging, and deleting branches on the command line,
-but we can do all of these things using <a class="reference external" href="https://www.gitkraken.com">GitKraken</a>or <a class="reference external" href="https://github.com/extrawurst/gitui">gitUI</a>
+but we can do all of these things using <a class="reference external" href="https://www.gitkraken.com">GitKraken</a> or <a class="reference external" href="https://github.com/extrawurst/gitui">gitUI</a>
 and other GUIs.
 The operations stay the same;
 all that changes is how we tell the computer what we want to do.</p>
@@ -1016,7 +1014,7 @@ those changes are considered a single feature and should be done in one branch.<
 </section>
 <section id="using-other-people-s-work">
 <h2>Using Other People’s Work<a class="headerlink" href="#using-other-people-s-work" title="Link to this heading">#</a></h2>
-<p><strong>NOTE</strong> the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, can not contribute or fork. For instructions on how this works on Github please click <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/git_advanced_github.html">here</a>. Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.</p>
+<p><strong>NOTE</strong> the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, cannot contribute or fork. For instructions on how this works on Github please click <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/git_advanced_github.html">here</a>. Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.</p>
 <p>So far we have used Git to manage individual work,
 but it really comes into its own when we are working with other people.
 We can do this in two ways:</p>
@@ -1040,7 +1038,7 @@ You can go to that URL and click on the “Fork” button in the upper right cor
 </figcaption>
 </figure>
 <p>While Github immediately creates a copy of a repository, on the university gitlab server you will have a choice at the next step, whether or not the repository is private, internal or public.</p>
-<p>Public means that everyone, even non university members will be able to view the repository. Internal means that anybody that is logged in with their university of potsdam account is able to view and interact with the repository. And private means that only you have access.</p>
+<p>Public means that everyone, even non university members will be able to view the repository. Internal means that anybody that is logged in with their University of Potsdam account is able to view and interact with the repository. And private means that only you have access.</p>
 <figure class="align-default" id="gitlab-advanced-fork-choice">
 <img alt="../_images/gitlab_fork-choice.png" src="../_images/gitlab_fork-choice.png" />
 <figcaption>
@@ -1048,8 +1046,8 @@ You can go to that URL and click on the “Fork” button in the upper right cor
 </figcaption>
 </figure>
 <p>After clicking the fork button at the bottom the process should complete with your chosen project settings</p>
-<p>When the command completes, the setup on Gitlab now looks like <a class="reference internal" href="#gitlab-advanced-after-fork"><span class="std std-ref">Figure: after fork</span></a>.Nothing has happened yet on your own machine:
-the new repository exists only on GitHub.
+<p>When the command completes, the setup on Gitlab now looks like <a class="reference internal" href="#gitlab-advanced-after-fork"><span class="std std-ref">Figure: after fork</span></a>. Nothing has happened yet on your own machine:
+the new repository exists only on Github.
 When you explores its history, they see that it contains all of the changes we made.</p>
 <figure class="align-default" id="gitlab-advanced-after-fork">
 <img alt="../_images/gitlab_after-fork.png" src="../_images/gitlab_after-fork.png" />
@@ -1254,7 +1252,7 @@ which has a unique serial number (<a class="reference internal" href="#gitlab-ad
 <strong>Note</strong> that this merge request is displayed in our repository rather than yours, since it is our repository that will be affected if the merge request is merged.</p>
 <p>On the left sidebar we can see that there is a new merge request, when clicking on it a list of merge requests will be opened.</p>
 <figure class="align-default" id="gitlab-advanced-pull-request-list">
-<img alt="figures/git-advanced/gitlab_merge_request-list.png" src="figures/git-advanced/gitlab_merge_request-list.png" />
+<img alt="../_images/gitlab_merge-request-list.png" src="../_images/gitlab_merge-request-list.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 19 </span><span class="caption-text">Git pull request list</span><a class="headerlink" href="#gitlab-advanced-pull-request-list" title="Link to this image">#</a></p>
 </figcaption>
@@ -1339,11 +1337,11 @@ To https://gitup.uni-potsdam.de/YOUR_NAME/zipf.git
 <section id="handling-conflicts-in-pull-requests">
 <h2>Handling Conflicts in Pull Requests<a class="headerlink" href="#handling-conflicts-in-pull-requests" title="Link to this heading">#</a></h2>
 <p>Finally, suppose that Amira and you have decided to collaborate more extensively on this project.
-Amira has added you as a collaborator to the GitHub repository.
+Amira has added you as a collaborator to the Github repository.
 Now you can make contributions directly to the repository,
 rather than via a pull request from a forked repository.</p>
-<p>You make a change to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> in the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch on GitHub.
-Meanwhile, Amira is making a conflicting change to the same file in a different branch. When Amira creates her pull request, GitHub will detect the conflict and report that the PR cannot be merged automatically.</p>
+<p>You make a change to <code class="docutils literal notranslate"><span class="pre">README.md</span></code> in the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch on Github.
+Meanwhile, Amira is making a conflicting change to the same file in a different branch. When Amira creates her pull request, Github will detect the conflict and report that the PR cannot be merged automatically.</p>
 <p>We can solve this problem with the tools we already have.
 If you have made your changes in a branch called <code class="docutils literal notranslate"><span class="pre">editing-readme</span></code>, the steps are:</p>
 <ol class="arabic simple">
@@ -1355,7 +1353,7 @@ into the <code class="docutils literal notranslate"><span class="pre">main</span
 The merge request from there back to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the main repository
 will update automatically.</p></li>
 </ol>
-<p>GitHub and other forges do allow people to merge conflicts through their browser-based interfaces, but doing it on our desktop means we can use our favorite editor to resolve the conflict.
+<p>Github and other forges do allow people to merge conflicts through their browser-based interfaces, but doing it on our desktop means we can use our favorite editor to resolve the conflict.
 It also means that if the change affects the project’s code,
 we can run everything to make sure it still works.</p>
 <p>But what if Sami or someone else merges another change while Amira is resolving this one, so that by the time she pushes to her repository there is another, different, conflict? In theory this cycle could go on forever;
@@ -1364,7 +1362,7 @@ or rearrange the project’s contents so that they aren’t stepping on each oth
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p>Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others’ changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other’s work. As we discuss in Section *<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style">Checking style</a>,
+<p>Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others’ changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other’s work. As we discuss in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style">Checking style</a>,
 doing reviews doesn’t just prevent errors from creeping in:
 it is also an effective way to spread understanding and skills.</p>
 </section>

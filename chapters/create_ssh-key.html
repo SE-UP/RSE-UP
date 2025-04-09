@@ -510,16 +510,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="using-ssh-on-gitlab-and-github">
 <h1>Using SSH on Gitlab and Github<a class="headerlink" href="#using-ssh-on-gitlab-and-github" title="Link to this heading">#</a></h1>
-<p>Since both gitlab and and Github require either passkeys or ssh keys to use in full, we have included the instructions to add ssh keys below.
-Passkeys are great as well, but ssh keys work on windows, mac and linux the same way. This is especially useful in the future when you will have to remote login into a computer or server. This is done using a ssh connection in 98% of the times.</p>
-<p>In general, in general it is advised to use the <code class="docutils literal notranslate"><span class="pre">ed25519</span></code> encryption standard and if you have multiple github, gitlab accounts it is advised to name the key differently. I.e. when the prompt asks for a path and name instead of the default use something like this: <code class="docutils literal notranslate"><span class="pre">.ssh/github_work</span></code> or <code class="docutils literal notranslate"><span class="pre">.ssh/gitup_temp</span></code>. But this might even be a good practice in general, so that you can easily identify what ssh key is for what.</p>
+<p>Since both Gitlab and and Github require either passkeys or ssh keys to use in full, we have included the instructions to add ssh keys below.
+Passkeys are great as well, but ssh keys work on Windows, Mac, and Linux the same way. This is especially useful in the future when you will have to remote login into a computer or server. This is done using a ssh connection about 98% of the time.</p>
+<p>In general, in general it is advised to use the <code class="docutils literal notranslate"><span class="pre">ed25519</span></code> encryption standard and if you have multiple Github, Gitlab accounts it is advised to name the key differently. I.e., when the prompt asks for a path and name instead of the default use something like this: <code class="docutils literal notranslate"><span class="pre">.ssh/github_work</span></code> or <code class="docutils literal notranslate"><span class="pre">.ssh/gitup_temp</span></code>. This may be good practice in general, so that you can easily identify what ssh key is for what purpose.</p>
 <section id="github">
 <h2>Github<a class="headerlink" href="#github" title="Link to this heading">#</a></h2>
 <p>The instruction on how to add an SSH key on Github can be found <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">here</a></p>
 </section>
 <section id="gitlab">
 <h2>Gitlab<a class="headerlink" href="#gitlab" title="Link to this heading">#</a></h2>
-<p>For Gitlab ( works on GitUP as well) the instructions can be found <a class="reference external" href="https://docs.gitlab.com/ee/user/ssh.html">here</a>, BUT it is advised to look at the SSH key generation instruction on the Github documentation instead. They have complete instruction for MAC, LINUX and WINDOWS and generating a ssh-key is the same for either Github and Gitlab.</p>
+<p>For Gitlab (works on GitUP as well) the instructions can be found <a class="reference external" href="https://docs.gitlab.com/ee/user/ssh.html">here</a>, BUT it is advised to look at the SSH key generation instruction on the Github documentation instead. They have complete instruction for Windows, Mac, and Linux. Generating a ssh-key is the same for both Github and Gitlab.</p>
 </section>
 </section>
 
