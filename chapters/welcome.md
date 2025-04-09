@@ -1,6 +1,6 @@
 # Welcome 
 
-Welcome to our interactive online textbook on Research Software Engineering! 
+Welcome to this interactive online textbook on Research Software Engineering! 
 
 This book was created by us, the Software Engineering Group at the University of Potsdam, as reference material for our semester-long class on Research Software Engineering. The contents are assembled from different sources. As main source the fantastic online textbook [Research Software Engineering with Python](https://third-bit.com/py-rse/) by Irving et al. was used. We have incorporated, adjusted, expanded and rearranged its contents, and added some additional chapters and sections on topics like: 
 
@@ -10,10 +10,12 @@ This book was created by us, the Software Engineering Group at the University of
 - Computational workflows with Snakemake
 - Workflows CI/CD 
 
-Some of the tutorials used were taken from the [Carpentries](https://carpentries.org/) and adjusted. 
-While the material will remain a work in progress, we hope that using this book students and researchers will have a great experience getting into research software engineering!
+Some of the tutorials used were reused from the [Carpentries](https://carpentries.org/) and adjusted. 
+While the material will remain a work in progress, we hope that by using this book, students and researchers will have a great 
+experience getting into research software engineering!
 
-For projects assignments and course schedule for the summer term of 2024, please refer to our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials).
+For project assignments and course schedule for the current semester, please refer to our University of Potsdam Gitlab 
+instance [right here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials).
 
 
 ## Why should you care about this course?
@@ -35,7 +37,7 @@ This course is designed for students researchers who are already using Python fo
 but you should already be comfortable doing things like reading data from files
 and writing loops, conditionals, and functions.
 
-To make sure that your Python skills are at the expected level, you can either follow our provided [python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresh.html) or if your already experienced with other programming languages you can also checkout out the python tutorials on [Exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
+To make sure that your Python skills are at the expected level, you can either try our [Python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresh.html) or, if you are already experienced with other programming languages, you can also checkout out the python tutorials on [exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
 
 
 ## The Big Picture
@@ -141,17 +143,19 @@ we will show you how to do the following:
 
 ## Using this Book
 
-This textbook was wr-uptt-upn to be used as the -upate-upial for a (potentially) semester-long course at the university level, although it can also be used for independent self-study.
+This textbook was written to be used as the material for a (potentially) semester-long course at the university level, 
+although it can also be used for independent self-study.
 <!-- // Participatory live-coding is the anticipated style for teaching the material,
 // rather than lectures simply talking about the code presented {cite:p}`Brow2018, Wils2018`. -->
 The chapters and their content are generally designed to be used in the order given.
 
-Chapters are structured with the introduction at the start, content in the middle, and exercises at the end. Callout boxes are interspersed throughout the content to be used as a supplement to the main text, but not a requirement for the course overall. 
+Chapters are structured with the introduction at the start, content in the middle, and exercises at the end. 
+Callout boxes are interspersed throughout the content to be used as a supplement to the main text, but not a requirement for the course overall. 
 Early chapters have many small exercises; later chapters have fewer but larger exercises. 
 <!-- // In order to break up long periods of live-coding while teaching,
 // it may be preferable to stop and complete some of the exercises at key points throughout the chapter, rather than waiting until the end. -->
 
-Possible exercise solutions are provided (Appendix [solutions](https://se-up.github.io/RSE-UP/chapters/solutions.html).
+Possible solutions to the exercises are provided in the [Appendix](https://se-up.github.io/RSE-UP/chapters/solutions.html).
 
 ## Contributing and Re-Use
 
