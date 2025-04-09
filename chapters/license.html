@@ -502,11 +502,21 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-and-data-licenses">Software and Data licenses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-open-source-software-licenses">Common Open Source Software Licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-license">MIT License:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bsd-license">BSD License:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-license">Apache License:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-general-public-license-gpl">GNU General Public License (GPL):</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creative-commons-cc-licenses">Creative Commons (CC) Licenses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc0-public-domain-dedication">CC0 (Public Domain Dedication)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-attribution">CC BY (Attribution)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-sa-attribution-sharealike">CC BY-SA (Attribution-ShareAlike)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nd-attribution-noderivatives">CC BY-ND (Attribution-NoDerivatives)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-attribution-noncommercial">CC BY-NC (Attribution-NonCommercial)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-sa-attribution-noncommercial-sharealike">CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-nd-attribution-noncommercial-noderivatives">CC BY-NC-ND (Attribution-NonCommercial-NoDerivatives)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-license-should-you-choose">Which License should you choose?</a></li>
 </ul>
 </li>
@@ -570,7 +580,7 @@ and <a class="reference external" href="https://choosealicense.com/">choosealice
 <li><p>Do our institutions have any policies that may overrule our choices?</p></li>
 <li><p>Are there any copyright experts within our institution who can assist us?</p></li>
 </ol>
-<p>Unfortunately,GitHub’s list does not include common licenses for data or written works like papers and reports.
+<p>Unfortunately, GitHub’s list does not include common licenses for data or written works like papers and reports.
 Those can be added in manually, but it’s often hard to understand the interactions among multiple licenses on different kinds of material <span id="id4">[<a class="reference internal" href="references.html#id10" title="Daniel A. Almeida, Gail C. Murphy, Greg Wilson, and Mike Hoye. Do Software Developers Understand Open Source Licenses? In Proceedings of the 25th International Conference on Program Comprehension, 1–11. IEEE Press, 2017. Found that developers understand single licenses well, but frequently misunderstand the interactions between multiple licenses. URL: https://doi.org/10.1109/ICPC.2017.7, doi:10.1109/ICPC.2017.7.">Almeida <em>et al.</em>, 2017</a>]</span>.</p>
 <p>Just as the project’s Code of Conduct is usually placed in a root-level file called <code class="docutils literal notranslate"><span class="pre">CONDUCT.md</span></code>, its license is usually put in a file called <code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code> that is also in the project’s root directory.</p>
 <section id="licenses">
@@ -615,19 +625,20 @@ Breaching license terms can have legal consequences.</p>
 </section>
 <section id="software-and-data-licenses">
 <h3>Software and Data licenses<a class="headerlink" href="#software-and-data-licenses" title="Link to this heading">#</a></h3>
-<p>Both are relevant in the context of research data and software Tend to use similar yet different licenses. The distinction arises from the inherent differences in their nature and the legal considerations associated with them, such as:</p>
+<p>Both are relevant in the context of research. However, data and software tend to use similar yet different licenses. The distinction arises from the inherent differences in their nature and the legal considerations associated with them, such as:</p>
 <ul class="simple">
 <li><p>Software is creative work, data is factual information</p></li>
 <li><p>Software is subject to copyright law, data may also be subject to privacy laws (sensitive data)</p></li>
 <li><p>Software licenses govern usage, modification and distribution of source code or executables.</p></li>
 <li><p>Data licenses address questions of access, usage, and sharing.</p></li>
-<li><p>Continuously evolving practice in both fields.</p></li>
+<li><p>Practices continue to evolve in both domains.</p></li>
 </ul>
 </section>
 <section id="common-open-source-software-licenses">
 <h3>Common Open Source Software Licenses<a class="headerlink" href="#common-open-source-software-licenses" title="Link to this heading">#</a></h3>
 <section id="mit-license">
 <h4>MIT License:<a class="headerlink" href="#mit-license" title="Link to this heading">#</a></h4>
+<p>The MIT License is widely known for its simplicity and permissiveness. It allows users to use, copy, modify, merge, publish, distribute, sublicense, and even sell copies of derivative software, so long as the original license and copyright notice are included. Because this license imposes that few restrictions, it encourages both academic sharing as well as commercial use. It is particularly favored in projects where developers want their work to be as accessible and reusable as possible, <strong>including</strong> in proprietary contexts. This flexibility and compatibility with other licenses have contributed to its popularity in the open-source community.</p>
 <ul class="simple">
 <li><p>Permissive license allowing users to freely use, modify, and distribute the software.</p></li>
 <li><p>Requires including the original license and copyright notice in the distribution.</p></li>
@@ -635,20 +646,32 @@ Breaching license terms can have legal consequences.</p>
 <li><p>Does not impose copyleft requirements on derivative works.</p></li>
 <li><p>Compatible with other licenses, including copyleft licenses.</p></li>
 </ul>
-<p>The also popular <strong>BSD</strong> license is quite similar.</p>
+</section>
+<section id="bsd-license">
+<h4>BSD License:<a class="headerlink" href="#bsd-license" title="Link to this heading">#</a></h4>
+<p>The BSD License, originally developed at the University of California, Berkley, is another permissive license with terms similar to the BSD License, It allows redistribution and use in both source and binary forms, with or without modification. The key requirement for BSD Licenses is <strong>attribution</strong>: users <strong>must</strong> give proper credit to the original authors. That means, all code redistributed in source code format <strong>must retain</strong> the BSD License; all binaries redistributed <strong>must reproduce</strong> the license. As the BSD License places so few limitations on the use of the code, the license class is often used in academic and enterprise settings where flexibility is essential. Variants like the 2-Clause and 3-Clause BSD Licenses do provide some options on how much attribution/endorsement is required of the user.</p>
+<ul class="simple">
+<li><p>Permissive and highly compatible with other licenses.</p></li>
+<li><p>Allows reuse, modification, and redistribution.</p></li>
+<li><p>Requires proper attribution of original authors.</p></li>
+<li><p>Suitable for both academic and commercial use.</p></li>
+<li><p>Available in multiple variants (e.g., 2-Clause, 3-Clause, …)</p></li>
+</ul>
 </section>
 <section id="apache-license">
 <h4>Apache License:<a class="headerlink" href="#apache-license" title="Link to this heading">#</a></h4>
+<p>The Appache License provides a balance between openness and legal protection. Like the other licenses above it is quite permissive: It allows broad use, distribution, and modification of software, <strong>but</strong> it distinguishes itself through a strong emphasis on intellectual property rights. In particular, it includes a patent grant clause that protects users against patent claims from contributors. This legal clarity helps making it particularly attractive for commercial projects and larger-scale collaborations. Similar to the above licenses, the Appache License also requires the preservation of copyright and license notices and also includes a clear mechanism on handling contributions.</p>
 <ul class="simple">
-<li><p>Permissive license allowing users to use, modify, and distribute the software under certain conditions.</p></li>
-<li><p>Requires including the original copyright notice and license in distributions.</p></li>
-<li><p>Provides patent protection through a patent grant clause.</p></li>
-<li><p>Compatible with other licenses, including copyleft licenses.</p></li>
-<li><p>Promotes the combination of open-source and commercial software.</p></li>
+<li><p>Permissive license with legal safeguards.</p></li>
+<li><p>Includes explicit patent rights protection.</p></li>
+<li><p>Allows redistribution and modification, including for commercial use.</p></li>
+<li><p>Requires license and copyright notice in any redistributed versions.</p></li>
+<li><p>Compatible with many open-source as well as some proprietary licenses.</p></li>
 </ul>
 </section>
 <section id="gnu-general-public-license-gpl">
 <h4>GNU General Public License (GPL):<a class="headerlink" href="#gnu-general-public-license-gpl" title="Link to this heading">#</a></h4>
+<p>The GNU GPL is a strong copyleft license designed to ensure that software remains free and open for all users. <strong>Any</strong> derivative work or modified version of the software <strong>must</strong> be licensed under the smae terms, which ensures that freedom to use, modify, and share is preserved even throughout the software’s evolution over time. The GNU GPL also requires that source code is publically available whenever the software - or derivatives thereof - are distributed. Thus, creating a culture of openness and collaboration in the userbase. The license is ideal for projects where the goal is to maintain a fully open ecosystem, but its strict requirements may limit compatibility to non-GPL software.</p>
 <ul class="simple">
 <li><p>Copyleft license that ensures derivative works are also licensed under the GPL.</p></li>
 <li><p>Requires distributing the source code of the software when distributing the software itself.</p></li>
@@ -660,24 +683,99 @@ Breaching license terms can have legal consequences.</p>
 </section>
 <section id="creative-commons-cc-licenses">
 <h3>Creative Commons (CC) Licenses<a class="headerlink" href="#creative-commons-cc-licenses" title="Link to this heading">#</a></h3>
-<p>CC license are:
-A set of licenses used primarily for creative works, including artwork, literature, and media. They also are frequently used for data and other scientific outputs, but not recommended for software or hardware.
+<p>Creative Commons (CC) licenses are a suite of standardized licenses designed to help creators share their work with the public under clear terms. Unlike the above mentioned licenses, CC licenses are used primarily for creative and academic content, including artwork, literature, media, and educational content. Compare this to the above mentioned licenses: Those are primarily used for software. The CC licenses are not recommended for software or hardware, yet they are widely used in academia for publication of data, documentation, and associated media.
 Various CC licenses exist, with different combinations of attribution, share-alike, and non-commercial clauses. They provides a framework for granting permissions and specifying usage restrictions. CC licenses offer flexibility in allowing creators to define the terms of use and distribution for their works.</p>
-<p>CC Licenses offer varying levels of flexibility and restrictions, allowing creators to choose the terms that align with their desired balance between openness and control:</p>
+<p>CC licenses are built from combining four basic elements:</p>
 <ul class="simple">
-<li><p>Public Domain (<strong>CC0</strong>)</p></li>
-<li><p>Attribution (<strong>CC BY</strong>)</p></li>
-<li><p>Attribution-ShareAlike (<strong>CC BY-SA</strong>)</p></li>
-<li><p>Attribution-NoDerivs (<strong>CC BY-ND</strong>)</p></li>
-<li><p>Attribution-NonCommercial (<strong>CC BY-NC</strong>)</p></li>
-<li><p>Attribution-NonCommercial-ShareAlike (<strong>CC BY-NC-SA</strong>)</p></li>
-<li><p>Attribution-NonCommercial-NoDerivs (<strong>CC BY-NC-ND</strong>)</p></li>
+<li><p>Attribution (<strong>BY</strong>) - Credit must be given to the creator.</p></li>
+<li><p>Share Alike (<strong>SA</strong>) - Adaptations/Derivatives must be shared under the same license.</p></li>
+<li><p>Non-Commercial (<strong>NC</strong>) - Use is restricted to non-commercial purposes.</p></li>
+<li><p>No-Derivatives (<strong>ND</strong>) - No modifications or adaptations are allowed.</p></li>
 </ul>
-<p>All CC licenses can be found <a class="reference external" href="https://creativecommons.org/licenses/">here</a></p>
+<p>Each license type balances openness and control differently:</p>
 </section>
+</section>
+<section id="cc0-public-domain-dedication">
+<h2>CC0 (Public Domain Dedication)<a class="headerlink" href="#cc0-public-domain-dedication" title="Link to this heading">#</a></h2>
+<p>The CC0 license specifically waives all rights and deidcates the work to the public domain. This allows <strong>anyone</strong> to freely use, modify, and distribute the work withoout asking for permission or having to give any credit. CC0 is the most permissive of the CC licenses and is often used for datasets and resources intended for unrestricted public access. The CC0 combines exactly 0 (hence the name) of the above-mentioned basic elements of the CC licenses.</p>
+<ul class="simple">
+<li><p>No rights reserved: completly free to uses, even commercially.</p></li>
+<li><p>No attribution required.</p></li>
+<li><p>Ideal for datasets, reference materials, and public domain works.</p></li>
+<li><p>Not recommended for software (consider using an open-source license instead)</p></li>
+</ul>
+</section>
+<section id="cc-by-attribution">
+<h2>CC BY (Attribution)<a class="headerlink" href="#cc-by-attribution" title="Link to this heading">#</a></h2>
+<p>The CC BY license allows others to distribute, adapt, modify, and build upon the work - even commercially - so long as appropriate credit to the original author is given. The Creative Commons Attribution license is one of the most open licenses and widely used in education and research.</p>
+<ul class="simple">
+<li><p>Allows modification and commercial use.</p></li>
+<li><p>Requires attribution to the original author.</p></li>
+<li><p>Supports wide dissemination and reuse.</p></li>
+<li><p>Compatible with open educational resource initiatives.</p></li>
+</ul>
+</section>
+<section id="cc-by-sa-attribution-sharealike">
+<h2>CC BY-SA (Attribution-ShareAlike)<a class="headerlink" href="#cc-by-sa-attribution-sharealike" title="Link to this heading">#</a></h2>
+<p>This license allows for adaptations and commercial use of the work, so long as attribution is given and any derivative works are licensed under identical terms. It thus mirrors the spirit of the GPL for creative content and promotes a copyleft style of reuse.</p>
+<ul class="simple">
+<li><p>Requires attribution and sharing under the same license.</p></li>
+<li><p>Allows commercial and non-commercial use.</p></li>
+<li><p>Encourages open sharing and collaborative development.</p></li>
+<li><p>Compatible with other “open-content” models.</p></li>
+</ul>
+</section>
+<section id="cc-by-nd-attribution-noderivatives">
+<h2>CC BY-ND (Attribution-NoDerivatives)<a class="headerlink" href="#cc-by-nd-attribution-noderivatives" title="Link to this heading">#</a></h2>
+<p>CC BY-ND is more restrictive. It permits redistribution for commercial and non-commercial use, as long as the work remains <strong>unchanged</strong> and the creator is properly credited. *<em>No</em> derivatives are alloed of the work, thus making this license type useful when creators want their work to be shared widely, but without any modification.</p>
+<ul class="simple">
+<li><p>Allows redistribution with proper attribution.</p></li>
+<li><p>No modifications or adaptations are permitted.</p></li>
+<li><p>Suitable for finalized works like reports, graphics, or statements.</p></li>
+<li><p>Maintains the integrity of the original content.</p></li>
+<li><p>Not suitable for software projects.</p></li>
+</ul>
+</section>
+<section id="cc-by-nc-attribution-noncommercial">
+<h2>CC BY-NC (Attribution-NonCommercial)<a class="headerlink" href="#cc-by-nc-attribution-noncommercial" title="Link to this heading">#</a></h2>
+<p>This license lets other remix, adapt, and build upon the work. However it restricts the use of the work and its derivatives to non-commercial use only. It also requires proper attribution. The license is widely used in academtic and non-profit contexts, where public sharing is encouraged but commercial exploitation should be restricted.</p>
+<ul class="simple">
+<li><p>Permits reuse and modification, but only for non-commercial purposes.</p></li>
+<li><p>Requires attribution to the original creator.</p></li>
+<li><p>Cannot be used in commercial projects.</p></li>
+<li><p>Popular in academic and educational settings.</p></li>
+</ul>
+</section>
+<section id="cc-by-nc-sa-attribution-noncommercial-sharealike">
+<h2>CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)<a class="headerlink" href="#cc-by-nc-sa-attribution-noncommercial-sharealike" title="Link to this heading">#</a></h2>
+<p>The CC BY-NC-SA license combines the non-commercial and share-alike clauses. It allows users to remix, adapt, and build upon the work for non-commercial purposes, so long as the proper attribution is given and any derivatives are shared under identical terms.</p>
+<ul class="simple">
+<li><p>Non-commercial use only, with attribution.</p></li>
+<li><p>Derivative works must use the same license.</p></li>
+<li><p>Encourages non-comemrcial collaboration and content sharing.</p></li>
+<li><p>Common in academic and educational resources.</p></li>
+</ul>
+</section>
+<section id="cc-by-nc-nd-attribution-noncommercial-noderivatives">
+<h2>CC BY-NC-ND (Attribution-NonCommercial-NoDerivatives)<a class="headerlink" href="#cc-by-nc-nd-attribution-noncommercial-noderivatives" title="Link to this heading">#</a></h2>
+<p>This license is the most restrictive of the CC licenses. It allows the user to download and share the work with proper credit, but the users are not allowed to alter the work in any way, nor are they allowed to exploit the work commercially. It is best for creators who want their work circulated as-is, but do not with for it to be changed or monetized.</p>
+<ul class="simple">
+<li><p>Redistribution allowed with attribution.</p></li>
+<li><p>No commercial use or derivative works are allowed.</p></li>
+<li><p>Suitable for sharing finished works as-is.</p></li>
+<li><p>Does not allow further use for adaptation.</p></li>
+</ul>
+<p>All CC licenses can be found <a class="reference external" href="https://creativecommons.org/licenses/">here</a>, including their full legal descriptions.</p>
 <section id="which-license-should-you-choose">
 <h3>Which License should you choose?<a class="headerlink" href="#which-license-should-you-choose" title="Link to this heading">#</a></h3>
-<p>Which license is the most suitable for your situation depends on a number of aspects:</p>
+<p>Choosing the most suitable license for your project involves serveral important considerations.
+First, it’s essential to decide whether the work should be licensed at all, as some projects may be intended for private or restricted use only.
+If the content includes source code, it’s important to determine whether open-source licensing is appropriate, and if so whether you want to require that derivative works also share the source code for their adaptations.
+Additionally, licensing may address patent rights. This may be crucial for any projects that includes state-of-the-art software or algorithms.
+Compatibility with the licenses of any third-party software included in your project is another key factor: Incompatible licenses could create legal or logistical challenges moving forward.
+Next, any institutional policies may impact your licensing options. Therefore, always check with your organization for guidelines or any requirements that it has in place for licensing works created while working there.
+Finally, consulting with legal or copyright experts within your institution may help clear or clarify any complex issues that arise from your specific circumstances. This helps to ensure the chosen license both aligns with your goals for the work, and it remains legally sound in the environment surrounding your work.</p>
+<p>You should consider the following questions:</p>
 <ul class="simple">
 <li><p>Do we want to license the work at all?</p></li>
 <li><p>Is the content we are licensing source code?</p></li>
@@ -767,11 +865,21 @@ Various CC licenses exist, with different combinations of attribution, share-ali
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-and-data-licenses">Software and Data licenses</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-open-source-software-licenses">Common Open Source Software Licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-license">MIT License:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bsd-license">BSD License:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-license">Apache License:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gnu-general-public-license-gpl">GNU General Public License (GPL):</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creative-commons-cc-licenses">Creative Commons (CC) Licenses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc0-public-domain-dedication">CC0 (Public Domain Dedication)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-attribution">CC BY (Attribution)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-sa-attribution-sharealike">CC BY-SA (Attribution-ShareAlike)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nd-attribution-noderivatives">CC BY-ND (Attribution-NoDerivatives)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-attribution-noncommercial">CC BY-NC (Attribution-NonCommercial)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-sa-attribution-noncommercial-sharealike">CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cc-by-nc-nd-attribution-noncommercial-noderivatives">CC BY-NC-ND (Attribution-NonCommercial-NoDerivatives)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-license-should-you-choose">Which License should you choose?</a></li>
 </ul>
 </li>
