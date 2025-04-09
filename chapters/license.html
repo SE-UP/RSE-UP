@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Licenses, Software Citation and FAIR &#8212; RSE-UP</title>
+    <title>Software Licenses &#8212; RSE-UP</title>
   
   
   
@@ -62,8 +62,8 @@
     <link rel="canonical" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/license.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Working in Teams" href="working_in_teams.html" />
-    <link rel="prev" title="Story Telling with Data Computational Narrative" href="comp_narative.html" />
+    <link rel="next" title="Introduction to Bash" href="introduction/bash.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,8 +181,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Software Licenses</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python, Bash and Git Basics</span></p>
 <ul class="nav bd-sidenav">
@@ -222,10 +223,6 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction/jupyter.html">Introduction to Jupyter Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="anaconda.html">Working with Anaconda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comp_narative.html">Story Telling with Data Computational Narrative</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Licenses, Software Citation and FAIR</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Licenses, Software Citation and FAIR</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
 <ul class="nav bd-sidenav">
@@ -485,7 +482,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Licenses, Software Citation and FAIR</h1>
+    <h1>Software Licenses</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -495,7 +492,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licenses">Licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software-licenses">Types of software licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#permissive-licenses">Permissive licenses:</a></li>
@@ -514,46 +510,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-license-should-you-choose">Which License should you choose?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-publication-and-citation">Software Publication and Citation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-broader-landscape">A Broader Landscape:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-shift-with-key-principles-in-mind">Making the Shift with Key Principles in Mind:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-could-you-do">What could you do?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-software">How to Cite software?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-the-relevant-metadata">Identifying the Relevant Metadata:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-citation-file-format-cff">Enter the Citation File Format (CFF):</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-publish-software">How to Publish Software</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-repositories">1. Publication Repositories:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#software-journals">2. Software Journals:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-as-a-tools-paper">3. “Publication” as a (Tools) Paper:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-in-the-methods-section">4. “Publication” in the Methods Section:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-principles-for-research-software-fair4rs">FAIR Principles for Research Software (FAIR4RS)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-not-equal-foss">FAIR not equal FOSS</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">Similarities:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">Differences:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-quality-and-fair">Software Quality and FAIR</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-dimensions-of-software-quality">The Two Dimensions of Software Quality:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-of-fair-for-form-quality">Potential of FAIR for Form Quality:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complementary-approaches">Complementary Approaches:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fair4rs-principles">FAIR4RS Principles</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-of-the-fair4rs-principles">Key Points of the FAIR4RS Principles</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-fair4rs-principles">Impact of FAIR4RS Principles</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pragmatic-fair">Pragmatic FAIR</a></li>
 </ul>
             </nav>
         </div>
@@ -565,13 +521,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="licenses-software-citation-and-fair">
-<h1>Licenses, Software Citation and FAIR<a class="headerlink" href="#licenses-software-citation-and-fair" title="Link to this heading">#</a></h1>
-<p>In this chapter we will talk about what Licenses are and how they can be applied to research software. Furthermore, in this chapter we will explore the FAIR principles for research software including a pragmatic approach to FAIR.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>While a Code of Conduct describes how contributors should interact with each other, a license dictates how project materials can be used and redistributed.
-If the license or a publication agreement makes it difficult for people to contribute, the project is less likely to attract new members, so the choice of license is crucial to the project’s long-term sustainability.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="software-licenses">
+<h1>Software Licenses<a class="headerlink" href="#software-licenses" title="Link to this heading">#</a></h1>
+<p>Generaly, licenses define how project materials (software, data, documents, etc.) can be used and redistributed.
+If the license or a publication agreement makes it difficult for people to contribute, the project is less likely to attract new members,
+so the choice of license is crucial to the project’s long-term sustainability.</p>
 <blockquote>
 <div><p><strong>Open Except…</strong></p>
 <p>Projects that are only developing software may not have any problem making everything open.
@@ -619,7 +573,6 @@ and <a class="reference external" href="https://choosealicense.com/">choosealice
 <p>Unfortunately,GitHub’s list does not include common licenses for data or written works like papers and reports.
 Those can be added in manually, but it’s often hard to understand the interactions among multiple licenses on different kinds of material <span id="id4">[<a class="reference internal" href="references.html#id10" title="Daniel A. Almeida, Gail C. Murphy, Greg Wilson, and Mike Hoye. Do Software Developers Understand Open Source Licenses? In Proceedings of the 25th International Conference on Program Comprehension, 1–11. IEEE Press, 2017. Found that developers understand single licenses well, but frequently misunderstand the interactions between multiple licenses. URL: https://doi.org/10.1109/ICPC.2017.7, doi:10.1109/ICPC.2017.7.">Almeida <em>et al.</em>, 2017</a>]</span>.</p>
 <p>Just as the project’s Code of Conduct is usually placed in a root-level file called <code class="docutils literal notranslate"><span class="pre">CONDUCT.md</span></code>, its license is usually put in a file called <code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code> that is also in the project’s root directory.</p>
-</section>
 <section id="licenses">
 <h2>Licenses<a class="headerlink" href="#licenses" title="Link to this heading">#</a></h2>
 <p>Software licenses are crucial tools for both creators and users, they can be outlined as follows:</p>
@@ -738,279 +691,6 @@ Various CC licenses exist, with different combinations of attribution, share-ali
 <p><strong>IMPORTANT:</strong> <strong><em>Don’t write your own license. Legalese is a highly technical language, and words don’t mean what you think they do.</em></strong></p>
 </section>
 </section>
-<section id="software-publication-and-citation">
-<h2>Software Publication and Citation<a class="headerlink" href="#software-publication-and-citation" title="Link to this heading">#</a></h2>
-<p>For decades, publishing peer-reviewed papers has been the cornerstone of scientific progress. Papers serve as crucial building blocks, allowing researchers to share findings, build upon existing knowledge, and receive credit for their work. However, the research ecosystem extends far beyond the written word. Data, code, and software play equally pivotal roles, yet their publication and citation remain significantly less common. This creates a gap that hinders transparency, reproducibility, and ultimately, scientific advancement.</p>
-<section id="a-broader-landscape">
-<h3>A Broader Landscape:<a class="headerlink" href="#a-broader-landscape" title="Link to this heading">#</a></h3>
-<p>Just as papers deserve publication and citation, so do other research outputs. Embracing this shift offers several benefits, aligned with key software citation principles:</p>
-<p><strong>Importance and Credit &amp; Attribution</strong>: Sharing software alongside papers enhances transparency and empowers Research Software Engineers (RSEs). Formal citation practices give RSEs rightful credit for their contributions, adhering to the “Importance” and “Credit &amp; Attribution” principles.</p>
-<p><strong>Transparency and Unique Identification</strong>: Making software openly available with persistent unique identifiers allows others to readily understand the “how” of research and identify the specific software version used (“Specificity” principle).</p>
-<p><strong>Reproducibility and Persistence</strong>: Openly available software enables others to run the same analyses, ensuring replicability and adherence to the “Persistence” principle.</p>
-<p><strong>Collaboration and Accessibility</strong>: Shared software fosters collaboration by offering reusable tools and codebases. This reduces duplication of effort, promotes community-driven development, and ensures the long-term sustainability of valuable research tools, fulfilling the “Accessibility” principle.</p>
-</section>
-<section id="making-the-shift-with-key-principles-in-mind">
-<h3>Making the Shift with Key Principles in Mind:<a class="headerlink" href="#making-the-shift-with-key-principles-in-mind" title="Link to this heading">#</a></h3>
-<p>Several initiatives promote software publication and citation, aligned with these core principles:</p>
-<ul class="simple">
-<li><p><strong>Dedicated repositories</strong>: Platforms like Zenodo and Software Heritage provide persistent, citable archives for research software, upholding the “Persistence” principle.</p></li>
-<li><p><strong>Citation guidelines</strong>: Organizations like FORCE11 offer clear guidelines for formatting software citations in reference lists, ensuring “Specificity” and clarity.</p></li>
-<li><p><strong>Incentives and mandates</strong>: Funding agencies and journals increasingly encourage or even mandate software publication as part of research outputs, promoting the overall importance of software.</p></li>
-</ul>
-<p>By embracing these developments and adhering to these key principles, a research environment where software is valued, shared, and cited as readily as papers can be created. This shift will ultimately lead to more robust, transparent, and collaborative scientific progress, benefiting both researchers and society as a whole.</p>
-</section>
-<section id="what-could-you-do">
-<h3>What could you do?<a class="headerlink" href="#what-could-you-do" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Advocate for software publication and citation within your research community and institutions.</p></li>
-<li><p>Utilize resources like the Zenodo guide for researchers to simplify software publication.</p></li>
-<li><p>Encourage colleagues to use dedicated repositories for long-term accessibility.</p></li>
-<li><p>Support the development of robust software citation metrics to properly acknowledge RSE contributions.</p></li>
-</ul>
-</section>
-<section id="how-to-cite-software">
-<h3>How to Cite software?<a class="headerlink" href="#how-to-cite-software" title="Link to this heading">#</a></h3>
-<p>Giving credit where credit is due applies to software just as much as any other intellectual creation. However, software citation can be tricky due to its unique nature. This guide explores how to identify the relevant metadata needed for proper software citation, highlighting resources like the Citation File Format (CFF) to make the process smoother.</p>
-<section id="identifying-the-relevant-metadata">
-<h4>Identifying the Relevant Metadata:<a class="headerlink" href="#identifying-the-relevant-metadata" title="Link to this heading">#</a></h4>
-<p>The ideal scenario is for the software project itself to clearly provide essential metadata for citation. This information typically includes:</p>
-<ul class="simple">
-<li><p><strong>Software name and version</strong>: This seems obvious, but specifying the exact version ensures clarity and reproducibility.</p></li>
-<li><p><strong>Authors or developers</strong>: Identify individuals or teams responsible for the software’s creation.</p></li>
-<li><p><strong>Publication date or release date</strong>: Pinpoint the initial release or significant update dates.</p></li>
-<li><p><strong>URL or access information</strong>: Include links to official websites, repositories, or download locations.</p></li>
-<li><p><strong>DOI (Digital Object Identifier)</strong>: If available, a DOI offers a persistent identifier for the software.</p></li>
-<li><p><strong>License information</strong>: Specify the terms under which the software is distributed for proper ethical and legal attribution.</p></li>
-</ul>
-<p>Unfortunately, not all software projects provide such detailed information. In such cases, consider these next steps:</p>
-<ul class="simple">
-<li><p>Consult the software website or documentation: Documentation often includes information about creators, release dates, and access details.</p></li>
-<li><p><strong>Search for publications</strong> : Explore research papers or other publications related to the software’s development. They often cite the software itself and might provide valuable metadata.</p></li>
-<li><p>Engage with the community forums or mailing lists: Reach out to the software’s developer community for specific guidance on how to cite their work.</p></li>
-</ul>
-</section>
-<section id="enter-the-citation-file-format-cff">
-<h4>Enter the Citation File Format (CFF):<a class="headerlink" href="#enter-the-citation-file-format-cff" title="Link to this heading">#</a></h4>
-<p>The Citation File Format (CFF) offers a standardized way to store and share software citation metadata.</p>
-<p>Imagine it as a dedicated passport for your software, holding all the key information in a machine-readable format. Benefits of using CFF include:</p>
-<ul class="simple">
-<li><p><strong>Clarity and accuracy</strong>: CFF ensures consistent and complete citation information, minimizing errors and ambiguity.
-Tool support: Tools like cffinit help automatically generate CFF files from existing project data, streamlining the process.</p></li>
-<li><p><strong>Platform integration</strong>: CFF can be integrated with platforms like Zenodo and GitHub, facilitating discovery and access to the software and its citation information.</p></li>
-<li><p><strong>Community adoption</strong>: With over 16,000 CFF files already existing on GitHub, the format is gaining traction in the software development community.</p></li>
-</ul>
-<p>Not all software projects utilize CFF yet. However, adopting this format demonstrates good scientific practice and encourages others to do the same, ultimately benefitting the entire research ecosystem.</p>
-<p>In conclusion, citing software effectively requires identifying the relevant metadata, and resources like CFF make the process more efficient and standardized.</p>
-</section>
-</section>
-<section id="how-to-publish-software">
-<h3>How to Publish Software<a class="headerlink" href="#how-to-publish-software" title="Link to this heading">#</a></h3>
-<p>While making your software publicly available on platforms like GitHub is crucial for collaboration and access, it doesn’t qualify as a formal “publication” in the academic sphere. To gain recognition and establish a proper citation record for your software, you need to follow specific strategies.</p>
-<p>Here’s how to effectively publish your software and ensure its academic merit:</p>
-<section id="publication-repositories">
-<h4>1. Publication Repositories:<a class="headerlink" href="#publication-repositories" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong><a class="reference external" href="http://Zenodo.org">Zenodo.org</a></strong>: This open-access repository for research outputs allows you to upload your software along with associated data, documentation, and version control information. Zenodo assigns persistent identifiers (DOIs) for easy citation and tracking.</p></li>
-<li><p><strong>Figshare</strong>: Another open-access platform, Figshare accepts various research artifacts, including software, and provides DOIs for citation. Similar to Zenodo, it offers version control and detailed metadata options.</p></li>
-</ul>
-</section>
-<section id="software-journals">
-<h4>2. Software Journals:<a class="headerlink" href="#software-journals" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong>Journal of Open Source Software (JOSS)</strong>: A peer-reviewed, open-access journal dedicated to scientific software. Publication in JOSS involves a thorough review process ensuring software quality, reproducibility, and documentation clarity.</p></li>
-<li><p><strong>Journal of Research on Software (JORS)</strong>: Similar to JOSS, JORS is a peer-reviewed open-access journal for software publications. It focuses on research software with significant contributions to scientific advancement.</p></li>
-<li><p><strong>Other options</strong>: Explore discipline-specific software journals relevant to your field. Many engineering and computational sciences journals have dedicated software sections accepting peer-reviewed publications.</p></li>
-</ul>
-</section>
-<section id="publication-as-a-tools-paper">
-<h4>3. “Publication” as a (Tools) Paper:<a class="headerlink" href="#publication-as-a-tools-paper" title="Link to this heading">#</a></h4>
-<p>Consider writing a dedicated “tools paper” describing your software’s development, methodology, functionalities, and impact. Submit this paper to relevant journals in your field, highlighting the software’s contribution to your research area.</p>
-<p>Ensure the paper clearly distinguishes itself from a user manual or technical documentation by focusing on the scientific significance and broader implications of your software.</p>
-</section>
-<section id="publication-in-the-methods-section">
-<h4>4. “Publication” in the Methods Section:<a class="headerlink" href="#publication-in-the-methods-section" title="Link to this heading">#</a></h4>
-<p>If your software is instrumental to your research findings, embed a detailed description of its functionality and development within the Methods section of your primary research paper.</p>
-<p>Provide clear instructions on accessing and using the software, alongside a link to the publicly available code repository.</p>
-<p>Additional considerations:</p>
-<p><strong>Open Source Licensing</strong>: Consider releasing your software under an open-source license like MIT or GPL to encourage contribution and wider adoption.
-Version Control: Use a version control system like Git to track changes and ensure different versions are properly cited.</p>
-<p><strong>Community Engagement</strong>: Actively engage with users and developers on forums and platforms like GitHub to improve your software and foster a user community.
-By following these strategies, you can effectively publish your software and gain the recognition it deserves within the academic community. Remember, formal publication goes beyond code availability and emphasizes transparency, reproducibility, and scientific contribution.</p>
-</section>
-</section>
-</section>
-<section id="fair-principles-for-research-software-fair4rs">
-<h2>FAIR Principles for Research Software (FAIR4RS)<a class="headerlink" href="#fair-principles-for-research-software-fair4rs" title="Link to this heading">#</a></h2>
-<p>In the age of information overload, ensuring the quality and usefulness of data is paramount. The FAIR principles offer a framework for managing data effectively, promoting its findability, accessibility, interoperability, and reusability. <span id="id5">[<a class="reference internal" href="references.html#id8" title="Mark D Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, Jan-Willem Boiten, Luiz Bonino da Silva Santos, Philip E Bourne, and others. The fair guiding principles for scientific data management and stewardship. Scientific data, 3(1):1–9, 2016.">Wilkinson <em>et al.</em>, 2016</a>]</span></p>
-<figure class="align-default" id="fair-princeples">
-<img alt="../_images/fair.png" src="../_images/fair.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">FAIR</span><a class="headerlink" href="#fair-princeples" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
-<li><p><strong>Findability</strong>: Think of data as hidden treasures. They need clear labels, descriptions, and identifiers (like unique file names) so people and machines can easily “discover” them. This means having rich metadata - information about the data itself, its format, context, and creation - that’s searchable and discoverable through online repositories and catalogues.</p></li>
-<li><p><strong>Accessibility</strong>: Once found, the treasure chest needs to be unlocked. Data should be readily accessible to authorized users. This requires clear access procedures, understandable licensing terms, and appropriate authentication processes. Consider factors like cost, technological barriers, and legal restrictions when defining accessibility.</p></li>
-<li><p><strong>Interoperability</strong>: Imagine building with Lego bricks from different sets. Data interoperability ensures seamless integration with other datasets and analysis tools, regardless of format or origin. This requires using standardized vocabularies, data structures, and communication protocols. Think of it as creating a common language for different datasets to “talk” to each other.</p></li>
-</ul>
-<p>-<strong>Reusability</strong>: Data should be more than just a one-time treasure trove. By having well-described metadata and clear documentation, data becomes reusable for future research, analysis, or even creative projects. This includes providing information about the data’s limitations, provenance, and any modifications made. Reusability encourages collaboration, innovation, and maximizes the value of data beyond its initial purpose.</p>
-<p><strong><em>The FAIR principles are not just guidelines; they’re essential for responsible data stewardship</em></strong>. By adhering to them, organizations, researchers, and individuals can unlock the true potential of their data, fostering research advancement, collaboration, and ultimately, knowledge creation.</p>
-<p>Additional considerations:</p>
-<ul class="simple">
-<li><p><strong>Context is key</strong> : The FAIR principles need to be applied within the specific context of the data and its intended use.</p></li>
-<li><p><strong>Community standards</strong>: Existing community standards and best practices should be leveraged when implementing FAIR principles.</p></li>
-<li><p><strong>Technology can help</strong>: Many tools and technologies exist to facilitate FAIR data management, from repositories to metadata creation platforms.</p></li>
-<li><p><strong>It’s an ongoing process</strong>: Implementing and maintaining FAIR data practices is an iterative process that requires continuous attention and collaboration.</p></li>
-</ul>
-<section id="digital-objects">
-<h3>Digital Objects<a class="headerlink" href="#digital-objects" title="Link to this heading">#</a></h3>
-<p>According to the European Commision:</p>
-<blockquote>
-<div><p>Central to the realization of FAIR are FAIR Digital Objects, which may represent data, software or other research resources.</p>
-</div></blockquote>
-<p>But: How do the FAIR Principles relate to software?</p>
-<p>There is a mismatch between the broad intentions of the 4 foundational FAIR principles and how the 15 FAIR Guiding Principles are communicated and perceived.</p>
-<p>It is also Important to note that <strong>Software is (not) Data</strong></p>
-<figure class="align-default" id="fair-digital-objects">
-<img alt="../_images/fair_digital_objects.png" src="../_images/fair_digital_objects.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Fair Digital Objects</span><a class="headerlink" href="#fair-digital-objects" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="fair-not-equal-foss">
-<h3>FAIR not equal FOSS<a class="headerlink" href="#fair-not-equal-foss" title="Link to this heading">#</a></h3>
-<p>Both FAIR principles and Open Source software (FOSS) aim for greater transparency, accessibility, and collaboration. However, they differ in their specific focus and requirements.</p>
-<section id="similarities">
-<h4>Similarities:<a class="headerlink" href="#similarities" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong>Transparency</strong>: Both promote openness and understanding of underlying systems. FAIR encourages clear metadata and documentation, while FOSS provides public access to code.</p></li>
-<li><p><strong>Accessibility</strong>: Both aim to make data or code readily available to users. FAIR advocates for accessible licensing and clear user guides, while FOSS utilizes open licenses for free access and modification.</p></li>
-<li><p><strong>Collaboration</strong>: Both encourage community involvement and improvement. FAIR facilitates data reuse and integration, while FOSS enables collaborative development and modification of code.</p></li>
-</ul>
-</section>
-<section id="differences">
-<h4>Differences:<a class="headerlink" href="#differences" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong>Open Data not Mandatory for FAIR</strong>: While FAIR encourages open access to data, it acknowledges limitations due to privacy, security, and ethical concerns. In contrast, FOSS requires the source code to be publicly available.</p></li>
-<li><p><strong>Specificity</strong>: FAIR focuses on data management for findability, accessibility, interoperability, and reusability. FOSS focuses on the code itself, with its specific licensing and community development practices.</p></li>
-</ul>
-<p><strong><em>Examples</em></strong>:</p>
-<ul class="simple">
-<li><p><strong>Patient health data</strong>: Sharing such data openly could violate privacy. FAIR principles can still be applied by providing detailed metadata and access controls for authorized users.</p></li>
-<li><p><strong>Research software</strong>: Openly sharing the code allows others to verify, improve, and build upon it. This aligns with both FAIR and FOSS principles.</p></li>
-</ul>
-<p><strong><em>The Case for Open Research Software</em></strong>:</p>
-<p>While open data in certain fields might pose challenges, open research software aligns well with both FAIR and FOSS principles. Sharing methods and code improves transparency, reproducibility, and collaboration in research.</p>
-</section>
-<section id="summary">
-<h4>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h4>
-<p>FAIR and FOSS are not equivalent, but they have significant overlap in promoting transparency, accessibility, and collaboration. While FAIR focuses on data management practices, FOSS focuses on open access to code. Both play crucial roles in fostering knowledge creation and innovation, often working hand-in-hand in research areas like computational biology where sharing both data and methods is crucial.</p>
-</section>
-</section>
-<section id="software-quality-and-fair">
-<h3>Software Quality and FAIR<a class="headerlink" href="#software-quality-and-fair" title="Link to this heading">#</a></h3>
-<p>For Research Software Engineers (RSEs), ensuring software quality is paramount. It directly impacts the reliability, reproducibility, and ultimately, the credibility of research findings. The FAIR (Findable, Accessible, Interoperable, Reusable) principles have emerged as a potent framework for enhancing research data quality. But can FAIR adequately address the multifaceted concerns surrounding software quality in RSE?</p>
-<section id="the-two-dimensions-of-software-quality">
-<h4>The Two Dimensions of Software Quality:<a class="headerlink" href="#the-two-dimensions-of-software-quality" title="Link to this heading">#</a></h4>
-<p>One has to distinguish between the form and function of software, each contributing to its overall quality:</p>
-<ul class="simple">
-<li><p><strong>Form</strong>: Focuses on code quality, maintainability, and documentation. These aspects are closely aligned with FAIR principles. <strong><em>Clear documentation (F1)</em></strong>, use of <strong><em>persistent identifiers (F2)</em></strong>, and <strong><em>well-defined metadata (F3)</em></strong> improve findability and understanding. Adherence to <strong><em>community standards and open-source practices (F4)</em></strong> promotes interoperability and reusability.</p></li>
-<li><p><strong>Function</strong>: Encompasses software’s core functionality, including correctness, security, and computational efficiency. While FAIR indirectly supports some (e.g., clear documentation aids usability), it primarily addresses data management and sharing, leaving these crucial aspects outside its immediate scope.</p></li>
-</ul>
-</section>
-<section id="potential-of-fair-for-form-quality">
-<h4>Potential of FAIR for Form Quality:<a class="headerlink" href="#potential-of-fair-for-form-quality" title="Link to this heading">#</a></h4>
-<p>FAIR principles offer invaluable tools for RSEs:</p>
-<ul class="simple">
-<li><p><strong>Transparency and Trust</strong>: By making software findable and accessible (F1, A1), researchers can easily review and understand its functionality, fostering trust and collaboration.</p></li>
-<li><p><strong>Reproducibility and Sustainability</strong>: Interoperable and reusable software (F4) facilitates re-running analyses and building upon existing work, enhancing research reproducibility and sustainability.</p></li>
-<li><p><strong>Community Engagement</strong>: Open access to software through repositories (A1) encourages contributions and improves code quality through community scrutiny and testing.</p></li>
-</ul>
-<p><strong><em>Limitations of FAIR for Function Quality</em></strong>:</p>
-<p>Despite its strengths, FAIR doesn’t directly address:</p>
-<ul class="simple">
-<li><p><strong>Functional Correctness</strong>: Ensuring software produces accurate results remains the responsibility of RSEs and requires rigorous testing, validation, and domain expertise.</p></li>
-<li><p><strong>Security</strong>: FAIR doesn’t explicitly cover security practices crucial for protecting sensitive data and preventing vulnerabilities.</p></li>
-<li><p><strong>Computational Efficiency</strong>: Optimizing software performance falls outside FAIR’s focus, relying on the RSE’s understanding of algorithms and hardware constraints.</p></li>
-</ul>
-</section>
-<section id="complementary-approaches">
-<h4>Complementary Approaches:<a class="headerlink" href="#complementary-approaches" title="Link to this heading">#</a></h4>
-<p>To address these limitations, RSEs need to combine FAIR principles with other established software quality practices:</p>
-<ul class="simple">
-<li><p><strong>Unit and integration testing</strong>: Rigorous testing ensures functional correctness and identifies bugs.</p></li>
-<li><p><strong>Static code analysis</strong>: Tools can detect potential vulnerabilities and code quality issues.</p></li>
-<li><p><strong>Peer review</strong>: Expert evaluation provides valuable insights into both function and form.</p></li>
-<li><p><strong>Domain expertise</strong>: Understanding the research context is crucial for ensuring software produces meaningful results.</p></li>
-</ul>
-<p>FAIR principles offer a powerful framework for improving the form of research software, promoting findability, accessibility, interoperability, and reusability. However, RSEs need to employ complementary practices to ensure the functional quality of their software, including correctness, security, and efficiency. By combining FAIR with established software quality practices, RSEs can ensure their software meets the rigorous expectations of research.</p>
-</section>
-</section>
-<section id="fair4rs-principles">
-<h3>FAIR4RS Principles<a class="headerlink" href="#fair4rs-principles" title="Link to this heading">#</a></h3>
-<p>The FAIR4RS Principles (Findable, Accessible, Interoperable, and Reusable for Research Software) <span id="id6">[<a class="reference internal" href="references.html#id6" title="Michelle Barker, Neil P Chue Hong, Daniel S Katz, Anna-Lena Lamprecht, Carlos Martinez-Ortiz, Fotis Psomopoulos, Jennifer Harrow, Leyla Jael Castro, Morane Gruenpeter, Paula Andrea Martinez, and others. Introducing the fair principles for research software. Scientific Data, 9(1):622, 2022.">Barker <em>et al.</em>, 2022</a>, <a class="reference internal" href="references.html#id5">Hong <em>et al.</em>, 2022</a>, <a class="reference internal" href="references.html#id7" title="Anna-Lena Lamprecht, Leyla Garcia, Mateusz Kuzak, Carlos Martinez, Ricardo Arcila, Eva Martin Del Pico, Victoria Dominguez Del Angel, Stephanie Van De Sandt, Jon Ison, Paula Andrea Martinez, and others. Towards fair principles for research software. Data Science, 3(1):37–59, 2020.">Lamprecht <em>et al.</em>, 2020</a>]</span> aim to improve the sharing and reuse of research software, ultimately leading to more transparent, reproducible, and robust research. Developed by a collaborative effort from the Research Data Alliance, FORCE11, and Research Software Alliance, these principles provide a framework for researchers, developers, and other stakeholders to create and manage research software effectively.</p>
-<section id="key-points-of-the-fair4rs-principles">
-<h4>Key Points of the FAIR4RS Principles<a class="headerlink" href="#key-points-of-the-fair4rs-principles" title="Link to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong>Findability:</strong>
-Software, and its associated metadata, is easy for both humans and machines to find.</p></li>
-</ul>
-<p>F1. Software is assigned a globally unique and persistent identifier.<br />
-F1.1. Components of the software representing levels of granularity are assigned distinct identifiers.<br />
-F1.2. Different versions of the software are assigned distinct identifiers.
-F2. Software is described with rich metadata.<br />
-F3. Metadata clearly and explicitly include the identifier of the software they describe.<br />
-F4. Metadata are FAIR, searchable and indexable.</p>
-<ul class="simple">
-<li><p><strong>Accessibility:</strong>
-Software, and its metadata, is retrievable via standardised protocols.</p></li>
-</ul>
-<p>A1. Software is retrievable by its identifier using a standardised communications protocol.<br />
-A1.1. The protocol is open, free, and universally implementable.<br />
-A1.2. The protocol allows for an authentication and authorization procedure, where necessary.<br />
-A2. Metadata are accessible, even when the software is no longer available.</p>
-<ul class="simple">
-<li><p><strong>Interoperability:</strong>
-Software interoperates with other software by exchanging data and/or metadata, and/or through interaction via application programming interfaces (APIs), described through standards.</p></li>
-</ul>
-<p>I1: Software uses community-recognized formats and standards for data, inputs, and outputs.<br />
-I2: Application Programming Interfaces (APIs) are well-documented and support interoperability with other software.<br />
-I3: The software interacts seamlessly with other relevant research tools and workflows.</p>
-<ul class="simple">
-<li><p><strong>Reusability:</strong>
-Software is both usable (can be executed) and reusable (can be understood, modified, built upon, or incorporated into other software)</p></li>
-</ul>
-<p>R1: Software is described with a plurality of accurate and relevant attributes.<br />
-R1.1: Software is given a clear and accessible license.<br />
-R1.2: Software is associated with detailed provenance.<br />
-R2: Software includes qualified references to other software.<br />
-R3: Software meets domain-relevant community standards.</p>
-</section>
-<section id="impact-of-fair4rs-principles">
-<h4>Impact of FAIR4RS Principles<a class="headerlink" href="#impact-of-fair4rs-principles" title="Link to this heading">#</a></h4>
-<p>Adopting these principles benefits various stakeholders in the research community:</p>
-<ul class="simple">
-<li><p><strong>Researchers</strong>: Increased transparency, reproducibility, and efficiency in conducting research.</p></li>
-<li><p><strong>Software developers</strong>: Improved usability, maintenance, and community engagement for their software.</p></li>
-<li><p><strong>Funders</strong>: More confident in investing in research with sustainable and reusable software practices.</p></li>
-<li><p><strong>Publishers</strong>: Clear guidelines for evaluating and promoting FAIR research software.</p></li>
-</ul>
-<p>Overall, the FAIR4RS Principles offer a valuable framework for creating and managing research software that contributes to a more collaborative, efficient, and trustworthy research ecosystem.</p>
-</section>
-</section>
-</section>
-<section id="pragmatic-fair">
-<h2>Pragmatic FAIR<a class="headerlink" href="#pragmatic-fair" title="Link to this heading">#</a></h2>
-<p><strong>“Five Recommendations for FAIR Software”</strong>, <a class="reference external" href="https://fair-software.eu/">Netherlands eScience Center - fair-software.eu</a></p>
-<ol class="arabic simple">
-<li><p>Use a publicly accessible repository with version control.</p></li>
-<li><p>Add a license.</p></li>
-<li><p>Register your code in a community registry.</p></li>
-<li><p>Enable citation of the software.</p></li>
-<li><p>Use a software quality checklist.</p></li>
-</ol>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1044,20 +724,20 @@ R3: Software meets domain-relevant community standards.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="comp_narative.html"
+       href="getting_started.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Story Telling with Data Computational Narrative</p>
+        <p class="prev-next-title">Getting Started</p>
       </div>
     </a>
     <a class="right-next"
-       href="working_in_teams.html"
+       href="introduction/bash.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Working in Teams</p>
+        <p class="prev-next-title">Introduction to Bash</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1077,7 +757,6 @@ R3: Software meets domain-relevant community standards.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licenses">Licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-software-licenses">Types of software licenses</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#permissive-licenses">Permissive licenses:</a></li>
@@ -1096,46 +775,6 @@ R3: Software meets domain-relevant community standards.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-license-should-you-choose">Which License should you choose?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-publication-and-citation">Software Publication and Citation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-broader-landscape">A Broader Landscape:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-shift-with-key-principles-in-mind">Making the Shift with Key Principles in Mind:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-could-you-do">What could you do?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite-software">How to Cite software?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-the-relevant-metadata">Identifying the Relevant Metadata:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-the-citation-file-format-cff">Enter the Citation File Format (CFF):</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-publish-software">How to Publish Software</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-repositories">1. Publication Repositories:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#software-journals">2. Software Journals:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-as-a-tools-paper">3. “Publication” as a (Tools) Paper:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#publication-in-the-methods-section">4. “Publication” in the Methods Section:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-principles-for-research-software-fair4rs">FAIR Principles for Research Software (FAIR4RS)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-objects">Digital Objects</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fair-not-equal-foss">FAIR not equal FOSS</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#similarities">Similarities:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#differences">Differences:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-quality-and-fair">Software Quality and FAIR</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-dimensions-of-software-quality">The Two Dimensions of Software Quality:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-of-fair-for-form-quality">Potential of FAIR for Form Quality:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complementary-approaches">Complementary Approaches:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fair4rs-principles">FAIR4RS Principles</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-of-the-fair4rs-principles">Key Points of the FAIR4RS Principles</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-of-fair4rs-principles">Impact of FAIR4RS Principles</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pragmatic-fair">Pragmatic FAIR</a></li>
 </ul>
   </nav></div>
 
