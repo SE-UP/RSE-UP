@@ -1,6 +1,6 @@
 # Writing good commit messages
 
-We follow the commit message standard as described [here](https://www.conventionalcommits.org/en/v1.0.0/). We habe also included version 1.0 below
+We follow the commit message standard as described [here](https://www.conventionalcommits.org/en/v1.0.0/). We have also included version 1.0 below:
 
 ## Conventional Commits 1.0.0
 
