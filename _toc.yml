@@ -11,6 +11,7 @@ parts:
   - caption: Getting Started
     chapters:
       - file: chapters/getting_started.md
+      - file: chapters/license.md  
       
   - caption: Python, Bash and Git Basics 
     chapters:
@@ -51,10 +52,6 @@ parts:
       - file: chapters/introduction/jupyter.md
       - file: chapters/anaconda.md
       - file: chapters/comp_narative.md
- # 4 
-  - caption: Licenses, Software Citation and FAIR
-    chapters:
-      - file: chapters/license.md  
  # 6  
   - caption: Working in teams
     chapters:
@@ -123,7 +120,9 @@ parts:
       - file: chapters/tracking_provenance.md
       - file: exercises/provenance.ipynb
  
- 
+ - caption: Open Science
+   chapters:
+     - file: chapters/software_citation.md
       
   # - caption: Worksheets - Course Work
   #   chapters:
