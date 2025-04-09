@@ -120,9 +120,9 @@ parts:
       - file: chapters/tracking_provenance.md
       - file: exercises/provenance.ipynb
  
- - caption: Open Science
-   chapters:
-     - file: chapters/software_citation.md
+  - caption: Open Science
+    chapters: 
+      - file: chapters/introduction/software_citation.md
       
   # - caption: Worksheets - Course Work
   #   chapters:
