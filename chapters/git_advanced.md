@@ -57,7 +57,7 @@ i.e., that all changes we make will take place in this branch by default.
 (The active branch is like the **current working directory** in the shell.)
 
 > **Default Branches**
- 
+>
 > In mid-2020, GitHub changed the name of the default branch (the first branch created when a repository is initialized) from "master" to "main." Owners of repositories may also change the name of the default branch. 
 > This means that the name of the default branch may be different among repositories based on when and where it was created, as well as who manages it.
 
@@ -208,7 +208,7 @@ $ git log --oneline -n 2
 We can also look inside `README.md` and see our changes.
 If we make another change and commit it, that change will also go into the `new_feature` branch. For instance, we could add some additional information.
 
-With the Editor of choice you could something like this:
+With your text editor of choice you could do something like this:
 
 ```text
 # RSE tutorial - Zipf!
@@ -234,7 +234,7 @@ we can use `git diff` with the same double-dot `..` syntax used to view differen
 $ git diff main..new_feature
 ```
 
-> **Why should you use a Branches?**
+> **Why should you use Branches?**
 >
 > Why go to all this trouble?
 > Imagine we are in the middle of debugging a change like this when we are asked to make final revisions to a paper that was created using the old code.
@@ -307,7 +307,7 @@ Deleted branch new_feature (was 55178f0)
 > **Not Just the Command Line**
 >
 > We have been creating, merging, and deleting branches on the command line,
-> but we can do all of these things using [GitKraken](https://www.gitkraken.com)or [gitUI](https://github.com/extrawurst/gitui)
+> but we can do all of these things using [GitKraken](https://www.gitkraken.com) or [gitUI](https://github.com/extrawurst/gitui)
 > and other GUIs. 
 > The operations stay the same;
 > all that changes is how we tell the computer what we want to do.
@@ -614,7 +614,7 @@ The hardest thing about using a branch-per-feature workflow is sticking to it fo
 
 ## Using Other People's Work
 
-**NOTE** the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, can not contribute or fork. For instructions on how this works on Github please click [here](https://se-up.github.io/RSE-UP/chapters/git_advanced_github.html). Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.   
+**NOTE** the following instructions are created using the University of Potsdam Gitlab server. Non University Members, while having access, cannot contribute or fork. For instructions on how this works on Github please click [here](https://se-up.github.io/RSE-UP/chapters/git_advanced_github.html). Instructions will be similar, furthermore, they will use the original material from the Research Software Engineering with Python book by Irving.   
 
 So far we have used Git to manage individual work,
 but it really comes into its own when we are working with other people.
@@ -642,7 +642,7 @@ Gitlab git fork button
 
 While Github immediately creates a copy of a repository, on the university gitlab server you will have a choice at the next step, whether or not the repository is private, internal or public. 
 
-Public means that everyone, even non university members will be able to view the repository. Internal means that anybody that is logged in with their university of potsdam account is able to view and interact with the repository. And private means that only you have access. 
+Public means that everyone, even non university members will be able to view the repository. Internal means that anybody that is logged in with their University of Potsdam account is able to view and interact with the repository. And private means that only you have access. 
 
 ```{figure} ../figures/git-advanced/gitlab_fork-choice.png
 :name: gitlab-advanced-fork-choice
@@ -653,8 +653,8 @@ Gitlab git fork settings
 After clicking the fork button at the bottom the process should complete with your chosen project settings
 
 
-When the command completes, the setup on Gitlab now looks like [Figure: after fork](gitlab-advanced-after-fork).Nothing has happened yet on your own machine:
-the new repository exists only on GitHub.
+When the command completes, the setup on Gitlab now looks like [Figure: after fork](gitlab-advanced-after-fork). Nothing has happened yet on your own machine:
+the new repository exists only on Github.
 When you explores its history, they see that it contains all of the changes we made.
 
 ```{figure} ../figures/git-advanced/gitlab_after-fork.png
@@ -904,7 +904,7 @@ which has a unique serial number ([Figure: New merge request](gitlab-advanced-pu
 
 On the left sidebar we can see that there is a new merge request, when clicking on it a list of merge requests will be opened. 
 
-```{figure} ../figures/git-advanced/gitlab_merge_request-list.png
+```{figure} ../figures/git-advanced/gitlab_merge-request-list.png
 :name: gitlab-advanced-pull-request-list
 Git pull request list
 ```
@@ -1002,12 +1002,12 @@ All four repositories are now synchronized.
 ## Handling Conflicts in Pull Requests
 
 Finally, suppose that Amira and you have decided to collaborate more extensively on this project. 
-Amira has added you as a collaborator to the GitHub repository.
+Amira has added you as a collaborator to the Github repository.
 Now you can make contributions directly to the repository,
 rather than via a pull request from a forked repository.
 
-You make a change to `README.md` in the `main` branch on GitHub.
-Meanwhile, Amira is making a conflicting change to the same file in a different branch. When Amira creates her pull request, GitHub will detect the conflict and report that the PR cannot be merged automatically.
+You make a change to `README.md` in the `main` branch on Github.
+Meanwhile, Amira is making a conflicting change to the same file in a different branch. When Amira creates her pull request, Github will detect the conflict and report that the PR cannot be merged automatically.
 
 We can solve this problem with the tools we already have.
 If you have made your changes in a branch called `editing-readme`, the steps are:
@@ -1022,7 +1022,7 @@ If you have made your changes in a branch called `editing-readme`, the steps are
     The merge request from there back to the `main` branch of the main repository
     will update automatically.
 
-GitHub and other forges do allow people to merge conflicts through their browser-based interfaces, but doing it on our desktop means we can use our favorite editor to resolve the conflict.
+Github and other forges do allow people to merge conflicts through their browser-based interfaces, but doing it on our desktop means we can use our favorite editor to resolve the conflict.
 It also means that if the change affects the project's code,
 we can run everything to make sure it still works.
 
@@ -1032,7 +1032,7 @@ or rearrange the project's contents so that they aren't stepping on each other's
 
 ## Summary 
 
-Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others' changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other's work. As we discuss in Section *[Checking style](https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style),
+Branches and pull requests seem complicated at first, but they quickly become second nature. Everyone involved in the project can work at their own pace on what they want to, picking up others' changes and submitting their own whenever they want. More importantly, this workflow gives everyone has a chance to review each other's work. As we discuss in Section [Checking style](https://se-up.github.io/RSE-UP/chapters/clean_readable_code.html#checking-style),
 doing reviews doesn't just prevent errors from creeping in:
 it is also an effective way to spread understanding and skills.
 
