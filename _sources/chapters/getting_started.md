@@ -96,11 +96,11 @@ The full, final directory tree is documented in the [Appendix: Tree](https://se-
 
 Our project will contain a few standard files that should be present in every research software project, open source or otherwise:
 
--   `README` includes basic information on our project.
+-   `README` includes basic information on our project. We'll add it in Section on including a [README](https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html#readme-files)
      We'll create it in Chapter [Git Advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html),
      and extend it in Chapter [Packaging](https://se-up.github.io/RSE-UP/chapters/python_packaging.html).
 
--   `LICENSE` is the project's license. We'll add it in Section on including a [license](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#include-a-license).
+-   `LICENSE` is the project's license. We'll add it in Section on including a [license](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#software).
 
 -   `CONTRIBUTING` explains how to contribute to the project. We'll add it in [here](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#make-all-this-obvious-to-newcomers).
 
