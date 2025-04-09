@@ -1,7 +1,7 @@
 # Using Git at the Command Line 
 
 
-To show how Git works, we will apply it to the Zipf's Law project. Our project directory should currently include:
+To show how Git works, we will apply it to the Zipf's Law project.
 We'll be working with `zipf` project (found [here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials/labs/lab_02)), which should contain the following files:
 
 **Use the instructions below as guideline rather than a 1:1 copy paste exercise** 
@@ -320,7 +320,7 @@ $ pwd
 /Users/YOU/zipf
 ```
 
-Let's use Create a new file and add something to it:
+Let us create a new file and add something to it:
 
 ```bash
 touch hello.txt
@@ -542,7 +542,7 @@ we shouldn't spend the entire vacation working on our thesis.
 Even before that happens
 we will probably want to collaborate with others,
 which we can do by linking our local repository
-to one stored on a hosting service such as [GitHub](https://www.github.com), [Gitlab](https://www.gitlab.com), or the [University of Potsdam](https://gitup.uni-potsdam.de/) (If your are a University of Potsdam student).
+to one stored on a hosting service such as [GitHub](https://www.github.com), [Gitlab](https://www.gitlab.com), or the [University of Potsdam](https://gitup.uni-potsdam.de/) (If you are a University of Potsdam student).
 
 > **Where's My Repository?**
 >
@@ -647,8 +647,6 @@ Git Commandline History
 
 ```
 
-\newpage
-
 We can also **pull** from the remote repository to the local one:
 
 ```bash
@@ -751,7 +749,7 @@ Alternatively,
 we can use `git diff` directly to examine the differences between files at any stage in the repository's history.
 Let's explore this with the `hello.txt` file.
 
-the difference between the file as it is now and the most recent version:
+The difference between the file as it is now and the most recent version:
 
 ```diff
 diff --git a/hello.txt b/hello.txt
@@ -866,7 +864,7 @@ we used it to recover the version of the file in the most recent commit.
 >
 > If you're running a different version of Git,
 > you may see a suggestion for `git checkout` instead of `git restore`.
-> As of Git version 2.29,
+> As of Git version 2.49,
 > `git restore` is still an experimental command,
 > and operates as a specialized form of `git checkout`.
 > `git checkout HEAD hello.txt` is equivalent to the last command run.
@@ -944,7 +942,7 @@ This file can contain filenames like `thesis.pdf` or **wildcard**  patterns like
 __pycache__
 ```
 
-which tells Git to ignore any `__pycache__` directory created by Python section [Scripting Modules in Python](https://help.github.com/articles/generating-ssh-keys )).
+which tells Git to ignore any `__pycache__` directory created by Python Section ([Scripting Modules in Python](https://help.github.com/articles/generating-ssh-keys )).
 
 > **Remember to Ignore**
 >

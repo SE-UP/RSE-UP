@@ -519,7 +519,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="using-git-at-the-command-line">
 <h1>Using Git at the Command Line<a class="headerlink" href="#using-git-at-the-command-line" title="Link to this heading">#</a></h1>
-<p>To show how Git works, we will apply it to the Zipf’s Law project. Our project directory should currently include:
+<p>To show how Git works, we will apply it to the Zipf’s Law project.
 We’ll be working with <code class="docutils literal notranslate"><span class="pre">zipf</span></code> project (found <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials/labs/lab_02">here</a>), which should contain the following files:</p>
 <p><strong>Use the instructions below as guideline rather than a 1:1 copy paste exercise</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>zipf/
@@ -789,7 +789,7 @@ Let’s check that we’re in the right directory:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/Users/YOU/zipf
 </pre></div>
 </div>
-<p>Let’s use Create a new file and add something to it:</p>
+<p>Let us create a new file and add something to it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>hello.txt
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>hello.txt
 </pre></div>
@@ -988,7 +988,7 @@ we shouldn’t spend the entire vacation working on our thesis.
 Even before that happens
 we will probably want to collaborate with others,
 which we can do by linking our local repository
-to one stored on a hosting service such as <a class="reference external" href="https://www.github.com">GitHub</a>, <a class="reference external" href="https://www.gitlab.com">Gitlab</a>, or the <a class="reference external" href="https://gitup.uni-potsdam.de/">University of Potsdam</a> (If your are a University of Potsdam student).</p>
+to one stored on a hosting service such as <a class="reference external" href="https://www.github.com">GitHub</a>, <a class="reference external" href="https://www.gitlab.com">Gitlab</a>, or the <a class="reference external" href="https://gitup.uni-potsdam.de/">University of Potsdam</a> (If you are a University of Potsdam student).</p>
 <blockquote>
 <div><p><strong>Where’s My Repository?</strong></p>
 <p>So far we’ve worked with repositories located on your own computer,
@@ -1075,7 +1075,6 @@ To https://github.com/you/zipf.git
 <p><span class="caption-number">Fig. 12 </span><span class="caption-text">Git Commandline History</span><a class="headerlink" href="#git-cmdline-history" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>\newpage</p>
 <p>We can also <strong>pull</strong> from the remote repository to the local one:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
 </pre></div>
@@ -1165,7 +1164,7 @@ b/hello.txt differ
 <p>Alternatively,
 we can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> directly to examine the differences between files at any stage in the repository’s history.
 Let’s explore this with the <code class="docutils literal notranslate"><span class="pre">hello.txt</span></code> file.</p>
-<p>the difference between the file as it is now and the most recent version:</p>
+<p>The difference between the file as it is now and the most recent version:</p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/hello.txt b/hello.txt</span>
 <span class="gh">index c4c5b5a..c511da1 100644</span>
 <span class="gd">--- a/hello.txt</span>
@@ -1263,7 +1262,7 @@ we used it to recover the version of the file in the most recent commit.</p>
 <div><p><strong>Checking Out with Git</strong></p>
 <p>If you’re running a different version of Git,
 you may see a suggestion for <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> instead of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code>.
-As of Git version 2.29,
+As of Git version 2.49,
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span></code> is still an experimental command,
 and operates as a specialized form of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>.
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">HEAD</span> <span class="pre">hello.txt</span></code> is equivalent to the last command run.</p>
@@ -1325,7 +1324,7 @@ This file can contain filenames like <code class="docutils literal notranslate">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>__pycache__
 </pre></div>
 </div>
-<p>which tells Git to ignore any <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> directory created by Python section <a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">Scripting Modules in Python</a>).</p>
+<p>which tells Git to ignore any <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> directory created by Python Section (<a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">Scripting Modules in Python</a>).</p>
 <blockquote>
 <div><p><strong>Remember to Ignore</strong></p>
 <p>Don’t forget to commit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> to your repository
