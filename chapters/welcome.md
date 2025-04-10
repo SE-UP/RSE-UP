@@ -37,7 +37,7 @@ This course is designed for students researchers who are already using Python fo
 but you should already be comfortable doing things like reading data from files
 and writing loops, conditionals, and functions.
 
-To make sure that your Python skills are at the expected level, you can either try our [Python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresh.html) or, if you are already experienced with other programming languages, you can also checkout out the python tutorials on [exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
+To make sure that your Python skills are at the expected level, you can either try our [Python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresher.html) or, if you are already experienced with other programming languages, you can also check out the python tutorials on [exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
 
 
 ## The Big Picture
@@ -132,12 +132,12 @@ we will show you how to do the following:
 -   Use the Unix shell to efficiently manage your data and code.
 -   Write Python programs that can be used on the command line.
 -   Use Git and GitHub to track and share your work.
--   Work productively in a small team where -upveryone is welcome.
+-   Work productively in a small team where everyone is welcome.
 -   Use Make to automate complex workflows.
 -   Enable users to configure your software without modifying it directly.
 -   Test your software and know which parts have not yet been tested.
 -   Find, handle, and fix errors in your code.
--   Publish your code and research in open a-upd reproducible ways.
+-   Publish your code and research in open and reproducible ways.
 -   Create Python packages that can be installed in standard ways.
 
 
@@ -159,7 +159,7 @@ Possible solutions to the exercises are provided in the [Appendix](https://se-u
 
 ## Contributing and Re-Use
 
-The source for the book can be found at the ['RSE-UP' GitHub repository](https://se-up.github.io/RSE-UP) and any corrections, additions, or contributions are very welcome. 
+The source for the book can be found at the ['RSE-UP' GitHub repository](https://github.com/SE-UP/RSE-UP) and any corrections, additions, or contributions are very welcome. 
 Everyone whose work is included will be credited in the acknowledgments.
 Check out our [contributing guidelines](https://github.com/se-up/RSE-UP/blob/main/CONTRIBUTION.md)
 as well as our [Code of Conduct](https://github.com/se-up/RSE-UP/blob/main/CODE_OF_CONDUCT.md) for more information on how to contribute.
