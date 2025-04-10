@@ -404,7 +404,7 @@ a file Git already knows about has been modified.
 > After executing Git commands,
 > you may see output that differs slightly from what is shown here.
 > For example, 
-> you may see a suggestion for `git checkout`\index{Git commands!checkout}
+> you may see a suggestion for `git checkout`
 > in place of `git restore` after executing the code above,
 > which means you're running a different version of Git.
 > As with most tasks in coding,
@@ -871,7 +871,7 @@ we used it to recover the version of the file in the most recent commit.
 
 
 Because `git restore` is designed to restore working files, 
-we'll need to use `git checkout` to revert to earlier versions of files.\index{Git commands!checkout}
+we'll need to use `git checkout` to revert to earlier versions of files.
 We can use a specific commit identifier rather than `HEAD` to go back as far as we want:
 
 ```bash
