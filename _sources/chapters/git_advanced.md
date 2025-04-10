@@ -634,7 +634,7 @@ The first approach works well for teams of up to half a dozen people who are all
 Git itself doesn't have any notion of a "main repository", but like Github, Gitlab, Bitbucket or selfhosted solutions like Gitea all encourage people to use Git in ways that effectively create one.
 Suppose, for example, that you want to contribute to the Zipf's Law code that we are hosting on Gitlab at `https://gitup.uni-potsdam.de/seg/rse_course/zipf`.
 You can go to that URL and click on the "Fork" button in the upper right corner ([Figure: fork button](gitlab-advanced-fork-button)).
-```{figure} ../figures/git-advanced/gitlab_fork_button_1004.png
+```{figure} ../figures/git-advanced/gitlab_fork-button.png
 :name: gitlab-advanced-fork-button
 
 Gitlab git fork button
