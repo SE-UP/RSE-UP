@@ -29,7 +29,7 @@ Sami can go to that URL and click on the "Fork" button in the upper right corner
 ([Figure: fork button](git-advanced-fork-button)).
 GitHub immediately creates a copy of Amira's repository within Sami's account on GitHub's own servers.
 
-```{figure} ../figures/git-advanced/fork-button.png
+```{figure} ../figures/git-advanced/github_fork_button.png
 :name: git-advanced-fork-button
 
 Git Fork button
