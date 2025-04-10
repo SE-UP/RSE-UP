@@ -50,7 +50,7 @@ The source material for our iteration of the work can be cited as:
 This work has been licenced under the Creative Commons Attribution 4.0
 International license (CC-BY-4.0) found [here](https://github.com/SE-UP/RSE-UP/blob/main/LICENSE.md).
 
-Software has been licensed under the MIT License found [here](https://github.com/SE-UP/RSE-UP/blob/main/LICENSE-MIT.MD)
+Software has been licensed under the MIT License found [here](https://github.com/SE-UP/RSE-UP/blob/main/LICENSE-MIT.md)
 
 
  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
