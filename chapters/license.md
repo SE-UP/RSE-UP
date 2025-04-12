@@ -167,7 +167,7 @@ The Appache License provides a balance between openness and legal protection. Li
 
 #### GNU General Public License (GPL):
 
-The GNU GPL is a strong copyleft license designed to ensure that software remains free and open for all users. **Any** derivative work or modified version of the software **must** be licensed under the smae terms, which ensures that freedom to use, modify, and share is preserved even throughout the software's evolution over time. The GNU GPL also requires that source code is publically available whenever the software - or derivatives thereof - are distributed. Thus, creating a culture of openness and collaboration in the userbase. The license is ideal for projects where the goal is to maintain a fully open ecosystem, but its strict requirements may limit compatibility to non-GPL software.
+The GNU GPL is a strong copyleft license designed to ensure that software remains free and open for all users. **Any** derivative work or modified version of the software **must** be licensed under the same terms, which ensures that freedom to use, modify, and share is preserved even throughout the software's evolution over time. The GNU GPL also requires that source code is publically available whenever the software - or derivatives thereof - are distributed. Thus, creating a culture of openness and collaboration in the userbase. The license is ideal for projects where the goal is to maintain a fully open ecosystem, but its strict requirements may limit compatibility to non-GPL software.
 
 - Copyleft license that ensures derivative works are also licensed under the GPL.
 
@@ -194,9 +194,9 @@ Each license type balances openness and control differently:
 
 ## CC0 (Public Domain Dedication)
 
-The CC0 license specifically waives all rights and deidcates the work to the public domain. This allows **anyone** to freely use, modify, and distribute the work withoout asking for permission or having to give any credit. CC0 is the most permissive of the CC licenses and is often used for datasets and resources intended for unrestricted public access. The CC0 combines exactly 0 (hence the name) of the above-mentioned basic elements of the CC licenses.
+The CC0 license specifically waives all rights and dedicates the work to the public domain. This allows **anyone** to freely use, modify, and distribute the work without asking for permission or having to give any credit. CC0 is the most permissive of the CC licenses and is often used for datasets and resources intended for unrestricted public access. The CC0 combines exactly 0 (hence the name) of the above-mentioned basic elements of the CC licenses.
 
-- No rights reserved: completly free to uses, even commercially.
+- No rights reserved: completely free to uses, even commercially.
 - No attribution required.
 - Ideal for datasets, reference materials, and public domain works.
 - Not recommended for software (consider using an open-source license instead)
@@ -221,7 +221,7 @@ This license allows for adaptations and commercial use of the work, so long as a
 
 ## CC BY-ND (Attribution-NoDerivatives)
 
-CC BY-ND is more restrictive. It permits redistribution for commercial and non-commercial use, as long as the work remains **unchanged** and the creator is properly credited. **No* derivatives are alloed of the work, thus making this license type useful when creators want their work to be shared widely, but without any modification.
+CC BY-ND is more restrictive. It permits redistribution for commercial and non-commercial use, as long as the work remains **unchanged** and the creator is properly credited. **No* derivatives are allowed of the work, thus making this license type useful when creators want their work to be shared widely, but without any modification.
 
 - Allows redistribution with proper attribution.
 - No modifications or adaptations are permitted.
@@ -231,7 +231,7 @@ CC BY-ND is more restrictive. It permits redistribution for commercial and non-c
 
 ## CC BY-NC (Attribution-NonCommercial)
 
-This license lets other remix, adapt, and build upon the work. However it restricts the use of the work and its derivatives to non-commercial use only. It also requires proper attribution. The license is widely used in academtic and non-profit contexts, where public sharing is encouraged but commercial exploitation should be restricted.
+This license lets other remix, adapt, and build upon the work. However it restricts the use of the work and its derivatives to non-commercial use only. It also requires proper attribution. The license is widely used in academic and non-profit contexts, where public sharing is encouraged but commercial exploitation should be restricted.
 
 - Permits reuse and modification, but only for non-commercial purposes.
 - Requires attribution to the original creator.
@@ -243,12 +243,12 @@ The CC BY-NC-SA license combines the non-commercial and share-alike clauses. It 
 
 - Non-commercial use only, with attribution.
 - Derivative works must use the same license.
-- Encourages non-comemrcial collaboration and content sharing.
+- Encourages non-commercial collaboration and content sharing.
 - Common in academic and educational resources.
 
 ## CC BY-NC-ND (Attribution-NonCommercial-NoDerivatives)
 
-This license is the most restrictive of the CC licenses. It allows the user to download and share the work with proper credit, but the users are not allowed to alter the work in any way, nor are they allowed to exploit the work commercially. It is best for creators who want their work circulated as-is, but do not with for it to be changed or monetized.
+This license is the most restrictive of the CC licenses. It allows the user to download and share the work with proper credit, but the users are not allowed to alter the work in any way, nor are they allowed to exploit the work commercially. It is best for creators who want their work circulated as-is, but do not wish for it to be changed or monetized.
 
 - Redistribution allowed with attribution.
 - No commercial use or derivative works are allowed.
@@ -259,7 +259,7 @@ All CC licenses can be found [here](https://creativecommons.org/licenses/), incl
 
 ### Which License should you choose? 
 
-Choosing the most suitable license for your project involves serveral important considerations.
+Choosing the most suitable license for your project involves several important considerations.
 First, it's essential to decide whether the work should be licensed at all, as some projects may be intended for private or restricted use only.
 If the content includes source code, it's important to determine whether open-source licensing is appropriate, and if so whether you want to require that derivative works also share the source code for their adaptations.
 Additionally, licensing may address patent rights. This may be crucial for any projects that includes state-of-the-art software or algorithms.

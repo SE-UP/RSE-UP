@@ -35,7 +35,7 @@ But Zipf's law isn't limited to words. It pops up in surprising places! Here are
 This can be seen in the following graph:
 
 ```{figure} ../figures/zipf/Zipf_30wiki_en_labels.png
-:name Zipfs Law visusalized
+:name Zipfs Law visualized
 
 ```
 
@@ -110,7 +110,7 @@ Our project will contain a few standard files that should be present in every re
 
 Some projects also include a `CONTRIBUTORS` or `AUTHORS` file that lists everyone who has contributed to the project, while others include that information in the `README` (we do this in Chapter [Git Advanced](https://se-up.github.io/RSE-UP/chapters/git_advanced.html)
 or make it a section in `CITATION`.
-These files are often called **boilerplate, meaning they are copied without change from one use to the next.
+These files are often called **boilerplate**, meaning they are copied without change from one use to the next.
 
 ### Organizing project content
 
@@ -119,9 +119,9 @@ Following {cite:p}`Nobl2009`, the directories in the repository's root are organ
 -   Runnable programs go in `bin/`
     (an old Unix abbreviation for "binary", meaning "not text").
     This will include both shell scripts,
-    e.g., `book_summary.sh` developed in Chapter [bash dvanced](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html),,
+    e.g., `book_summary.sh` developed in Chapter [bash Advanced](https://se-up.github.io/RSE-UP/chapters/bash_advanced.html),,
     and Python programs,
-    e.g., `countwords.py`, developed in Chapter [building a CLI with python](https://se-up.github.io/RSE-UP/chapters/python_building_cli.html),).
+    e.g., `countwords.py`, developed in Chapter [Building Command-Line Tools with Python](https://se-up.github.io/RSE-UP/chapters/python_cli.html).
 
 -   Raw data goes in `data/`
     and is never modified after being stored.
@@ -134,7 +134,7 @@ Following {cite:p}`Nobl2009`, the directories in the repository's root are organ
     and everything else created using what's in `bin` and `data`.
     In this project,
     we'll describe exactly how `bin` and `data` are used
-    with `Makefile` created in Chapter **TODO** ref(automate).
+    with `Makefile` created in Chapter [Introduction to Make and Snakemake](https://se-up.github.io/RSE-UP/chapters/introduction/automation.html).
 
 -   Finally,
     documentation and manuscripts go in `docs/`.
@@ -147,7 +147,7 @@ This structure works well for many computational research projects and
 we encourage its use beyond just this book.
 We will add some more folders and files not directly addressed by {cite:p}`Nobl2009`
 when we talk about testing (Chapter on [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)),
-provenance (Chapter ,
+provenance (Chapter [Tracking Provenance](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html)),
 and packaging (Chapter [Packaging](https://se-up.github.io/RSE-UP/chapters/python_packaging.html)).
 
 
@@ -184,8 +184,8 @@ Now that our project structure is set up, our data is downloaded, we are ready t
 ### Getting ready 
 
 Make sure you've downloaded the required data files
-(following Section [downloading the data ](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data)
-and installed the required software ([as described here](https://se-up.github.io/RSE-UP/exercises/install.html#installing-the-software)) before progressing to the next chapter.
+(following Section [downloading the data ](https://se-up.github.io/RSE-UP/chapters/getting_started.html#downloading-the-data))
+and installed the required software ([as described here](https://se-up.github.io/RSE-UP/chapters/install.html)) before progressing to the next chapter.
 
 ## Key Points
 
