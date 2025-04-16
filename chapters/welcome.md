@@ -172,4 +172,5 @@ The content and code of this book can be freely re-used as it is
 
 This book was created on basis of the book 'Research Software Engineering with Python: Building Software that Makes Research Possible', that was created by: 
 Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham and Greg Wilson. The online version can be found [here!](https://third-bit.com/py-rse/index.html)
+Additionally, we would like to thank all contributors for this version of the book, in alphabetical order: Nikolas Bertrand, Akshay Devkate, Mario Frank, Joaquin Gottlebe, Anna-Lena Lamprecht, Sebastian Müller.
 
