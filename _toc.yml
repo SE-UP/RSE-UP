@@ -13,7 +13,7 @@ parts:
       - file: chapters/getting_started.md
       - file: chapters/license.md  
       
-  - caption: Python, Bash and Git Basics 
+  - caption: Bash and Git Basics 
     chapters:
       # intro file
   #    - file: exercises/python_refresher.ipynb
@@ -35,20 +35,17 @@ parts:
           - file: chapters/commit_messages.md
           - file: chapters/git_advanced.md
           - file: chapters/git_advanced_github.md 
-          - file: exercises/git_advanced.ipynb      # 2
-  - caption: Writing Clean Code
+          - file: exercises/git_advanced.ipynb      
+          
+  - caption: Coding Style and Documentation
     chapters:
       - file: chapters/clean_readable_code.md
-      - file: exercises/clean_code.md
       - file: chapters/writing_documentation.md     
+      - file: exercises/clean_code.md
 
-# 3  
-  - caption: Documentation
-    chapters: 
-      - file: chapters/introduction/documentation.md
-      
   - caption: Computational Narrative
     chapters:
+      - file: chapters/introduction/documentation.md
       - file: chapters/introduction/jupyter.md
       - file: chapters/anaconda.md
       - file: chapters/comp_narative.md
