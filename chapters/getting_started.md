@@ -1,4 +1,4 @@
-# Getting Started
+# Running Example and Project Organization
 
 
 > Everything starts somewhere, though many physicists disagree.
