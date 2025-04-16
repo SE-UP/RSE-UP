@@ -13,35 +13,31 @@ parts:
       - file: chapters/getting_started.md
       - file: chapters/license.md  
       
-  - caption: Bash and Git Basics 
+  - caption: Working with the Shell
     chapters:
-      # intro file
-  #    - file: exercises/python_refresher.ipynb
-      
       - file: chapters/introduction/bash.md
-        sections:
-          - file: chapters/bash_basics.md
-          - file: exercises/bash_basics.ipynb
-          - file: chapters/bash_tools.md
-          - file: exercises/bash_tools.ipynb
-          - file: chapters/bash_advanced.md
-          - file: exercises/bash_advanced.ipynb       
-      
+      - file: chapters/bash_basics.md
+      - file: exercises/bash_basics.ipynb
+      - file: chapters/bash_tools.md
+      - file: exercises/bash_tools.ipynb
+      - file: chapters/bash_advanced.md
+      - file: exercises/bash_advanced.ipynb       
+
+  - caption: Version Control with Git
+    chapters:
       - file: chapters/introduction/vcs.md
-        sections: 
-          - file: chapters/intro_version_control.md
-          - file: exercises/version_control.ipynb
-          - file: chapters/create_ssh-key.md
-          - file: chapters/commit_messages.md
-          - file: chapters/git_advanced.md
-          - file: chapters/git_advanced_github.md 
-          - file: exercises/git_advanced.ipynb      
+      - file: chapters/intro_version_control.md
+      - file: exercises/version_control.ipynb
+      - file: chapters/create_ssh-key.md
+      - file: chapters/commit_messages.md
+      - file: chapters/git_advanced.md
+      - file: chapters/git_advanced_github.md 
+      - file: exercises/git_advanced.ipynb      
           
   - caption: Coding Style and Documentation
     chapters:
       - file: chapters/clean_readable_code.md
       - file: chapters/writing_documentation.md     
-      - file: exercises/clean_code.md
 
   - caption: Computational Narrative
     chapters:
