@@ -133,7 +133,7 @@ but keeping track of those files and cleaning them up when they're no longer nee
 Let's delete the two files we just created:
 
 ```bash
-rm lengths.txt sorted-lengths.txt
+$ rm lengths.txt sorted-lengths.txt
 ```
 
 We can produce the same result more safely and with less typing
