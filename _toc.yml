@@ -39,7 +39,7 @@ parts:
       - file: chapters/clean_readable_code.md
       - file: chapters/writing_documentation.md     
 
-  - caption: Computational Narrative
+  - caption: Markdown, READMEs, Notebooks and Computational Narratives
     chapters:
       - file: chapters/introduction/documentation.md
       - file: chapters/introduction/jupyter.md
