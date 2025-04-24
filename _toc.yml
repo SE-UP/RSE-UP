@@ -42,8 +42,9 @@ parts:
   - caption: Markdown, READMEs, Notebooks and Computational Narratives
     chapters:
       - file: chapters/introduction/documentation.md
+      - file: chapters/readme_files.md
       - file: chapters/introduction/jupyter.md
-      - file: chapters/anaconda.md
+      #- file: chapters/anaconda.md
       - file: chapters/comp_narative.md
  # 6  
   - caption: Working in teams
