@@ -222,7 +222,7 @@ they're able to compose useful queries and tell if the results are on the right 
 
 In an ideal world,
 we would satisfy these needs with a chorus of explanations {cite:p}`Caul2016`,
-some long and detailed,others short and to the point.
+some long and detailed, others short and to the point.
 In our world, though, time and resources are limited, so all but the most popular packages must make do with single explanations.
 
 ## Creating an FAQ 
