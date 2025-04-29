@@ -9,9 +9,10 @@ but none will survive for long if people are confused,
 pulling in different directions,
 or hostile to each other.
 This chapter therefore looks at how to create a culture of collaboration
-that will help people who want to contribute to your project,
+that will help people who want to contribute to your project 
 and introduce a few ways to manage projects and teams as they develop.
-Our recommendations draw on {cite:p}`Foge2005`, which describes how good open source software projects are run, and on {cite:p}`Boll2014`, which explains what a **commons** is and when it's the right model to use.
+Our recommendations draw on {cite:p}`Foge2005`, which describes how good open source software projects are run, and on 
+{cite:p}`Boll2014`, which explains what a **commons** is and when it's the right model to use.
 
 At this point, the Zipf's Law project should include:
 ```text
@@ -60,12 +61,15 @@ The first decision we have to make is what exactly constitutes a "project"
     a Markdown file full of terms and definitions,
     and a Makefile with targets to check cross-references, compile packages, and so on.
 
-Some common criteria for creating projects are one per publication, one per deliverable piece of software, or one per team.
-The first tends to be too small: a good dataset will result in several reports,
+Some common criteria for creating projects are one per publication, one per deliverable piece of software, or one per
+team. The first tends to be too small: a good dataset will result in several reports,
 and the goal of some projects is to produce a steady stream of reports (such as monthly forecasts).
-The second is a good fit for software engineering projects whose primary aim is to produce tools rather than results, but can be an awkward fit for data analysis work. The third tends to be too large: a team of half a dozen people may work on many different things at once, and a repository that holds them all quickly looks like someone's basement.
+The second is a good fit for software engineering projects whose primary aim is to produce tools rather than results,
+but can be an awkward fit for data analysis work. The third tends to be too large: a team of half a dozen people may
+work on many different things at once, and a repository that holds them all quickly looks like someone's basement.
 
-One way to decide what makes up a project is to ask what people have meetings about. If the same group needs to get together on a regular basis to talk about something, that "something" probably deserves its own repository.
+One way to decide what makes up a project is to ask what people have meetings about. If the same group needs to get
+together on a regular basis to talk about something, that "something" probably deserves its own repository.
 And if the list of people changes slowly over time but the meetings continue,
 that's an even stronger sign.
 
@@ -73,17 +77,17 @@ that's an even stronger sign.
 
 Most research software projects begin as the work of one person,
 who may continue to do the bulk of the coding and data analysis throughout its existence {cite:p}`Maju2019`.
-As projects become larger,though, they eventually need more contributors to sustain them. Involving more people also improves the functionality and robustness of the code,
-since newcomers bring their own expertise or see old problems in new ways.
+As projects become larger, though, they eventually need more contributors to sustain them. Involving more people also
+improves the functionality and robustness of the code,since newcomers bring their own expertise or see old problems in
+new ways.
 
-In order to leverage a group's expertise,
-a project must do more than *allow* people to contribute:
-its leaders must communicate that the project *wants* contributions,
-and that newcomers are welcome and valued {cite:p}`Shol2019`.
-Saying "the door is open" is not enough: many potential contributors have painful personal experience of being less welcome than others.
-In order to create a truly welcoming environment for everyone,
-the project must explicitly acknowledge that some people are treated unfairly
-and actively take steps to remedy this. Doing this increases diversity within the team, which makes it more productive {cite:p}`Zhan2020`. 
+In order to leverage a group's expertise, a project must do more than *allow* people to contribute:
+Its leaders must communicate that the project *wants* contributions, and that newcomers are welcome and 
+valued {cite:p}`Shol2019`.
+Saying "the door is open" is not enough: many potential contributors have painful personal experience of being less
+welcome than others. In order to create a truly welcoming environment for everyone, the project must explicitly
+acknowledge that some people are treated unfairly and actively take steps to remedy this. Doing this increases diversity
+within the team, which makes it more productive {cite:p}`Zhan2020`. 
 More importantly, it is the right thing to do.
 
 > **Terminology**
@@ -133,14 +137,15 @@ This does four things:
 4.  It prevents anyone who misbehaves from pretending that
     they didn't know what they did was unacceptable.
 
-More generally, a Code of Conduct makes it easier for people to contribute
+More generally, a Code of Conduct makes it easier for people to contribute 
 by reducing uncertainty about what behaviors are acceptable.
 Some people may push back claiming that it's unnecessary,
-or that it infringes freedom of speech, but what they usually mean is that thinking about how they might have benefited from past inequity makes them feel uncomfortable.
+or that it infringes freedom of speech, but what they usually mean is that thinking about how they might have benefited
+from past inequity makes them feel uncomfortable.
 If having a Code of Conduct leads to them going elsewhere, that will probably make the project run more smoothly.
 
-By convention, we add a Code of Conduct to our project by creating a file called `CONDUCT.md` in the project's root directory.
-Writing a Code of Conduct that is both comprehensive and readable is hard.
+By convention, we add a Code of Conduct to our project by creating a file called `CONDUCT.md` in the project's root
+directory. Writing a Code of Conduct that is both comprehensive and readable is hard.
 We therefore recommend using one that other groups have drafted, refined, and tested.
 The [Contributor Covenant](https://www.contributor-covenant.org) is relevant for projects being developed online, such as those based on GitHub:
 
@@ -312,10 +317,11 @@ since rules are meaningless without a method to enforce them;
 ### Software 
 
 In order to choose the right license for our software, we need to understand the difference between two kinds of license.
-The **MIT License** (and its close sibling the BSD License) say that people can do whatever they want to with the software as long as they cite the original source, and that the authors accept no responsibility if things go wrong.
+The **MIT License** (and its close sibling the BSD License) say that people can do whatever they want to with the
+software as long as they cite the original source, and that the authors accept no responsibility if things go wrong.
 The **GNU Public License** gives people similar rights, but requires them to share their own work on the same terms:
 
-> You may copy, distribute and modify the software as long as you track changes/dates in source files.
+> You may copy, distribute, and modify the software as long as you track changes/dates in source files.
 > Any modifications to or software including (via compiler) GPL-licensed code
 > must also be made available under the GPL
 > along with build and install instructions.
@@ -375,21 +381,23 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ### Data and reports 
 
-The MIT license, the GPL, and the Hippocratic License are intended for use with software. When it comes to data and reports, the most widely used family of licenses are those produced by [Creative Commons](https://creativecommons.org/).
+The MIT license, the GPL, and the Hippocratic License are intended for use with software. When it comes to data and
+reports, the most widely used family of licenses are those produced by [Creative Commons](https://creativecommons.org/).
 These have been written and checked by lawyers and are well understood by the community.
 
-The most liberal option is referred to as **CC-0**, where the "0" stands for "zero restrictions." This puts work in the public domain, i.e.,
-allows anyone who wants to use it to do so, however they want, with no restrictions.
-CC-0 is usually the best choice for data, since it simplifies aggregate analysis involving datasets from different sources.
-It does not negate the scholarly tradition and requirement of citing sources;
+The most liberal option is referred to as **CC-0**, where the "0" stands for "zero restrictions." This puts work in the
+public domain, i.e., allows anyone who wants to use it to do so, however they want, with no restrictions.
+CC-0 is usually the best choice for data since it simplifies aggregate analysis involving datasets from different
+sources. It does not negate the scholarly tradition and requirement of citing sources;
 it just doesn't make it a legal requirement.
 
 The next step up from CC-0 is the Creative Commons--Attribution license,
 usually referred to as **CC-BY**.
 This allows people to do whatever they want to with the work as long as they cite the original source. 
-This is the best license to use for manuscripts: we want people to share them widely but also want to get credit for our work.
+This is the best license to use for manuscripts: we want people to share them widely but also want to get credit for
+our work.
 
-Other Creative Commons licenses incorporate various restrictions,
+Other Creative Commons licenses incorporate various restrictions 
 and are usually referred to using two-letter abbreviations:
 
 -   ND (no derivative works) prevents people from creating modified versions of our work.
@@ -416,18 +424,22 @@ we decide to choose CC-BY for our papers so that everyone can read them (and cit
 
 ## Planning 
 
-Codes of conduct and licenses are a project's constitution, but how do contributors know what they should actually be doing on any given day?
-Whether we are working by ourselves or with a group of people,
-the best way to manage this is to use an **issue tracking system** to keep track of tasks we need to complete or problems we need to fix.
-**Issues** are sometimes called **tickets**, so issue tracking systems are sometimes called **ticketing systems**}. They are also often called **bug trackers**, but they can be used to manage any kind of work, and are often a convenient way to manage discussions as well.
+Codes of conduct and licenses are a project's constitution, but how do contributors know what they should actually be
+doing on any given day?
+Whether we are working by ourselves or with a group of people, the best way to manage this is to use an
+**issue tracking system** to keep track of tasks we need to complete or problems we need to fix.
+**Issues** are sometimes called **tickets**, so issue tracking systems are sometimes called **ticketing systems**.
+They are also often called **bug trackers**, but they can be used to manage any kind of work, and are often a convenient
+way to manage discussions as well.
 
 
-Like other **forges**, GitHub allows participants to create issues for a project, comment on existing issues, and search all available issues.
+Like other **forges**, GitHub allows participants to create issues for a project, comment on existing issues, and search
+all available issues.
 Every issue can hold:
 
 -   A unique ID, such as `#123`, which is also part of its URL.
     This makes issues easy to find and refer to:
-    GitHub automatically turns the expression `#123` in a **commit message**    into a link to that issue.
+    GitHub automatically turns the expression `#123` in a **commit message** into a link to that issue.
 
 -   A one-line title to aid browsing and search.
 
@@ -448,7 +460,7 @@ Every issue can hold:
 
 -   A full description that may include screenshots,
     error messages,
-    and anything else that can be put in a web page.
+    and anything else that can be put on a web page.
 
 -   Replies, counter-replies, and so on from people who are interested in the issue.
 
@@ -461,7 +473,7 @@ people create three kinds of issues:
 
 3.  Questions about how to use the software, how parts of the project work,
     or its future directions. 
-    These can eventually turn into bug reports or feature requests,
+    These can eventually turn into bug reports or feature requests 
     and can often be recycled as documentation.
 
 > **Helping Users Find Information**
@@ -479,8 +491,8 @@ people create three kinds of issues:
 ## Bug Reports 
 
 One steady supply of work in any active project is **bug reports**. 
-Unsurprisingly, a well-written bug report is more likely to get a fast response that actually addresses the problem {cite:p}`Bett2008`.
-To write a good bug report:
+Unsurprisingly, a well-written bug report is more likely to get a fast response that actually addresses the 
+problem {cite:p}`Bett2008`. To write a good bug report:
 
 1.  Make sure the problem actually *is* a bug.
     It's always possible that we have called a function the wrong way
@@ -522,23 +534,21 @@ Teams bug report
 ```
 
 It takes time and energy to write a good error report.
-If the report is being filed by a member of the development team,
-the incentive to document errors well is that resolving the issue later is easier.
-You can encourage users from outside the project to write thorough error reports by including an issue template for your project.
-An issue template is a file included in your GitHub repository
-that proliferates each new issue with text that describes expectations
-for content that should be submitted.
-You can't force new issues to be as complete as you might like,
-but you can use an issue template to make it easier for contributors to
-remember and complete documentation about bug reports.
+If the report is being filed by a member of the development team, the incentive to document errors well is that
+resolving the issue later is easier. You can encourage users from outside the project to write thorough error reports by
+including an issue template for your project. An issue template is a file included in your GitHub repository that
+proliferates each new issue with text that describes expectations for content that should be submitted.
+You can't force new issues to be as complete as you might like, but you can use an issue template to make it easier for
+contributors to remember and complete documentation about bug reports.
 
-Sometimes the person creating the issue may not know or have the right answer for some of these things, and will be doing their best with limited information about the error.
-Responding with kindness and encouragement is important to maintain a healthy community, and should be enforced by the project's Code of Conduct (Section [teams coc](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)).
+Sometimes the person creating the issue may not know or have the right answer for some of these things and will be doing
+their best with limited information about the error. Responding with kindness and encouragement is important to maintain
+a healthy community, and should be enforced by the project's Code of Conduct (Section [teams coc](https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct)).
 
 ## Labeling Issues 
 
-The bigger or older a project gets, the harder it is to find things---unless, that is, the project's members put in a bit of work to make things 
-findable {cite:p}`Lin2020`.
+The bigger or older a project gets, the harder it is to find things---unless, that is, the project's members put in a
+bit of work to make things findable {cite:p}`Lin2020`.
 Issue trackers let project members add **labels** to issues to make things easier to search and organize. 
 Labels are also often called **tags**; whatever term is used, each one is just a descriptive word or two.
 
@@ -588,7 +598,8 @@ A separate set of labels can be used to indicate the state of an issue:
 -   *Won't Fix*: someone has decided that the issue isn't going to be addressed,
     either because it's out of scope or because it's not actually a bug.
     Once an issue has been marked this way, it is usually then closed.
-    When this happens, send the issue's creator a note explaining why the issue won't be addressed and encourage them to continue working with the project.
+    When this happens, send the issue's creator a note explaining why the issue won't be addressed and encourage them to
+    continue working with the project.
 
 -   *Duplicate*: this issue is a duplicate of one that's already in the system.
     Issues marked this way are usually also then closed;
@@ -603,11 +614,16 @@ These labels can be modified or otherwise customized for each repository.
 Team labels
 ```
 
-Some projects use labels corresponding to upcoming software releases, journal issues, or conferences instead of *Current*, *Next*, and *Eventually*.
-This approach works well in the short term, but becomes unwieldy as labels with names like `sprint-2020-08-01` and `spring-2020-08-16` pile up.
+Some projects use labels corresponding to upcoming software releases, journal issues, or conferences instead of 
+*Current*, *Next*, and *Eventually*.
+This approach works well in the short term, but becomes unwieldy as labels with names like `sprint-2020-08-01` and
+`spring-2020-08-16` pile up.
 
-Instead, a project team will usually create a **milestone**}, which is a set of issues and pull requests in a single project repository.
-GitHub milestones can have a due date and display aggregate progress toward completion, so the team can easily see when work is due and how much is left to be done. Teams can also create projects, which can include issues and pull requests from several repositories as well as notes and reminders for miscellaneous tasks.
+Instead, a project team will usually create a **milestone**, which is a set of issues and pull requests in a single
+project repository.
+GitHub milestones can have a due date and display aggregate progress toward completion, so the team can easily see when
+work is due and how much is left to be done. Teams can also create projects, which can include issues and pull requests
+from several repositories as well as notes and reminders for miscellaneous tasks.
 
 ### Standardizing workflows 
 
@@ -649,9 +665,13 @@ Between bug reports, feature requests, and general cleanup,
 there is always more work to do than time to do it,
 so every project needs some way to figure out what to focus on.
 Labeling issues helps with **triage**, which is the process of deciding what is a priority and what isn't.
-This is never an easy job for software projects that need to balance fixing bugs with creating new features, and is even more challenging for research projects for which "done" is hard to define or whose team members are widely distributed or do not all work for the same institution.
+This is never an easy job for software projects that need to balance fixing bugs with creating new features, and is even
+more challenging for research projects for which "done" is hard to define or whose team members are widely distributed
+or do not all work for the same institution.
 
-Many commercial and open source teams have adopted **agile development** as a solution to these problems. Instead of carefully formulating long-term plans that could be derailed by changing circumstances, agile development uses a sequence of short development **sprints**, each typically one or two weeks long.
+Many commercial and open source teams have adopted **agile development** as a solution to these problems.
+Instead of carefully formulating long-term plans that could be derailed by changing circumstances,
+agile development uses a sequence of short development **sprints**, each typically one or two weeks long.
 Each sprint starts with a planning session lasting one or two hours
 in which the successes and failures of the previous sprint are reviewed
 and issues to be resolved in the current sprint are selected.
@@ -664,14 +684,15 @@ it's easier to see how much headway is being made.)
 
 To decide which issues to work on in the next sprint,
 a team can construct an **impact/effort matrix**([ Figure teams impact/effor matrix](teams-impact-effort)).
-Impact measures how important the issue is to reaching the team's goals,
+Impact measures how important the issue is to reaching the team's goals 
 and is typically measured on a low--medium--high scale.
 (Some teams use ratings from 1 to 10,
 but this just leads to arguing over whether something is a 4 or a 5.)
 Effort measures how much work the issue requires.
 Since this can't always be estimated accurately,
 it's common to classify things as "an hour," "a day," or "multiple days."
-Again, anything that's likely to take longer than multiple days should be broken down so that planning and progress tracking can be more accurate.
+Again, anything that's likely to take longer than multiple days should be broken down so that planning
+and progress tracking can be more accurate.
 
 ```{figure} ../figures/teams/effort-impact-matrix.png
 :name: teams-impact-effort
@@ -679,31 +700,32 @@ Teams impact effort matrix
 ```
 
 The impact/effort matrix makes the priorities for the coming sprint clear:
-anything that is of high importance and requires little effort should be included, while things of low importance that require a lot of effort should not. The team must still make hard decisions, though:
+anything that is of high importance and requires little effort should be included, while things of low importance that
+require a lot of effort should not. The team must still make hard decisions, though:
 
 -   Should a single large high-priority item be done,
     or should several smaller low-priority items be tackled instead?
 -   What should be done about medium-priority items that keep being put off?
 
-Each team has to answer these questions for each sprint,
-but that begs the question of exactly who has the final say in answering them.
-In a large project,
-a **product manager** decides how important items are, while a **project manager** is responsible for estimating effort and tracking progress.
-In a typical research software project the principal investigator either makes the decision or delegates that responsibility (and authority) to the lead developer.
+Each team has to answer these questions for each sprint, but that begs the question of exactly who has the final say in
+answering them. In a large project, a **product manager** decides how important items are, while a **project manager**
+is responsible for estimating effort and tracking progress.
+In a typical research software project, the principal investigator either makes the decision or delegates that
+responsibility (and authority) to the lead developer.
 
-Regardless of who is ultimately responsible, it is essential to include project participants in the planning and decision making.
-This may be as simple as having them add **up-votes** and **down-votes** to indicate their opinions on importance, or as complex as asking them to propose
-a multi-sprint breakdown of a particularly complex feature.
-Doing this shows people that their contributions are valued,
-which in turn increases their commitment to doing the work.
+Regardless of who is ultimately responsible, it is essential to include project participants in the planning and
+decision-making. This may be as simple as having them add **up-votes** and **down-votes** to indicate their opinions on
+importance, or as complex as asking them to propose a multi-sprint breakdown of a particularly complex feature.
+Doing this shows people that their contributions are valued, which in turn increases their commitment to doing the work.
 It also produces better plans, since everyone knows something that someone else doesn't.
 
 ## Meetings 
 
 Pull requests and GitHub issues are good tools for asynchronous work,
-but team meetings are often a more efficient way to make decisions,
+but team meetings are often a more efficient way to make decisions 
 and help build a sense of community.
-Knowing how to run a meeting well is as important as knowing how to use version control; the rules doing so are simple but rarely followed:
+Knowing how to run a meeting well is as important as knowing how to use version control;
+the rules for doing so are simple but rarely followed:
 
 Decide if there actually needs to be a meeting.
 :   If the only purpose is to share information,
@@ -824,7 +846,8 @@ People who have given up trying to be heard
 suddenly have space to contribute,
 and the overly frequent speakers realize how unfair they have been.
 
-Another useful technique is called **interruption bingo**. Draw a grid and label the rows and columns with the participants' names.
+Another useful technique is called **interruption bingo**.
+Draw a grid and label the rows and columns with the participants' names.
 Each time one person interrupts another, add a tally mark to the appropriate cell; halfway through the meeting,
 take a moment to look at the results.
 In most cases it will be clear that
@@ -848,10 +871,10 @@ so you can leap into that nanosecond of silence and be the first to utter someth
 The format...encourages participants who want to contribute
 to say more and listen less."
 
-The solution is to run a text chat beside the video conference
+The solution is to run a text chat besides the video conference
 where people can signal that they want to speak.
 The moderator can then select people from the waiting list.
-This practice can be reinforced by having everyone mute themselves,
+This practice can be reinforced by having everyone mute themselves 
 and only allowing the moderator to unmute people.
 {cite:p}`Broo2016` has many other useful suggestions for managing meetings.
 
@@ -868,11 +891,12 @@ in which everyone knows everyone else.
 Beyond that, groups need to spell out
 who has the authority to make which decisions
 and how to achieve consensus.
-In short, they need explicit **governance**. **Martha's Rules**  are a practical way to do this in groups of up to a few dozen members {cite:p}`Mina1986`:
+In short, they need explicit **governance**. **Martha's Rules** are a practical way to do this in groups of up to a few
+dozen members {cite:p}`Mina1986`:
 
 1.  Before each meeting, anyone who wishes may sponsor a proposal.
     Proposals must be filed at least 24 hours before a meeting
-    in order to be considered at that meeting, and must include:
+    in order to be considered at that meeting and must include:
     -   a one-line summary
     -   the full text of the proposal
     -   any required background information
@@ -930,7 +954,8 @@ Who gets to vote?
 
 Rules that people don't know about can't help them.
 Once your team agrees on a project structure,
-a workflow, how to get items on a meeting agenda, or how to make decisions, you should therefore take the time to document this for newcomers. 
+a workflow, how to get items on a meeting agenda, or how to make decisions, you should therefore take the time to
+document this for newcomers. 
 This information may be included as sections in the existing `README` file or put into files of their own:
 
 -   `CONTRIBUTING`
@@ -952,14 +977,15 @@ te
     and how contributors can tell what decisions have been made
     causes trouble sooner or later.
 
-Having these files helps new contributors orient themselves,
+Having these files helps new contributors orient themselves
 and also signals that the project is well run.
 
 ## Handling Conflict
 
 You just missed an important deadline, and people are unhappy.
 The sick feeling in the pit of your stomach has turned to anger:
-you did *your* part, but Sylvie didn't finish her stuff until the very last minute, which meant that no one else had time to spot the two big mistakes she'd made. As for Cho, he didn't deliver at all---again.
+you did *your* part, but Sylvie didn't finish her stuff until the very last minute, which meant that no one else had
+time to spot the two big mistakes she'd made. As for Cho, he didn't deliver at all---again.
 If something doesn't change, contributors are going to start looking for a new project.
 
 Conflicts like this come up all the time.
@@ -983,8 +1009,11 @@ Broadly speaking, there are four ways we can deal with them:
 
 4.  Take constructive steps to fix the underlying problem.
 
-Most of us find the first three options easiest, even though they don't actually fix the problem. The fourth option is harder because we don't like confrontation. If we manage it properly, though,
-it is a lot less bruising, which means that we don't have to be as afraid of initiating it. Also, if people believe that we will take steps when they bully, lie, procrastinate, or do a half-assed job, they will usually avoid making it necessary.
+Most of us find the first three options easiest, even though they don't actually fix the problem. The fourth option is
+harder because we don't like confrontation. If we manage it properly, though,
+it is a lot less bruising, which means that we don't have to be as afraid of initiating it. Also, if people believe that
+we will take steps when they bully, lie, procrastinate, or do a half-assed job, they will usually avoid making it
+necessary.
 
 Make sure we are not guilty of the same sin.
 :   We won't get very far complaining about someone else interrupting in meetings
@@ -1086,7 +1115,8 @@ A few simple guidelines will go a long way:
     don't call someone stupid
     when what we really mean is that they're racist or homophobic.
 
-[Captain Awkward](https://captainawkward.com/)  has useful advice for discussions like these, and [Charles' Rules of Argument](https://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument) are very useful online.
+[Captain Awkward](https://captainawkward.com/) has useful advice for discussions like these, and [Charles' Rules of Argument](https://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument)
+are very useful online.
 
 Finally, it's important to recognize that good principles sometimes conflict.
 For example, consider this scenario:
@@ -1100,11 +1130,13 @@ On the one hand, we want to respect other people's cultures;
 on the other hand, we want to be inclusive of women.
 In this case,the manager's discomfort about changing pronouns
 matters less than the career harm caused by them being exclusionary,
-but many cases are not this clear cut.
+but many cases are not this clear-cut.
 
 ## Summary 
 
-This chapter was the hardest in this book to write, but is probably also the most important. A project can survive bad code or stumbles with Git, but not confusion and interpersonal conflict. Collaboration and management become easier with practice, and everything you learn from taking part in research software projects will help other things you do as well.
+This chapter was the hardest in this book to write, but is probably also the most important. A project can survive bad
+code or stumbles with Git, but not confusion and interpersonal conflict. Collaboration and management become easier with
+practice, and everything you learn from taking part in research software projects will help other things you do as well.
 
 ## Keypoints
 

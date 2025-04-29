@@ -532,9 +532,10 @@ but none will survive for long if people are confused,
 pulling in different directions,
 or hostile to each other.
 This chapter therefore looks at how to create a culture of collaboration
-that will help people who want to contribute to your project,
+that will help people who want to contribute to your project
 and introduce a few ways to manage projects and teams as they develop.
-Our recommendations draw on <span id="id1">[<a class="reference internal" href="references.html#id34" title="Karl Fogel. Producing Open Source Software: How to Run a Successful Free Software Project. O'Reilly Media, 2005. ISBN 0596007590. The definite guide to managing open source software development projects.">Fogel, 2005</a>]</span>, which describes how good open source software projects are run, and on <span id="id2">[<a class="reference internal" href="references.html#id18" title="David Bollier. Think Like a Commoner: A Short Introduction to the Life of the Commons. New Society Publishers, 2014. ISBN 0865717680. A short introduction to a widely-used model of governance.">Bollier, 2014</a>]</span>, which explains what a <strong>commons</strong> is and when it’s the right model to use.</p>
+Our recommendations draw on <span id="id1">[<a class="reference internal" href="references.html#id34" title="Karl Fogel. Producing Open Source Software: How to Run a Successful Free Software Project. O'Reilly Media, 2005. ISBN 0596007590. The definite guide to managing open source software development projects.">Fogel, 2005</a>]</span>, which describes how good open source software projects are run, and on
+<span id="id2">[<a class="reference internal" href="references.html#id18" title="David Bollier. Think Like a Commoner: A Short Introduction to the Life of the Commons. New Society Publishers, 2014. ISBN 0865717680. A short introduction to a widely-used model of governance.">Bollier, 2014</a>]</span>, which explains what a <strong>commons</strong> is and when it’s the right model to use.</p>
 <p>At this point, the Zipf’s Law project should include:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>zipf/
 ├── .gitignore
@@ -579,11 +580,14 @@ The project contains the files needed to create a package in both languages,
 a Markdown file full of terms and definitions,
 and a Makefile with targets to check cross-references, compile packages, and so on.</p></li>
 </ul>
-<p>Some common criteria for creating projects are one per publication, one per deliverable piece of software, or one per team.
-The first tends to be too small: a good dataset will result in several reports,
+<p>Some common criteria for creating projects are one per publication, one per deliverable piece of software, or one per
+team. The first tends to be too small: a good dataset will result in several reports,
 and the goal of some projects is to produce a steady stream of reports (such as monthly forecasts).
-The second is a good fit for software engineering projects whose primary aim is to produce tools rather than results, but can be an awkward fit for data analysis work. The third tends to be too large: a team of half a dozen people may work on many different things at once, and a repository that holds them all quickly looks like someone’s basement.</p>
-<p>One way to decide what makes up a project is to ask what people have meetings about. If the same group needs to get together on a regular basis to talk about something, that “something” probably deserves its own repository.
+The second is a good fit for software engineering projects whose primary aim is to produce tools rather than results,
+but can be an awkward fit for data analysis work. The third tends to be too large: a team of half a dozen people may
+work on many different things at once, and a repository that holds them all quickly looks like someone’s basement.</p>
+<p>One way to decide what makes up a project is to ask what people have meetings about. If the same group needs to get
+together on a regular basis to talk about something, that “something” probably deserves its own repository.
 And if the list of people changes slowly over time but the meetings continue,
 that’s an even stronger sign.</p>
 </section>
@@ -591,16 +595,16 @@ that’s an even stronger sign.</p>
 <h2>Include Everyone<a class="headerlink" href="#include-everyone" title="Link to this heading">#</a></h2>
 <p>Most research software projects begin as the work of one person,
 who may continue to do the bulk of the coding and data analysis throughout its existence <span id="id4">[<a class="reference internal" href="references.html#id53" title="Suvodeep Majumder, Joymallya Chakraborty, Amritanshu Agrawal, and Tim Menzies. Why Software Projects Need Heroes (Lessons Learned from 1000+ Projects). 2019. An evidence-based exploration of the role of core developers in software production. URL: https://arxiv.org/abs/1904.09954.">Majumder <em>et al.</em>, 2019</a>]</span>.
-As projects become larger,though, they eventually need more contributors to sustain them. Involving more people also improves the functionality and robustness of the code,
-since newcomers bring their own expertise or see old problems in new ways.</p>
-<p>In order to leverage a group’s expertise,
-a project must do more than <em>allow</em> people to contribute:
-its leaders must communicate that the project <em>wants</em> contributions,
-and that newcomers are welcome and valued <span id="id5">[<a class="reference internal" href="references.html#id75" title="Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson. Ten Simple Rules for Helping Newcomers Become Contributors to Open Projects. PLOS Computational Biology, 15(9):e1007296, Sep 2019. URL: https://doi.org/10.1371/journal.pcbi.1007296, doi:10.1371/journal.pcbi.1007296.">Sholler <em>et al.</em>, 2019</a>]</span>.
-Saying “the door is open” is not enough: many potential contributors have painful personal experience of being less welcome than others.
-In order to create a truly welcoming environment for everyone,
-the project must explicitly acknowledge that some people are treated unfairly
-and actively take steps to remedy this. Doing this increases diversity within the team, which makes it more productive <span id="id6">[<a class="reference internal" href="references.html#id89" title="Letian Zhang. An Institutional Approach to Gender Diversity and Firm Performance . Organization Science, 31(2):439-457, 2020. Shows that inclusivity has economic benefits as well as being a moral necessity. URL: https://doi.org/10.1287/orsc.2019.1297.">Zhang, 2020</a>]</span>.
+As projects become larger, though, they eventually need more contributors to sustain them. Involving more people also
+improves the functionality and robustness of the code,since newcomers bring their own expertise or see old problems in
+new ways.</p>
+<p>In order to leverage a group’s expertise, a project must do more than <em>allow</em> people to contribute:
+Its leaders must communicate that the project <em>wants</em> contributions, and that newcomers are welcome and
+valued <span id="id5">[<a class="reference internal" href="references.html#id75" title="Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson. Ten Simple Rules for Helping Newcomers Become Contributors to Open Projects. PLOS Computational Biology, 15(9):e1007296, Sep 2019. URL: https://doi.org/10.1371/journal.pcbi.1007296, doi:10.1371/journal.pcbi.1007296.">Sholler <em>et al.</em>, 2019</a>]</span>.
+Saying “the door is open” is not enough: many potential contributors have painful personal experience of being less
+welcome than others. In order to create a truly welcoming environment for everyone, the project must explicitly
+acknowledge that some people are treated unfairly and actively take steps to remedy this. Doing this increases diversity
+within the team, which makes it more productive <span id="id6">[<a class="reference internal" href="references.html#id89" title="Letian Zhang. An Institutional Approach to Gender Diversity and Firm Performance . Organization Science, 31(2):439-457, 2020. Shows that inclusivity has economic benefits as well as being a moral necessity. URL: https://doi.org/10.1287/orsc.2019.1297.">Zhang, 2020</a>]</span>.
 More importantly, it is the right thing to do.</p>
 <blockquote>
 <div><p><strong>Terminology</strong></p>
@@ -651,10 +655,11 @@ they didn’t know what they did was unacceptable.</p></li>
 <p>More generally, a Code of Conduct makes it easier for people to contribute
 by reducing uncertainty about what behaviors are acceptable.
 Some people may push back claiming that it’s unnecessary,
-or that it infringes freedom of speech, but what they usually mean is that thinking about how they might have benefited from past inequity makes them feel uncomfortable.
+or that it infringes freedom of speech, but what they usually mean is that thinking about how they might have benefited
+from past inequity makes them feel uncomfortable.
 If having a Code of Conduct leads to them going elsewhere, that will probably make the project run more smoothly.</p>
-<p>By convention, we add a Code of Conduct to our project by creating a file called <code class="docutils literal notranslate"><span class="pre">CONDUCT.md</span></code> in the project’s root directory.
-Writing a Code of Conduct that is both comprehensive and readable is hard.
+<p>By convention, we add a Code of Conduct to our project by creating a file called <code class="docutils literal notranslate"><span class="pre">CONDUCT.md</span></code> in the project’s root
+directory. Writing a Code of Conduct that is both comprehensive and readable is hard.
 We therefore recommend using one that other groups have drafted, refined, and tested.
 The <a class="reference external" href="https://www.contributor-covenant.org">Contributor Covenant</a> is relevant for projects being developed online, such as those based on GitHub:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Contributor Covenant Code of Conduct
@@ -823,10 +828,11 @@ the Human Resources department is usually the most helpful place to ask.</p>
 <section id="software">
 <h3>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h3>
 <p>In order to choose the right license for our software, we need to understand the difference between two kinds of license.
-The <strong>MIT License</strong> (and its close sibling the BSD License) say that people can do whatever they want to with the software as long as they cite the original source, and that the authors accept no responsibility if things go wrong.
+The <strong>MIT License</strong> (and its close sibling the BSD License) say that people can do whatever they want to with the
+software as long as they cite the original source, and that the authors accept no responsibility if things go wrong.
 The <strong>GNU Public License</strong> gives people similar rights, but requires them to share their own work on the same terms:</p>
 <blockquote>
-<div><p>You may copy, distribute and modify the software as long as you track changes/dates in source files.
+<div><p>You may copy, distribute, and modify the software as long as you track changes/dates in source files.
 Any modifications to or software including (via compiler) GPL-licensed code
 must also be made available under the GPL
 along with build and install instructions.</p>
@@ -884,18 +890,20 @@ adopting the Hippocratic License is a small step toward preventing this.</p>
 </section>
 <section id="data-and-reports">
 <h3>Data and reports<a class="headerlink" href="#data-and-reports" title="Link to this heading">#</a></h3>
-<p>The MIT license, the GPL, and the Hippocratic License are intended for use with software. When it comes to data and reports, the most widely used family of licenses are those produced by <a class="reference external" href="https://creativecommons.org/">Creative Commons</a>.
+<p>The MIT license, the GPL, and the Hippocratic License are intended for use with software. When it comes to data and
+reports, the most widely used family of licenses are those produced by <a class="reference external" href="https://creativecommons.org/">Creative Commons</a>.
 These have been written and checked by lawyers and are well understood by the community.</p>
-<p>The most liberal option is referred to as <strong>CC-0</strong>, where the “0” stands for “zero restrictions.” This puts work in the public domain, i.e.,
-allows anyone who wants to use it to do so, however they want, with no restrictions.
-CC-0 is usually the best choice for data, since it simplifies aggregate analysis involving datasets from different sources.
-It does not negate the scholarly tradition and requirement of citing sources;
+<p>The most liberal option is referred to as <strong>CC-0</strong>, where the “0” stands for “zero restrictions.” This puts work in the
+public domain, i.e., allows anyone who wants to use it to do so, however they want, with no restrictions.
+CC-0 is usually the best choice for data since it simplifies aggregate analysis involving datasets from different
+sources. It does not negate the scholarly tradition and requirement of citing sources;
 it just doesn’t make it a legal requirement.</p>
 <p>The next step up from CC-0 is the Creative Commons–Attribution license,
 usually referred to as <strong>CC-BY</strong>.
 This allows people to do whatever they want to with the work as long as they cite the original source.
-This is the best license to use for manuscripts: we want people to share them widely but also want to get credit for our work.</p>
-<p>Other Creative Commons licenses incorporate various restrictions,
+This is the best license to use for manuscripts: we want people to share them widely but also want to get credit for
+our work.</p>
+<p>Other Creative Commons licenses incorporate various restrictions
 and are usually referred to using two-letter abbreviations:</p>
 <ul class="simple">
 <li><p>ND (no derivative works) prevents people from creating modified versions of our work.
@@ -921,16 +929,20 @@ we decide to choose CC-BY for our papers so that everyone can read them (and cit
 </section>
 <section id="planning">
 <h2>Planning<a class="headerlink" href="#planning" title="Link to this heading">#</a></h2>
-<p>Codes of conduct and licenses are a project’s constitution, but how do contributors know what they should actually be doing on any given day?
-Whether we are working by ourselves or with a group of people,
-the best way to manage this is to use an <strong>issue tracking system</strong> to keep track of tasks we need to complete or problems we need to fix.
-<strong>Issues</strong> are sometimes called <strong>tickets</strong>, so issue tracking systems are sometimes called <strong>ticketing systems</strong>}. They are also often called <strong>bug trackers</strong>, but they can be used to manage any kind of work, and are often a convenient way to manage discussions as well.</p>
-<p>Like other <strong>forges</strong>, GitHub allows participants to create issues for a project, comment on existing issues, and search all available issues.
+<p>Codes of conduct and licenses are a project’s constitution, but how do contributors know what they should actually be
+doing on any given day?
+Whether we are working by ourselves or with a group of people, the best way to manage this is to use an
+<strong>issue tracking system</strong> to keep track of tasks we need to complete or problems we need to fix.
+<strong>Issues</strong> are sometimes called <strong>tickets</strong>, so issue tracking systems are sometimes called <strong>ticketing systems</strong>.
+They are also often called <strong>bug trackers</strong>, but they can be used to manage any kind of work, and are often a convenient
+way to manage discussions as well.</p>
+<p>Like other <strong>forges</strong>, GitHub allows participants to create issues for a project, comment on existing issues, and search
+all available issues.
 Every issue can hold:</p>
 <ul class="simple">
 <li><p>A unique ID, such as <code class="docutils literal notranslate"><span class="pre">#123</span></code>, which is also part of its URL.
 This makes issues easy to find and refer to:
-GitHub automatically turns the expression <code class="docutils literal notranslate"><span class="pre">#123</span></code> in a <strong>commit message</strong>    into a link to that issue.</p></li>
+GitHub automatically turns the expression <code class="docutils literal notranslate"><span class="pre">#123</span></code> in a <strong>commit message</strong> into a link to that issue.</p></li>
 <li><p>A one-line title to aid browsing and search.</p></li>
 <li><p>The issue’s current status.
 In simple systems (like GitHub’s) each issue is either open or closed,
@@ -946,7 +958,7 @@ which helps figure out who to talk to about what.</p></li>
 <li><p>The user ID of the person assigned to review the issue, if someone is assigned.</p></li>
 <li><p>A full description that may include screenshots,
 error messages,
-and anything else that can be put in a web page.</p></li>
+and anything else that can be put on a web page.</p></li>
 <li><p>Replies, counter-replies, and so on from people who are interested in the issue.</p></li>
 </ul>
 <p>Broadly speaking,
@@ -957,7 +969,7 @@ people create three kinds of issues:</p>
 such as “add this function to this package” or “add a menu to the website.”</p></li>
 <li><p>Questions about how to use the software, how parts of the project work,
 or its future directions.
-These can eventually turn into bug reports or feature requests,
+These can eventually turn into bug reports or feature requests
 and can often be recycled as documentation.</p></li>
 </ol>
 <blockquote>
@@ -976,8 +988,8 @@ to old questions and answers that are particularly helpful.</p>
 <section id="bug-reports">
 <h2>Bug Reports<a class="headerlink" href="#bug-reports" title="Link to this heading">#</a></h2>
 <p>One steady supply of work in any active project is <strong>bug reports</strong>.
-Unsurprisingly, a well-written bug report is more likely to get a fast response that actually addresses the problem <span id="id11">[<a class="reference internal" href="references.html#id16" title="Nicolas Bettenburg, Sascha Just, Adrian Schröter, Cathrin Weiss, Rahul Premraj, and Thomas Zimmermann. What Makes a Good Bug Report? In Proc. 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering - (SIGSOFT'08/FSE'16). ACM Press, 2008. Reports a survey of developers on what makes for a good bug report. doi:10.1145/1453101.1453146.">Bettenburg <em>et al.</em>, 2008</a>]</span>.
-To write a good bug report:</p>
+Unsurprisingly, a well-written bug report is more likely to get a fast response that actually addresses the
+problem <span id="id11">[<a class="reference internal" href="references.html#id16" title="Nicolas Bettenburg, Sascha Just, Adrian Schröter, Cathrin Weiss, Rahul Premraj, and Thomas Zimmermann. What Makes a Good Bug Report? In Proc. 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering - (SIGSOFT'08/FSE'16). ACM Press, 2008. Reports a survey of developers on what makes for a good bug report. doi:10.1145/1453101.1453146.">Bettenburg <em>et al.</em>, 2008</a>]</span>. To write a good bug report:</p>
 <ol class="arabic simple">
 <li><p>Make sure the problem actually <em>is</em> a bug.
 It’s always possible that we have called a function the wrong way
@@ -1014,22 +1026,20 @@ is shown in <a class="reference internal" href="#teams-bug-report"><span class="
 </figcaption>
 </figure>
 <p>It takes time and energy to write a good error report.
-If the report is being filed by a member of the development team,
-the incentive to document errors well is that resolving the issue later is easier.
-You can encourage users from outside the project to write thorough error reports by including an issue template for your project.
-An issue template is a file included in your GitHub repository
-that proliferates each new issue with text that describes expectations
-for content that should be submitted.
-You can’t force new issues to be as complete as you might like,
-but you can use an issue template to make it easier for contributors to
-remember and complete documentation about bug reports.</p>
-<p>Sometimes the person creating the issue may not know or have the right answer for some of these things, and will be doing their best with limited information about the error.
-Responding with kindness and encouragement is important to maintain a healthy community, and should be enforced by the project’s Code of Conduct (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct">teams coc</a>).</p>
+If the report is being filed by a member of the development team, the incentive to document errors well is that
+resolving the issue later is easier. You can encourage users from outside the project to write thorough error reports by
+including an issue template for your project. An issue template is a file included in your GitHub repository that
+proliferates each new issue with text that describes expectations for content that should be submitted.
+You can’t force new issues to be as complete as you might like, but you can use an issue template to make it easier for
+contributors to remember and complete documentation about bug reports.</p>
+<p>Sometimes the person creating the issue may not know or have the right answer for some of these things and will be doing
+their best with limited information about the error. Responding with kindness and encouragement is important to maintain
+a healthy community, and should be enforced by the project’s Code of Conduct (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/working_in_teams.html#establish-a-code-of-conduct">teams coc</a>).</p>
 </section>
 <section id="labeling-issues">
 <h2>Labeling Issues<a class="headerlink" href="#labeling-issues" title="Link to this heading">#</a></h2>
-<p>The bigger or older a project gets, the harder it is to find things—unless, that is, the project’s members put in a bit of work to make things
-findable <span id="id12">[<a class="reference internal" href="references.html#id51" title="Sarah Lin, Ibraheem Ali, and Greg Wilson. Ten Quick Tips for Making Things Findable. PLOS Computational Biology, 16:1-10, 12 2020. How to organize and label information to make it easier to search and discover. URL: https://doi.org/10.1371/journal.pcbi.1008469, doi:10.1371/journal.pcbi.1008469.">Lin <em>et al.</em>, 2020</a>]</span>.
+<p>The bigger or older a project gets, the harder it is to find things—unless, that is, the project’s members put in a
+bit of work to make things findable <span id="id12">[<a class="reference internal" href="references.html#id51" title="Sarah Lin, Ibraheem Ali, and Greg Wilson. Ten Quick Tips for Making Things Findable. PLOS Computational Biology, 16:1-10, 12 2020. How to organize and label information to make it easier to search and discover. URL: https://doi.org/10.1371/journal.pcbi.1008469, doi:10.1371/journal.pcbi.1008469.">Lin <em>et al.</em>, 2020</a>]</span>.
 Issue trackers let project members add <strong>labels</strong> to issues to make things easier to search and organize.
 Labels are also often called <strong>tags</strong>; whatever term is used, each one is just a descriptive word or two.</p>
 <p>GitHub allows project owners to define any labels they want.
@@ -1070,7 +1080,8 @@ but there’s no immediate plan to do it.</p></li>
 <li><p><em>Won’t Fix</em>: someone has decided that the issue isn’t going to be addressed,
 either because it’s out of scope or because it’s not actually a bug.
 Once an issue has been marked this way, it is usually then closed.
-When this happens, send the issue’s creator a note explaining why the issue won’t be addressed and encourage them to continue working with the project.</p></li>
+When this happens, send the issue’s creator a note explaining why the issue won’t be addressed and encourage them to
+continue working with the project.</p></li>
 <li><p><em>Duplicate</em>: this issue is a duplicate of one that’s already in the system.
 Issues marked this way are usually also then closed;
 this is another opportunity to encourage people to stay involved.</p></li>
@@ -1084,10 +1095,15 @@ These labels can be modified or otherwise customized for each repository.</p>
 <p><span class="caption-number">Fig. 40 </span><span class="caption-text">Team labels</span><a class="headerlink" href="#teams-labels" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Some projects use labels corresponding to upcoming software releases, journal issues, or conferences instead of <em>Current</em>, <em>Next</em>, and <em>Eventually</em>.
-This approach works well in the short term, but becomes unwieldy as labels with names like <code class="docutils literal notranslate"><span class="pre">sprint-2020-08-01</span></code> and <code class="docutils literal notranslate"><span class="pre">spring-2020-08-16</span></code> pile up.</p>
-<p>Instead, a project team will usually create a <strong>milestone</strong>}, which is a set of issues and pull requests in a single project repository.
-GitHub milestones can have a due date and display aggregate progress toward completion, so the team can easily see when work is due and how much is left to be done. Teams can also create projects, which can include issues and pull requests from several repositories as well as notes and reminders for miscellaneous tasks.</p>
+<p>Some projects use labels corresponding to upcoming software releases, journal issues, or conferences instead of
+<em>Current</em>, <em>Next</em>, and <em>Eventually</em>.
+This approach works well in the short term, but becomes unwieldy as labels with names like <code class="docutils literal notranslate"><span class="pre">sprint-2020-08-01</span></code> and
+<code class="docutils literal notranslate"><span class="pre">spring-2020-08-16</span></code> pile up.</p>
+<p>Instead, a project team will usually create a <strong>milestone</strong>, which is a set of issues and pull requests in a single
+project repository.
+GitHub milestones can have a due date and display aggregate progress toward completion, so the team can easily see when
+work is due and how much is left to be done. Teams can also create projects, which can include issues and pull requests
+from several repositories as well as notes and reminders for miscellaneous tasks.</p>
 <section id="standardizing-workflows">
 <h3>Standardizing workflows<a class="headerlink" href="#standardizing-workflows" title="Link to this heading">#</a></h3>
 <p>Adding labels to issues also helps us standardize a workflow for the project.
@@ -1125,8 +1141,12 @@ without having to wait for someone to respond to email
 there is always more work to do than time to do it,
 so every project needs some way to figure out what to focus on.
 Labeling issues helps with <strong>triage</strong>, which is the process of deciding what is a priority and what isn’t.
-This is never an easy job for software projects that need to balance fixing bugs with creating new features, and is even more challenging for research projects for which “done” is hard to define or whose team members are widely distributed or do not all work for the same institution.</p>
-<p>Many commercial and open source teams have adopted <strong>agile development</strong> as a solution to these problems. Instead of carefully formulating long-term plans that could be derailed by changing circumstances, agile development uses a sequence of short development <strong>sprints</strong>, each typically one or two weeks long.
+This is never an easy job for software projects that need to balance fixing bugs with creating new features, and is even
+more challenging for research projects for which “done” is hard to define or whose team members are widely distributed
+or do not all work for the same institution.</p>
+<p>Many commercial and open source teams have adopted <strong>agile development</strong> as a solution to these problems.
+Instead of carefully formulating long-term plans that could be derailed by changing circumstances,
+agile development uses a sequence of short development <strong>sprints</strong>, each typically one or two weeks long.
 Each sprint starts with a planning session lasting one or two hours
 in which the successes and failures of the previous sprint are reviewed
 and issues to be resolved in the current sprint are selected.
@@ -1138,14 +1158,15 @@ with smaller items,
 it’s easier to see how much headway is being made.)</p>
 <p>To decide which issues to work on in the next sprint,
 a team can construct an <strong>impact/effort matrix</strong>(<a class="reference internal" href="#teams-impact-effort"><span class="std std-ref"> Figure teams impact/effor matrix</span></a>).
-Impact measures how important the issue is to reaching the team’s goals,
+Impact measures how important the issue is to reaching the team’s goals
 and is typically measured on a low–medium–high scale.
 (Some teams use ratings from 1 to 10,
 but this just leads to arguing over whether something is a 4 or a 5.)
 Effort measures how much work the issue requires.
 Since this can’t always be estimated accurately,
 it’s common to classify things as “an hour,” “a day,” or “multiple days.”
-Again, anything that’s likely to take longer than multiple days should be broken down so that planning and progress tracking can be more accurate.</p>
+Again, anything that’s likely to take longer than multiple days should be broken down so that planning
+and progress tracking can be more accurate.</p>
 <figure class="align-default" id="teams-impact-effort">
 <img alt="../_images/effort-impact-matrix.png" src="../_images/effort-impact-matrix.png" />
 <figcaption>
@@ -1153,30 +1174,31 @@ Again, anything that’s likely to take longer than multiple days should be brok
 </figcaption>
 </figure>
 <p>The impact/effort matrix makes the priorities for the coming sprint clear:
-anything that is of high importance and requires little effort should be included, while things of low importance that require a lot of effort should not. The team must still make hard decisions, though:</p>
+anything that is of high importance and requires little effort should be included, while things of low importance that
+require a lot of effort should not. The team must still make hard decisions, though:</p>
 <ul class="simple">
 <li><p>Should a single large high-priority item be done,
 or should several smaller low-priority items be tackled instead?</p></li>
 <li><p>What should be done about medium-priority items that keep being put off?</p></li>
 </ul>
-<p>Each team has to answer these questions for each sprint,
-but that begs the question of exactly who has the final say in answering them.
-In a large project,
-a <strong>product manager</strong> decides how important items are, while a <strong>project manager</strong> is responsible for estimating effort and tracking progress.
-In a typical research software project the principal investigator either makes the decision or delegates that responsibility (and authority) to the lead developer.</p>
-<p>Regardless of who is ultimately responsible, it is essential to include project participants in the planning and decision making.
-This may be as simple as having them add <strong>up-votes</strong> and <strong>down-votes</strong> to indicate their opinions on importance, or as complex as asking them to propose
-a multi-sprint breakdown of a particularly complex feature.
-Doing this shows people that their contributions are valued,
-which in turn increases their commitment to doing the work.
+<p>Each team has to answer these questions for each sprint, but that begs the question of exactly who has the final say in
+answering them. In a large project, a <strong>product manager</strong> decides how important items are, while a <strong>project manager</strong>
+is responsible for estimating effort and tracking progress.
+In a typical research software project, the principal investigator either makes the decision or delegates that
+responsibility (and authority) to the lead developer.</p>
+<p>Regardless of who is ultimately responsible, it is essential to include project participants in the planning and
+decision-making. This may be as simple as having them add <strong>up-votes</strong> and <strong>down-votes</strong> to indicate their opinions on
+importance, or as complex as asking them to propose a multi-sprint breakdown of a particularly complex feature.
+Doing this shows people that their contributions are valued, which in turn increases their commitment to doing the work.
 It also produces better plans, since everyone knows something that someone else doesn’t.</p>
 </section>
 <section id="meetings">
 <h2>Meetings<a class="headerlink" href="#meetings" title="Link to this heading">#</a></h2>
 <p>Pull requests and GitHub issues are good tools for asynchronous work,
-but team meetings are often a more efficient way to make decisions,
+but team meetings are often a more efficient way to make decisions
 and help build a sense of community.
-Knowing how to run a meeting well is as important as knowing how to use version control; the rules doing so are simple but rarely followed:</p>
+Knowing how to run a meeting well is as important as knowing how to use version control;
+the rules for doing so are simple but rarely followed:</p>
 <p>Decide if there actually needs to be a meeting.
 :   If the only purpose is to share information,
 have everyone send a brief email instead.
@@ -1280,7 +1302,8 @@ and completely changes group dynamics.
 People who have given up trying to be heard
 suddenly have space to contribute,
 and the overly frequent speakers realize how unfair they have been.</p>
-<p>Another useful technique is called <strong>interruption bingo</strong>. Draw a grid and label the rows and columns with the participants’ names.
+<p>Another useful technique is called <strong>interruption bingo</strong>.
+Draw a grid and label the rows and columns with the participants’ names.
 Each time one person interrupts another, add a tally mark to the appropriate cell; halfway through the meeting,
 take a moment to look at the results.
 In most cases it will be clear that
@@ -1303,10 +1326,10 @@ and instead focus on when they’re gonna pause or finish
 so you can leap into that nanosecond of silence and be the first to utter something.
 The format…encourages participants who want to contribute
 to say more and listen less.”</p>
-<p>The solution is to run a text chat beside the video conference
+<p>The solution is to run a text chat besides the video conference
 where people can signal that they want to speak.
 The moderator can then select people from the waiting list.
-This practice can be reinforced by having everyone mute themselves,
+This practice can be reinforced by having everyone mute themselves
 and only allowing the moderator to unmute people.
 <span id="id15">[<a class="reference internal" href="references.html#id23" title="Stephen D. Brookfield and Stephen Preskill. The Discussion Book: 50 Great Ways to Get People Talking. Jossey-Bass, 2016. ISBN 978-1119049715. Describes fifty different ways to get groups talking productively.">Brookfield and Preskill, 2016</a>]</span> has many other useful suggestions for managing meetings.</p>
 </section>
@@ -1324,11 +1347,12 @@ in which everyone knows everyone else.
 Beyond that, groups need to spell out
 who has the authority to make which decisions
 and how to achieve consensus.
-In short, they need explicit <strong>governance</strong>. <strong>Martha’s Rules</strong>  are a practical way to do this in groups of up to a few dozen members <span id="id17">[<a class="reference internal" href="references.html#id60" title="Anne Minahan. Martha's Rules. Affilia, 1(2):53–56, Jun 1986. Describes a lightweight set of rules for consensus-based decision making. doi:10.1177/088610998600100206.">Minahan, 1986</a>]</span>:</p>
+In short, they need explicit <strong>governance</strong>. <strong>Martha’s Rules</strong> are a practical way to do this in groups of up to a few
+dozen members <span id="id17">[<a class="reference internal" href="references.html#id60" title="Anne Minahan. Martha's Rules. Affilia, 1(2):53–56, Jun 1986. Describes a lightweight set of rules for consensus-based decision making. doi:10.1177/088610998600100206.">Minahan, 1986</a>]</span>:</p>
 <ol class="arabic simple">
 <li><p>Before each meeting, anyone who wishes may sponsor a proposal.
 Proposals must be filed at least 24 hours before a meeting
-in order to be considered at that meeting, and must include:</p>
+in order to be considered at that meeting and must include:</p>
 <ul class="simple">
 <li><p>a one-line summary</p></li>
 <li><p>the full text of the proposal</p></li>
@@ -1384,7 +1408,8 @@ who are then voted in (or not) using the process described above.</p>
 <h2>Make All This Obvious to Newcomers<a class="headerlink" href="#make-all-this-obvious-to-newcomers" title="Link to this heading">#</a></h2>
 <p>Rules that people don’t know about can’t help them.
 Once your team agrees on a project structure,
-a workflow, how to get items on a meeting agenda, or how to make decisions, you should therefore take the time to document this for newcomers.
+a workflow, how to get items on a meeting agenda, or how to make decisions, you should therefore take the time to
+document this for newcomers.
 This information may be included as sections in the existing <code class="docutils literal notranslate"><span class="pre">README</span></code> file or put into files of their own:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING</span></code>
@@ -1406,14 +1431,15 @@ that <em>not</em> being explicit about who has a voice in decisions
 and how contributors can tell what decisions have been made
 causes trouble sooner or later.</p></li>
 </ul>
-<p>Having these files helps new contributors orient themselves,
+<p>Having these files helps new contributors orient themselves
 and also signals that the project is well run.</p>
 </section>
 <section id="handling-conflict">
 <h2>Handling Conflict<a class="headerlink" href="#handling-conflict" title="Link to this heading">#</a></h2>
 <p>You just missed an important deadline, and people are unhappy.
 The sick feeling in the pit of your stomach has turned to anger:
-you did <em>your</em> part, but Sylvie didn’t finish her stuff until the very last minute, which meant that no one else had time to spot the two big mistakes she’d made. As for Cho, he didn’t deliver at all—again.
+you did <em>your</em> part, but Sylvie didn’t finish her stuff until the very last minute, which meant that no one else had
+time to spot the two big mistakes she’d made. As for Cho, he didn’t deliver at all—again.
 If something doesn’t change, contributors are going to start looking for a new project.</p>
 <p>Conflicts like this come up all the time.
 Broadly speaking, there are four ways we can deal with them:</p>
@@ -1433,8 +1459,11 @@ that they won’t work through another holiday weekend
 to make up for management’s decision to short-staff the project.</p></li>
 <li><p>Take constructive steps to fix the underlying problem.</p></li>
 </ol>
-<p>Most of us find the first three options easiest, even though they don’t actually fix the problem. The fourth option is harder because we don’t like confrontation. If we manage it properly, though,
-it is a lot less bruising, which means that we don’t have to be as afraid of initiating it. Also, if people believe that we will take steps when they bully, lie, procrastinate, or do a half-assed job, they will usually avoid making it necessary.</p>
+<p>Most of us find the first three options easiest, even though they don’t actually fix the problem. The fourth option is
+harder because we don’t like confrontation. If we manage it properly, though,
+it is a lot less bruising, which means that we don’t have to be as afraid of initiating it. Also, if people believe that
+we will take steps when they bully, lie, procrastinate, or do a half-assed job, they will usually avoid making it
+necessary.</p>
 <p>Make sure we are not guilty of the same sin.
 :   We won’t get very far complaining about someone else interrupting in meetings
 if we do it just as frequently.</p>
@@ -1523,7 +1552,8 @@ For example,
 don’t call someone stupid
 when what we really mean is that they’re racist or homophobic.</p></li>
 </ol>
-<p><a class="reference external" href="https://captainawkward.com/">Captain Awkward</a>  has useful advice for discussions like these, and <a class="reference external" href="https://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument">Charles’ Rules of Argument</a> are very useful online.</p>
+<p><a class="reference external" href="https://captainawkward.com/">Captain Awkward</a> has useful advice for discussions like these, and <a class="reference external" href="https://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument">Charles’ Rules of Argument</a>
+are very useful online.</p>
 <p>Finally, it’s important to recognize that good principles sometimes conflict.
 For example, consider this scenario:</p>
 <blockquote>
@@ -1536,11 +1566,13 @@ and you should be more considerate of people from other cultures.</p>
 on the other hand, we want to be inclusive of women.
 In this case,the manager’s discomfort about changing pronouns
 matters less than the career harm caused by them being exclusionary,
-but many cases are not this clear cut.</p>
+but many cases are not this clear-cut.</p>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p>This chapter was the hardest in this book to write, but is probably also the most important. A project can survive bad code or stumbles with Git, but not confusion and interpersonal conflict. Collaboration and management become easier with practice, and everything you learn from taking part in research software projects will help other things you do as well.</p>
+<p>This chapter was the hardest in this book to write, but is probably also the most important. A project can survive bad
+code or stumbles with Git, but not confusion and interpersonal conflict. Collaboration and management become easier with
+practice, and everything you learn from taking part in research software projects will help other things you do as well.</p>
 </section>
 <section id="keypoints">
 <h2>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
