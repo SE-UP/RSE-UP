@@ -196,7 +196,7 @@ so that it is immediately before the check on `__name__`.
 Wherever it goes,
 `main` tends to follow one of three patterns:
 
-1.  Figure out what the user has asked it to do (Chapter [Configuration](https://se-up.github.io/RSE-UP/chapters/configuration.html).
+1.  Figure out what the user has asked it to do (Chapter [Configuration](https://se-up.github.io/RSE-UP/chapters/configuration.html)).
 2.  Read all input data.
 3.  Process it.
 4.  Write output.
@@ -227,7 +227,7 @@ We put all of the single-use functions in the first half of the file
 in the order in which they are likely to be called,
 and then put all of the multi-use utility functions in the bottom of the file in alphabetical order.
 If any of those utility functions are used by other scripts or programs,
-they should go in a file of their own (Section [Collating Results](https://se-up.github.io/RSE-UP/chapters/python_building_cli.html#collating-results).
+they should go in a file of their own (Section [Collating Results](https://se-up.github.io/RSE-UP/chapters/python_building_cli.html#collating-results)).
 
 In fact,
 this is a good practice even if those functions are only used by one program,
@@ -366,8 +366,6 @@ It is also a matter of habit:
 if we write numbers without explanation in our code for simple cases,
 we are more likely to do so in complex cases,
 and more likely to regret it afterward.
-
-\newpage
 
 Using names instead of raw values also makes it easier to understand code when we read it aloud,
 which is always a good test of its style.
