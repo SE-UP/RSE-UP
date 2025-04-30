@@ -158,8 +158,8 @@ Main Flow:
 
 1. The researcher selects the "Generate Report" option in the research software.
 2. The system prompts the researcher to choose the desired report format (e.g., PDF, Excel).
-3. . The researcher selects the report format.
-4. . The system processes the available research data.
+3. The researcher selects the report format.
+4. The system processes the available research data.
 5. The system generates the report in the selected format.
 6. The researcher receives the generated report.
 
@@ -242,7 +242,7 @@ Additionally, a plain text list of non-functional requirements should be conside
 
 ```{figure} ../figures/app_classes/uml_workflow.png
 :name: UML_WORKFLOW
-.UML Workflow  Activity Diagramm [https://academic.oup.com/nar/article/40/7/2846/1187540](https://academic.oup.com/nar/article/40/7/2846/1187540)
+UML Workflow  Activity Diagramm [https://academic.oup.com/nar/article/40/7/2846/1187540](https://academic.oup.com/nar/article/40/7/2846/1187540)
 ```
 
 And here you have an description on the connections between activities:
