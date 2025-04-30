@@ -38,7 +38,7 @@ zipf/
 ## What Is a Project? 
 
 The first decision we have to make is what exactly constitutes a "project" 
-{cite:p}`Wils2017`.Some examples are:
+{cite:p}`Wils2017`. Some examples are:
 
 -   A dataset that is being used by several research projects.
     The project includes the raw data,
@@ -78,7 +78,7 @@ that's an even stronger sign.
 Most research software projects begin as the work of one person,
 who may continue to do the bulk of the coding and data analysis throughout its existence {cite:p}`Maju2019`.
 As projects become larger, though, they eventually need more contributors to sustain them. Involving more people also
-improves the functionality and robustness of the code,since newcomers bring their own expertise or see old problems in
+improves the functionality and robustness of the code, since newcomers bring their own expertise or see old problems in
 new ways.
 
 In order to leverage a group's expertise, a project must do more than *allow* people to contribute:
@@ -313,7 +313,6 @@ since rules are meaningless without a method to enforce them;
 > it may already have Code of Conduct:
 > the Human Resources department is usually the most helpful place to ask.
 
--->
 ### Software 
 
 In order to choose the right license for our software, we need to understand the difference between two kinds of license.
@@ -669,7 +668,7 @@ This is never an easy job for software projects that need to balance fixing bugs
 more challenging for research projects for which "done" is hard to define or whose team members are widely distributed
 or do not all work for the same institution.
 
-Many commercial and open source teams have adopted **agile development** as a solution to these problems.
+Many commercial and open-source teams have adopted **agile development** as a solution to these problems.
 Instead of carefully formulating long-term plans that could be derailed by changing circumstances,
 agile development uses a sequence of short development **sprints**, each typically one or two weeks long.
 Each sprint starts with a planning session lasting one or two hours
@@ -683,7 +682,7 @@ with smaller items,
 it's easier to see how much headway is being made.)
 
 To decide which issues to work on in the next sprint,
-a team can construct an **impact/effort matrix**([ Figure teams impact/effor matrix](teams-impact-effort)).
+a team can construct an **impact/effort matrix** ([Figure teams impact/effor matrix](teams-impact-effort)).
 Impact measures how important the issue is to reaching the team's goals 
 and is typically measured on a low--medium--high scale.
 (Some teams use ratings from 1 to 10,
@@ -910,7 +909,7 @@ dozen members {cite:p}`Mina1986`:
     The sponsor is also responsible for presenting the item to the group.
 
 4.  After the sponsor presents the proposal,
-    a \gref{sense vote}{sense_vote} is cast for the proposal prior to any discussion:
+    a sense vote is cast for the proposal prior to any discussion:
     -   Who likes the proposal?
     -   Who can live with the proposal?
     -   Who is uncomfortable with the proposal?
@@ -1128,7 +1127,7 @@ For example, consider this scenario:
 
 On the one hand, we want to respect other people's cultures;
 on the other hand, we want to be inclusive of women.
-In this case,the manager's discomfort about changing pronouns
+In this case, the manager's discomfort about changing pronouns
 matters less than the career harm caused by them being exclusionary,
 but many cases are not this clear-cut.
 
