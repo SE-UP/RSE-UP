@@ -46,13 +46,21 @@ parts:
       - file: chapters/introduction/jupyter.md
       #- file: chapters/anaconda.md
       - file: chapters/comp_narative.md
- # 6  
+
+  - caption: Testing and Error Handling
+    chapters: 
+      - file: chapters/introduction/testing.md
+      - file: chapters/testing_programs.md
+      - file: exercises/testing.ipynb
+      - file: chapters/introduction/error_handling.md
+      - file: chapters/error_handling.md
+      - file: exercises/error_handling.ipynb  
+ 
   - caption: Working in teams
     chapters:
       - file: chapters/working_in_teams.md
       - file: exercises/work_teams.ipynb
 
-  # 7
   - caption: Requirements, Architecture and Design
     chapters:
       - file: chapters/introduction/requirements_architecture_design.md
@@ -60,23 +68,13 @@ parts:
           - file: chapters/application_classes.md
           - file: chapters/requirements.md
           - file: chapters/architecture_design.md
-  # 8  
-  - caption: Testing, Error Handling and CLI Apps using Python
+
+  - caption: Building Command-Line Tools
     chapters: 
       - file: chapters/introduction/python_cli.md
-        sections:
-          - file: chapters/python_cli.md
-          - file: exercises/python_cli.ipynb 
-      - file: chapters/introduction/testing.md
-        sections:
-          - file: chapters/testing_programs.md
-          - file: exercises/testing.ipynb
-      - file: chapters/introduction/error_handling.md
-        sections:
-          - file: chapters/error_handling.md
-          - file: exercises/error_handling.ipynb  
+      - file: chapters/python_cli.md
+      - file: exercises/python_cli.ipynb 
       
-# 9
   - caption: Configuration and Packaging
     chapters:
       - file: chapters/introduction/config.md
@@ -89,7 +87,6 @@ parts:
           - file: chapters/python_packaging.md
           - file: exercises/packaging.ipynb
 
-  # 10, 11 
   - caption: Workflows and Automation
     chapters:
       # - file: chapters/introduction/workflows.md
@@ -106,8 +103,6 @@ parts:
         sections:
         - file: chapters/cicd_basics.md
       #  - file: chapters/cicd_gitlab.md
-
-  # 12
   
   - caption: Tracking Provenance
     chapters:
