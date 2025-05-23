@@ -61,6 +61,10 @@ parts:
       - file: chapters/working_in_teams.md
       - file: exercises/work_teams.ipynb
 
+  - caption: Workflows
+    chapters:
+      - file: chapters/workflows.md
+
   - caption: Requirements, Architecture and Design
     chapters:
       - file: chapters/introduction/requirements_architecture_design.md
