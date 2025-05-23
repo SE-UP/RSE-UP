@@ -63,13 +63,13 @@ The figure above summarizes the essential elements of activity diagrams that you
 
 Now let’s look at some concrete examples of activity diagrams, inspired by our running Zipf example. Essentially, here we want to load a text file, count the words in it, and plot the word counts. A **basic activity diagram** could look like this: 
 
-![](../figures/workflows/Zipf basic.drawio.png)
+![](../figures/workflows/Zipf-basic.drawio.png)
 
 Mind here that activity nodes must describe something that happens—a computation, a transformation, or a decision—not passive items like data states or files.
 
 While **object (data) flow** is optional in UML activity diagrams, it can be useful when you want to make data dependencies explicit. Use data object nodes (rectangles) to show inputs and outputs, and use dashed arrows to show data flow (object flow), distinguishing it from solid arrows used for control flow, for example, you can add object nodes for input file and word counts to the diagram above, to clarify what data each action uses and produces: 
 
-![](../figures/workflows/Zipf with data.drawio.png)
+![](../figures/workflows/Zipf-with-data.drawio.png)
 
 You can also add free-floating **notes or comments** anywhere in the diagram for clarification. These can, for example, explain assumptions, point out missing elements, or provide documentation for future reference: 
 
@@ -77,19 +77,19 @@ You can also add free-floating **notes or comments** anywhere in the diagram for
 
 Activity diagrams allow you to model **decisions** (like if/else logic or switches) using decision nodes (diamonds). For instance, after `count words`, you might ask: Should I plot the word counts? If yes, plot word counts, if not, skip and go to next step: 
 
-![](../figures/workflows/Zipf with condition.drawio.png)
+![](../figures/workflows/Zipf-with-condition.drawio.png)
 
 You can use a merge node (also a diamond) to reconnect conditional paths, improving clarity—especially in large diagrams. It is optional, but it helps with visual clarity, especially for larger or nested flows.
 
 Decision nodes can also be used to model **loops**, by routing the flow back to an earlier activity. For example, we might loop through a list of input texts, and check if more texts remain before we count words and plot word counts: 
 
-![](../figures/workflows/Zipf with loop.drawio.png)
+![](../figures/workflows/Zipf-with-loop.drawio.png)
 
 Loops are easily understood in activity diagrams and are visually intuitive.
 
 Finally, activity diagrams also support modeling **concurrency and parallelism** using fork and join nodes (represented by thick horizontal bars). For example, after a text you might actually do differerent independent things (like counting words and plotting word counts, detecting the language of the text, and performing a sentiment analysis). Synchronize the branches one all are completed, then compile a report from all results: 
 
-![](../figures/workflows/Zipf with fork.drawio.png)
+![](../figures/workflows/Zipf-with-fork.drawio.png)
 
 Note that although the terms are used interchangeably, parallel and concurrent are not the same thing. 
 Parallel means truly simultaneous execution (e.g., different machines or cores), while concurrent refers to interleaved tasks on a single core.
