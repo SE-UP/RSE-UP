@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Analysis Workflows &#8212; RSE-UP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/book.css?v=c89437f7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/workflows';</script>
+    <link rel="canonical" href="https://software-engineering-group-up.github.io/RSE-UP/chapters/workflows.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RSE-UP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Before we start</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Software to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Running Example and Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Software Licenses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Shell</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_tools.html">Building Tools with the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_tools.html">Bash Tool Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_advanced.html">Bash Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_advanced.html">Bash Advanced Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Version Control with Git</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/vcs.html">Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_version_control.html">Using Git at the Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/version_control.html">Exercise Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ssh-key.html">Using SSH on Gitlab and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_messages.html">Writing good commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_advanced.html">Going Further with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_advanced_github.html">Forking on Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/git_advanced.html">Exercises Git Advanced</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Coding Style and Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="clean_readable_code.html">Writing Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing_documentation.html">Documenting Programs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Markdown, READMEs, Notebooks and Computational Narratives</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/documentation.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_files.html">README Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comp_narative.html">Computational Narratives</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing and Error Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/testing.html">Introduction to Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing_programs.html">Testing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/testing.html">Exercises - Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/error_handling.html">Introduction to Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Handling Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/error_handling.html">Exercises - Error Handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="working_in_teams.html">Working in Teams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/work_teams.html">Exercise - Work Teams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Requirements, Architecture and Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/requirements_architecture_design.html">Application Classes, Software Requirements, Architecture and Design</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="application_classes.html">Application Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Software Development Process and Requirements Engineering in RSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_design.html">Architecture and Design</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Command-Line Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/python_cli.html">Introduction to CLI application using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_cli.html">Building Command-Line Tools with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_cli.html">Exercises - Scripting Python for CLI tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configuration and Packaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/config.html">Introduction to Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuring Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaml.html">YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/config.html">Exercises - Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/packaging.html">Introduction to Packaging Python Software</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_packaging.html">Creating Packages with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/packaging.html">Exercises - Packaging</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows and Automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/automation.html">Introduction to Make and Snakemake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro_snakemake.html">Introduction to Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snakemake_continued.html">Snakemake Continued</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snakemake_continued_2.html">Snakemake Continued Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/snakemake.html">Snakemake Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_make.html">Automating Analyses with Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/intro_make.html">Exercises - Make</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/cicd.html">Introduction to CI/CD</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="cicd_basics.html">CI/CD Basics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tracking Provenance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tracking_provenance.html">Tracking Provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/provenance.html">Exercises - Provenance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="solutions.html">Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_remotely.html">Working Remotely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree.html">Project Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Software-Engineering-Group-UP/RSE-UP" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Software-Engineering-Group-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Fchapters/workflows.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/workflows.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Analysis Workflows</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-workflow-life-cycle">Understanding the Workflow Life Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-conception-and-representing-abstract-daws">Workflow Conception and Representing Abstract DAWs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uml-activity-diagrams">UML Activity Diagrams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-requirements">Node Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-functional-requirements">Non-Functional Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-composition">Workflow Composition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-specification">Workflow Specification</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-analysis-workflows">
+<h1>Data Analysis Workflows<a class="headerlink" href="#data-analysis-workflows" title="Link to this heading">#</a></h1>
+<p>A <strong>data analysis workflow (DAW)</strong> is a set of programs operating together to analyze some input data to produce a specific output to answer a scientific research question. Programs in a DAW are often interdependent, i.e., the successful execution of some (upstream) program is a prerequisite for the execution of other (downstream) programs.
+Technically, DAWs are often orchestrations (“glue code”) of calls to different tools, and these can have many forms. For example, they can be implemented as R scripts, Python code, Jupyter Notebooks, or in one of the (literally!) hundreds of workflow systems available today. Many of these systems are highly specialized, some are graphical, and some require little or no actual coding (and can be seen as following the low-code/no-code paradigm).</p>
+<p>Note that DAWs are also often called <strong>scientific workflows</strong> or <strong>computational workflows</strong>, and we will use those terms interchangeably. Also, keep in mind that the word “workflow” is generally overloaded—it can also refer to business processes, document flows, etc. However, those are outside our focus. Our interest is specifically in data processing in a scientific context.</p>
+<section id="understanding-the-workflow-life-cycle">
+<h2>Understanding the Workflow Life Cycle<a class="headerlink" href="#understanding-the-workflow-life-cycle" title="Link to this heading">#</a></h2>
+<p>To help make more sense of what we will be discussing in the following, let’s take a look at this diagram—what we call the <strong>Workflow Life Cycle</strong>:</p>
+<p><img alt="workflow life cycle" src="../_images/wf-lifecycle.png" /></p>
+<p>It’s not the only version out there; the literature contains several life cycle models for workflows. However, this particular one was developed collaboratively during a week-long workshop, based on many discussions among workflow experts, so it reflects <a class="reference external" href="https://doi.org/10.12688/f1000research.54159.1">a common perspective</a>.
+The idea is that developing a scientific workflow is not a one-time process. It’s cyclical—you often go through multiple iterations and refinements. But generally, the process follows a series of distinct stages:</p>
+<ol class="arabic simple">
+<li><p>It begins with a <strong>scientific question or hypothesis</strong> that requires some computational, data analysis process to be addressed.</p></li>
+<li><p>Through a conception process an <strong>abstract worfklow</strong> is developed as a high-level representation of the functional steps involved in the analysis, as well as their interdependencies. This abstract workflow does not refer to actual code or executable programs, but rather uses domain-specific terms for describing operations to be carried out. It is platform-agnostic, meaning it does not assume any specific computing environment. Think of it as a blueprint that describes <em>what</em> needs to be done, but not exactly <em>how</em>.</p></li>
+<li><p>Next, you translate the abstract workflow into a <strong>logical workflow</strong>. A logical DAW is a representation of the concrete programs that are to be executed and their interdependencies. Logical DAWs thus instantiate abstract DAWs. At this stage, you often start assuming certain runtime environments (like Python or Snakemake, local computer or remote cluster). However, this is still not yet the fully executable version.</p></li>
+<li><p>Finally, the final step is the creation of a <strong>physical workflow</strong> that represents the order at which the programs of a DAW are to be executed together with the concrete input on which they operate. Here, you provide all the specific inputs, parameters, and details needed for execution.
+This version is ready to run on a particular infrastructure.</p></li>
+<li><p>Executing the workflow then yields <strong>scientific results</strong>, which are interpreted and might lead to new or refined workflows.</p></li>
+</ol>
+<p>In the following we take a closer look at workflow conception, composition and specification, and at selected techniques and tools for these phases.</p>
+</section>
+<section id="workflow-conception-and-representing-abstract-daws">
+<h2>Workflow Conception and Representing Abstract DAWs<a class="headerlink" href="#workflow-conception-and-representing-abstract-daws" title="Link to this heading">#</a></h2>
+<p>From a scientific standpoint, the conception phase of a workflow is critically important, and it should be approached systematically. <a class="reference external" href="https://ora.ox.ac.uk/objects/uuid:ba3b6434-f5db-4acd-af24-4f9c15cfc9b5">Pereira et al.</a> propose a <strong>workflow conception process</strong> using abstract workflows expressed as <strong>activity diagrams</strong>, combined with structured forms for recording the specific requirements for its nodes. Here is an example from  bioinformatics paper by C. Pechon et al. published in the Journal Nucleic Acids Research (Volume 40, Issue 7, 1 April 2012, Pages 2846–2861, <a class="reference external" href="https://doi.org/10.1093/nar/gkr1141">https://doi.org/10.1093/nar/gkr1141</a>) under a CC-BY-NC license (which enables us to show it here):</p>
+<p><img alt="" src="../_images/ad-example.jpeg" /></p>
+<p>Without going into its details, this example activity diagram shows that researchers have indeed used activity diagrams in published papers to convey the structure of their analysis more clearly than code would allow. The diagrams are easy to understand, even for scientists or collaborators who may not (want to) see or write the code. This makes them a powerful tool for discussion and alignment before any code is written.</p>
+<section id="uml-activity-diagrams">
+<h3>UML Activity Diagrams<a class="headerlink" href="#uml-activity-diagrams" title="Link to this heading">#</a></h3>
+<p>Before we proceed, let’s understand how activity diagrams work.
+An activity diagram is a type of graph that visually represents the sequence of operations or steps in a workflow. It’s part of the UML (Unified Modeling Language) family, which is widely used in software engineering for modeling systems.
+A practical tool you can use is <a class="reference external" href="http://draw.io">draw.io</a> (also called <a class="reference external" href="https://app.diagrams.net/">diagrams.net</a>), an online editor for creating various types of diagrams including UML. When using it, choose “UML 2.5” as the diagram type to have all symbols available that we use here.</p>
+<p>As the name suggest, the primary elements in activity diagrams are <strong>activities</strong>, shown as rounded rectangles. Each activity represents a high-level operation or task, such as “Sequence Extraction”, “Conversation Analysis”, or “Text Search”.
+These are not tied to specific tools or software—they describe what you’re doing, not how.</p>
+<p><img alt="" src="../_images/uml-basic-elements.drawio.png" /></p>
+<p>The figure above summarizes the essential elements of activity diagrams that you should to know:</p>
+<ul class="simple">
+<li><p><strong>Start</strong> Node: A filled black circle that shows where execution begins.</p></li>
+<li><p><strong>End</strong> Node(s): Black circle(s) with an outer ring, marking one or more possible end points.</p></li>
+<li><p><strong>Activities (Actions)</strong>: Rounded rectangles that describe operations or tasks.</p></li>
+<li><p><strong>Control Flow</strong> (Solid Arrows): Shows the order of execution from one node to the next.</p></li>
+<li><p><strong>Data Objects</strong>: To represent files, datasets, or inputs/outputs.</p></li>
+<li><p><strong>Data Flow</strong> (Dashed Arrows): Represents the flow of data between activities—optional but helpful for understanding dependencies.</p></li>
+<li><p><strong>Decision</strong> Node (Diamond): Indicates branching based on conditions (like an if/else, but also used for loops).</p></li>
+<li><p><strong>Merge</strong> Node (Diamond): Merges different branches back into a single flow.</p></li>
+<li><p><strong>Fork and Join</strong> (Thick Bars): Used to show parallel execution, i.e., tasks that can happen simultaneously.</p></li>
+<li><p><strong>Notes</strong>: For explanations or comments.</p></li>
+</ul>
+<p>Now let’s look at some concrete examples of activity diagrams, inspired by our running Zipf example. Essentially, here we want to load a text file, count the words in it, and plot the word counts. A <strong>basic activity diagram</strong> could look like this:</p>
+<p>![](../figures/workflows/Zipf basic.drawio.png)</p>
+<p>Mind here that activity nodes must describe something that happens—a computation, a transformation, or a decision—not passive items like data states or files.</p>
+<p>While <strong>object (data) flow</strong> is optional in UML activity diagrams, it can be useful when you want to make data dependencies explicit. Use data object nodes (rectangles) to show inputs and outputs, and use dashed arrows to show data flow (object flow), distinguishing it from solid arrows used for control flow, for example, you can add object nodes for input file and word counts to the diagram above, to clarify what data each action uses and produces:</p>
+<p>![](../figures/workflows/Zipf with data.drawio.png)</p>
+<p>You can also add free-floating <strong>notes or comments</strong> anywhere in the diagram for clarification. These can, for example, explain assumptions, point out missing elements, or provide documentation for future reference:</p>
+<p>![](../figures/workflows/Zipf with data and comments.drawio.png)</p>
+<p>Activity diagrams allow you to model <strong>decisions</strong> (like if/else logic or switches) using decision nodes (diamonds). For instance, after <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">words</span></code>, you might ask: Should I plot the word counts? If yes, plot word counts, if not, skip and go to next step:</p>
+<p>![](../figures/workflows/Zipf with condition.drawio.png)</p>
+<p>You can use a merge node (also a diamond) to reconnect conditional paths, improving clarity—especially in large diagrams. It is optional, but it helps with visual clarity, especially for larger or nested flows.</p>
+<p>Decision nodes can also be used to model <strong>loops</strong>, by routing the flow back to an earlier activity. For example, we might loop through a list of input texts, and check if more texts remain before we count words and plot word counts:</p>
+<p>![](../figures/workflows/Zipf with loop.drawio.png)</p>
+<p>Loops are easily understood in activity diagrams and are visually intuitive.</p>
+<p>Finally, activity diagrams also support modeling <strong>concurrency and parallelism</strong> using fork and join nodes (represented by thick horizontal bars). For example, after a text you might actually do differerent independent things (like counting words and plotting word counts, detecting the language of the text, and performing a sentiment analysis). Synchronize the branches one all are completed, then compile a report from all results:</p>
+<p>![](../figures/workflows/Zipf with fork.drawio.png)</p>
+<p>Note that although the terms are used interchangeably, parallel and concurrent are not the same thing.
+Parallel means truly simultaneous execution (e.g., different machines or cores), while concurrent refers to interleaved tasks on a single core.
+At the activity diagram level, this distinction doesn’t matter, however,  as it abstracts away those implementation details.
+So even if you’re not sure whether your workflow will be run in parallel or concurrently, you can still model it cleanly at this level.</p>
+<p>Now we covered illustrations for the basic UML elements and their functionality. There are more elements that can be used in activity diagrams, and more UML diagram types, making UML a <strong>very versatile and flexible</strong> language. While this flexibility is advantageous, it can also present challenges in deciding the best way to model certain aspects. Often, there are multiple effective methods for modeling the same workflow, and finding the “best” way requires experience and feedback from peers. However, while you have flexibility in how and how much you utilize these elements, it is crucial to <strong>respect their intended meanings</strong>. For instance, ensure that an activity node contains an activity, and an object node contains an object. Control flow edges should define the flow of execution, while object flow edges should define the flow of objects.</p>
+</section>
+<section id="node-requirements">
+<h3>Node Requirements<a class="headerlink" href="#node-requirements" title="Link to this heading">#</a></h3>
+<p>When you have an abstract workflow that consists of multiple activities, it’s crucial to consider how these activities will be implemented in real code. Importantly, you don’t necessarily need to write all the code from scratch, as there might be existing tools or libraries you can leverage to facilitate the process. Again following the recommendation by <a class="reference external" href="https://ora.ox.ac.uk/objects/uuid:ba3b6434-f5db-4acd-af24-4f9c15cfc9b5">Pereira et al.</a>, the next step towards implementing a workflow involves <strong>listing all the nodes</strong> within the abstract workflow and <strong>documenting their specific requirements</strong>. This includes detailing what each node is supposed to accomplish. Pereira et al., in their original paper, propose a comprehensive requirement form. While this might be excessive for our purposes, essential elements should still be documented.</p>
+<p>Here is what you should consider documenting for each activity:</p>
+<ol class="arabic simple">
+<li><p><strong>Name</strong> of the Activity: Provide a clear title for the task.</p></li>
+<li><p><strong>Description</strong>: Offer a detailed explanation of what the activity entails.</p></li>
+<li><p><strong>Type</strong> of Activity: Indicate whether it’s completely automatic, semi-automatic, or manual, recognizing that some workflows require human intervention.</p></li>
+<li><p><strong>Iputs and Outputs</strong>: Specify what data is needed before execution and what results are produced.</p></li>
+<li><p><strong>Implementation</strong>: Possibilities for implementing the activity, such as existing command line tools, web APIs, library functions, or if own code is required.</p></li>
+</ol>
+<p>If necessary, you can also record preconditions and postconditions (that must be met before execution and document changes that occur afterwards), mandatory or optional nature of the activities (if they can be substituted), required pre-activities or risks (such as long execution times or memory constraints).</p>
+<p><img alt="" src="../_images/zipf-node-requirements.png" /></p>
+<p>For example, let’s consider the “count words” activity in a zip workflow. This automated activity calculates word counts and percentages without manual intervention once input data is provided. We can implement it using our word count package, which includes a function that performs this task efficiently.
+Its input is a plain text file containing the text to analyze, and the output a plain text file with word counts for the input file. Large input files may pose a risk, a the process may be time-consuming or memory-intensive, suggesting precautions like not shutting down your laptop mid-analysis.</p>
+</section>
+<section id="non-functional-requirements">
+<h3>Non-Functional Requirements<a class="headerlink" href="#non-functional-requirements" title="Link to this heading">#</a></h3>
+<p>In addition to documenting functional requirements, which describe the specific functionalities and tasks a workflow performs, we will also record <strong>non-functional requirements</strong>. Non-functional requirements are crucial aspects of software or workflows that, while not directly related to the core functionality or data analysis processes, are still vital for the overall system.</p>
+<p>For instance, within a workflow, non-functional requirements might include the need for the workflow to be executable on a standard computer or laptop, without necessitating access to high-performance clusters. Another requirement could be compatibility across all major operating systems, which might influence the selection of tools, restricting those that are Linux-specific if the workflow needs to operate on Windows machines as well.
+As another example, a requirement might dictate that all components of the workflow should be based on open-source software. Although this doesn’t impact the core functionality directly, it influences other decisions such as tool and component selection, requiring compatibility with open-source licenses.</p>
+<p>It is important to be mindful of such requirements from the beginning of workflow development. Documenting non-functional requirements can be done in various formats; however, for our purposes, we will use plain text to record them.</p>
+</section>
+<section id="documenting-requirements">
+<h3>Documenting Requirements<a class="headerlink" href="#documenting-requirements" title="Link to this heading">#</a></h3>
+<p>We have seen how we can represent functional requirements of data analysis workflows as UML activity diagrams and node requiremen forms, and non-functional requirements as just plain text. By considering both functional and non-functional requirements, we can ensure that the workflow meets all necessary criteria and operates effectively within given constraints.</p>
+<p>Regarding the practical question of <strong>where to store requirements documentation</strong> within your repository, there isn’t a one-size-fits-all answer. The best approach can vary depending on how your team collaborates and documents its findings:
+For simpler projects, incorporating requirements into the README file might suffice. For more structured documentation, we recommend creating a dedicated folder within the repository, such as a <strong>“documentation” folder</strong>, where you can place files like <strong>“<a class="reference external" href="http://requirements.md">requirements.md</a>”</strong> to keep these records organized and accessible.
+Other options include using a project-specific Wiki or integrating them into the issue tracker.</p>
+<p>The key is to ensure that requirements are documented in a manner that makes them easily available for everyone involved in the project and for reference during later stages of development.</p>
+</section>
+</section>
+<section id="workflow-composition">
+<h2>Workflow Composition<a class="headerlink" href="#workflow-composition" title="Link to this heading">#</a></h2>
+<p>(to come)</p>
+</section>
+<section id="workflow-specification">
+<h2>Workflow Specification<a class="headerlink" href="#workflow-specification" title="Link to this heading">#</a></h2>
+<p>(to come)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-workflow-life-cycle">Understanding the Workflow Life Cycle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-conception-and-representing-abstract-daws">Workflow Conception and Representing Abstract DAWs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uml-activity-diagrams">UML Activity Diagrams</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-requirements">Node Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-functional-requirements">Non-Functional Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-composition">Workflow Composition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-specification">Workflow Specification</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Software Engineering Group - University of Potsdam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
