@@ -581,7 +581,7 @@ the keys <code class="docutils literal notranslate"><span class="pre">logfile</s
 have the values <code class="docutils literal notranslate"><span class="pre">/tmp/log.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>, and <code class="docutils literal notranslate"><span class="pre">false</span></code> respectively,
 while the value associated with the key <code class="docutils literal notranslate"><span class="pre">fonts</span></code>
 is a list containing <code class="docutils literal notranslate"><span class="pre">Verdana</span></code> and <code class="docutils literal notranslate"><span class="pre">Serif</span></code>.
-For more discussion of YAML, see <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/yaml.html">Appendix - YAML</a>.</p>
+For more discussion of YAML, see Chapter<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/yaml.html">YAML</a>.</p>
 </section>
 <section id="matplotlib-configuration">
 <h2>Matplotlib Configuration<a class="headerlink" href="#matplotlib-configuration" title="Link to this heading">#</a></h2>
@@ -610,14 +610,14 @@ to change the size of the labels:</p>
 </section>
 <section id="the-global-configuration-file">
 <h2>The Global Configuration File<a class="headerlink" href="#the-global-configuration-file" title="Link to this heading">#</a></h2>
-<p>Our first configuration possibility is to edit the system-wide Matplotlib runtime configuration file, when we import Matplotlib,
+<p>Our first configuration possibility is to edit the system-wide Matplotlib runtime configuration file. When we import Matplotlib,
 it uses this file to set the default characteristics of the plot.
 We can find it on our system by running this command:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
 <span class="n">mpl</span><span class="o">.</span><span class="n">matplotlib_fname</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>If for example you use <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> the location could be as follows:</p>
+<p>If, for example, you use <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> the location could be as follows:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/Users/amira/anaconda3/lib/python3.7/site-packages/matplotlib/
 mpl-data/matplotlibrc
 </pre></div>
@@ -658,10 +658,10 @@ as is the size of the tick labels:</p>
 <p>This does what we want,
 but is usually the wrong approach.
 Since the <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> file sets system-wide defaults,
-we will now have big labels by default for all plotting we do in the future,
+we will now have big labels by default for all plotting we’ll do in the future,
 which we may not want.
 Secondly,
-we want to package our Zipf’s Law code and make it available to other people (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/packaging.html">packaging</a>).
+we want to package our Zipf’s Law code and make it available to other people (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/packaging.html">packaging</a>).
 That package won’t include our <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> file,
 and we don’t have access to the one on their computer,
 so this solution isn’t as reproducible as others.</p>
@@ -711,8 +711,7 @@ we would just need to add one line to <code class="docutils literal notranslate"
 </div>
 <p>Using a custom style sheet leaves the system-wide defaults unchanged,
 and it’s a good way to achieve a consistent look across our personal data visualization projects.
-However,
-since each user has their own <code class="docutils literal notranslate"><span class="pre">stylelib</span></code> directory,
+However, since each user has their own <code class="docutils literal notranslate"><span class="pre">stylelib</span></code> directory,
 it doesn’t solve the problem of ensuring that other people can reproduce our plots.</p>
 </section>
 <section id="adding-command-line-options">
@@ -753,7 +752,7 @@ These are stored in a variable called <code class="docutils literal notranslate"
 <p>Adding extra command-line arguments is a good solution
 if we only want to change a small number of plot characteristics.
 It also makes our work more reproducible:
-if we use a Makefile to regenerate our plots (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_make.md">Chapter Intro to make</a>),
+if we use a Makefile to regenerate our plots (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/automation.html">Chapter Intro to make</a>),
 the settings will all be saved in one place.
 However,
 <code class="docutils literal notranslate"><span class="pre">matplotlibrc</span></code> has hundreds of parameters we could change,
@@ -844,7 +843,7 @@ from people who just want to get their science done.</p>
 the problem of configuring a program illustrates the difference
 between “works for me on my machine”
 and “works for everyone, everywhere.”
-From reproducible workflows (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_make.html">Chapter make</a> or <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/snakemake.html">chapter workflows with snakemake</a> to logging (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/error_handling.md#reporting-errors.html">Section Reporting Errors</a>),
+From reproducible workflows (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/automation.html">Chapter make</a> or <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/automation.html">Chapter workflows with snakemake</a> to logging (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/error_handling.html#reporting-errors">Section Reporting Errors</a>),
 this difference influences every aspect of a research software engineer’s work.
 We don’t always have to design for large-scale re-use,
 but knowing what it entails allows us to make a conscious, thoughtful choice.</p>
