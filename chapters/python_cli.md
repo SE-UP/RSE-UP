@@ -439,7 +439,7 @@ if __name__ == '__main__':
 ```
 
 ## Pipelining
-As discussed in Section on bash tools, most Unix commands follow a useful convention: if the user doesn't specify the names of any input files, they read from **standard input** (stdin). 
+As discussed in Section on [Bash tools](https://se-up.github.io/RSE-UP/chapters/bash_tools.html), most Unix commands follow a useful convention: if the user doesn't specify the names of any input files, they read from **standard input** (stdin). 
 Similarly, if no output file is specified, the command sends its results to **standard output** (stdout). This makes it easy to use the command in a pipeline.
 
 Our program always sends its output to standard output as noted above, we can always redirect it to a file with `>`. 
