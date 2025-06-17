@@ -91,7 +91,7 @@ if __name__ == "__main__":
     # code goes here
 ```
 
-but that is considered poor practice, since it makes testing harder (Chapter **TODO** ref(testing)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
+but that is considered poor practice, since it makes testing harder (Chapter [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
 
 ```Python 
 def main():
