@@ -298,7 +298,7 @@ FILE
 ```
 
 As this example shows, if we ask for help on the module, Python formats and displays all of the docstrings for everything in the file.
-We talk more about what to put in a docstring in the chapter on documentation found [here](https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html).
+We talk more about what to put in a docstring in the chapter on documentation found [here](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html).
 
 ## Counting Words
 
