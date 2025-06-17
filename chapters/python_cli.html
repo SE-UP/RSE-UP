@@ -588,7 +588,7 @@ if it isn’t, we should assume that some other code is doing this.</p>
     <span class="c1"># code goes here</span>
 </pre></div>
 </div>
-<p>but that is considered poor practice, since it makes testing harder (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/testing_programs.html">Testing</a>). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:</p>
+<p>But that is considered poor practice, since it makes testing harder (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/testing_programs.html">Testing</a>). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 
@@ -765,7 +765,7 @@ FILE
 </pre></div>
 </div>
 <p>As this example shows, if we ask for help on the module, Python formats and displays all of the docstrings for everything in the file.
-We talk more about what to put in a docstring in the chapter on documentation found <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html">here</a>.</p>
+We talk more about what to put in a docstring in the chapter on documentation found <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/writing_documentation.html">here</a>.</p>
 </section>
 <section id="counting-words">
 <h2>Counting Words<a class="headerlink" href="#counting-words" title="Link to this heading">#</a></h2>
@@ -827,7 +827,7 @@ and writes it to standard output as in this case a text file with the name we ga
 <span class="n">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we added the function save_word_counts that takes a filename of our choise and the list object and saves it in a text file. This could also be done in a csv files but a txt file is enough.</p>
+<p>Here we added the function save_word_counts that takes a filename of our choice and the list object and saves it in a text file. This could also be done in a csv file but a txt file is enough.</p>
 <p>Now to make our <code class="docutils literal notranslate"><span class="pre">word_count</span></code> function available through CLI we have to call it from within the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- other functions above --- </span>
 
@@ -838,7 +838,7 @@ and writes it to standard output as in this case a text file with the name we ga
     <span class="n">word_count</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>We could also first rewrite this using argp parse or we write a function that is called within count_words that reads out a file.</p>
+<p>We could also first rewrite this using argparse, or we write a function that is called within count_words that reads out a file.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">load_text</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -892,7 +892,7 @@ and writes it to standard output as in this case a text file with the name we ga
 </section>
 <section id="pipelining">
 <h2>Pipelining<a class="headerlink" href="#pipelining" title="Link to this heading">#</a></h2>
-<p>As discussed in Section on bash tools, most Unix commands follow a useful convention: if the user doesn’t specify the names of any input files, they read from <strong>standard input</strong> (stdin).
+<p>As discussed in Section on <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/bash_tools.html">Bash tools</a>, most Unix commands follow a useful convention: if the user doesn’t specify the names of any input files, they read from <strong>standard input</strong> (stdin).
 Similarly, if no output file is specified, the command sends its results to <strong>standard output</strong> (stdout). This makes it easy to use the command in a pipeline.</p>
 <p>Our program always sends its output to standard output as noted above, we can always redirect it to a file with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.
 If we want <code class="docutils literal notranslate"><span class="pre">count_words.py</span></code> to read from standard input, we only need to change the handling of <code class="docutils literal notranslate"><span class="pre">infile</span></code> in the argument parser and simplify <code class="docutils literal notranslate"><span class="pre">main</span></code> to match:</p>
@@ -922,7 +922,7 @@ This is why we no longer need to call <code class="docutils literal notranslate"
 This means that if an argument is given it will be used, but if none is provided, a default of <code class="docutils literal notranslate"><span class="pre">'-'</span></code> will be used instead.
 <code class="docutils literal notranslate"><span class="pre">argparse.FileType('r')</span></code> understands <code class="docutils literal notranslate"><span class="pre">'-'</span></code> to mean “read from standard input”; this is another Unix convention that many programs follow.</p></li>
 </ol>
-<p>After these changes,we can create a pipeline like this to count the words in the first 500 lines of a book:</p>
+<p>After these changes, we can create a pipeline like this to count the words in the first 500 lines of a book:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">500</span><span class="w"> </span>../data/dracula.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>wordcount.py<span class="w"> </span>test.txt<span class="w"> </span>
 </pre></div>
 </div>
@@ -945,7 +945,7 @@ the user must provide them at the command line in the order in which they are sp
 </section>
 <section id="collating">
 <h2>Collating<a class="headerlink" href="#collating" title="Link to this heading">#</a></h2>
-<p>Now that we can get word counts for individual books we can collate the counts for several books.
+<p>Now that we can get word counts for individual books, we can collate the counts for several books.
 This can be done using a loop that adds up the counts of a word from each of the txt files created by <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code>.
 Using the same template as before, we can write a program called <code class="docutils literal notranslate"><span class="pre">collate.py</span></code>:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
@@ -1019,18 +1019,18 @@ Using the same template as before, we can write a program called <code class="do
 </section>
 <section id="writing-our-own-modules">
 <h2>Writing Our own Modules<a class="headerlink" href="#writing-our-own-modules" title="Link to this heading">#</a></h2>
-<p>In both <code class="docutils literal notranslate"><span class="pre">collate.py</span></code> and <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> we use the function <code class="docutils literal notranslate"><span class="pre">load_word_counts.py</span></code>. aving the same function in two or more places is a bad idea: if we want to improve it or fix a bug, we have to find and change every single script that contains a copy.
+<p>In both <code class="docutils literal notranslate"><span class="pre">collate.py</span></code> and <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> we use the function <code class="docutils literal notranslate"><span class="pre">load_word_counts.py</span></code>. Having the same function in two or more places is a bad idea: if we want to improve it or fix a bug, we have to find and change every single script that contains a copy.
 The solution is to put the shared functions in a separate file and load that file as a module. This can be done using a <code class="docutils literal notranslate"><span class="pre">utilities.py</span></code> or as shown in our example kept a single occurance of it in <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> and importing it with the following statement in <code class="docutils literal notranslate"><span class="pre">collate.py</span></code>:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">wordcount</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_word_counts</span>
 </pre></div>
 </div>
-<p>now we can run the following command to collate the results:</p>
+<p>Now we can run the following command to collate the results:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>collate.py<span class="w"> </span>data/wc_dracula.txt<span class="w"> </span>data/wc_moby_dick.txt<span class="w"> </span>data/wc_jane_eyre.txt<span class="w"> </span>
 </pre></div>
 </div>
-<p>The results will then be show as output in the terminal. To save them in a text file we could either write a function for that or for now use the following command:</p>
+<p>The results will then be shown as output in the terminal. To save them in a text file, we could either write a function for that or for now use the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>collate.py<span class="w"> </span>data/wc_dracula.txt<span class="w"> </span>data/wc_moby_dick.txt<span class="w"> </span>data/wc_jane_eyre.txt<span class="w"> </span>&gt;<span class="w"> </span>collated_wc.txt
 </pre></div>
 </div>

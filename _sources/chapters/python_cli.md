@@ -91,7 +91,7 @@ if __name__ == "__main__":
     # code goes here
 ```
 
-but that is considered poor practice, since it makes testing harder (Chapter [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
+But that is considered poor practice, since it makes testing harder (Chapter [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
 
 ```Python 
 def main():
@@ -298,7 +298,7 @@ FILE
 ```
 
 As this example shows, if we ask for help on the module, Python formats and displays all of the docstrings for everything in the file.
-We talk more about what to put in a docstring in the chapter on documentation found [here](https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html).
+We talk more about what to put in a docstring in the chapter on documentation found [here](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html).
 
 ## Counting Words
 
@@ -368,7 +368,7 @@ word_count(lines)
 
 ```
 
-Here we added the function save_word_counts that takes a filename of our choise and the list object and saves it in a text file. This could also be done in a csv files but a txt file is enough. 
+Here we added the function save_word_counts that takes a filename of our choice and the list object and saves it in a text file. This could also be done in a csv file but a txt file is enough. 
 
 Now to make our `word_count` function available through CLI we have to call it from within the `main` function.
 
@@ -382,7 +382,7 @@ if __name == `__main__`:
     word_count(lines)
 ```
 
-We could also first rewrite this using argp parse or we write a function that is called within count_words that reads out a file. 
+We could also first rewrite this using argparse, or we write a function that is called within count_words that reads out a file. 
 
 ```Python
 import sys
@@ -439,7 +439,7 @@ if __name__ == '__main__':
 ```
 
 ## Pipelining
-As discussed in Section on bash tools, most Unix commands follow a useful convention: if the user doesn't specify the names of any input files, they read from **standard input** (stdin). 
+As discussed in Section on [Bash tools](https://se-up.github.io/RSE-UP/chapters/bash_tools.html), most Unix commands follow a useful convention: if the user doesn't specify the names of any input files, they read from **standard input** (stdin). 
 Similarly, if no output file is specified, the command sends its results to **standard output** (stdout). This makes it easy to use the command in a pipeline.
 
 Our program always sends its output to standard output as noted above, we can always redirect it to a file with `>`. 
@@ -474,7 +474,7 @@ There are two changes to how `add_argument` handles `infile`:
     This means that if an argument is given it will be used, but if none is provided, a default of `'-'` will be used instead.
     `argparse.FileType('r')` understands `'-'` to mean "read from standard input"; this is another Unix convention that many programs follow.
 
-After these changes,we can create a pipeline like this to count the words in the first 500 lines of a book:
+After these changes, we can create a pipeline like this to count the words in the first 500 lines of a book:
 
 ```bash
 
@@ -501,7 +501,7 @@ The user can provide optional arguments at the command line in any order they li
 the user must provide them at the command line in the order in which they are specified to `add_argument` (unless `nargs='?'` is provided to say that the value is optional).
 
 ## Collating
-Now that we can get word counts for individual books we can collate the counts for several books.
+Now that we can get word counts for individual books, we can collate the counts for several books.
 This can be done using a loop that adds up the counts of a word from each of the txt files created by `wordcount.py`.
 Using the same template as before, we can write a program called `collate.py`:
 
@@ -577,7 +577,7 @@ The collate_word_counts() function takes a list of filenames as input, each cont
 
 ## Writing Our own Modules
 
-In both `collate.py` and `wordcount.py` we use the function `load_word_counts.py`. aving the same function in two or more places is a bad idea: if we want to improve it or fix a bug, we have to find and change every single script that contains a copy.
+In both `collate.py` and `wordcount.py` we use the function `load_word_counts.py`. Having the same function in two or more places is a bad idea: if we want to improve it or fix a bug, we have to find and change every single script that contains a copy.
 The solution is to put the shared functions in a separate file and load that file as a module. This can be done using a `utilities.py` or as shown in our example kept a single occurance of it in `wordcount.py` and importing it with the following statement in `collate.py`:
 
 ```Python
@@ -586,13 +586,13 @@ from collections import defaultdict
 from wordcount import load_word_counts
 ```
 
-now we can run the following command to collate the results: 
+Now we can run the following command to collate the results: 
 
 ```bash
 python collate.py data/wc_dracula.txt data/wc_moby_dick.txt data/wc_jane_eyre.txt 
 ```
 
-The results will then be show as output in the terminal. To save them in a text file we could either write a function for that or for now use the following command:
+The results will then be shown as output in the terminal. To save them in a text file, we could either write a function for that or for now use the following command:
 ```bash
 python collate.py data/wc_dracula.txt data/wc_moby_dick.txt data/wc_jane_eyre.txt > collated_wc.txt
 ```
