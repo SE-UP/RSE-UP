@@ -110,7 +110,7 @@ Let's consider these options one by one.
 
 ## The Global Configuration File 
 
-Our first configuration possibility is to edit the system-wide Matplotlib runtime configuration file, when we import Matplotlib,
+Our first configuration possibility is to edit the system-wide Matplotlib runtime configuration file. When we import Matplotlib,
 it uses this file to set the default characteristics of the plot.
 We can find it on our system by running this command:
 
@@ -118,7 +118,7 @@ We can find it on our system by running this command:
 import matplotlib as mpl
 mpl.matplotlib_fname()
 ```
-If for example you use `Anaconda` the location could be as follows:
+If, for example, you use `Anaconda` the location could be as follows:
 ```text
 /Users/amira/anaconda3/lib/python3.7/site-packages/matplotlib/
 mpl-data/matplotlibrc
@@ -167,7 +167,7 @@ Jane Eyre Config labels
 This does what we want,
 but is usually the wrong approach.
 Since the `matplotlibrc` file sets system-wide defaults,
-we will now have big labels by default for all plotting we do in the future,
+we will now have big labels by default for all plotting we'll do in the future,
 which we may not want.
 Secondly,
 we want to package our Zipf's Law code and make it available to other people (Chapter [packaging](https://se-up.github.io/RSE-UP/chapters/introduction/packaging.html)).
@@ -233,8 +233,7 @@ plt.style.use('big-labels')
 
 Using a custom style sheet leaves the system-wide defaults unchanged,
 and it's a good way to achieve a consistent look across our personal data visualization projects.
-However,
-since each user has their own `stylelib` directory,
+However, since each user has their own `stylelib` directory,
 it doesn't solve the problem of ensuring that other people can reproduce our plots.
 
 ## Adding Command-Line Options 
