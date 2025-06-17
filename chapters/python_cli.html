@@ -545,13 +545,13 @@ and discuss them in detail in the chapter on readable code found <a class="refer
 </div></blockquote>
 <section id="programs-and-modules">
 <h2>Programs and Modules<a class="headerlink" href="#programs-and-modules" title="Link to this heading">#</a></h2>
-<p>To create a Python program that can run from the command line,\index{Python!program vs.\ module}
+<p>To create a Python program that can run from the command line,
 the first thing we do is to add the following to the bottom of the file:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 </pre></div>
 </div>
 <p>This strange-looking check tells us whether the file is running as a standalone program or whether it is being imported as a module by some other program.
-When we import a Python file as a module in another program, the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> variable is automatically set to the name of the file.\index{__name__ variable (in Python)}\index{Python!__name__ variable}
+When we import a Python file as a module in another program, the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> variable is automatically set to the name of the file.
 When we run a Python file as a standalone program, on the other hand, <code class="docutils literal notranslate"><span class="pre">__name__</span></code> is always set to the special string <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>.
 To illustrate this, let’s consider a script named <code class="docutils literal notranslate"><span class="pre">print_name.py</span></code> that prints the value of the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> variable:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -588,7 +588,7 @@ if it isn’t, we should assume that some other code is doing this.</p>
     <span class="c1"># code goes here</span>
 </pre></div>
 </div>
-<p>but that is considered poor practice, since it makes testing harder (Chapter <strong>TODO</strong> ref(testing)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:</p>
+<p>but that is considered poor practice, since it makes testing harder (Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/testing_programs.html">Testing</a>). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 

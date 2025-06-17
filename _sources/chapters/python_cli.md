@@ -36,14 +36,14 @@ zipf/
 
 ## Programs and Modules 
 
-To create a Python program that can run from the command line,\index{Python!program vs.\ module}
+To create a Python program that can run from the command line,
 the first thing we do is to add the following to the bottom of the file:
 
 ```Python
 if __name__ == '__main__':
 ```
 This strange-looking check tells us whether the file is running as a standalone program or whether it is being imported as a module by some other program.
-When we import a Python file as a module in another program, the `__name__` variable is automatically set to the name of the file.\index{\_\_name\_\_ variable (in Python)}\index{Python!\_\_name\_\_ variable}
+When we import a Python file as a module in another program, the `__name__` variable is automatically set to the name of the file.
 When we run a Python file as a standalone program, on the other hand, `__name__` is always set to the special string `"__main__"`.
 To illustrate this, let's consider a script named `print_name.py` that prints the value of the `__name__` variable:
 
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     # code goes here
 ```
 
-but that is considered poor practice, since it makes testing harder (Chapter **TODO** ref(testing)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
+but that is considered poor practice, since it makes testing harder (Chapter [Testing](https://se-up.github.io/RSE-UP/chapters/testing_programs.html)). Instead, we put the high-level logic in a function, then call that function if our file is being run directly:
 
 ```Python 
 def main():
