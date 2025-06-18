@@ -35,7 +35,7 @@ The parts included in to the snakefile are explained as follows:
 
 - **Dependencies**: These are files (e.g., data/dracula.txt) needed to create or update the target.
 
-- **Action**: This shell command (e.g., python wordcount.py data/dracula.txt dracula.dat) is responsible for generating or updating the target using the dependencies.
+- **Action**: This shell command (e.g., `python wordcount.py data/dracula.txt dracula.dat`) is responsible for generating or updating the target using the dependencies.
 
 *Snakemake follows Python 3 syntax*, introducing keywords like rule. Indentation, whether using tabs or spaces, adheres to Python conventions. A rule combines target, dependencies, and actions, forming a "recipe" for a specific step in the workflow. 
 
@@ -323,7 +323,7 @@ Job counts:
 	1
 This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.
 ```
-**Before you continue with the book below, it is advised to first look at the exercise: [Write two new rules](https://software-engineering-group-up.github.io/RSE-UP/exercises/snakemake.html) since it would come in handy for the next section. 
+**Before you continue with the book below, it is advised to first look at the exercise: [Write two new rules](https://se-up.github.io/RSE-UP/exercises/snakemake.html) since it would come in handy for the next section.** 
 
 ## 2 Wildcards
 
@@ -351,7 +351,7 @@ rule zipf_test:
 
 For many rules, we will need to make finer distinctions between inputs. It is not always appropriate to pass all inputs as a lump to your action. For example, our rules for `.dat` use their first (and only) dependency specifically as the input file to `wordcount.py`. If we add additional dependencies (as we will soon do) then we don't want these being passed as input files to `wordcount.py`: it expects just one input file.
 
-Let's see this in action. We need to add wordcount.py as a dependency of each of our data files so that the rules will be executed if the script changes. In this case, we can use `{input[0]}` to refer to the first dependency, and `{input[1]}` to refer to the second:
+Let's see this in action. We need to add `wordcount.py as a dependency of each of our data files so that the rules will be executed if the script changes. In this case, we can use `{input[0]}` to refer to the first dependency, and `{input[1]}` to refer to the second:
 
 ```Python
 rule count_words:
@@ -552,7 +552,7 @@ rule count_words:
     shell: 'python {input.cmd} {input.book} {output}'
 ```
 
-Now all that is left to do is update you snakefile
+Now all that is left to do is update your snakefile.
 
 ## 4 Snakefiles are Python code
 
@@ -631,7 +631,7 @@ Try recreating both the `dats` and `results.txt` targets
 (run `snakemake clean` in between).
 
 #### Solution
-See [Solution on Github](https://github.com/Software-Engineering-Group-UP/RSE-UP/tree/snakemake/zipf/results/4_snakefiles_python) for the full Snakefile. Otherwise, just refer to the code extracts above and modify your own file.
+See [Solution on Github](https://github.com/SE-UP/RSE-UP/tree/main/zipf/snakemake/4_snakefiles_python) for the full Snakefile. Otherwise, just refer to the code extracts above and modify your own file.
 
 ### When are Snakefiles executed?
 
@@ -925,4 +925,5 @@ to the clean rule if required.
 
 ## Next steps
 
-It would be best if you start doing some of the exercises now, especially the exercises related to working with files and outputs before going to the next section! *TODO* insert link
+It would be best if you start doing some of the [exercises](https://se-up.github.io/RSE-UP/exercises/snakemake.html) now,
+especially the exercises related to working with files and outputs before going to the next section!

@@ -565,7 +565,7 @@ additions like <code class="docutils literal notranslate"><span class="pre">rule
 <li><p><strong>Comments</strong>: Lines starting with # provide explanations and are ignored by Snakemake.</p></li>
 <li><p><strong>Target</strong>: This represents the desired outcome, denoted by a filename (e.g., dracula.dat).</p></li>
 <li><p><strong>Dependencies</strong>: These are files (e.g., data/dracula.txt) needed to create or update the target.</p></li>
-<li><p><strong>Action</strong>: This shell command (e.g., python <a class="reference external" href="http://wordcount.py">wordcount.py</a> data/dracula.txt dracula.dat) is responsible for generating or updating the target using the dependencies.</p></li>
+<li><p><strong>Action</strong>: This shell command (e.g., <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">wordcount.py</span> <span class="pre">data/dracula.txt</span> <span class="pre">dracula.dat</span></code>) is responsible for generating or updating the target using the dependencies.</p></li>
 </ul>
 <p><em>Snakemake follows Python 3 syntax</em>, introducing keywords like rule. Indentation, whether using tabs or spaces, adheres to Python conventions. A rule combines target, dependencies, and actions, forming a “recipe” for a specific step in the workflow.</p>
 <p>The rule we just created describes how to build the output <code class="docutils literal notranslate"><span class="pre">dracula.dat</span></code> using
@@ -825,7 +825,7 @@ snakemake<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </
 <span class="go">This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.</span>
 </pre></div>
 </div>
-<p>**Before you continue with the book below, it is advised to first look at the exercise: <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/exercises/snakemake.html">Write two new rules</a> since it would come in handy for the next section.</p>
+<p><strong>Before you continue with the book below, it is advised to first look at the exercise: <a class="reference external" href="https://se-up.github.io/RSE-UP/exercises/snakemake.html">Write two new rules</a> since it would come in handy for the next section.</strong></p>
 </section>
 </section>
 <section id="wildcards">
@@ -850,7 +850,7 @@ This could look like the following, were we add an <code class="docutils literal
 <section id="handling-dependencies-differently">
 <h3>Handling dependencies differently<a class="headerlink" href="#handling-dependencies-differently" title="Link to this heading">#</a></h3>
 <p>For many rules, we will need to make finer distinctions between inputs. It is not always appropriate to pass all inputs as a lump to your action. For example, our rules for <code class="docutils literal notranslate"><span class="pre">.dat</span></code> use their first (and only) dependency specifically as the input file to <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code>. If we add additional dependencies (as we will soon do) then we don’t want these being passed as input files to <code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code>: it expects just one input file.</p>
-<p>Let’s see this in action. We need to add <a class="reference external" href="http://wordcount.py">wordcount.py</a> as a dependency of each of our data files so that the rules will be executed if the script changes. In this case, we can use <code class="docutils literal notranslate"><span class="pre">{input[0]}</span></code> to refer to the first dependency, and <code class="docutils literal notranslate"><span class="pre">{input[1]}</span></code> to refer to the second:</p>
+<p>Let’s see this in action. We need to add <code class="docutils literal notranslate"><span class="pre">wordcount.py</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">dependency</span> <span class="pre">of</span> <span class="pre">each</span> <span class="pre">of</span> <span class="pre">our</span> <span class="pre">data</span> <span class="pre">files</span> <span class="pre">so</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">rules</span> <span class="pre">will</span> <span class="pre">be</span> <span class="pre">executed</span> <span class="pre">if</span> <span class="pre">the</span> <span class="pre">script</span> <span class="pre">changes.</span> <span class="pre">In</span> <span class="pre">this</span> <span class="pre">case,</span> <span class="pre">we</span> <span class="pre">can</span> <span class="pre">use</span> </code>{input[0]}<code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">refer</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">dependency,</span> <span class="pre">and</span></code>{input[1]}` to refer to the second:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">count_words</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span> <span class="s1">&#39;../wordcount.py&#39;</span><span class="p">,</span> <span class="s1">&#39;../../data/dracula.txt&#39;</span>
     <span class="n">output</span><span class="p">:</span> <span class="s1">&#39;../../results/dracula.dat&#39;</span>
@@ -1026,7 +1026,7 @@ Note that although Snakemake lets you execute a non-pattern rule by name, such a
     <span class="n">shell</span><span class="p">:</span> <span class="s1">&#39;python </span><span class="si">{input.cmd}</span><span class="s1"> </span><span class="si">{input.book}</span><span class="s1"> </span><span class="si">{output}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
-<p>Now all that is left to do is update you snakefile</p>
+<p>Now all that is left to do is update your snakefile.</p>
 </section>
 </section>
 <section id="snakefiles-are-python-code">
@@ -1092,7 +1092,7 @@ one place to update the list of files to process.</p>
 </section>
 <section id="solution">
 <h4>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
-<p>See <a class="reference external" href="https://github.com/Software-Engineering-Group-UP/RSE-UP/tree/snakemake/zipf/results/4_snakefiles_python">Solution on Github</a> for the full Snakefile. Otherwise, just refer to the code extracts above and modify your own file.</p>
+<p>See <a class="reference external" href="https://github.com/SE-UP/RSE-UP/tree/main/zipf/snakemake/4_snakefiles_python">Solution on Github</a> for the full Snakefile. Otherwise, just refer to the code extracts above and modify your own file.</p>
 </section>
 </section>
 <section id="when-are-snakefiles-executed">
@@ -1351,7 +1351,8 @@ to the clean rule if required.</p>
 </section>
 <section id="next-steps">
 <h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
-<p>It would be best if you start doing some of the exercises now, especially the exercises related to working with files and outputs before going to the next section! <em>TODO</em> insert link</p>
+<p>It would be best if you start doing some of the <a class="reference external" href="https://se-up.github.io/RSE-UP/exercises/snakemake.html">exercises</a> now,
+especially the exercises related to working with files and outputs before going to the next section!</p>
 </section>
 </section>
 
