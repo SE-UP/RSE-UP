@@ -33,7 +33,7 @@ Thanks to the Snakemake Team for providing the installation [Documentation](http
 
 ### Installation via Conda/Mamba
 
-If you already use Conda for other parts of the project you are working on it is recommended to install Snakemake through Conda as well,
+If you already use Conda for other parts of the project you are working on, it is recommended to install Snakemake through Conda as well,
 because it also enables Snakemake to handle other software dependencies.
 
 First, you need to install a Conda-based Python3 distribution.
@@ -87,7 +87,7 @@ However, it is easy to combine Snakemake installation with other channels, e.g.,
 ### Installation via pip
 
 Instead of conda, snakemake can be installed with pip.
-However, note that snakemake has non-python dependencies, such that the pip based installation has a limited functionality if those dependencies are not manually installed in addition.
+However, note that snakemake has non-python dependencies, such that the pip-based installation has a limited functionality if those dependencies are not manually installed in addition.
 
 A list of Snakemake's dependencies can be found within its [meta.yaml conda recipe](https://bioconda.github.io/recipes/snakemake/README.html)
 
@@ -109,7 +109,7 @@ pip install --upgrade wheel
 pip install --upgrade python-dev
 ```
 
-After that you can just use the following command to install snakemake:
+After that, you can just use the following command to install snakemake:
 ```bash 
 pip install snakemake
 ```
@@ -117,7 +117,7 @@ pip install snakemake
 ### Installation of a development version via pip
 
 
-If you want to quickly try out an unreleased version from the snakemake repository (which you cannot get via bioconda, yet), for example to check whether a bug fix works for you workflow, you can get the current state of the main branch with:
+If you want to quickly try out an unreleased version (for example, to check whether a bug fix works for your workflow) from the snakemake repository (which you cannot get via bioconda, yet), you can get the current state of the main branch with:
 
 
 ```bash
@@ -132,14 +132,14 @@ For information on the syntax for this, see [the pip documentation on git suppor
 
 ## Example Workflow based on Zipf's Law
 
-By now you should be familiar with what Zipf's Law is, in the following subsection we will present you an example workflow using snakemake and Zipf's Law as data. 
+By now you should be familiar with what Zipf's Law is, in the following subsection, we will present you an example workflow using snakemake and Zipf's Law as data. 
 
 We are interested in understanding the frequency of words in various books, testing how closely each book conforms to Zipf's Law.
 
 We've compiled our raw data (the books we want to analyze) and have prepared
 several Python scripts that together make up our analysis pipeline.
 
-Let's take quick look at one of the books using the command 
+Let's take a quick look at one of the books using the command 
 
 ```bash
 
@@ -183,7 +183,7 @@ ones we are concerned with at present.
 
 The first step is to count the frequency of each word in a book. For this, we
 use the `wordcound.py` script. The first argument (`books/isles.txt`) to
-wordcount.py is the file to analyze, and the last argument (`isles.dat`)
+`wordcount.py` is the file to analyze, and the last argument (`isles.dat`)
 specifies the output file to write:
 
 ```bash
@@ -197,7 +197,6 @@ Let's take a quick peek at the result:
 ~~~
 head -5 dracula.dat
 ~~~
-{: .language-bash}
 
 This shows us the first 5 lines in the output file:
 
@@ -223,7 +222,7 @@ and plots the 10 most frequently occurring words as a text-based bar plot:
 ```bash
 python snakemake/plotcount.py results/dracula.dat ascii
 ```
-***in case the error: cannot import Sequence from Collections either add or remove the .abc from 'from collections.abc import Sequence'***
+***In case the following error is thrown: `cannot import Sequence from Collections` either add or remove the .abc from `from collections.abc import Sequence`***
 ```bash
 the   ########################################################################
 and   #####################################################
@@ -263,7 +262,7 @@ data/moby_dick  14519   6734    2.16
 > occur approximately twice as often as the second most frequent word.
 
 
-Together these scripts implement a common workflow:
+Together, these scripts implement a common workflow:
 
 1. Read a data file.
 2. Perform an analysis on this data file.
@@ -281,7 +280,7 @@ command to finish, even just for 30 seconds.
 The most common solution to the tedium of data processing is to write
 a shell script that runs the whole pipeline from start to finish.
 
-Using your text editor of choice (e.g. nano), add the following to a new file named
+Using your text editor of choice (e.g., nano), add the following to a new file named
 `run_pipeline.sh`.
 
 ```bash
@@ -316,7 +315,7 @@ This shell script solves several problems in computational reproducibility:
     You might not get it right the first time, but once you fix something
     it'll stay fixed.
 
-Despite these benefits it has a few shortcomings.
+Despite these benefits, it has a few shortcomings.
 
 Let's adjust the width of the bars in our plot produced by `plotcount.py`.
 
