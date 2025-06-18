@@ -510,7 +510,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-snakemake">
 <h1>Introduction to Snakemake<a class="headerlink" href="#introduction-to-snakemake" title="Link to this heading">#</a></h1>
-<p>This section will give you a brief introduction into what snake make is and how to set it up.</p>
+<p>This section will give you a brief introduction into what Snakemake is and how to set it up.</p>
 <section id="introduction-to-snakemake-what-is-it">
 <h2>Introduction to Snakemake - What is it?<a class="headerlink" href="#introduction-to-snakemake-what-is-it" title="Link to this heading">#</a></h2>
 <p>Imagine a complex scientific analysis with multiple steps, each requiring specific inputs and generating outputs. Keeping track of individual commands, handling data dependencies, and ensuring reproducibility can become a real headache. This is where Snakemake comes in, offering a powerful solution for automating and managing your workflows.</p>
@@ -627,7 +627,7 @@ with this eBook or online at www.gutenberg.org/license
 Title: Dracula
 </pre></div>
 </div>
-<p>Our directory has the Python scripts and data files we we will be working
+<p>Our directory has the Python scripts and data files we will be working
 with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="p">|</span>-<span class="w"> </span>data
 <span class="p">|</span><span class="w">  </span><span class="p">|</span>-<span class="w"> </span>dracula.txt
@@ -646,8 +646,8 @@ with:</p>
 <p>There may be some other files as well, but the ones listed above are the
 ones we are concerned with at present.</p>
 <p>The first step is to count the frequency of each word in a book. For this, we
-use the <code class="docutils literal notranslate"><span class="pre">wordcound.py</span></code> script. The first argument (<code class="docutils literal notranslate"><span class="pre">books/isles.txt</span></code>) to
-<code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> is the file to analyze, and the last argument (<code class="docutils literal notranslate"><span class="pre">isles.dat</span></code>)
+use the <code class="docutils literal notranslate"><span class="pre">wordcound.py</span></code> script. The first argument (<code class="docutils literal notranslate"><span class="pre">data/dracula.txt</span></code>) to
+<code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> is the file to analyze, and the last argument (<code class="docutils literal notranslate"><span class="pre">dracula.dat</span></code>)
 specifies the output file to write:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>snakemake/wordcount.py<span class="w"> </span>data/dracula.txt<span class="w"> </span>dracula.dat
 </pre></div>
@@ -725,11 +725,11 @@ a shell script that runs the whole pipeline from start to finish.</p>
 <p>Using your text editor of choice (e.g., nano), add the following to a new file named
 <code class="docutils literal notranslate"><span class="pre">run_pipeline.sh</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># USAGE: bash run_pipeline.sh</span>
-<span class="c1"># to produce plots for isles and abyss</span>
+<span class="c1"># to produce plots for dracula and jane eyre</span>
 <span class="c1"># and the summary table for the Zipf&#39;s law tests</span>
 
 python<span class="w"> </span>snakemake/wordcount.py<span class="w"> </span>data/dracula.txt<span class="w"> </span>results/dracula.dat
-python<span class="w"> </span>snakemake/wordcount.py<span class="w"> </span>data/jane_eyre.txt<span class="w"> </span>jane.dat
+python<span class="w"> </span>snakemake/wordcount.py<span class="w"> </span>data/jane_eyre.txt<span class="w"> </span>results/jane.dat
 
 python<span class="w"> </span>snakemake/plotcount.py<span class="w"> </span>results/dracula.dat<span class="w"> </span>results/dracula.png
 python<span class="w"> </span>snakemake/plotcount.py<span class="w"> </span>results/jane.dat<span class="w"> </span>results/jane.png
@@ -773,12 +773,12 @@ for-loop.)</p>
 <p>Another popular option is to comment out a subset of the lines in
 <code class="docutils literal notranslate"><span class="pre">run_pipeline.sh</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># USAGE: bash run_pipeline.sh</span>
-<span class="c1"># to produce plots for isles and abyss</span>
+<span class="c1"># to produce plots for dracula and jane eyre</span>
 <span class="c1"># and the summary table</span>
 
 <span class="c1"># These lines are commented out because they don&#39;t need to be rerun.</span>
-<span class="c1">#python wordcount.py books/isles.txt isles.dat</span>
-<span class="c1">#python wordcount.py books/abyss.txt abyss.dat</span>
+<span class="c1">#python snakemake/wordcount.py data/dracula.txt results/dracula.dat</span>
+<span class="c1">#python snakemake/wordcount.py data/jane_eyre.txt results/jane.dat</span>
 
 python<span class="w"> </span>snakemake/plotcount.py<span class="w"> </span>results/dracula.dat<span class="w"> </span>results/dracula.png
 python<span class="w"> </span>snakemake/plotcount.py<span class="w"> </span>results/jane.dat<span class="w"> </span>results/jane.png
