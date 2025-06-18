@@ -951,7 +951,7 @@ snakemake --dag | dot -Tsvg > dag.svg
 eog dag.svg     # eog is an image viewer installed on many linux systems
 ```
 
-```{figure} ../../figures/snakemake/final.svg
+```{figure} ../figures/snakemake/final.svg
 :name: Snakemake Graph Example
 From 5 Resources and Parallel processing
 ```
