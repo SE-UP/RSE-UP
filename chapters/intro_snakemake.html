@@ -532,7 +532,7 @@ You can use one of the following ways for installing Snakemake.</p>
 <p>Thanks to the Snakemake Team for providing the installation <a class="reference external" href="https://snakemake.readthedocs.io/en/stable/getting_started/installation.html">Documentation</a>.</p>
 <section id="installation-via-conda-mamba">
 <h3>Installation via Conda/Mamba<a class="headerlink" href="#installation-via-conda-mamba" title="Link to this heading">#</a></h3>
-<p>If you already use Conda for other parts of the project you are working on it is recommended to install Snakemake through Conda as well,
+<p>If you already use Conda for other parts of the project you are working on, it is recommended to install Snakemake through Conda as well,
 because it also enables Snakemake to handle other software dependencies.</p>
 <p>First, you need to install a Conda-based Python3 distribution.
 The recommended choice is Mambaforge_ which not only provides the required Python and Conda commands,
@@ -570,7 +570,7 @@ However, it is easy to combine Snakemake installation with other channels, e.g.,
 <section id="installation-via-pip">
 <h3>Installation via pip<a class="headerlink" href="#installation-via-pip" title="Link to this heading">#</a></h3>
 <p>Instead of conda, snakemake can be installed with pip.
-However, note that snakemake has non-python dependencies, such that the pip based installation has a limited functionality if those dependencies are not manually installed in addition.</p>
+However, note that snakemake has non-python dependencies, such that the pip-based installation has a limited functionality if those dependencies are not manually installed in addition.</p>
 <p>A list of Snakemake’s dependencies can be found within its <a class="reference external" href="https://bioconda.github.io/recipes/snakemake/README.html">meta.yaml conda recipe</a></p>
 <p><strong>IMPORTANT</strong> If you have problems installing snakemake using pip and you get an error message like this: <code class="docutils literal notranslate"><span class="pre">ERROR:</span> <span class="pre">Failed</span> <span class="pre">building</span> <span class="pre">wheel</span> <span class="pre">for</span> <span class="pre">datrie</span></code> you first need to install the Python development headers.</p>
 <p>In Fedora this would be:</p>
@@ -587,14 +587,14 @@ pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="
 pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>python-dev
 </pre></div>
 </div>
-<p>After that you can just use the following command to install snakemake:</p>
+<p>After that, you can just use the following command to install snakemake:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>snakemake
 </pre></div>
 </div>
 </section>
 <section id="installation-of-a-development-version-via-pip">
 <h3>Installation of a development version via pip<a class="headerlink" href="#installation-of-a-development-version-via-pip" title="Link to this heading">#</a></h3>
-<p>If you want to quickly try out an unreleased version from the snakemake repository (which you cannot get via bioconda, yet), for example to check whether a bug fix works for you workflow, you can get the current state of the main branch with:</p>
+<p>If you want to quickly try out an unreleased version (for example, to check whether a bug fix works for your workflow) from the snakemake repository (which you cannot get via bioconda, yet), you can get the current state of the main branch with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>$<span class="w"> </span>mamba<span class="w"> </span>create<span class="w"> </span>--only-deps<span class="w"> </span>-n<span class="w"> </span>snakemake-dev<span class="w"> </span>snakemake
 <span class="w">    </span>$<span class="w"> </span>mamba<span class="w"> </span>activate<span class="w"> </span>snakemake-dev
 <span class="w">    </span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/snakemake/snakemake
@@ -606,11 +606,11 @@ For information on the syntax for this, see <a class="reference external" href="
 </section>
 <section id="example-workflow-based-on-zipf-s-law">
 <h2>Example Workflow based on Zipf’s Law<a class="headerlink" href="#example-workflow-based-on-zipf-s-law" title="Link to this heading">#</a></h2>
-<p>By now you should be familiar with what Zipf’s Law is, in the following subsection we will present you an example workflow using snakemake and Zipf’s Law as data.</p>
+<p>By now you should be familiar with what Zipf’s Law is, in the following subsection, we will present you an example workflow using snakemake and Zipf’s Law as data.</p>
 <p>We are interested in understanding the frequency of words in various books, testing how closely each book conforms to Zipf’s Law.</p>
 <p>We’ve compiled our raw data (the books we want to analyze) and have prepared
 several Python scripts that together make up our analysis pipeline.</p>
-<p>Let’s take quick look at one of the books using the command</p>
+<p>Let’s take a quick look at one of the books using the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>head<span class="w"> </span>data<span class="w"> </span>zipf/data/dracula.txt
 </pre></div>
 </div>
@@ -647,7 +647,7 @@ with:</p>
 ones we are concerned with at present.</p>
 <p>The first step is to count the frequency of each word in a book. For this, we
 use the <code class="docutils literal notranslate"><span class="pre">wordcound.py</span></code> script. The first argument (<code class="docutils literal notranslate"><span class="pre">books/isles.txt</span></code>) to
-<a class="reference external" href="http://wordcount.py">wordcount.py</a> is the file to analyze, and the last argument (<code class="docutils literal notranslate"><span class="pre">isles.dat</span></code>)
+<code class="docutils literal notranslate"><span class="pre">wordcount.py</span></code> is the file to analyze, and the last argument (<code class="docutils literal notranslate"><span class="pre">isles.dat</span></code>)
 specifies the output file to write:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>snakemake/wordcount.py<span class="w"> </span>data/dracula.txt<span class="w"> </span>dracula.dat
 </pre></div>
@@ -656,7 +656,6 @@ specifies the output file to write:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">-</span><span class="mi">5</span> <span class="n">dracula</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
-<p>{: .language-bash}</p>
 <p>This shows us the first 5 lines in the output file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>the<span class="w"> </span><span class="m">8089</span><span class="w"> </span><span class="m">4</span>.836269931901207<span class="w">   </span>
 and<span class="w"> </span><span class="m">5976</span><span class="w"> </span><span class="m">3</span>.5729446301201144<span class="w">   </span>
@@ -676,7 +675,7 @@ and plots the 10 most frequently occurring words as a text-based bar plot:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>snakemake/plotcount.py<span class="w"> </span>results/dracula.dat<span class="w"> </span>ascii
 </pre></div>
 </div>
-<p><em><strong>in case the error: cannot import Sequence from Collections either add or remove the .abc from ‘from collections.abc import Sequence’</strong></em></p>
+<p><em><strong>In case the following error is thrown: <code class="docutils literal notranslate"><span class="pre">cannot</span> <span class="pre">import</span> <span class="pre">Sequence</span> <span class="pre">from</span> <span class="pre">Collections</span></code> either add or remove the .abc from <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">collections.abc</span> <span class="pre">import</span> <span class="pre">Sequence</span></code></strong></em></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>the<span class="w">   </span><span class="c1">########################################################################</span>
 and<span class="w">   </span><span class="c1">#####################################################</span>
 i<span class="w">     </span><span class="c1">###########################################</span>
@@ -707,7 +706,7 @@ data/moby_dick<span class="w">  </span><span class="m">14519</span><span class="
 <p>Recall that Zipf’s Law predicts that the most frequent word will
 occur approximately twice as often as the second most frequent word.</p>
 </div></blockquote>
-<p>Together these scripts implement a common workflow:</p>
+<p>Together, these scripts implement a common workflow:</p>
 <ol class="arabic simple">
 <li><p>Read a data file.</p></li>
 <li><p>Perform an analysis on this data file.</p></li>
@@ -723,7 +722,7 @@ could turn into a lot of work. Plus, no one wants to sit and wait for a
 command to finish, even just for 30 seconds.</p>
 <p>The most common solution to the tedium of data processing is to write
 a shell script that runs the whole pipeline from start to finish.</p>
-<p>Using your text editor of choice (e.g. nano), add the following to a new file named
+<p>Using your text editor of choice (e.g., nano), add the following to a new file named
 <code class="docutils literal notranslate"><span class="pre">run_pipeline.sh</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># USAGE: bash run_pipeline.sh</span>
 <span class="c1"># to produce plots for isles and abyss</span>
@@ -754,7 +753,7 @@ reproduce the full analysis.</p></li>
 You might not get it right the first time, but once you fix something
 it’ll stay fixed.</p></li>
 </ol>
-<p>Despite these benefits it has a few shortcomings.</p>
+<p>Despite these benefits, it has a few shortcomings.</p>
 <p>Let’s adjust the width of the bars in our plot produced by <code class="docutils literal notranslate"><span class="pre">plotcount.py</span></code>.</p>
 <p>Edit <code class="docutils literal notranslate"><span class="pre">plotcount.py</span></code> so that the bars are 0.8 units wide instead of 1 unit.
 (Hint: replace <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">=</span> <span class="pre">1.0</span></code> with <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">=</span> <span class="pre">0.8</span></code> in the definition of
