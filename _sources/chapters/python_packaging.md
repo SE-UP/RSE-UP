@@ -397,7 +397,7 @@ written as `package.module:function`;
 the left side is the name we want to use to call this function from the command line.
 In this case we want to call each module's `main` function;
 right now, we do not have one yet since the iput argument `args` are handled elsewhere. Thus we need to create a main function 
-containing the command-line arguments given by the user (Section [Scripting Options](https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)).
+containing the command-line arguments given by the user (Section [Scripting Options](https://se-up.github.io/RSE-UP/chapters/python_cli.html#handling-command-line-options)).
 
 Since we can't pass any arguments to `main` when we define entry points in our `setup.py` file,
 so we need to factor this in:
@@ -719,7 +719,7 @@ we can go through the same process to put it on the main [PyPI](https://pypi.org
 
 Now that our package has been distributed,
 we need to think about whether we have provided sufficient documentation.
-Docstrings (Section [Scripting Docstring](https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options)) and READMEs
+Docstrings (Section [Docstrings](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html)) and READMEs
 are sufficient to describe most simple packages,
 but as our code base grows larger,
 we will want to complement these manually written sections with automatically generated content,
@@ -733,7 +733,7 @@ In this section we will update our README file with some basic package-level doc
 before using Sphinx and Read the Docs to host that information online
 along with more detailed function-level documentation.
 For further advice on writing documentation for larger and more complex packages,
-see [Appendix Documentation](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html)).
+see Chapter [Documentation](https://se-up.github.io/RSE-UP/chapters/writing_documentation.html)).
 
 ### Including package-level documentation in the `README` 
 
@@ -752,7 +752,7 @@ files and plot each word's rank versus its frequency.
 ...
 ```
 
-This file is currently written in [Markdown](https://en.wikipedia.org/wiki/Markdown), but Sphinx uses a format called **reStructuredText** (reST), so we will switch to that. Like Markdown, reST is a plain-text markup format that can be rendered into HTML or PDF documents with complex indices and cross-links. GitHub recognizes files ending in `.rst` as reST files and displays them nicely,
+This file is currently written in [Markdown](https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html), but Sphinx uses a format called **reStructuredText** (reST), so we will switch to that. Like Markdown, reST is a plain-text markup format that can be rendered into HTML or PDF documents with complex indices and cross-links. GitHub recognizes files ending in `.rst` as reST files and displays them nicely,
 so our first task is to rename our existing file:
 
 ```bash
@@ -1025,7 +1025,7 @@ Sphinx Landing page
 ```
 
 Before going on,
-note that Sphinx is not included in the installation requirements in `requirements.txt` ([Chapter CI/CD - Testing CLI](https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html).
+note that Sphinx is not included in the installation requirements in `requirements.txt` ([Chapter CI/CD](https://se-up.github.io/RSE-UP/chapters/introduction/cicd.html).
 Sphinx isn't needed to run, develop, or even test our package,
 but it is needed for building the documentation.
 To note this requirement,
@@ -1046,7 +1046,7 @@ Now that we have generated our package documentation,
 we need to host it online.
 A common option for Python projects is [Read the Docs](https://docs.readthedocs.io/en/latest/), which is a community-supported site that hosts software documentation free of charge.
 
-Just as continuous integration systems automatically re-test things ([Chapter CI/CD - Testing CLI](https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html), Read the Docs integrates with GitHub
+Just as continuous integration systems automatically re-test things ([Chapter CI/CD](https://se-up.github.io/RSE-UP/chapters/introduction/cicd.html), Read the Docs integrates with GitHub
 so that documentation is automatically re-built
 every time updates are pushed to the project's GitHub repository.
 If we register for Read the Docs with our GitHub account,
@@ -1103,7 +1103,7 @@ Amira has gone through this process and the documentation is now available at:
 ## Software Journals 
 
 As a final step to releasing our new package,
-we might want to give it a **DOI** so that it can be cited by researchers. As we saw in Section [Provenance Code Scripts](https://se-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance),
+we might want to give it a **DOI** so that it can be cited by researchers. As we saw in Section [Provenance Code Scripts](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#code-provenance),
 GitHub [integrates with Zenodo](https://guides.github.com/activities/citable-code/) for precisely this purpose.
 
 While creating a DOI using a site like Zenodo

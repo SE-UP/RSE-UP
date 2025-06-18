@@ -873,7 +873,7 @@ written as <code class="docutils literal notranslate"><span class="pre">package.
 the left side is the name we want to use to call this function from the command line.
 In this case we want to call each module’s <code class="docutils literal notranslate"><span class="pre">main</span></code> function;
 right now, we do not have one yet since the iput argument <code class="docutils literal notranslate"><span class="pre">args</span></code> are handled elsewhere. Thus we need to create a main function
-containing the command-line arguments given by the user (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Options</a>).</p>
+containing the command-line arguments given by the user (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/python_cli.html#handling-command-line-options">Scripting Options</a>).</p>
 <p>Since we can’t pass any arguments to <code class="docutils literal notranslate"><span class="pre">main</span></code> when we define entry points in our <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file,
 so we need to factor this in:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -1163,7 +1163,7 @@ See <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/
 <h2>Documenting Packages<a class="headerlink" href="#documenting-packages" title="Link to this heading">#</a></h2>
 <p>Now that our package has been distributed,
 we need to think about whether we have provided sufficient documentation.
-Docstrings (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/building_cli_python.html#handling-command-line-options">Scripting Docstring</a>) and READMEs
+Docstrings (Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/writing_documentation.html">Docstrings</a>) and READMEs
 are sufficient to describe most simple packages,
 but as our code base grows larger,
 we will want to complement these manually written sections with automatically generated content,
@@ -1177,7 +1177,7 @@ In this section we will update our README file with some basic package-level doc
 before using Sphinx and Read the Docs to host that information online
 along with more detailed function-level documentation.
 For further advice on writing documentation for larger and more complex packages,
-see <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/writing_documentation.html">Appendix Documentation</a>).</p>
+see Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/writing_documentation.html">Documentation</a>).</p>
 <section id="including-package-level-documentation-in-the-readme">
 <h3>Including package-level documentation in the <code class="docutils literal notranslate"><span class="pre">README</span></code><a class="headerlink" href="#including-package-level-documentation-in-the-readme" title="Link to this heading">#</a></h3>
 <p>When a user first encounters a package, they usually want to know what the package is meant to do,instructions on how to install it, and examples of how to use it. We can include these elements in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file we started in <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/git_advanced.html">Chapter Git Advanced</a>. At the moment it reads as follows:</p>
@@ -1192,7 +1192,7 @@ files and plot each word&#39;s rank versus its frequency.
 ...
 </pre></div>
 </div>
-<p>This file is currently written in <a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, but Sphinx uses a format called <strong>reStructuredText</strong> (reST), so we will switch to that. Like Markdown, reST is a plain-text markup format that can be rendered into HTML or PDF documents with complex indices and cross-links. GitHub recognizes files ending in <code class="docutils literal notranslate"><span class="pre">.rst</span></code> as reST files and displays them nicely,
+<p>This file is currently written in <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/documentation.html">Markdown</a>, but Sphinx uses a format called <strong>reStructuredText</strong> (reST), so we will switch to that. Like Markdown, reST is a plain-text markup format that can be rendered into HTML or PDF documents with complex indices and cross-links. GitHub recognizes files ending in <code class="docutils literal notranslate"><span class="pre">.rst</span></code> as reST files and displays them nicely,
 so our first task is to rename our existing file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>mv<span class="w"> </span>README.md<span class="w"> </span>README.rst
 </pre></div>
@@ -1440,7 +1440,7 @@ re-uses our README as the introduction to the documentation (Figure <a class="r
 </figcaption>
 </figure>
 <p>Before going on,
-note that Sphinx is not included in the installation requirements in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>.
+note that Sphinx is not included in the installation requirements in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/cicd.html">Chapter CI/CD</a>.
 Sphinx isn’t needed to run, develop, or even test our package,
 but it is needed for building the documentation.
 To note this requirement,
@@ -1458,7 +1458,7 @@ now only needs run <code class="docutils literal notranslate"><span class="pre">
 <p>Now that we have generated our package documentation,
 we need to host it online.
 A common option for Python projects is <a class="reference external" href="https://docs.readthedocs.io/en/latest/">Read the Docs</a>, which is a community-supported site that hosts software documentation free of charge.</p>
-<p>Just as continuous integration systems automatically re-test things (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/advanced_cicd.html">Chapter CI/CD - Testing CLI</a>, Read the Docs integrates with GitHub
+<p>Just as continuous integration systems automatically re-test things (<a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/introduction/cicd.html">Chapter CI/CD</a>, Read the Docs integrates with GitHub
 so that documentation is automatically re-built
 every time updates are pushed to the project’s GitHub repository.
 If we register for Read the Docs with our GitHub account,
@@ -1510,7 +1510,7 @@ python:
 <section id="software-journals">
 <h2>Software Journals<a class="headerlink" href="#software-journals" title="Link to this heading">#</a></h2>
 <p>As a final step to releasing our new package,
-we might want to give it a <strong>DOI</strong> so that it can be cited by researchers. As we saw in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/tracking_provedance.html#code-provenance">Provenance Code Scripts</a>,
+we might want to give it a <strong>DOI</strong> so that it can be cited by researchers. As we saw in Section <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#code-provenance">Provenance Code Scripts</a>,
 GitHub <a class="reference external" href="https://guides.github.com/activities/citable-code/">integrates with Zenodo</a> for precisely this purpose.</p>
 <p>While creating a DOI using a site like Zenodo
 is often the end of the software publishing process,
