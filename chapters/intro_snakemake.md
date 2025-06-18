@@ -1,6 +1,6 @@
 # Introduction to Snakemake
 
-This section will give you a brief introduction into what snake make is and how to set it up. 
+This section will give you a brief introduction into what Snakemake is and how to set it up. 
 
 ## Introduction to Snakemake - What is it? 
 
@@ -159,7 +159,7 @@ with this eBook or online at www.gutenberg.org/license
 
 Title: Dracula
 ```
-Our directory has the Python scripts and data files we we will be working
+Our directory has the Python scripts and data files we will be working
 with:
 
 ```bash 
@@ -182,8 +182,8 @@ There may be some other files as well, but the ones listed above are the
 ones we are concerned with at present.
 
 The first step is to count the frequency of each word in a book. For this, we
-use the `wordcound.py` script. The first argument (`books/isles.txt`) to
-`wordcount.py` is the file to analyze, and the last argument (`isles.dat`)
+use the `wordcound.py` script. The first argument (`data/dracula.txt`) to
+`wordcount.py` is the file to analyze, and the last argument (`dracula.dat`)
 specifies the output file to write:
 
 ```bash
@@ -285,11 +285,11 @@ Using your text editor of choice (e.g., nano), add the following to a new file n
 
 ```bash
 # USAGE: bash run_pipeline.sh
-# to produce plots for isles and abyss
+# to produce plots for dracula and jane eyre
 # and the summary table for the Zipf's law tests
 
 python snakemake/wordcount.py data/dracula.txt results/dracula.dat
-python snakemake/wordcount.py data/jane_eyre.txt jane.dat
+python snakemake/wordcount.py data/jane_eyre.txt results/jane.dat
 
 python snakemake/plotcount.py results/dracula.dat results/dracula.png
 python snakemake/plotcount.py results/jane.dat results/jane.png
@@ -344,12 +344,12 @@ Another popular option is to comment out a subset of the lines in
 
 ```bash
 # USAGE: bash run_pipeline.sh
-# to produce plots for isles and abyss
+# to produce plots for dracula and jane eyre
 # and the summary table
 
 # These lines are commented out because they don't need to be rerun.
-#python wordcount.py books/isles.txt isles.dat
-#python wordcount.py books/abyss.txt abyss.dat
+#python snakemake/wordcount.py data/dracula.txt results/dracula.dat
+#python snakemake/wordcount.py data/jane_eyre.txt results/jane.dat
 
 python snakemake/plotcount.py results/dracula.dat results/dracula.png
 python snakemake/plotcount.py results/jane.dat results/jane.png
