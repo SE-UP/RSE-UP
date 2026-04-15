@@ -1,11 +1,9 @@
 # Running Example and Project Organization
 
-
 > Everything starts somewhere, though many physicists disagree.
 >
 > --- Terry Pratchett
  
-
 As with many research projects, the first step in our Zipf's Law analysis
 is to download the research data and install the required software.
 Before doing that, it's worth taking a moment to think about
