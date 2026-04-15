@@ -17,7 +17,7 @@ While the material will always remain a work in progress, we hope that using thi
 
 The course is taught in person every summer term at the University of Potsdam by Prof. Anna-Lena Lamprecht, and this online, publicly available course material will be used by the students as reference material.
 
-Project assignment and course Schedule of 2024 term can be found on our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials).     
+Project assignment and course schedule of the summer term 2026 can be found on our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/seg/rse_course/rse_course_materials).     
 
 The course itself concists of lectures and 2 project assignments, one individual and one group project.  
 
