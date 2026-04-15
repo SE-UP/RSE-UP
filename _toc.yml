@@ -2,17 +2,19 @@ format: jb-book
 root: chapters/welcome
 title: Research Software Engineering
 
-parts: 
-  - caption: Before we start
-    chapters:
-      - file: chapters/install.md
-      - file: exercises/python_refresher.ipynb
-  
+parts:   
   - caption: Getting Started
     chapters:
       - file: chapters/getting_started.md
+      - file: chapters/install.md
+      - file: exercises/python_refresher.ipynb
+
+  - caption: Code, Documentation and Licensing
+    chapters:
+      - file: chapters/clean_readable_code.md
+      - file: chapters/writing_documentation.md     
       - file: chapters/license.md  
-      
+
   - caption: Working with the Shell
     chapters:
       - file: chapters/introduction/bash.md
@@ -34,11 +36,6 @@ parts:
       - file: chapters/git_advanced_github.md 
       - file: exercises/git_advanced.ipynb      
           
-  - caption: Coding Style and Documentation
-    chapters:
-      - file: chapters/clean_readable_code.md
-      - file: chapters/writing_documentation.md     
-
   - caption: Markdown, READMEs, Notebooks and Computational Narratives
     chapters:
       - file: chapters/introduction/documentation.md

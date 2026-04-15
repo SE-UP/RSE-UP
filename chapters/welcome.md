@@ -2,20 +2,18 @@
 
 Welcome to this interactive online textbook on Research Software Engineering! 
 
-This book was created by us, the Software Engineering Group at the University of Potsdam, as reference material for our semester-long class on Research Software Engineering. The contents are assembled from different sources. As main source the fantastic online textbook [Research Software Engineering with Python](https://third-bit.com/py-rse/) by Irving et al. was used. We have incorporated, adjusted, expanded and rearranged its contents, and added some additional chapters and sections on topics like: 
+This book was created by us, the Software Engineering Group at the University of Potsdam, as reference material for our semester-long class on Research Software Engineering. The contents come from different sources. As main source the fantastic online textbook [Research Software Engineering with Python](https://third-bit.com/py-rse/) by Irving et al. was used. We have incorporated, adjusted, expanded and rearranged its contents, and added some additional chapters and sections on topics like: 
 
 - FAIR principles for research software
 - Software requirements, architectures and design
 - Introduction to computational workflows
 - Computational workflows with Snakemake
-- Workflows CI/CD 
 
 Some of the tutorials used were reused from the [Carpentries](https://carpentries.org/) and adjusted. 
-While the material will remain a work in progress, we hope that by using this book, students and researchers will have a great 
-experience getting into research software engineering!
 
-For project assignments and course schedule for the current semester, please refer to our University of Potsdam Gitlab 
-instance [right here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials).
+While the material will remain a work in progress, we hope that by using this book, students and researchers will have a great experience getting into research software engineering!
+
+For project assignments and course schedule for the current semester, please refer to our University of Potsdam Gitlab instance [right here](https://gitup.uni-potsdam.de/se-up/rse_course/rse_course_materials).
 
 
 ## Why should you care about this course?
@@ -37,7 +35,7 @@ This course is designed for students researchers who are already using Python fo
 but you should already be comfortable doing things like reading data from files
 and writing loops, conditionals, and functions.
 
-To make sure that your Python skills are at the expected level, you can either try our [Python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresher.html) or, if you are already experienced with other programming languages, you can also check out the python tutorials on [exercism.org](https://exercism.org/) to get up to speed with the python syntax. 
+To make sure that your Python skills are at the expected level, you can either try our [Python refresher](https://se-up.github.io/RSE-UP/exercises/python_refresher.html) or, if you are already experienced with other programming languages, you can also check out the python tutorials on [exercism.org](https://exercism.org/) to get up to speed with the Python syntax. 
 
 
 ## The Big Picture
@@ -45,7 +43,7 @@ To make sure that your Python skills are at the expected level, you can either t
 Our approach to research software engineering is based on three related concepts:
 
 -   **Open Science**: Making data, methods, and results
-    freely available to all by publishing them under **open license**.
+    freely available to all by publishing them under **open licenses**.
 
 -   **Reproducible research**: Ensuring that anyone
     with access to the data and software can feasibly reproduce results, both to
@@ -121,30 +119,25 @@ research culture can improve to address the issues raised above.
 ## What You Will Learn
 
 Rather than simply providing reference material about good coding practices,
-the course follows by example on how to write an actual software package to address a real research question. The data analysis task that we focus on
-relates to a fascinating result in the field of quantitative linguistics.
-Namely, **Zipf's Law**, which states that the second most common word in a body of text appears half as often as the most common, the third most common appears a third as often, and so on. To test whether Zipf's Law holds for a collection of classic novels that are freely available from **Project Gutenberg**, we write a software package that counts and analyzes the word frequency distribution in any arbitrary body of text.
+the course follows by example on how to write actual software packages to address real research question. We use two running examples that we revisit during the course of the book: 
+1. The first data analysis task that we focus on relates to a fascinating result in the field of quantitative linguistics. Namely, **Zipf's Law**, which states that the second most common word in a body of text appears half as often as the most common, the third most common appears a third as often, and so on. To test whether Zipf's Law holds for a collection of classic novels that are freely available from **Project Gutenberg**, we write a software package that counts and analyzes the word frequency distribution in any arbitrary body of text.
+2. The second data analysis task that we use as a reference example is the calculation of an **air quality index (AQI)** based on measurements of key air pollutants like  PM₁₀ (coarse particulate matter, ≤ 10 µm),  PM₂.₅ (fine particulate matter, ≤ 2.5 µm), O₃ (ozone), NO₂ (nitrogen dioxide), SO₂ (sulfur dioxide). With openly available measurements of these pollutants from various stations, we can run different analysis around air quality and correlated factors. We will write a software package that calculates the AQI for given measurements, and then use it in larger analyses (concretely computational narratives in Jupyter notebooks). 
 
-In the process of writing and publishing a Python package to verify Zipf's Law,
-we will show you how to do the following:
+In the process of writing and publishing Python packages to verify Zipf's Law and analyze air quality, we will show you how to do the following:
 
--   Organize small and medium-sized data science projects.
--   Use the Unix shell to efficiently manage your data and code.
--   Write Python programs that can be used on the command line.
--   Use Git and GitHub to track and share your work.
--   Work productively in a small team where everyone is welcome.
--   Use Make to automate complex workflows.
--   Enable users to configure your software without modifying it directly.
--   Test your software and know which parts have not yet been tested.
--   Find, handle, and fix errors in your code.
--   Publish your code and research in open and reproducible ways.
--   Create Python packages that can be installed in standard ways.
+- Organize small and medium-sized data science projects.
+- Use Git to track and share your work.
+- Work productively in a small team where everyone is welcome.
+- Organise code in a modular and sustainable way.
+- Test your software and know which parts have not yet been tested.
+- Find, handle, and fix errors in your code.
+- Publish your code and research in open and reproducible ways.
+- Use workflow managers to automate complex workflows.
 
 
 ## Using this Book
 
-This textbook was written to be used as the material for a (potentially) semester-long course at the university level, 
-although it can also be used for independent self-study.
+This textbook was written to be used as the material for a (potentially) semester-long course at the university level, although it can also be used for independent self-study.
 <!-- // Participatory live-coding is the anticipated style for teaching the material,
 // rather than lectures simply talking about the code presented {cite:p}`Brow2018, Wils2018`. -->
 The chapters and their content are generally designed to be used in the order given.
@@ -170,7 +163,7 @@ The content and code of this book can be freely re-used as it is
 
 ## Acknowledgements
 
-This book was created on basis of the book 'Research Software Engineering with Python: Building Software that Makes Research Possible', that was created by: 
+This book was created on basis of the fantastic book 'Research Software Engineering with Python: Building Software that Makes Research Possible', that was created by: 
 Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham and Greg Wilson. The online version can be found [here!](https://third-bit.com/py-rse/index.html)
 Additionally, we would like to thank all contributors for this version of the book, in alphabetical order: Nikolas Bertrand, Akshay Devkate, Mario Frank, Joaquin Gottlebe, Anna-Lena Lamprecht, Sebastian Müller.
 
