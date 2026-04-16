@@ -112,7 +112,7 @@ parts:
  
   - caption: Open Science
     chapters: 
-      - file: chapters/introduction/software_citation.md
+      - file: chapters/software_citation.md
       
   # - caption: Worksheets - Course Work
   #   chapters:
