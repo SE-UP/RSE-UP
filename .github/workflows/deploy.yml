@@ -10,14 +10,11 @@ on:
     branches:
     - main
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies, build the book, and pushes it to `deploy` branch
 jobs:
   deploy-book:
     permissions:
       contents: write
-      pull-requests: write 
-      issues: write
-      packages: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
@@ -26,7 +23,7 @@ jobs:
     - name: Set up Python 3.13
       uses: actions/setup-python@v6
       with:
-        python-version: 3.13
+        python-version: "3.13"
 
     - name: Install dependencies
       run: |
@@ -35,18 +32,14 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build .
+        jupyter-book clean .
+        jupyter-book build . --all
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v4
-      #if: ${{ github.event_name == 'push' }}
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: deploy
         publish_dir: ./_build/html
-        deploy_key: ${{ secrets.DEPLOY_DOCS }}
-
-        
-  
-

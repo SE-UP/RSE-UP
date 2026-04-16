@@ -4,7 +4,7 @@ title: RSE-UP
 author: Software Engineering Group - University of Potsdam
 email: ''
 #logo                        : "favicon.png"  # A path to the book logo
-exclude_patterns            : ["README.md"]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+exclude_patterns            : ["README.md", "_build", ".DS_Store", "Thumbs.db", "**/.*", "zipf/*"]  # Patterns to skip when building the book.
 
 #######################################################################################
 # Execution settings
@@ -44,8 +44,9 @@ sphinx:
     bibtex_reference_style: author_year
     #bibtex_bibfiles: 
     #    bibliography.bib
-    extra_extensions:
-      githubpages
+    #extra_extensions:
+    #  githubpages
+
       
 markdown: kramdown
 kramdown:
