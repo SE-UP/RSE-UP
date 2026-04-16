@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Project Assignment 2: Name, Idea and Basic Setup &#8212; RSE-UP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/group/2_project_assignment';</script>
+    <link rel="canonical" href="https://se-up.github.io/RSE-UP/projects/group/2_project_assignment.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../chapters/welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RSE-UP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../chapters/welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/getting_started.html">Running Example and Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/install.html">Software to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code, Documentation and Licensing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/clean_readable_code.html">Writing Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/writing_documentation.html">Documenting Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/license.html">Software Licenses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Shell</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/bash.html">Introduction to Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_basics.html">The Basics of the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_basics.html">Bash Basics Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_tools.html">Building Tools with the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_tools.html">Bash Tool Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_advanced.html">Bash Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_advanced.html">Bash Advanced Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Version Control with Git</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/vcs.html">Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/intro_version_control.html">Using Git at the Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/version_control.html">Exercise Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/create_ssh-key.html">Using SSH on Gitlab and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/commit_messages.html">Writing good commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/git_advanced.html">Going Further with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/git_advanced_github.html">Forking on Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/git_advanced.html">Exercises Git Advanced</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Markdown, READMEs, Notebooks and Computational Narratives</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/documentation.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/readme_files.html">README Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/comp_narative.html">Computational Narratives</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing and Error Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/testing.html">Introduction to Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/testing_programs.html">Testing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/testing.html">Exercises - Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/error_handling.html">Introduction to Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/error_handling.html">Handling Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/error_handling.html">Exercises - Error Handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/working_in_teams.html">Working in Teams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/work_teams.html">Exercise - Work Teams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/workflows.html">Data Analysis Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Requirements, Architecture and Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/requirements_architecture_design.html">Application Classes, Software Requirements, Architecture and Design</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/application_classes.html">Application Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/requirements.html">Software Development Process and Requirements Engineering in RSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/architecture_design.html">Architecture and Design</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Command-Line Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/python_cli.html">Introduction to CLI application using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/python_cli.html">Building Command-Line Tools with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/python_cli.html">Exercises - Scripting Python for CLI tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configuration and Packaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/config.html">Introduction to Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/configuration.html">Configuring Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/yaml.html">YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/config.html">Exercises - Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/packaging.html">Introduction to Packaging Python Software</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/python_packaging.html">Creating Packages with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/packaging.html">Exercises - Packaging</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows and Automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/automation.html">Introduction to Make and Snakemake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/intro_snakemake.html">Introduction to Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/snakemake_continued.html">Snakemake Continued</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/snakemake_continued_2.html">Snakemake Continued Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/snakemake.html">Snakemake Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/intro_make.html">Automating Analyses with Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/intro_make.html">Exercises - Make</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/cicd.html">Introduction to CI/CD</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/cicd_basics.html">CI/CD Basics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tracking Provenance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/tracking_provenance.html">Tracking Provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/provenance.html">Exercises - Provenance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Open Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/software_citation.html">Software Citation and FAIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/solutions.html">Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/working_remotely.html">Working Remotely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/tree.html">Project Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Fprojects/group/2_project_assignment.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/projects/group/2_project_assignment.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Project Assignment 2: Name, Idea and Basic Setup</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-idea-and-name">Project Idea and Name</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-repository-on-gitlab">Project Repository on GitLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importan-files-and-working-with-the-issue-tracker">Importan Files and Working with the Issue Tracker</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="project-assignment-2-name-idea-and-basic-setup">
+<h1>Project Assignment 2: Name, Idea and Basic Setup<a class="headerlink" href="#project-assignment-2-name-idea-and-basic-setup" title="Permalink to this heading">#</a></h1>
+<p>The Instructions below contain a fairly comprehensive set of instructions to get you started with the second course project, which you will do in a group. Please take sufficient Bme to go through all the points to make sure you are set up for the next assignments to come.</p>
+<p>In the second course project you will work on a slightly larger challenge, which comes with a need for using additional software engineering techniques. You will work on this project in a team, which has advantages (more working power available), but also new challenges (like communication and coordination of work). This week you should develop your project idea, give the project a name, and do an initial project setup, so that you are good to start with more technical aspects next week. Please follow the instrucBons below to get to that point:</p>
+<section id="project-idea-and-name">
+<h2>Project Idea and Name<a class="headerlink" href="#project-idea-and-name" title="Permalink to this heading">#</a></h2>
+<p>In the first project we were quite specific regarding the choice of a dataset and what to do with it. In the second project you have more freedom to develop your own project idea.
+Mind that the project does not have to be much larger, and if you like you can do a similar kind of data analysis, that is also fine. In any case, make sure to pay attention to the following points:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Your project should be a research software project, so in some sense deal with processing data or performing a simulation in order to answer a research question. 
+- The focus should be on developing a (Python) library for performing the kind of analysis that you have chosen. Think of the DLR’s application class 2 here, i.e. specialized functionality that is meant to be used by others.
+- One person in your team should take the role of a user (“client”) of the library and focus on developing a Jupyter notebook and/or command-line interface that uses the library to demonstrate how it can be used for answering a particular research question.
+- The other members of the team are responsible for providing the “backend” functionality in a usable way (we will discuss details in the next weeks)
+</pre></div>
+</div>
+<p>If in doubt about your project idea, please feel free to consult with the lecturers of the course.
+When you are happy enough with your project idea, give the project a name and proceed to the next step.</p>
+</section>
+<section id="project-repository-on-gitlab">
+<h2>Project Repository on GitLab<a class="headerlink" href="#project-repository-on-gitlab" title="Permalink to this heading">#</a></h2>
+<p>With the project name, create a blank project repository on Git.UP. Set the “Visibility Level” to “private”. Invite the (other) team members with role “Developer” or “Maintainer”. As in the first project, invite  <strong>TODO</strong> Akshay Devkate (GitLab username devkate) with role “Reporter”, so that he can see your project, give feedback, and eventually access the project for grading.</p>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this heading">#</a></h2>
+<p>Prepare the project structure (directories <code class="docutils literal notranslate"><span class="pre">data,</span> <span class="pre">results,</span> <span class="pre">src/bin,</span> <span class="pre">docs</span></code> etc., depending on what you anBcipate to need for your project) and add the important files that you already know from the first project (<a class="reference external" href="http://README.md">README.md</a>, license, citation information, .gitignore). The files can be left empty at this point. You can do this directly in the web interface of GitLab, or do it locally on a computer and commit to the remote repository later. Discuss advantages and disadvantages of both versions before you start working.</p>
+</section>
+<section id="importan-files-and-working-with-the-issue-tracker">
+<h2>Importan Files and Working with the Issue Tracker<a class="headerlink" href="#importan-files-and-working-with-the-issue-tracker" title="Permalink to this heading">#</a></h2>
+<p>Use the issue tracker to organize the work on the content of the files created above, and for adding some more files. Describe the issues, label them, assign them to someone. When the work is done, resolve the issue. Remember that you can discuss on issues during the
+process.</p>
+<p>Create issues for the following tasks:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Add a basic description of the project idea to the README.md. 
+- Add a license (after discussing with the team what license you want to use).
+- Prepare the citation.cff file.
+- Start the .gitgnore file.
+- Add a CONDUCT.md file to your project repository. Use the Contributor [Covenant Code of Conduct](https://www.contributor-covenant.org/) template and modify the places that need updaBng (e.g., who to contact).
+- Add a CONTRIBUTING.md file in the project to describe how other people can contribute to it (you can use the [GitHub contributors guide](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors) for inspiration).
+- Add a section to the README.md file of the project to tell people where to find out more about the code of conduct and the contribution guidelines
+</pre></div>
+</div>
+<p>Use these fairly simple tasks to get used to working with the issue tracker. Discuss in your team the issue lifecycle that you want to follow in your project and test it with these tasks.
+Using the issue tracker well will make the collaborative work on the project much easier</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./projects/group"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-idea-and-name">Project Idea and Name</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-repository-on-gitlab">Project Repository on GitLab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importan-files-and-working-with-the-issue-tracker">Importan Files and Working with the Issue Tracker</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Software Engineering Group - University of Potsdam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

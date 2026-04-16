@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Software Development Process and Requirements Engineering in RSE &#8212; RSE-UP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/requirements';</script>
+    <link rel="canonical" href="https://se-up.github.io/RSE-UP/chapters/requirements.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture and Design" href="architecture_design.html" />
+    <link rel="prev" title="Application Classes" href="application_classes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RSE-UP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Running Example and Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Software to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code, Documentation and Licensing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="clean_readable_code.html">Writing Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing_documentation.html">Documenting Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Software Licenses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Shell</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/bash.html">Introduction to Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_basics.html">The Basics of the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_tools.html">Building Tools with the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_tools.html">Bash Tool Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_advanced.html">Bash Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_advanced.html">Bash Advanced Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Version Control with Git</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/vcs.html">Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_version_control.html">Using Git at the Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/version_control.html">Exercise Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_ssh-key.html">Using SSH on Gitlab and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit_messages.html">Writing good commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_advanced.html">Going Further with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_advanced_github.html">Forking on Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/git_advanced.html">Exercises Git Advanced</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Markdown, READMEs, Notebooks and Computational Narratives</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/documentation.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_files.html">README Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comp_narative.html">Computational Narratives</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing and Error Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/testing.html">Introduction to Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing_programs.html">Testing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/testing.html">Exercises - Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/error_handling.html">Introduction to Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_handling.html">Handling Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/error_handling.html">Exercises - Error Handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="working_in_teams.html">Working in Teams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/work_teams.html">Exercise - Work Teams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Data Analysis Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Requirements, Architecture and Design</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction/requirements_architecture_design.html">Application Classes, Software Requirements, Architecture and Design</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="application_classes.html">Application Classes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Software Development Process and Requirements Engineering in RSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture_design.html">Architecture and Design</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Command-Line Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction/python_cli.html">Introduction to CLI application using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_cli.html">Building Command-Line Tools with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_cli.html">Exercises - Scripting Python for CLI tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configuration and Packaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/config.html">Introduction to Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuring Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yaml.html">YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/config.html">Exercises - Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/packaging.html">Introduction to Packaging Python Software</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_packaging.html">Creating Packages with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/packaging.html">Exercises - Packaging</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows and Automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/automation.html">Introduction to Make and Snakemake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro_snakemake.html">Introduction to Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snakemake_continued.html">Snakemake Continued</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snakemake_continued_2.html">Snakemake Continued Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/snakemake.html">Snakemake Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro_make.html">Automating Analyses with Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/intro_make.html">Exercises - Make</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introduction/cicd.html">Introduction to CI/CD</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="cicd_basics.html">CI/CD Basics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tracking Provenance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tracking_provenance.html">Tracking Provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/provenance.html">Exercises - Provenance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Open Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="software_citation.html">Software Citation and FAIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="solutions.html">Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_remotely.html">Working Remotely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree.html">Project Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Fchapters/requirements.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/requirements.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Software Development Process and Requirements Engineering in RSE</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-processes">Iterative Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-engineering-in-rse">Requirements Engineering in RSE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach">Recommended approach:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moscow-prioritization">MoSCoW Prioritization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-moscow-prioritization">Benefits of MoSCoW Prioritization:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uml-diagrams">UML Diagrams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-this-in-the-repo">Where to put this in the repo?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="software-development-process-and-requirements-engineering-in-rse">
+<h1>Software Development Process and Requirements Engineering in RSE<a class="headerlink" href="#software-development-process-and-requirements-engineering-in-rse" title="Permalink to this heading">#</a></h1>
+<p>The software development process typically consists of several central phases, which collectively guide the creation, implementation, and maintenance of software systems. These phases help ensure a systematic and organized approach to building software.</p>
+<p>Here is a brief introduction to the central phases of the software development process:</p>
+<p>The Software Development Life Cycle (SDLC) is a structured process for planning, creating, testing, and deploying software. Here’s a breakdown of the key phases, incorporating your requested points:</p>
+<ol class="arabic simple">
+<li><p>Planning and Requirements Gathering:</p></li>
+</ol>
+<p>This initial phase is crucial for understanding and documenting the needs and expectations of all stakeholders, including clients, end-users, and other relevant parties. The goal is to define the software’s functionality, features, and constraints in detail. This ensures the final product meets everyone’s expectations.</p>
+<ol class="arabic simple" start="2">
+<li><p>Analysis:</p></li>
+</ol>
+<p>Following requirements gathering, a thorough analysis takes place. This involves dissecting the collected information to identify the system’s functionalities, user types, data needs, and potential interactions. This analysis lays the groundwork for the design phase.</p>
+<ol class="arabic simple" start="3">
+<li><p>Design:</p></li>
+</ol>
+<p>With a clear understanding of the requirements, the system design phase begins.  Here, the overall architecture and structure of the software are planned. This includes high-level design decisions like choosing the technology stack, defining data structures, and outlining the software’s components and modules.</p>
+<ol class="arabic simple" start="4">
+<li><p>Implementation:</p></li>
+</ol>
+<p>This is where the development team translates the design specifications into functional code. Developers follow coding standards, best practices, and use the chosen programming languages to create the software.</p>
+<ol class="arabic simple" start="5">
+<li><p>Testing and Integration:</p></li>
+</ol>
+<p>The software undergoes rigorous testing to ensure it meets the specified requirements and functions correctly. Various testing methods are employed, such as unit testing (individual components), integration testing (how components work together), and system testing (overall functionality). This phase identifies and fixes defects, guaranteeing the software’s reliability.</p>
+<ol class="arabic simple" start="6">
+<li><p>Maintenance:</p></li>
+</ol>
+<p>Once the software is deployed to a production environment for actual use, the work isn’t over.  The maintenance phase involves addressing issues, bugs, and updates.  This includes providing support, troubleshooting problems, and releasing updates or patches to improve the software based on user feedback and evolving requirements.</p>
+<!--
+TODO CREATE NEW IMAGE
+```{figure} ../figures/app_classes/software_dev_phases.png
+:name: Software_dev_cycle
+Software Development Process
+```
+
+
+
+1. Requirements Gathering:
+
+This phase involves understanding and documenting the needs and expectations of stakeholders, including clients, end-users, and other relevant parties.
+The goal is to define the functionality, features, and constraints that the software must satisfy.
+
+2. System Design:
+
+In this phase, the overall architecture and structure of the software are planned. It includes high-level design decisions, such as choosing the appropriate technology stack, defining data structures, and outlining the software's components and modules.
+
+3. Implementation:
+
+This is the phase where the actual code is written based on the design specifications.
+Developers follow coding standards, best practices, and use the chosen programming languages to translate the design into executable code.
+
+4. Testing:
+
+The testing phase involves verifying that the software meets the specified requirements and functions correctly.
+Various testing methods, such as unit testing, integration testing, and system testing, are employed to identify and fix defects and ensure the software's reliability.
+
+5. Deployment and Maintenance & support:
+
+Once the software has passed testing and quality assurance, it is deployed to a production environment for actual use.
+This phase involves setting up the necessary infrastructure, configuring servers, and making the software accessible to end-users.
+
+After deployment, ongoing maintenance is required to address issues, bugs, and updates. This phase involves providing support, troubleshooting, and releasing updates or patches to improve or enhance the software based on user feedback and changing requirements.
+
+-->
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
+<p>Throughout the entire software development process, documentation is crucial. It includes requirements documents, design documents, and user manuals to provide clear guidelines for understanding, using, and maintaining the software.</p>
+</section>
+<section id="iterative-processes">
+<h2>Iterative Processes:<a class="headerlink" href="#iterative-processes" title="Permalink to this heading">#</a></h2>
+<p>Many software development methodologies, such as Agile or DevOps, involve iterative processes where the development cycle is repeated, allowing for continuous improvement and adaptation to changing requirements.
+These phases collectively form a structured framework for developing reliable, maintainable, and scalable software systems. The specific details of each phase may vary based on the development methodology being employed and the nature of the project.</p>
+</section>
+<section id="requirements-engineering-in-rse">
+<h2>Requirements Engineering in RSE<a class="headerlink" href="#requirements-engineering-in-rse" title="Permalink to this heading">#</a></h2>
+<p>Approaching research projects necessitates a flexible and iterative method, acknowledging the exploratory and evolving nature of such endeavors.</p>
+<p>Developers must consistently collaborate with stakeholders to adapt to changes, ensuring the software aligns with research objectives. Descriptions and specifications outline what the software should achieve and its expected behavior, encompassing needs, functionalities, constraints, and quality attributes. These serve as a groundwork for software design, development, and validation, offering guidance throughout the entire software engineering lifecycle.</p>
+<p><strong>User requirements</strong> concentrate on user needs and expectations, fostering a user-centric approach that aids in comprehending the system’s context and goals. For instance: “Users should have the ability to post updates, photos, and videos.”</p>
+<p>On the other hand, <strong>system requirements</strong> furnish technical specifications for construction, adopting a developer-centric standpoint to steer implementation. Functional requirements delineate desired software behavior, such as “The system should enable users to create new accounts” or “The system should present summarized figures in a dashboard.”</p>
+<p><strong>Non-functional requirements</strong> delineate additional qualities or characteristics sought in the software system, like response time (“The system should respond within 2 seconds”) or compatibility with web browsers (“The system should be compatible with all major web browsers”).</p>
+<section id="recommended-approach">
+<h3>Recommended approach:<a class="headerlink" href="#recommended-approach" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Understand the Research Context: Gain a deep understanding of the research domain, objectives, and constraints. Collaborate closely with the researchers to grasp the scientific goals and the problem being addressed.</p></li>
+<li><p>Stakeholder Identification: Identify the stakeholders involved in the research project. This typically includes researchers, domain experts, funding agencies, end-users, and potentially software developers.</p></li>
+<li><p>Elicitation Techniques: Employ appropriate elicitation techniques to capture requirements. These techniques may include interviews, workshops, surveys, and observations. Researchers and domain experts should be actively involved in this process to ensure the accuracy and relevance of requirements.</p></li>
+<li><p>Prioritize Requirements: Research projects often have time and resource constraints. Collaborate with stakeholders to prioritize requirements based on their importance and potential impact on the research outcomes. Consider factors such as scientific significance, feasibility, and project timelines.</p></li>
+<li><p>Document Requirements: Document the requirements in a clear and concise manner. Use a combination of natural language, diagrams, and mockups to communicate requirements effectively. Ensure that the documentation is accessible and understandable.</p></li>
+<li><p>Iterative Refinement: Recognize that research projects are dynamic and subject to change. Embrace an iterative approach to requirements engineering, allow for continuous refinement and adaptation. Regularly review and update requirements based on new insights, research findings, and evolving stakeholder needs.</p></li>
+<li><p>Traceability and Versioning: Establish traceability between requirements and the research outcomes. This helps to ensure that the developed software meets the intended objectives. Maintain version control for the requirements documentation to track changes and facilitate collaboration.</p></li>
+<li><p>Collaboration and Communication: Foster open and frequent communication channels among stakeholders, including researchers, software developers, and end-users. Encourage feedback and collaboration throughout the research software development process to ensure alignment with evolving research needs.</p></li>
+<li><p>Validation and Verification: Establish mechanisms for validating and verifying the implemented software against the requirements. This can involve rigorous testing, peer reviews, and involving domain experts to assess the alignment of the software with the research objectives.</p></li>
+</ol>
+</section>
+<section id="documenting-requirements">
+<h3>Documenting Requirements:<a class="headerlink" href="#documenting-requirements" title="Permalink to this heading">#</a></h3>
+<p>Being flexible in documentation entails the ability to tailor the documentation forms to the unique needs of the project, ensuring accessibility, comprehensibility, and adaptability. It involves a recognition that different projects may require different approaches to convey information effectively.</p>
+<p>Consideration of various documentation forms is crucial to achieving this flexibility:</p>
+<ul class="simple">
+<li><p><strong>Natural Language</strong>:</p></li>
+</ul>
+<p>Description: Utilizing natural language involves expressing project information in a narrative, conversational manner.</p>
+<p>Advantages: Readable and accessible to a diverse audience, accommodating different levels of technical expertise.</p>
+<p>Adaptability: Allows for detailed explanations and provides a comprehensive overview of project elements.</p>
+<ul class="simple">
+<li><p><strong>Diagrams</strong>:</p></li>
+</ul>
+<p>Description: Visual representations such as flowcharts, UML diagrams, or data flow diagrams.
+Advantages: Offers a visual understanding of complex relationships or processes.
+Adaptability: Useful for conveying system architecture, data flow, and interactions between components.</p>
+<ul class="simple">
+<li><p><strong>Mockups and Prototypes</strong>:</p></li>
+</ul>
+<p>Description: Visual representations or interactive models showcasing the intended look and feel of the software.</p>
+<p>Advantages: Allows stakeholders to visualize the end product early in the development process.</p>
+<p>Adaptability: Particularly useful for eliciting feedback on the design and user interface.</p>
+<figure class="align-default" id="mock-up">
+<img alt="../_images/mock_up.png" src="../_images/mock_up.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Web Desing example mock up</span><a class="headerlink" href="#mock-up" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><em>(image can be found <a class="reference external" href="https://www.appcues.com/blog/ui-mockups-and-tools">here</a>)</em></p>
+<ul class="simple">
+<li><p><strong>Use Cases:</strong></p></li>
+</ul>
+<p>Description: Use cases are a technique employed to capture the interactions and behaviors between actors (users or external systems) and a system. They provide a detailed account of how the system will be used in various scenarios.</p>
+<p>Advantages: Enables a comprehensive understanding of user-system interactions, facilitating the identification of functional requirements.</p>
+<p>Adaptability: Ideal for describing functional requirements by illustrating the steps and actions necessary to accomplish a specific goal or task within the system.</p>
+<p>Example: In a research software application, a specific use case might be “Generate Report” with the following main flow:</p>
+<p><strong>Use Case: Generate Report</strong></p>
+<p>Primary Actor: Researcher
+Main Flow:</p>
+<ol class="arabic simple">
+<li><p>The researcher selects the “Generate Report” option in the research software.</p></li>
+<li><p>The system prompts the researcher to choose the desired report format (e.g., PDF, Excel).</p></li>
+<li><p>The researcher selects the report format.</p></li>
+<li><p>The system processes the available research data.</p></li>
+<li><p>The system generates the report in the selected format.</p></li>
+<li><p>The researcher receives the generated report.</p></li>
+</ol>
+<p>This specific use case illustrates the step-by-step process of how a researcher interacts with the system to generate a report, showcasing the practical application of use cases in describing system functionality.</p>
+<ul class="simple">
+<li><p><strong>User Stories:</strong></p></li>
+</ul>
+<p>Description: User stories are concise, user-centric narratives following the template “As a [user role], I want [action/features] so that [benefit/reason].” They focus on expressing end-users’ needs, providing a tangible understanding of their goals and the value the features bring.</p>
+<p>Advantages: Offers a direct connection to user needs, promoting a user-centric approach to development.</p>
+<p>Adaptability: Particularly effective for agile development, enabling clear communication of user requirements and expectations.</p>
+<p><strong><em>Example User Story:</em></strong></p>
+<p>User Story: “As a researcher, I want to generate a report in PDF or Excel format, so that I can easily share and analyze the research findings.”</p>
+<p>By incorporating user stories into the documentation, the project team ensures that the development process aligns closely with the needs and expectations of the end-users, fostering a more user-centered and value-driven approach.</p>
+</section>
+</section>
+<section id="moscow-prioritization">
+<h2>MoSCoW Prioritization<a class="headerlink" href="#moscow-prioritization" title="Permalink to this heading">#</a></h2>
+<p>MoSCoW prioritization is a widely utilized technique in project management and software development to prioritize user stories or other requirements based on their importance and urgency. The acronym stands for:</p>
+<ul class="simple">
+<li><p><strong>Must have</strong>: Denotes essential, critical, and core functionality that is imperative for the project’s success. These are features without which the project cannot proceed.</p></li>
+<li><p><strong>Should have</strong>: Represents valuable and important features that are not critical for the project’s immediate success. While desirable, these functionalities can be deferred to subsequent phases if necessary.</p></li>
+<li><p><strong>Could have</strong>: Encompasses features that are considered nice to have but are not necessary for the project’s essential functionality. These can be considered as potential enhancements but are not critical for the current scope.</p></li>
+<li><p><strong>Won’t have</strong>: Indicates features that are of the lowest priority or currently out of scope. These are functionalities that are acknowledged but intentionally deferred for the moment.</p></li>
+</ul>
+<section id="benefits-of-moscow-prioritization">
+<h3>Benefits of MoSCoW Prioritization:<a class="headerlink" href="#benefits-of-moscow-prioritization" title="Permalink to this heading">#</a></h3>
+<p>MoSCoW Prioritization offers several advantages in project management:</p>
+<ul class="simple">
+<li><p><strong>Informed Decision-Making</strong>: By categorizing requirements into distinct priority levels, teams can make informed decisions about where to focus their efforts, ensuring that critical aspects are addressed first.</p></li>
+<li><p><strong>Incremental Development</strong>: The prioritization scheme supports incremental development by emphasizing the importance of delivering essential functionality first. This allows for iterative releases and continuous improvement.</p></li>
+<li><p><strong>Resource Optimization</strong>: MoSCoW helps optimize resource allocation by directing attention to must-have and should-have features first. This prevents unnecessary investment in less critical functionalities.</p></li>
+<li><p><strong>Clear Communication</strong>: The classification of requirements into must-have, should-have, could-have, and won’t-have provides a clear and shared understanding among team members and stakeholders about the project’s priorities.</p></li>
+</ul>
+<p>By systematically organizing requirements into priority levels, teams can ensure that they address critical needs while allowing flexibility for future enhancements. This approach fosters an iterative and adaptive development process.</p>
+</section>
+</section>
+<section id="uml-diagrams">
+<h2>UML Diagrams<a class="headerlink" href="#uml-diagrams" title="Permalink to this heading">#</a></h2>
+<p>Unified Modeling Language (UML) is a standardized visual modeling language widely used in software development to represent, document, and communicate system architectures and designs. UML diagrams serve as powerful tools for various stages of the software development lifecycle. You can find a more detailed discription <a class="reference external" href="https://www.visual-paradigm.com/tutorials/">here</a>.</p>
+<p>An example UML-diagram <span id="id1">[<a class="reference internal" href="references.html#id3" title="Richard A Williams, Jon Timmis, and Eva E Qwarnstrom. Statistical techniques complement uml when developing domain models of complex dynamical biosystems. PloS one, 11(8):e0160834, 2016.">Williams <em>et al.</em>, 2016</a>]</span>:</p>
+<figure class="align-default" id="uml">
+<img alt="../_images/uml_diagram.png" src="../_images/uml_diagram.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Taxonomy of UML diagramming notations.. PLOS ONE. Figure.</span><a class="headerlink" href="#uml" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When it comes to capturing and analyzing requirements, several key UML diagrams play a crucial role:</p>
+<ul class="simple">
+<li><p><strong>Use Case Diagrams</strong>:</p></li>
+</ul>
+<p><em>Purpose: Use case diagrams provide a high-level view of the system’s functionality from the end-users’ perspective.</em></p>
+<p><em>Content: They depict actors, representing external entities, and use cases, representing specific functionalities or features of the system.</em></p>
+<p><em>Benefit for Requirements: Use case diagrams help identify and clarify user requirements by illustrating the interactions between users and the system, highlighting the main functionalities required.</em></p>
+<ul class="simple">
+<li><p><strong>Activity Diagrams:</strong></p></li>
+</ul>
+<p><em>Purpose: Activity diagrams model the flow of activities within a system, illustrating how different tasks are performed and how they relate to each other.</em></p>
+<p><em>Content: Nodes represent activities, and transitions depict the flow of control between them.</em></p>
+<p><em>Benefit for Requirements: Activity diagrams are useful for understanding the dynamic aspects of a system, helping to refine and elaborate on requirements by visualizing the sequence of actions and decision points.</em></p>
+<p>UML Activity Diagrams are used to represent the conceptual workflow steps of a functionality, without specifying concrete tools or implementations.
+These diagrams include activity nodes for each step and edges that illustrate the order of execution, dependencies, and conditional branchings.
+Additional information, such as data, can also be incorporated.
+They serve as a foundation for implementation in a workflow management system, like Snakemake.
+Additionally, a plain text list of non-functional requirements should be considered in the process.</p>
+<figure class="align-default" id="uml-workflow">
+<img alt="../_images/uml_workflow.png" src="../_images/uml_workflow.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">UML Workflow  Activity Diagramm <a class="reference external" href="https://academic.oup.com/nar/article/40/7/2846/1187540">https://academic.oup.com/nar/article/40/7/2846/1187540</a></span><a class="headerlink" href="#uml-workflow" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>And here you have an description on the connections between activities:</p>
+<figure class="align-default" id="uml-meaning">
+<img alt="../_images/uml_meaning.png" src="../_images/uml_meaning.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Activity Diagram - Building Blocks - from <a class="reference external" href="https://www.drawio.com/blog/uml-activity-diagrams">https://www.drawio.com/blog/uml-activity-diagrams</a></span><a class="headerlink" href="#uml-meaning" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Class Diagrams:</strong></p></li>
+</ul>
+<p><em>Purpose: Class diagrams provide a static view of the system, depicting the structure and relationships among classes.</em></p>
+<p><em>Content: Classes, attributes, and associations between classes are represented in class diagrams.</em></p>
+<p><em>Benefit for Requirements: Class diagrams help in understanding the data and object-oriented aspects of the system, facilitating the identification and organization of key entities and their relationships.</em></p>
+<ul class="simple">
+<li><p><strong>State Machine Diagrams:</strong></p></li>
+</ul>
+<p><em>Purpose: State machine diagrams model the behavior of a system in response to external stimuli, illustrating the different states a system can be in and the transitions between them.</em></p>
+<p><em>Content: States, transitions, and events are key elements in state machine diagrams.</em></p>
+<p><em>Benefit for Requirements: State machine diagrams assist in capturing and refining the requirements related to the dynamic behavior of the system, particularly when the system’s response depends on its current state.</em></p>
+<ul class="simple">
+<li><p><strong>Sequence Diagrams:</strong></p></li>
+</ul>
+<p><em>Purpose: Sequence diagrams focus on the interactions between objects over time, illustrating the order of messages exchanged between them.</em></p>
+<p><em>Content: Objects, lifelines, and messages are fundamental components of sequence diagrams.</em></p>
+<p><em>Benefit for Requirements: Sequence diagrams help in understanding the flow of communication and collaboration between different components of the system, aiding in the refinement and validation of requirements related to system interactions.</em></p>
+</section>
+<section id="where-to-put-this-in-the-repo">
+<h2>Where to put this in the repo?<a class="headerlink" href="#where-to-put-this-in-the-repo" title="Permalink to this heading">#</a></h2>
+<p>There are multiple approaches to this, no single solution fits all. Typical approaches use either <strong>README file, Documentation folder, Wiki pages</strong>, and <strong>Issue Tracking</strong>  or a combination of them to manage and organize information within a project. Each approach has its own advantages and is suitable for different scenarios. Let’s elaborate on each:</p>
+<ul class="simple">
+<li><p><strong>README File:</strong></p></li>
+</ul>
+<p>Purpose: A README file is typically placed in the root directory of a project and serves as a quick introduction and guide for users and contributors.</p>
+<p>Content: It often includes essential information such as project overview, installation instructions, usage guidelines, and basic troubleshooting tips.</p>
+<p>Advantages: Simple and easy to create and maintain. It’s especially useful for small to medium-sized projects where a concise guide is sufficient.</p>
+<ul class="simple">
+<li><p><strong>Documentation Folder:</strong></p></li>
+</ul>
+<p>Purpose: A Documentation folder is more extensive than a README file and contains comprehensive documentation about the project.</p>
+<p>Content: This may include user guides, developer guides, API documentation, and other detailed information related to the project.</p>
+<p>Advantages: Suitable for larger projects with multiple components or extensive features. It provides a structured way to organize information and is more detailed than a README.</p>
+<ul class="simple">
+<li><p><strong>Wiki Pages:</strong></p></li>
+</ul>
+<p>Purpose: Wikis are collaborative spaces where team members can collectively create, edit, and organize content.</p>
+<p>Content: Wiki pages can cover a wide range of topics, including project history, design decisions, team guidelines, and more.</p>
+<p>Advantages: Enables collaborative documentation, making it suitable for teams that prefer to distribute the responsibility of maintaining and updating documentation. Useful for projects with evolving and dynamic information.</p>
+<ul class="simple">
+<li><p><strong>Issue Tracking:</strong></p></li>
+</ul>
+<p>Purpose: Issue tracking systems (e.g., GitHub Issues, Jira) are primarily used for managing tasks, bugs, and feature requests.
+Content: Each issue can have its own discussion, attachments, and labels, making it a central hub for communication related to specific tasks or problems.
+Advantages: While not a traditional documentation method, issue tracking is crucial for managing project tasks. It helps in tracking progress, discussing specific issues, and maintaining a record of changes over time.
+Choosing an Approach:</p>
+<p>Consider the size and complexity of your project. For smaller projects, a well-structured README might be sufficient. Larger projects may benefit from a combination of approaches.</p>
+<p>Assess your team’s preferences and collaboration style. If your team is accustomed to working collaboratively, a Wiki or shared Documentation folder might be suitable.</p>
+<p>Understand the needs of your users and contributors. If your project has a user base that requires detailed documentation, investing in a comprehensive Documentation folder or Wiki could be essential.</p>
+<p>Ultimately, the choice of approach should align with your team’s culture, project requirements, and collaboration dynamics. Combining multiple approaches is also a valid strategy, as long as it enhances overall project understanding and contributes to a positive collaborative environment.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="application_classes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Application Classes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="architecture_design.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Architecture and Design</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-processes">Iterative Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-engineering-in-rse">Requirements Engineering in RSE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-approach">Recommended approach:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moscow-prioritization">MoSCoW Prioritization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benefits-of-moscow-prioritization">Benefits of MoSCoW Prioritization:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uml-diagrams">UML Diagrams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-this-in-the-repo">Where to put this in the repo?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Software Engineering Group - University of Potsdam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
