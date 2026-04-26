@@ -17,6 +17,10 @@ zipf/
 └── ...
 
 ```
+Throughout this chapter we also show the equivalent Git steps for the German AQI Analyzer project,
+which we introduced in Chapter [Getting Started](https://se-up.github.io/RSE-UP/chapters/getting_started.html).
+The AQI project is located in a directory called `german-air-quality-index-analyzer`
+
 
 ## Setting Up
 
@@ -131,6 +135,19 @@ $ ls -a
 Git stores information about the project in this special subdirectory.
 If we ever delete it, we will lose that history.
 
+> **AQI Project: Initializing a Repository**
+>
+> We apply the same steps to the AQI project:
+>
+> ```bash
+> $ cd ~/german-air-quality-index-analyzer
+> $ git init .
+> ```
+>
+> ```text
+> Initialized empty Git repository in /Users/YOU/german-air-quality-index-analyzer/.git/
+> ```
+
 We can check that everything is set up correctly by asking Git to tell us the status of our project:
 
 ```bash
@@ -202,7 +219,7 @@ Changes to be committed:
 	  new file:   data/sense_and_sensibility.txt
 	  new file:   data/sherlock_holmes.txt
 	  new file:   data/time_machine.txt
-	```
+```
 
 Adding all of our existing files this way is easy, but we can accidentally add things that should never be in version control,
 such as files containing passwords or other sensitive information. 
@@ -222,7 +239,7 @@ The output of `git status` tells us that we can remove such files from the list 
 > we may decide to save them elsewhere,
 > while if they are easy to re-create,
 > we may not save them at all.
-> We will explore this issue further in Chapter \@ref(provenance).
+> We will explore this issue further in Chapter \@ref(provenance).  
 
 We no longer have any untracked files,
 but the tracked files haven't been **committed** (i.e., saved permanently in our project's history). We can do this using `git commit`:
@@ -249,6 +266,65 @@ $ git commit -m "Add scripts, novels, word counts, and plots"
  create mode 100644 results/jane_eyre.png
  create mode 100644 results/moby_dick.csv
 ```
+
+
+
+For the AQI project, all files are already in place from when we set up the project structure.
+We add everything at once and check the status:
+
+```bash
+$ git add .
+$ git status
+```
+
+```text
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   CITATION.cff
+        new file:   CONDUCT.md
+        new file:   CONTRIBUTING.md
+        new file:   LICENSE
+        new file:   README.md
+        new file:   Makefile
+        new file:   pyproject.toml
+        new file:   requirements.txt
+        new file:   src/aqi_calculator.py
+        new file:   src/aqi_thresholds.py
+        new file:   tests/test_aqi_calculator.py
+        new file:   notebooks/computational_narrative.ipynb
+```
+
+We commit this as the starting point of the project's history:
+
+```bash
+$ git commit -m "Add initial project structure and source files"
+```
+
+```text
+[main (root-commit) a1b2c3d] Add initial project structure and source files
+ 13 files changed, 500 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 CITATION.cff
+ create mode 100644 CONDUCT.md
+ create mode 100644 CONTRIBUTING.md
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 Makefile
+ create mode 100644 pyproject.toml
+ create mode 100644 requirements.txt
+ create mode 100644 src/aqi_calculator.py
+ create mode 100644 src/aqi_thresholds.py
+ create mode 100644 tests/test_aqi_calculator.py
+ create mode 100644 notebooks/computational_narrative.ipynb
+```
+
+
+
 
 `git commit` takes everything we have told Git to save using `git add` and stores a copy permanently inside the repository's `.git` directory.
 This permanent copy is called a **commit** or a **revision**. Git gives is a unique identifier, and the first line of output from `git commit` displays
@@ -673,8 +749,24 @@ because the two repositories are already synchronized.
 > Because `git fetch` doesn't alter your local files, 
 > it's used to view changes between local and remote versions.
 
+For the AQI project, we use [GitHub](https://github.com) to host the remote repository.
+After creating a new empty project there, we connect the local repository and push:
+
+> ```bash
+> $ git remote add origin https://github.com/YOU/german-air-quality-index-analyzer.git
+> $ git push origin main
+> ```
+>
+> ```text
+> Enumerating objects: 15, done.
+> Counting objects: 100% (15/15), done.
+> Writing objects: 100% (15/15), done.
+> To https://github.com/YOU/german-air-quality-index-analyzer.git
+>  * [new branch]      main -> main
+> ```
+
 The Git commands we've covered in this section (`git pull`, `git push`)
-are the main tasks associated with incorporating remote repositories into your workflow ([Figure Git cmdline remote](git-cmdline-remote) b).
+are the main tasks associated with incorporating remote repositories into your workflow ([Figure Git cmdline remote](git-cmdline-remote) ).
 
 > **Amira's Repository**
 >
@@ -943,6 +1035,30 @@ __pycache__
 ```
 
 which tells Git to ignore any `__pycache__` directory created by Python Section ([Scripting Modules in Python](https://help.github.com/articles/generating-ssh-keys )).
+
+The AQI project's `.gitignore` covers a broader set of patterns,
+since the project includes Python source files, notebooks, and data:
+
+> ```text
+> # Python
+> __pycache__/
+> *.py[cod]
+> *.egg-info/
+> dist/
+> build/
+>
+> # Jupyter
+> .ipynb_checkpoints/
+>
+> # Data — raw files are tracked; large outputs are not
+> data/processed/
+>
+> # Environment
+> .env
+> .venv/
+
+These patterns keep the repository focused on source files and documentation
+while excluding temporary outputs and environment-specific files.
 
 > **Remember to Ignore**
 >
