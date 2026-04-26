@@ -11,7 +11,7 @@ how we are going to organize everything.
 We will soon have a number of books from [Project Gutenberg](https://www.gutenberg.org/) in the form of a series of text files, plots we've produced showing the word frequency distribution in each book, as well as the code we've written to produce those plots and to document and release our software package.
 If we aren't organized from the start, things could get messy later on.
 
-## Zipf's Law:
+## Zipf's Law: A First Running Example
 Imagine a giant bowl filled with words from all your favorite books. [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law), named after linguist George Kingsley Zipf, predicts a curious pattern within this jumble. As you scoop out the most used words, one by one, you'll find something fascinating: a rank-frequency relationship.
 
 ```{figure} ../figures/zipf/George_Kingsley_Zipf_1917.jpg 
@@ -149,7 +149,7 @@ provenance (Chapter [Tracking Provenance](https://se-up.github.io/RSE-UP/chapter
 and packaging (Chapter [Packaging](https://se-up.github.io/RSE-UP/chapters/python_packaging.html)).
 
 
-## Downloading the Data
+## Downloading the Data 
 
 The data files used in the book are archived at an online repository called Figshare (which we discuss in detail in Section on [where to archive data](https://se-up.github.io/RSE-UP/chapters/tracking_provenance.html#where-to-archive-data) and can be accessed at:
 
@@ -174,6 +174,50 @@ zipf/
     ├── sherlock_holmes.txt
     └── time_machine.txt
 ```
+
+### The AQI Project: A Second Running Example
+
+To see how these principles apply beyond Zipf's Law, consider the **German Air Quality Index (AQI) Analyzer** — a second project that runs alongside this book.
+It analyzes hourly pollutant measurements from the [German Federal Environment Agency (UBA)](https://www.umweltbundesamt.de/en) which will also be a Git repository stored on [GitUP](https://gitup.uni-potsdam.de/mohammedah/german-air-quality-index-analyzer.git). And it follows the same {cite:p}`Nobl2009` template, adapted for a Python software package:
+
+```text
+german-air-quality-index-analyzer/
+├── .gitignore
+├── CITATION.cff
+├── CONDUCT.md
+├── CONTRIBUTING.md
+├── Jenkinsfile
+├── LICENSE
+├── Makefile
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── data/
+│   ├── raw/
+│   └── processed/
+├── docs/
+│   ├── AQI_UML_diagram.drawio.png
+│   └── requirements.md
+├── notebooks/
+│   └── computational_narrative.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── aqi_calculator.py
+│   └── aqi_thresholds.py
+└── tests/
+    └── test_aqi_calculator.py
+```
+The same boilerplate files appear in both projects (`README`, `LICENSE`, `CONTRIBUTING`, `CONDUCT`),
+as do `docs/` and `results/`. Two structural decisions differ from the Zipf layout and are worth noting:
+
+**`src/` instead of `bin/`**: The Zipf project stores scripts in `bin/`, a Unix convention for executables.
+The AQI project uses `src/`, the standard layout for installable Python packages.
+Placing source code under `src/` prevents accidental imports from the project root, Python only finds it after an explicit install step, which catches missing-package errors early. 
+
+**`data/raw/` and `data/processed/`**: Rather than a single `data/` folder, the AQI project separates raw from derived data.
+Files downloaded from the UBA portal go into `raw/` and are never modified, the same discipline described above.
+Any cleaned or transformed files land in `processed/`, preserving a clear audit trail from original source data to analysis results.
+
 
 ## Summary 
 
