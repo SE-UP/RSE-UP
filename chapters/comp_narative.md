@@ -14,7 +14,10 @@ making them a go-to choice for researchers and data scientists aiming to share t
 
 ## Examples
 The easiest way to understand the idea of computational narratives is probably to look at a few examples. 
-Here are some links to quite nice examples available at [nbviewer.org](https://nbviewer.org/):
+
+We have a [computational narrative version of the Air Quality Index example](https://se-up.github.io/RSE-UP/aqi/notebooks/computational_narrative.html) that you can check out. 
+
+And here are some links to further quite nice examples available at [nbviewer.org](https://nbviewer.org/):
 
 - [An exploratory statistical analysis of the 2014 World Cup Final](https://nbviewer.org/github/rjtavares/football-crunching/blob/master/notebooks/an%20exploratory%20data%20analysis%20of%20the%20world%20cup%20final.ipynb)
 - [An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study](https://nbviewer.org/github/maayanlab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb)
