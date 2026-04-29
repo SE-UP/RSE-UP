@@ -42,8 +42,7 @@ parts:
       - file: chapters/introduction/jupyter.md
       #- file: chapters/anaconda.md
       - file: chapters/comp_narative.md
-      - file: chapters/license.md  
-
+      - file: aqi/notebooks/computational_narrative.ipynb
 
   - caption: Testing and Error Handling
     chapters: 
@@ -58,6 +57,8 @@ parts:
     chapters:
       - file: chapters/working_in_teams.md
       - file: exercises/work_teams.ipynb
+      - file: chapters/license.md  
+
 
   - caption: Workflows
     chapters:
