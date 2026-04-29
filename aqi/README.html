@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>German Air Quality Index Analyzer &#8212; RSE-UP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'aqi/README';</script>
+    <link rel="canonical" href="https://se-up.github.io/RSE-UP/aqi/README.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../chapters/welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RSE-UP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../chapters/welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/getting_started.html">Running Example and Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/install.html">Software to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Clean Code and Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/clean_readable_code.html">Writing Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/writing_documentation.html">Documenting Programs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Shell</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/bash.html">Introduction to Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/bash_basics.html">The Basics of the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_basics.html">Bash Basics Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/bash_tools.html">Building Tools with the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_tools.html">Bash Tool Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/bash_advanced.html">Bash Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/bash_advanced.html">Bash Advanced Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Version Control with Git</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/vcs.html">Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/intro_version_control.html">Using Git at the Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/version_control.html">Exercise Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/create_ssh-key.html">Using SSH on Gitlab and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/commit_messages.html">Writing good commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/git_advanced.html">Going Further with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/git_advanced_github.html">Forking on Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/git_advanced.html">Exercises Git Advanced</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Markdown, READMEs, Notebooks and Computational Narratives</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/documentation.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/readme_files.html">README Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/comp_narative.html">Computational Narratives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/license.html">Software Licenses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing and Error Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/testing.html">Introduction to Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/testing_programs.html">Testing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/testing.html">Exercises - Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/error_handling.html">Introduction to Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/error_handling.html">Handling Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/error_handling.html">Exercises - Error Handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/working_in_teams.html">Working in Teams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/work_teams.html">Exercise - Work Teams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/workflows.html">Data Analysis Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Requirements, Architecture and Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapters/introduction/requirements_architecture_design.html">Application Classes, Software Requirements, Architecture and Design</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/application_classes.html">Application Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/requirements.html">Software Development Process and Requirements Engineering in RSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/architecture_design.html">Architecture and Design</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Command-Line Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/introduction/python_cli.html">Introduction to CLI application using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/python_cli.html">Building Command-Line Tools with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/python_cli.html">Exercises - Scripting Python for CLI tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configuration and Packaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapters/introduction/config.html">Introduction to Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/configuration.html">Configuring Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/yaml.html">YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/config.html">Exercises - Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapters/introduction/packaging.html">Introduction to Packaging Python Software</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/python_packaging.html">Creating Packages with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/packaging.html">Exercises - Packaging</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows and Automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapters/introduction/automation.html">Introduction to Make and Snakemake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/intro_snakemake.html">Introduction to Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/snakemake_continued.html">Snakemake Continued</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/snakemake_continued_2.html">Snakemake Continued Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/snakemake.html">Snakemake Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/intro_make.html">Automating Analyses with Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/intro_make.html">Exercises - Make</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapters/introduction/cicd.html">Introduction to CI/CD</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapters/cicd_basics.html">CI/CD Basics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tracking Provenance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tracking_provenance.html">Tracking Provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exercises/provenance.html">Exercises - Provenance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Open Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/software_citation.html">Software Citation and FAIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapters/solutions.html">Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/working_remotely.html">Working Remotely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/tree.html">Project Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Faqi/README.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/aqi/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>German Air Quality Index Analyzer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">German Air Quality Index Analyzer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-repository">1. Clone the repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-environment-optional">2. Create a virtual environment (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">3. Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-tools">4. Code quality tools</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-narrative-full-analysis">Computational Narrative (Full Analysis)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aqi-calculator-module-quick-demo">AQI Calculator Module (Quick Demo)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd">CI/CD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution">Contribution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authors-and-acknowledgment">Authors and Acknowledgment</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="german-air-quality-index-analyzer">
+<h1>German Air Quality Index Analyzer<a class="headerlink" href="#german-air-quality-index-analyzer" title="Permalink to this heading">#</a></h1>
+<p>A Python based tool to load German air quality data, compute Air Quality Index (AQI) metrics using the German AQI methodology, and produce figures and tables.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
+<p>This project aims to develop a software tool to analyze the German National AQI using the data provided by the <a class="reference external" href="https://www.umweltbundesamt.de/en/calculation-base-air-quality-index">Federal Environment Agency (UBA)</a> It is designed as a case study in applying Research Software Engineering (RSE) principles to an environmental challenge.
+The project follows the methodology developed and managed by the UBA, which classifies air quality on a five level scale (1–5), that reflects four atmospheric pollutant concentrations into a clear and interpretable risk levels.
+This project follows the methodology and principles taught in the <a class="reference external" href="https://se-up.github.io/RSE-UP/">Research Software Engineering at the University of Potsdam (RSE-UP)</a> course.<br />
+The lecture materials are largely based on <em>Irving et al. (2021), Research Software Engineering with Python</em> — available at <a class="reference external" href="https://third-bit.com/py-rse/">third-bit.com/py-rse</a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="project-structure">
+<h1>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>german-air-quality-index-analyzer/
+├── data/
+│ ├── processed/
+│ └── raw/
+│   ├── air-quality_Berlin-Grunewald_october.csv
+│   ├── air-quality_Bremen-Hasenbueren.csv
+│   ├── air-quality_DEBE032_Berlin-Grunewald-september.csv
+│   └── Grunewald_august.csv  # UBA datasets for various locations and periods
+│
+├── docs/ # documentation and meta files
+│ ├── AQI_UML_diagram.drawio.png
+│ └── requirements.md
+│
+├── notebooks/
+│ └── computational_narrative.ipynb
+├── results/
+│
+├── src/
+│ ├── __init__.py
+│ ├── aqi_calculator.py
+│ └── aqi_thresholds.py
+├── tests/
+│ └── test_aqi_calculator.py
+│
+├── .gitignore
+├── CITATION.cff
+├── LICENSE
+├── CONDUCT.md
+├── CONTRIBUTING.md
+├── pyproject.toml
+├── requirements.txt
+└── README.md
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<p>Follow these steps to set up the project locally.</p>
+<section id="clone-the-repository">
+<h2>1. Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this heading">#</a></h2>
+<p>Clone this repository from the University of Potsdam GitLab (Git.UP):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://gitup.uni-potsdam.de/mohammedah/german-air-quality-index-analyzer.git
+<span class="nb">cd</span><span class="w"> </span>german-air-quality-index-analyzer
+</pre></div>
+</div>
+</section>
+<section id="create-a-virtual-environment-optional">
+<h2>2. Create a virtual environment (optional)<a class="headerlink" href="#create-a-virtual-environment-optional" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
+<span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>        <span class="c1"># On macOS/Linux</span>
+<span class="c1"># OR</span>
+<span class="o">.</span>\<span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span>         <span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</section>
+<section id="install-dependencies">
+<h2>3. Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="code-quality-tools">
+<h2>4. Code quality tools<a class="headerlink" href="#code-quality-tools" title="Permalink to this heading">#</a></h2>
+<p>Linting and formatting are configured in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. Run them with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>src/<span class="w"> </span>tests/<span class="w">          </span><span class="c1"># auto-format</span>
+isort<span class="w"> </span>src/<span class="w"> </span>tests/<span class="w">          </span><span class="c1"># sort imports</span>
+flake8<span class="w"> </span>src/<span class="w"> </span>tests/<span class="w">         </span><span class="c1"># style checks</span>
+mypy<span class="w"> </span>src/<span class="w">                  </span><span class="c1"># type checking</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">#</a></h1>
+<section id="computational-narrative-full-analysis">
+<h2>Computational Narrative (Full Analysis)<a class="headerlink" href="#computational-narrative-full-analysis" title="Permalink to this heading">#</a></h2>
+<p>Run the computational narrative in <code class="docutils literal notranslate"><span class="pre">notebooks/computational_narrative.ipynb</span></code> to:</p>
+<ul class="simple">
+<li><p>Load and preprocess UBA air quality data</p></li>
+<li><p>Compute German AQI using official methodology</p></li>
+<li><p>Compare computed results with official UBA values</p></li>
+<li><p>Generate analysis and visualizations</p></li>
+</ul>
+</section>
+<section id="aqi-calculator-module-quick-demo">
+<h2>AQI Calculator Module (Quick Demo)<a class="headerlink" href="#aqi-calculator-module-quick-demo" title="Permalink to this heading">#</a></h2>
+<p>Run the AQI calculator module directly to see a demonstration of the core functionality:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>src.aqi_calculator
+</pre></div>
+</div>
+<p>This will display:</p>
+<ul class="simple">
+<li><p>Example pollutant concentrations for all 5 pollutants</p></li>
+<li><p>Individual pollutant classifications</p></li>
+<li><p>Overall AQI calculation using the maximum operator rule</p></li>
+<li><p>Complete AQI category reference</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h1>
+<p>The air quality index data is sourced from the German Environment Agency <a class="reference external" href="https://www.umweltbundesamt.de/en/calculation-base-air-quality-index">(Umweltbundesamt)</a>.</p>
+<p><strong>Source:</strong> Umweltbundesamt mit Daten der Messnetze der Länder und des Bundes (German Environment Agency with data from the monitoring networks of the federal states and the federal government).</p>
+<p><strong>Download:</strong> Raw CSV files can be downloaded from the <a class="reference external" href="https://luftdaten.umweltbundesamt.de">UBA Air Quality Data Portal</a>. Select a monitoring station, choose a time range, and export as CSV with a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>) delimiter.</p>
+<p><strong>License:</strong> The data is provided under the Data license Germany – attribution – version 2.0 (dl-de/by-2-0).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h1>
+<p>All core logic is covered by a pytest suite in <a class="reference download internal" download="" href="../_downloads/970c17b9ce8516bf90081428d439f56d/test_aqi_calculator.py"><span class="xref download myst">tests/test_aqi_calculator.py</span></a>, including equivalence class, boundary value, and metamorphic tests. Run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ci-cd">
+<h1>CI/CD<a class="headerlink" href="#ci-cd" title="Permalink to this heading">#</a></h1>
+<p>This project uses a <a class="reference external" href="https://www.jenkins.io/">Jenkins</a> pipeline for continuous integration.
+On every push to any branch, Jenkins automatically runs linting (flake8, black, isort, mypy)
+and the full test suite with coverage reporting. Results are reported back to GitLab as commit statuses.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contribution">
+<h1>Contribution<a class="headerlink" href="#contribution" title="Permalink to this heading">#</a></h1>
+<p>We welcome contributions!<br />
+Please see <a class="reference internal" href="CONTRIBUTING.html"><span class="doc std std-doc">CONTRIBUTING.md</span></a> for how to get started.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this heading">#</a></h1>
+<p>This project is licensed under the <a class="reference download internal" download="" href="../_downloads/eafc68b434f5d4c2014541e5ed6b4e53/LICENSE"><span class="xref download myst">MIT License</span></a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Permalink to this heading">#</a></h1>
+<p>If you use this project in your research or publication, please cite it appropriately. See the full citation details in the <a class="reference download internal" download="" href="../_downloads/4c4066b19d6b0a32eb394d36ff6a701e/CITATION.cff"><span class="xref download myst">CITATION.cff</span></a> file.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="code-of-conduct">
+<h1>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this heading">#</a></h1>
+<p>This project adheres to the <a class="reference internal" href="CONDUCT.html"><span class="doc std std-doc">Contributor Covenant Code of Conduct</span></a>. All contributors are expected to uphold these guidelines in all project spaces.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="authors-and-acknowledgment">
+<h1>Authors and Acknowledgment<a class="headerlink" href="#authors-and-acknowledgment" title="Permalink to this heading">#</a></h1>
+<p>Software Engineering Team</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./aqi"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">German Air Quality Index Analyzer</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-the-repository">1. Clone the repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-virtual-environment-optional">2. Create a virtual environment (optional)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">3. Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-quality-tools">4. Code quality tools</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-narrative-full-analysis">Computational Narrative (Full Analysis)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aqi-calculator-module-quick-demo">AQI Calculator Module (Quick Demo)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ci-cd">CI/CD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contribution">Contribution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authors-and-acknowledgment">Authors and Acknowledgment</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Software Engineering Group - University of Potsdam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

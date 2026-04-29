@@ -1,0 +1,1381 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Computational Narrative: UBA Air Quality Index Calculator &#8212; RSE-UP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/book.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'aqi/notebooks/computational_narrative';</script>
+    <link rel="canonical" href="https://se-up.github.io/RSE-UP/aqi/notebooks/computational_narrative.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../chapters/welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RSE-UP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../chapters/welcome.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/getting_started.html">Running Example and Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/install.html">Software to Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/python_refresher.html">Python Refresher</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Clean Code and Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/clean_readable_code.html">Writing Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/writing_documentation.html">Documenting Programs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Shell</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/bash.html">Introduction to Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_basics.html">The Basics of the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_basics.html">Bash Basics Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_tools.html">Building Tools with the Unix Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_tools.html">Bash Tool Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/bash_advanced.html">Bash Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/bash_advanced.html">Bash Advanced Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Version Control with Git</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/vcs.html">Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/intro_version_control.html">Using Git at the Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/version_control.html">Exercise Version Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/create_ssh-key.html">Using SSH on Gitlab and Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/commit_messages.html">Writing good commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/git_advanced.html">Going Further with Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/git_advanced_github.html">Forking on Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/git_advanced.html">Exercises Git Advanced</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Markdown, READMEs, Notebooks and Computational Narratives</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/documentation.html">Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/readme_files.html">README Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/jupyter.html">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/comp_narative.html">Computational Narratives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/license.html">Software Licenses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Testing and Error Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/testing.html">Introduction to Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/testing_programs.html">Testing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/testing.html">Exercises - Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/error_handling.html">Introduction to Error Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/error_handling.html">Handling Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/error_handling.html">Exercises - Error Handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working in teams</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/working_in_teams.html">Working in Teams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/work_teams.html">Exercise - Work Teams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/workflows.html">Data Analysis Workflows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Requirements, Architecture and Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/requirements_architecture_design.html">Application Classes, Software Requirements, Architecture and Design</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/application_classes.html">Application Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/requirements.html">Software Development Process and Requirements Engineering in RSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/architecture_design.html">Architecture and Design</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Building Command-Line Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/introduction/python_cli.html">Introduction to CLI application using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/python_cli.html">Building Command-Line Tools with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/python_cli.html">Exercises - Scripting Python for CLI tools</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configuration and Packaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/config.html">Introduction to Configuration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/configuration.html">Configuring Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/yaml.html">YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/config.html">Exercises - Configuration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/packaging.html">Introduction to Packaging Python Software</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/python_packaging.html">Creating Packages with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/packaging.html">Exercises - Packaging</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflows and Automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/automation.html">Introduction to Make and Snakemake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/intro_snakemake.html">Introduction to Snakemake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/snakemake_continued.html">Snakemake Continued</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/snakemake_continued_2.html">Snakemake Continued Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/snakemake.html">Snakemake Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/intro_make.html">Automating Analyses with Make</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/intro_make.html">Exercises - Make</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../chapters/introduction/cicd.html">Introduction to CI/CD</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/cicd_basics.html">CI/CD Basics</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tracking Provenance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/tracking_provenance.html">Tracking Provenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exercises/provenance.html">Exercises - Provenance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Open Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/software_citation.html">Software Citation and FAIR</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/solutions.html">Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/working_remotely.html">Working Remotely</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/tree.html">Project Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/SE-UP/RSE-UP/issues/new?title=Issue%20on%20page%20%2Faqi/notebooks/computational_narrative.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/aqi/notebooks/computational_narrative.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computational Narrative: UBA Air Quality Index Calculator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-core-libraries-and-the-aqi-module">Importing Core Libraries and the AQI Module</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">1. Data Loading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">2. Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-german-air-quality-index-calculation">3. Applying the German Air Quality Index Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-aqi-for-a-single-row">Example: Computing AQI for a single row</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">4. Data Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hourly-pollutant-time-series">4.1 Hourly pollutant time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-aqi-categories">4.2 Distribution of AQI categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aqi-heatmap-hour-of-day-date">4.3 AQI heatmap (hour of day × date)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-discussion">5. Conclusion and Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-findings">Summary of Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-implications">Discussion of Implications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-future-directions">Limitations and Future Directions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">6. References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sources">Primary Sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#air-quality-standards-and-guidelines">Air Quality Standards and Guidelines</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="computational-narrative-uba-air-quality-index-calculator">
+<h1>Computational Narrative: UBA Air Quality Index Calculator<a class="headerlink" href="#computational-narrative-uba-air-quality-index-calculator" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This notebook demonstrates the calculation and analysis of the German Air Quality Index (AQI), officially known as the Luftqualitätsindex (LQI). The German AQI is a standardized measure developed by the German Environment Agency (UBA - Umweltbundesamt) to communicate air quality levels based on hourly measurements of key air pollutants.</p>
+<p>The index classifies air quality into five categories (very good, good, moderate, poor, very poor) based on concentrations of five pollutants:</p>
+<ul class="simple">
+<li><p>PM₁₀ (coarse particulate matter, ≤ 10 µm)</p></li>
+<li><p>PM₂.₅ (fine particulate matter, ≤ 2.5 µm)</p></li>
+<li><p>O₃ (ozone)</p></li>
+<li><p>NO₂ (nitrogen dioxide)</p></li>
+<li><p>SO₂ (sulfur dioxide)</p></li>
+</ul>
+<p>Each hour’s overall AQI is determined by the “maximum operator rule,” meaning taking the worst (highest score) category in all measured pollutants at a monitoring station.</p>
+<p>In this notebook, we will:</p>
+<ol class="arabic simple">
+<li><p><strong>Load the data</strong> raw air quality monitoring data (CSV).</p></li>
+<li><p><strong>Preprocess the data</strong> modifying timestamps, renaming columns and text formatting.</p></li>
+<li><p><strong>Implement</strong> the official UBA calculation methodology “by importing <code class="docutils literal notranslate"><span class="pre">src/aqi_calculator.py</span></code> module”:</p>
+<ul class="simple">
+<li><p>Calculate Individual Pollutant Indices (IPI).</p></li>
+<li><p>Apply the <strong>Maximum Operator Rule</strong> to determine the final AQI.</p></li>
+</ul>
+</li>
+<li><p><strong>Visualize</strong> the results to demonstrate the correlation between specific pollutants and the overall index.</p></li>
+</ol>
+<section id="importing-core-libraries-and-the-aqi-module">
+<h3>Importing Core Libraries and the AQI Module<a class="headerlink" href="#importing-core-libraries-and-the-aqi-module" title="Permalink to this heading">#</a></h3>
+<p>We start by importing all needed libraries for data manipulation (pandas, numpy) and visualization (matplotlib). Additionally, we import the German AQI calculation logic (compute_row_aqi and constants) from the external Python module <code class="docutils literal notranslate"><span class="pre">src/aqi_calculator.py</span></code>, which we have created with the core, tested computations. This refactoring step ensures the notebook focuses on the narrative and visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListedColormap</span><span class="p">,</span> <span class="n">BoundaryNorm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Adjust the system path to allow the notebook to import modules from the src/ directory</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">))</span>
+
+<span class="c1"># Import the AQI calculation module functions and constants</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.aqi_calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_row_aqi</span><span class="p">,</span> <span class="n">AQI_LEVELS</span><span class="p">,</span> <span class="n">AQI_SCORE</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-loading">
+<h2>1. Data Loading<a class="headerlink" href="#data-loading" title="Permalink to this heading">#</a></h2>
+<p>The data file <code class="docutils literal notranslate"><span class="pre">Grunewald_august.csv</span></code> is direct export from the UBA air data portal for the Berlin-Grunewald station (currently for testing purposes).
+Sulphur dioxide (SO₂) has only recently been added to the UBA AQI calculation and is not yet recorded at all stations. For Berlin-Grunewald, SO₂ is therefore missing. If you want to inspect SO₂ data, you can instead load: <code class="docutils literal notranslate"><span class="pre">data/raw/air-quality_Bremen-Hasenbueren.csv</span></code>
+<strong>Note:</strong> The UBA data uses a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>) delimiter instead of the standard comma. We must specify this in <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;../data/raw/Grunewald_august.csv&#39;</span>
+
+<span class="n">df_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">file_path</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>        
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw Data Shape:&quot;</span><span class="p">,</span> <span class="n">df_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Raw Data Shape: (746, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Station code</th>
+      <th>Date</th>
+      <th>Particulate matter (PM₁₀) One hour average in µg/m³</th>
+      <th>Ozone (O₃) One hour average in µg/m³</th>
+      <th>Nitrogen dioxide (NO₂) One hour average in µg/m³</th>
+      <th>Particulate matter (PM₂,₅) One hour average in µg/m³</th>
+      <th>Sulphur dioxide (SO₂) One hour average in µg/m³</th>
+      <th>Air quality index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>DEBE032</td>
+      <td>'2025-08-01 01:00'</td>
+      <td>10.0</td>
+      <td>23</td>
+      <td>4</td>
+      <td>6.0</td>
+      <td>-</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>DEBE032</td>
+      <td>'2025-08-01 02:00'</td>
+      <td>10.0</td>
+      <td>24</td>
+      <td>5</td>
+      <td>6.0</td>
+      <td>-</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>DEBE032</td>
+      <td>'2025-08-01 03:00'</td>
+      <td>11.0</td>
+      <td>19</td>
+      <td>5</td>
+      <td>7.0</td>
+      <td>-</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DEBE032</td>
+      <td>'2025-08-01 04:00'</td>
+      <td>11.0</td>
+      <td>20</td>
+      <td>4</td>
+      <td>6.0</td>
+      <td>-</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DEBE032</td>
+      <td>'2025-08-01 05:00'</td>
+      <td>9.0</td>
+      <td>36</td>
+      <td>3</td>
+      <td>6.0</td>
+      <td>-</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-preprocessing">
+<h2>2. Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h2>
+<p>In this step we prepare the raw UBA data so that it is easier to use for analysis and AQI calculations.</p>
+<p>The main steps are:</p>
+<ol class="arabic simple">
+<li><p>Rename columns to simpler names</p></li>
+<li><p>Convert the timestamp column to a proper <code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></li>
+<li><p>Ensure pollutant columns are numeric</p></li>
+<li><p>Drop the raw datetime column</p></li>
+<li><p>Handling missing data and marking pollutant availability: According to the UBA description of the Luftqualitätsindex (LQI),
+the index can be calculated <strong>as soon as at least one of the four pollutants PM₁₀, PM₂.₅, O₃, NO₂ or SO₂ is measured at a station</strong>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;Station code&quot;</span><span class="p">:</span> <span class="s2">&quot;station_code&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Date&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime_raw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Particulate matter (PM₁₀) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;pm10&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ozone (O₃) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nitrogen dioxide (NO₂) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Particulate matter (PM₂,₅) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sulphur dioxide (SO₂) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;so2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Air quality index&quot;</span><span class="p">:</span> <span class="s2">&quot;aqi_official&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="c1"># Remove quotes from datetime strings and parse to datetime</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime_raw&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">]:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+    
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;datetime_raw&quot;</span><span class="p">])</span>
+
+<span class="c1"># Defining our required columns(station and a timestamp)</span>
+<span class="n">core_required</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;station_code&quot;</span><span class="p">,</span> <span class="s2">&quot;datetime&quot;</span><span class="p">]</span>
+<span class="n">mask_core_ok</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;station_code&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">dropped_core</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="n">mask_core_ok</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dropping </span><span class="si">{</span><span class="n">dropped_core</span><span class="si">}</span><span class="s2"> rows with missing station_code or datetime.&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask_core_ok</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Deciding on the remaining columns of the pollutants, we will not drop rows missing pollutants</span>
+<span class="n">pollutant_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_pollutants_available&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">pollutant_cols</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;has_any_pollutant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_pollutants_available&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dropping 32 rows with missing station_code or datetime.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>station_code</th>
+      <th>pm10</th>
+      <th>o3</th>
+      <th>no2</th>
+      <th>pm25</th>
+      <th>so2</th>
+      <th>aqi_official</th>
+      <th>datetime</th>
+      <th>num_pollutants_available</th>
+      <th>has_any_pollutant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>DEBE032</td>
+      <td>10.0</td>
+      <td>23.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>2025-08-01 01:00:00</td>
+      <td>4</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>DEBE032</td>
+      <td>10.0</td>
+      <td>24.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>2025-08-01 02:00:00</td>
+      <td>4</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>DEBE032</td>
+      <td>11.0</td>
+      <td>19.0</td>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>2025-08-01 03:00:00</td>
+      <td>4</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DEBE032</td>
+      <td>11.0</td>
+      <td>20.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>2025-08-01 04:00:00</td>
+      <td>4</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DEBE032</td>
+      <td>9.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>2025-08-01 05:00:00</td>
+      <td>4</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="applying-the-german-air-quality-index-calculation">
+<h2>3. Applying the German Air Quality Index Calculation<a class="headerlink" href="#applying-the-german-air-quality-index-calculation" title="Permalink to this heading">#</a></h2>
+<p>The official German AQI methodology classifies each pollutant into one of five categories (very good, good, moderate, poor, very poor) based on hourly concentration thresholds. The overall AQI for each hour is determined by the “maximum operator rule,” taking the worst category among all measured pollutants.</p>
+<p>The calculation implementation is in <code class="docutils literal notranslate"><span class="pre">src/aqi_calculator.py</span></code>, which handles:</p>
+<ul class="simple">
+<li><p>PM₁₀ (coarse particulate matter, ≤ 10 µm)</p></li>
+<li><p>PM₂.₅ (fine particulate matter, ≤ 2.5 µm)</p></li>
+<li><p>O₃ (ozone)</p></li>
+<li><p>NO₂ (nitrogen dioxide)</p></li>
+<li><p>SO₂ (sulfur dioxide)</p></li>
+</ul>
+<p>For reference, the concentration thresholds (in µg/m³, hourly means) are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>AQI class</p></th>
+<th class="head"><p>PM₁₀</p></th>
+<th class="head"><p>PM₂.₅</p></th>
+<th class="head"><p>O₃</p></th>
+<th class="head"><p>NO₂</p></th>
+<th class="head"><p>SO₂</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>very poor</p></td>
+<td><p>&gt; 90</p></td>
+<td><p>&gt; 50</p></td>
+<td><p>&gt; 240</p></td>
+<td><p>&gt; 100</p></td>
+<td><p>&gt; 100</p></td>
+</tr>
+<tr class="row-odd"><td><p>poor</p></td>
+<td><p>55–90</p></td>
+<td><p>31–50</p></td>
+<td><p>145–240</p></td>
+<td><p>61–100</p></td>
+<td><p>61–100</p></td>
+</tr>
+<tr class="row-even"><td><p>moderate</p></td>
+<td><p>28–54</p></td>
+<td><p>16–30</p></td>
+<td><p>73–144</p></td>
+<td><p>31–60</p></td>
+<td><p>31–60</p></td>
+</tr>
+<tr class="row-odd"><td><p>good</p></td>
+<td><p>10–27</p></td>
+<td><p>6–15</p></td>
+<td><p>25–72</p></td>
+<td><p>11–30</p></td>
+<td><p>11–30</p></td>
+</tr>
+<tr class="row-even"><td><p>very good</p></td>
+<td><p>0–9</p></td>
+<td><p>0–5</p></td>
+<td><p>0–24</p></td>
+<td><p>0–10</p></td>
+<td><p>0–10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Below, we apply the calculation to our preprocessed data and compare with the official UBA values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;aqi_computed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">compute_row_aqi</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;datetime&quot;</span><span class="p">,</span> <span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">,</span> <span class="s2">&quot;aqi_official&quot;</span><span class="p">,</span> <span class="s2">&quot;aqi_computed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>pm10</th>
+      <th>pm25</th>
+      <th>o3</th>
+      <th>no2</th>
+      <th>so2</th>
+      <th>aqi_official</th>
+      <th>aqi_computed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2025-08-01 01:00:00</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>23.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2025-08-01 02:00:00</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>24.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2025-08-01 03:00:00</td>
+      <td>11.0</td>
+      <td>7.0</td>
+      <td>19.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2025-08-01 04:00:00</td>
+      <td>11.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>good</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2025-08-01 05:00:00</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>good</td>
+      <td>good</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="example-computing-aqi-for-a-single-row">
+<h3>Example: Computing AQI for a single row<a class="headerlink" href="#example-computing-aqi-for-a-single-row" title="Permalink to this heading">#</a></h3>
+<p>To understand how the AQI calculation works, let’s compute it for a single example row:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Take the first row of our data</span>
+<span class="n">example_row</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Example row data:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_row</span><span class="p">[[</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">]])</span>
+
+<span class="c1"># Compute AQI for this single row</span>
+<span class="n">example_aqi</span> <span class="o">=</span> <span class="n">compute_row_aqi</span><span class="p">(</span><span class="n">example_row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Computed AQI: </span><span class="si">{</span><span class="n">example_aqi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Official AQI: </span><span class="si">{</span><span class="n">example_row</span><span class="p">[</span><span class="s1">&#39;aqi_official&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example row data:
+pm10    10.0
+pm25     6.0
+o3      23.0
+no2      4.0
+so2      NaN
+Name: 0, dtype: object
+
+Computed AQI: good
+Official AQI: good
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-visualization">
+<h2>4. Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this heading">#</a></h2>
+<p>After successfully executing the core UBA AQI calculation logic using the external, tested Python module, we now proceed to visualize the results. The goal of this section is to transform the processed concentration data and the resulting AQI scores into a <strong>Computational Narrative</strong> that makes the public health context more interpretable.</p>
+<p>The following visualizations are structured to move from raw pollutant concentrations (EDA) to aggregated AQI outcomes:</p>
+<ul class="simple">
+<li><p><strong>Hourly Pollutant Time Series:</strong> Provides the raw data context, showing the evolution of individual pollutants.</p></li>
+<li><p><strong>Distribution of AQI Categories:</strong> Confirms the final impact of the conservative UBA methodology (<span class="math notranslate nohighlight">\(\max\)</span> rule).</p></li>
+<li><p><strong>AQI Heatmap:</strong> Visualizes time-of-day patterns in air quality.</p></li>
+</ul>
+<section id="hourly-pollutant-time-series">
+<h3>4.1 Hourly pollutant time series<a class="headerlink" href="#hourly-pollutant-time-series" title="Permalink to this heading">#</a></h3>
+<p>To explore how individual pollutants evolve over time, we plot hourly concentration time series for PM₁₀, PM₂.₅, O₃, NO₂ and SO₂ at the Berlin Grunewald station. Each pollutant is shown in its own subplot with a coloured line and shaded area (concentration over time), using a shared time axis. This layout makes it easy to compare daily patterns, peaks, and co-occurring pollution events across different pollutants throughout August 2025.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the plotting style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Create time series plot for pollutants</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Hourly air Pollutant Concentrations - Berlin Grunewald (August 2025)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Define pollutant labels with chemical names</span>
+<span class="n">pollutant_labels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pm10&#39;</span><span class="p">:</span> <span class="s1">&#39;PM₁₀ (coarse particulate matter, µg/m³)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pm25&#39;</span><span class="p">:</span> <span class="s1">&#39;PM₂.₅ (fine particulate matter, µg/m³)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;o3&#39;</span><span class="p">:</span> <span class="s1">&#39;O₃ (ozone, µg/m³)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;no2&#39;</span><span class="p">:</span> <span class="s1">&#39;NO₂ (nitrogen dioxide, µg/m³)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;so2&#39;</span><span class="p">:</span> <span class="s1">&#39;SO₂ (sulfur dioxide, µg/m³)&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Plot each pollutant</span>
+<span class="n">pollutants</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pm10&#39;</span><span class="p">,</span> <span class="s1">&#39;pm25&#39;</span><span class="p">,</span> <span class="s1">&#39;o3&#39;</span><span class="p">,</span> <span class="s1">&#39;no2&#39;</span><span class="p">,</span> <span class="s1">&#39;so2&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">pollutant</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">pollutants</span><span class="p">,</span> <span class="n">colors</span><span class="p">)):</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+    
+    <span class="c1"># Plot the time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">pollutant</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">pollutant</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">pollutant_labels</span><span class="p">[</span><span class="n">pollutant</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (µg/m³)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    
+    <span class="c1"># Format x-axis</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">get_majorticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="c1"># Remove empty subplot</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a75a3c51e3c6def25639569d3100f731835545f12493e2ba2684c014de25fecb.png" src="../../_images/a75a3c51e3c6def25639569d3100f731835545f12493e2ba2684c014de25fecb.png" />
+</div>
+</div>
+</section>
+<section id="distribution-of-aqi-categories">
+<h3>4.2 Distribution of AQI categories<a class="headerlink" href="#distribution-of-aqi-categories" title="Permalink to this heading">#</a></h3>
+<p>Here we understand the overall distribution of air quality categories. This bar chart provides a summary view of how frequently each AQI category (very good, good, moderate, poor, very poor) occurred during the August 2025 monitoring period at Berlin-Grunewald station.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aqi_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;aqi_computed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">AQI_LEVELS</span><span class="p">)</span>
+
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#2ca02c&quot;</span><span class="p">,</span>   <span class="s2">&quot;#1f77b4&quot;</span><span class="p">,</span>  <span class="s2">&quot;#ff7f0e&quot;</span><span class="p">,</span>  <span class="s2">&quot;#d62728&quot;</span><span class="p">,</span> <span class="s2">&quot;#9f27d6&quot;</span><span class="p">,</span> <span class="s2">&quot;#7f7f7f&quot;</span><span class="p">]</span> 
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">aqi_counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;AQI category&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of hours&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribution of AQI categories – Berlin-Grunewald&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/626ff767f5588c92addf3142db4bcc3bd54db18da8c1f86fe4741068945a15e7.png" src="../../_images/626ff767f5588c92addf3142db4bcc3bd54db18da8c1f86fe4741068945a15e7.png" />
+</div>
+</div>
+</section>
+<section id="aqi-heatmap-hour-of-day-date">
+<h3>4.3 AQI heatmap (hour of day × date)<a class="headerlink" href="#aqi-heatmap-hour-of-day-date" title="Permalink to this heading">#</a></h3>
+<p>To get a more informative view of how air quality changes over time, we create a heatmap with:</p>
+<ul class="simple">
+<li><p><strong>x-axis:</strong> date.</p></li>
+<li><p><strong>y-axis:</strong> hour of day.</p></li>
+<li><p><strong>Color:</strong> AQI category encoded as a discrete score.</p></li>
+<li><p><strong>AQI score</strong> (1 = very good, …, 5 = very poor).</p></li>
+</ul>
+<p>This makes it easy to spot daily patterns, such as specific hours or days with worse air quality. The graph has been restricted to show only day time for readability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;aqi_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;aqi_computed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">AQI_SCORE</span><span class="p">)</span>
+
+<span class="c1"># Pivot: hour × date, using mean AQI score</span>
+<span class="n">heat_data</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="s2">&quot;hour&quot;</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+        <span class="n">values</span><span class="o">=</span><span class="s2">&quot;aqi_score&quot;</span><span class="p">,</span>
+        <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">heat_data</span> <span class="o">=</span> <span class="n">heat_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">24</span><span class="p">]</span>
+
+<span class="c1"># 1=very good, 2=good, 3=moderate, 4=poor, 5=very poor</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;#1a9850&quot;</span><span class="p">,</span>  
+    <span class="s2">&quot;#66c2a5&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;#ffffbf&quot;</span><span class="p">,</span>  
+    <span class="s2">&quot;#fdae61&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;#d73027&quot;</span><span class="p">,</span>  
+<span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">]</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">heat_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+    <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">n_dates</span> <span class="o">=</span> <span class="n">heat_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">all_dates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">heat_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">tick_positions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_dates</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">tick_positions</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="n">all_dates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tick_positions</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">n_hours</span> <span class="o">=</span> <span class="n">heat_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_hours</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">heat_data</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Hour of day&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;AQI heatmap (hour × date) – Per station&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n_dates</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n_hours</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">boundaries</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot;very good&quot;</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;moderate&quot;</span><span class="p">,</span> <span class="s2">&quot;poor&quot;</span><span class="p">,</span> <span class="s2">&quot;very poor&quot;</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;AQI category&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b1c58bbdf364b395d0374b6420046a80b3c0f0b591d041cd29a4c3a5b77439fd.png" src="../../_images/b1c58bbdf364b395d0374b6420046a80b3c0f0b591d041cd29a4c3a5b77439fd.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion-and-discussion">
+<h2>5. Conclusion and Discussion<a class="headerlink" href="#conclusion-and-discussion" title="Permalink to this heading">#</a></h2>
+<section id="summary-of-findings">
+<h3>Summary of Findings<a class="headerlink" href="#summary-of-findings" title="Permalink to this heading">#</a></h3>
+<p>In this computational analysis, we implemented and validated the German Air Quality Index (Luftqualitätsindex) calculation methodology using air quality monitoring data from the Berlin-Grunewald station for August 2025. Our implementation achieved perfect validation against official UBA reference values.</p>
+<p>The analysis revealed that air quality at the Berlin-Grunewald monitoring station remained somehow consistent within the “good” category throughout the study period. Key pollutants monitored included fine particulate matter (PM₂.₅), ozone (O₃), and nitrogen dioxide (NO₂), with sulphur dioxide (SO₂) data unavailable for this specific station and time period.</p>
+</section>
+<section id="discussion-of-implications">
+<h3>Discussion of Implications<a class="headerlink" href="#discussion-of-implications" title="Permalink to this heading">#</a></h3>
+<p>The consistent “good” air quality classification during August 2025 suggests minimal acute health risks for the general population in the Berlin-Grunewald area. However, even within “good” categories, chronic exposure to pollutants like PM₂.₅ and O₃ can contribute to long term health effects including respiratory issues, cardiovascular disease, and reduced life expectancy. The absence of “moderate” or worse classifications during this summer period indicates effective local air quality management, though seasonal variations (particularly winter heating emissions) shows continued monitoring.</p>
+</section>
+<section id="limitations-and-future-directions">
+<h3>Limitations and Future Directions<a class="headerlink" href="#limitations-and-future-directions" title="Permalink to this heading">#</a></h3>
+<p>This analysis is limited by its focus on a single monitoring station and short temporal scope (one summer month) since it was for testing purposes. Spatial patterns across Berlin and seasonal variations remain unexplored. Future work should extend this analysis to:</p>
+<ul class="simple">
+<li><p>Multi station comparisons across urban Berlin using API calls for better automation of data loading</p></li>
+<li><p>Trend analysis over multiple years</p></li>
+<li><p>Integration with weather data to see the effects of the AQI on the weather</p></li>
+<li><p>Real time monitoring and alerting systems</p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2>6. References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<section id="primary-sources">
+<h3>Primary Sources<a class="headerlink" href="#primary-sources" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>German Environment Agency (UBA)</strong>. “The air quality index (Luftqualitätsindex)”. Umweltbundesamt. Available at: <a class="reference external" href="https://www.umweltbundesamt.de/en/calculation-base-air-quality-index">https://www.umweltbundesamt.de/en/calculation-base-air-quality-index</a></p></li>
+<li><p><strong>UBA Air Quality Data Portal</strong>. Real-time and historical air quality monitoring data. Available at: <a class="reference external" href="https://luftdaten.umweltbundesamt.de">https://luftdaten.umweltbundesamt.de</a></p></li>
+</ol>
+</section>
+<section id="air-quality-standards-and-guidelines">
+<h3>Air Quality Standards and Guidelines<a class="headerlink" href="#air-quality-standards-and-guidelines" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple" start="3">
+<li><p>World Health Organization (WHO). “WHO global air quality guidelines: particulate matter (\u200EPM₂.₅ and PM₁₀)\u200E, ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide”. World Health Organization, 2021. Available at: <a class="reference external" href="https://www.who.int/publications/i/item/9789240034228">https://www.who.int/publications/i/item/9789240034228</a></p></li>
+<li><p>World Health Organization (WHO). “WHO Air quality guidelines for Europe, second edition”. World Health Organization Regional Office for Europe, 2000. Available at: <a class="reference external" href="https://www.who.int/publications/i/item/9789289013581">https://www.who.int/publications/i/item/9789289013581</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./aqi/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-core-libraries-and-the-aqi-module">Importing Core Libraries and the AQI Module</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-loading">1. Data Loading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">2. Data Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-german-air-quality-index-calculation">3. Applying the German Air Quality Index Calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-aqi-for-a-single-row">Example: Computing AQI for a single row</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">4. Data Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hourly-pollutant-time-series">4.1 Hourly pollutant time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-aqi-categories">4.2 Distribution of AQI categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aqi-heatmap-hour-of-day-date">4.3 AQI heatmap (hour of day × date)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-and-discussion">5. Conclusion and Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-findings">Summary of Findings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-implications">Discussion of Implications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-future-directions">Limitations and Future Directions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">6. References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-sources">Primary Sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#air-quality-standards-and-guidelines">Air Quality Standards and Guidelines</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Software Engineering Group - University of Potsdam
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

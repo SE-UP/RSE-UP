@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it using the following metadata."
+
+authors:
+   - name: "Software Engineering Department, University of Potsdam"
+
+title: "German UBA Air Quality Index Calculator (RSE-UP)"
+version: 1.0.0
+date-released: "2025-00-00"
+repository-code: https://gitup.uni-potsdam.de/mohammedah/german-air-quality-index-analyzer.git
+keywords:
+  - air quality index
+  - environmental data analysis
+  - RSE-UP standards
+
+license: MIT
+abstract: >
+  A data analysis tool, built to RSE-UP standards, for calculating the German national Air Quality Index (AQI). The project implements the official
+  Umweltbundesamt (UBA) methodology for aggregation using the 'Maximum Operator Rule', with a comprehensive pytest test suite and Python-based tooling.
