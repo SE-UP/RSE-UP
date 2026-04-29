@@ -1,0 +1,11 @@
+matplotlib
+numpy
+pandas
+pandas-stubs
+pytest
+pytest-cov
+flake8
+black
+isort
+mypy
+

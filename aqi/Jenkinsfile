@@ -1,0 +1,48 @@
+pipeline {
+    options {
+        gitLabConnection('GitUP')
+        gitlabBuilds(builds: ['Jenkins CI'])
+    }
+    agent any
+    stages {
+        stage('Notify Start') {
+            steps {
+                updateGitlabCommitStatus name: 'Jenkins CI', state: 'running'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    python3 -m venv .venv
+                    .venv/bin/pip install --upgrade pip
+                    .venv/bin/pip install -r requirements.txt
+                '''
+            }
+        }
+        stage('Lint Code') {
+            steps {
+                sh '.venv/bin/flake8 src/ tests/'
+                sh '.venv/bin/black --check --diff src/ tests/'
+                sh '.venv/bin/isort --check-only --diff src/ tests/'
+                sh '.venv/bin/mypy src/'
+            }
+        }
+        stage('Run Tests with Coverage') {
+            steps {
+                sh '.venv/bin/python -m pytest tests/ --tb=short --junitxml=test-results.xml --cov=src --cov-report=xml --cov-report=html'
+            }
+        }
+    }
+    post {
+        always {
+            junit testResults: 'test-results.xml', allowEmptyResults: true
+            publishCoverage adapters: [coberturaAdapter('coverage.xml')]
+        }
+        failure {
+            updateGitlabCommitStatus name: 'Jenkins CI', state: 'failed'
+        }
+        success {
+            updateGitlabCommitStatus name: 'Jenkins CI', state: 'success'
+        }
+    }
+}

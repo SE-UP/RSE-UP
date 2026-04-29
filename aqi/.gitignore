@@ -1,0 +1,28 @@
+# Python 
+__pycache__/
+
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+
+# General 
+.DS_Store  
+
+
+# VS Code / IDEs 
+.vscode/
+.idea/
+*.code-workspace
+
+# OS_generated files
+ehthumbs.db
+Icon?
+
+# Coverage and test artifacts 
+.coverage
+coverage.xml
+test-results.xml
+htmlcov/
