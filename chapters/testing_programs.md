@@ -1,5 +1,11 @@
 # Testing Software 
 
+This chapter demonstrates software testing using two projects: the Zipf's Law project, and the German AQI Analyzer, our second running example. Both are introduced in Chapter [Getting Started](https://se-up.github.io/RSE-UP/chapters/getting_started.html).
+
+The first sections use Zipf to introduce core concepts;
+the final section shows how the same concepts apply to the AQI project. Note that some tests might be applicable to one project and not the other, depending on the nature of the project itself.
+
+
 Here's the current structure of our Zipf's Law project files:
 
 ```text
@@ -820,6 +826,210 @@ Some projects develop **checklists** like this one to remind programmers what th
 These checklists can be a bit daunting for newcomers,
 but they are a great way to pass on hard-earned experience.
 
+## Testing the AQI Project
+
+The same testing principles introduced above apply to the AQI project, our second running example.
+The following sections walk through how each concept appears in practice.
+
+### Project Structure
+
+Source code lives in `src/` and tests in `tests/`:
+```text
+german-air-quality-index-analyzer/
+├── src
+│   ├── aqi_calculator.py
+│   └── aqi_thresholds.py
+├── tests
+│   └── test_aqi_calculator.py
+└── ...
+```
+
+### Defensive Programming in `classify_pollutant`
+
+The core function `classify_pollutant` maps a single pollutant concentration
+to one of five AQI categories.
+It uses defensive checks to catch bad input early:
+
+```python
+def classify_pollutant(value, pollutant):
+    if value is None or pd.isna(value):
+        return None                          # missing sensor reading
+
+    if pollutant not in THRESHOLDS_BY_POLLUTANT:
+        raise ValueError(f"Unknown pollutant: {pollutant}")
+
+    for t in thresholds:
+        ...
+
+    raise ValueError(
+        f"No threshold found for pollutant '{pollutant}' with value {value}"
+    )
+```
+
+The first guard handles missing sensor data gracefully instead of crashing.
+The second raises an error immediately if an unrecognised pollutant name is passed in,
+rather than returning a silently wrong result.
+The final `raise` is a postcondition:
+if execution reaches that point, something is wrong with the threshold definitions themselves.
+
+### Unit Tests
+
+A basic unit test for `classify_pollutant` follows the same fixture–actual–expected pattern:
+
+```python
+from aqi_calculator import classify_pollutant
+
+def test_classify_pm10_good():
+    assert classify_pollutant(18, "pm10") == "good"
+```
+
+### Parametrized Tests
+
+Because `classify_pollutant` must work for five pollutants across five categories each,
+`pytest.mark.parametrize` runs one test function across a list of cases
+instead of repeating the same structure for every combination:
+
+```python
+import pytest
+from aqi_calculator import classify_pollutant
+
+CASES = [
+    ("pm10", 18,  "good"),
+    ("pm10", 40,  "moderate"),
+    ("pm25", 10,  "good"),
+    ("o3",  100,  "moderate"),
+    ("no2",  80,  "poor"),
+]
+
+@pytest.mark.parametrize("pollutant,value,expected", CASES)
+def test_classify_pollutant(pollutant, value, expected):
+    assert classify_pollutant(value, pollutant) == expected
+```
+
+Running `pytest` from the project root collects and runs all 58 tests across the full test file:
+
+```bash
+$ pytest tests/
+```
+
+```text
+============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-7.4.4, pluggy-1.6.0
+rootdir: ~/german-air-quality-index-analyzer
+configfile: pyproject.toml
+plugins: cov-5.0.0, hypothesis-6.131.15, anyio-4.2.0
+collected 58 items
+
+tests/test_aqi_calculator.py ...........................................  [100%]
+
+============================== 58 passed in 0.52s ==============================
+```
+
+
+### Testing for Expected Exceptions
+
+The defensive checks in `classify_pollutant` should also be tested.
+`pytest.raises` asserts that a specific exception is raised for bad input:
+
+```python
+def test_invalid_pollutant_raises():
+    with pytest.raises(ValueError, match="Unknown pollutant"):
+        classify_pollutant(10, "invalid_pollutant")
+```
+
+This confirms that the function fails loudly on bad input
+rather than silently returning a wrong category.
+
+### Equivalence Classes and Boundary Value Testing
+
+The AQI project uses both techniques together.
+**Equivalence class tests** check that a representative mid-range value in each category
+is classified correctly — the assumption being that if one value in a range works,
+all values in that range work:
+
+```python
+CLASSIFY_EQUIVALENCE_CLASSES = [
+    ("pm10", 5,  "very good"),   # mid-range value
+    ("pm10", 18, "good"),        # mid-range value
+    ("pm10", 40, "moderate"),    # mid-range value
+    ...
+]
+```
+
+**Boundary value tests** go further by checking the exact thresholds where one category ends
+and the next begins — precisely the values most likely to expose an off-by-one error:
+
+```python
+def test_pm10_boundaries():
+    assert classify_pollutant(9,  "pm10") == "very good"  # upper boundary
+    assert classify_pollutant(10, "pm10") == "good"        # first value of next category
+    assert classify_pollutant(27, "pm10") == "good"        # upper boundary
+    assert classify_pollutant(28, "pm10") == "moderate"    # first value of next category
+```
+
+There is intentional overlap between the two: some values appear in both sets of tests.
+This is not redundancy — it is complementary coverage.
+Equivalence class tests verify that the classification logic works for typical inputs;
+boundary tests verify that the threshold definitions themselves are correct at the edges.
+A bug could pass one and be caught by the other.
+
+### The Rest of the Test Suite
+
+The full test file covers two more functions and uses class-based test organization,
+grouping related tests under `class TestComputeRowAqi`, `class TestComputeAqiForDataframe`,
+and `class TestThresholds`.
+
+`compute_row_aqi` applies the **max rule** across all pollutants measured in one hour:
+whichever pollutant falls in the worst category determines the overall AQI for that row.
+Its tests verify single-pollutant cases, multiple pollutants in the same category,
+multiple pollutants in different categories, and missing values —
+`None` and `NaN` readings (common when a sensor is offline) must be skipped gracefully
+rather than raising an error.
+
+`TestComputeAqiForDataframe` serves as an **integration test**:
+it feeds a full DataFrame through the entire pipeline —
+`classify_pollutant` → `compute_row_aqi` → `compute_aqi_for_dataframe` —
+and checks that the final output is correct end to end.
+It also includes an empty DataFrame to confirm the pipeline handles that edge case
+without crashing.
+
+`TestThresholds` checks that the `AQI_LEVELS` list and `AQI_SCORE` dictionary
+contain exactly the expected values — a simple but important safeguard,
+since the rest of the logic depends on these constants being correct.
+
+### Coverage
+
+Running the full test suite with `coverage` confirms that all testable lines are exercised.
+The `main()` function is a demonstration script that prints example output —
+it is not part of the calculation logic and is not called during testing.
+It is excluded from coverage with `# pragma: no cover`,
+which is why the report reaches 100%.  
+
+
+```bash
+$ coverage run -m pytest tests/
+$ coverage report -m
+```
+
+```text
+Name                           Stmts   Miss  Cover
+--------------------------------------------------
+src/aqi_calculator.py             43      0   100%
+src/aqi_thresholds.py             13      0   100%
+tests/test_aqi_calculator.py     141      0   100%
+--------------------------------------------------
+TOTAL                            197      0   100%
+```
+
+### Running Tests Automatically
+
+Running tests manually works well during development,
+but it is easy to forget to run them before pushing changes.
+The AQI project automates this using a CI/CD pipeline defined in a `Jenkinsfile` at the project root —
+every time a commit is pushed, the pipeline runs the full test suite and publishes the coverage report automatically.
+We will cover this in detail in Chapter [CI/CD](https://se-up.github.io/RSE-UP/chapters/cicd_basics.html).
+
+
 ## When to Write Tests 
 
 We have now met the three major types of test: unit, integration, and regression.
@@ -896,7 +1106,9 @@ which asks whether we have met that specification.
 The difference between them is the difference between
 building the right thing and building something right;
 the practices introduced in this chapter will help with both.
-
+The AQI project further illustrates that the right testing strategy depends on the nature of the software:
+categorical outputs call for equivalence class and boundary value tests,
+while parametrized tests help manage the growing number of input combinations without repetition.
 
 ```{include} keypoints/testing.md
 
