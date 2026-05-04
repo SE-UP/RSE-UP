@@ -520,6 +520,9 @@ We’ll be working with <code class="docutils literal notranslate"><span class="
 └── ...
 </pre></div>
 </div>
+<p>Throughout this chapter we also show the equivalent Git steps for the German AQI Analyzer project,
+which we introduced in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html">Getting Started</a>.
+The AQI project is located in a directory called <code class="docutils literal notranslate"><span class="pre">german-air-quality-index-analyzer</span></code></p>
 <section id="setting-up">
 <h2>Setting Up<a class="headerlink" href="#setting-up" title="Permalink to this heading">#</a></h2>
 <p>We write Git commands as <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">verb</span> <span class="pre">options</span></code>,
@@ -611,6 +614,17 @@ We do this using the <code class="docutils literal notranslate"><span class="pre
 </div>
 <p>Git stores information about the project in this special subdirectory.
 If we ever delete it, we will lose that history.</p>
+<blockquote>
+<div><p><strong>AQI Project: Initializing a Repository</strong></p>
+<p>We apply the same steps to the AQI project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/german-air-quality-index-analyzer
+$<span class="w"> </span>git<span class="w"> </span>init<span class="w"> </span>.
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Initialized empty Git repository in /Users/YOU/german-air-quality-index-analyzer/.git/
+</pre></div>
+</div>
+</div></blockquote>
 <p>We can check that everything is set up correctly by asking Git to tell us the status of our project:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
 </pre></div>
@@ -670,33 +684,31 @@ Changes to be committed:
 	  new file:   data/sense_and_sensibility.txt
 	  new file:   data/sherlock_holmes.txt
 	  new file:   data/time_machine.txt
-	```
-
-Adding all of our existing files this way is easy, but we can accidentally add things that should never be in version control,
-such as files containing passwords or other sensitive information. 
-The output of `git status` tells us that we can remove such files from the list of things to be saved using `git rm --cached`; we will practice this in [Exercise on removing files](https://software-engineering-group-up.github.io/RSE-UP/exercises/version_control.html#removing-before-saving)
-&gt; **What to Save**
-&gt;
-&gt; We always want to save programs, manuscripts,
-&gt; and everything else we have created by hand
-&gt; in version control.
-&gt; In this project,
-&gt; we have also chosen to save our data files
-&gt; and the results we have generated
-&gt; (including our plots).
-&gt; This is a project-specific decision:
-&gt; if these files are very large,
-&gt; for example,
-&gt; we may decide to save them elsewhere,
-&gt; while if they are easy to re-create,
-&gt; we may not save them at all.
-&gt; We will explore this issue further in Chapter \@ref(provenance).
-
-We no longer have any untracked files,
-but the tracked files haven&#39;t been **committed** (i.e., saved permanently in our project&#39;s history). We can do this using `git commit`:
-
-```bash
-$ git commit -m &quot;Add scripts, novels, word counts, and plots&quot;
+</pre></div>
+</div>
+<p>Adding all of our existing files this way is easy, but we can accidentally add things that should never be in version control,
+such as files containing passwords or other sensitive information.
+The output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> tells us that we can remove such files from the list of things to be saved using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rm</span> <span class="pre">--cached</span></code>; we will practice this in <a class="reference external" href="https://software-engineering-group-up.github.io/RSE-UP/exercises/version_control.html#removing-before-saving">Exercise on removing files</a></p>
+<blockquote>
+<div><p><strong>What to Save</strong></p>
+<p>We always want to save programs, manuscripts,
+and everything else we have created by hand
+in version control.
+In this project,
+we have also chosen to save our data files
+and the results we have generated
+(including our plots).
+This is a project-specific decision:
+if these files are very large,
+for example,
+we may decide to save them elsewhere,
+while if they are easy to re-create,
+we may not save them at all.
+We will explore this issue further in Chapter &#64;ref(provenance).</p>
+</div></blockquote>
+<p>We no longer have any untracked files,
+but the tracked files haven’t been <strong>committed</strong> (i.e., saved permanently in our project’s history). We can do this using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add scripts, novels, word counts, and plots&quot;</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[master (root-commit) 173222b] Add scripts, novels, word 
@@ -715,6 +727,54 @@ $ git commit -m &quot;Add scripts, novels, word counts, and plots&quot;
  create mode 100644 results/jane_eyre.csv
  create mode 100644 results/jane_eyre.png
  create mode 100644 results/moby_dick.csv
+</pre></div>
+</div>
+<p>For the AQI project, all files are already in place from when we set up the project structure.
+We add everything at once and check the status:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+$<span class="w"> </span>git<span class="w"> </span>status
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   .gitignore
+        new file:   CITATION.cff
+        new file:   CONDUCT.md
+        new file:   CONTRIBUTING.md
+        new file:   LICENSE
+        new file:   README.md
+        new file:   Makefile
+        new file:   pyproject.toml
+        new file:   requirements.txt
+        new file:   src/aqi_calculator.py
+        new file:   src/aqi_thresholds.py
+        new file:   tests/test_aqi_calculator.py
+        new file:   notebooks/computational_narrative.ipynb
+</pre></div>
+</div>
+<p>We commit this as the starting point of the project’s history:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add initial project structure and source files&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main (root-commit) a1b2c3d] Add initial project structure and source files
+ 13 files changed, 500 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 CITATION.cff
+ create mode 100644 CONDUCT.md
+ create mode 100644 CONTRIBUTING.md
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 Makefile
+ create mode 100644 pyproject.toml
+ create mode 100644 requirements.txt
+ create mode 100644 src/aqi_calculator.py
+ create mode 100644 src/aqi_thresholds.py
+ create mode 100644 tests/test_aqi_calculator.py
+ create mode 100644 notebooks/computational_narrative.ipynb
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> takes everything we have told Git to save using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and stores a copy permanently inside the repository’s <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory.
@@ -1085,8 +1145,23 @@ but only pulling integrates those changes into your local repository’s version
 Because <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> doesn’t alter your local files,
 it’s used to view changes between local and remote versions.</p>
 </div></blockquote>
+<p>For the AQI project, we use <a class="reference external" href="https://github.com">GitHub</a> to host the remote repository.
+After creating a new empty project there, we connect the local repository and push:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/YOU/german-air-quality-index-analyzer.git
+$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Writing objects: 100% (15/15), done.
+To https://github.com/YOU/german-air-quality-index-analyzer.git
+ * [new branch]      main -&gt; main
+</pre></div>
+</div>
+</div></blockquote>
 <p>The Git commands we’ve covered in this section (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>)
-are the main tasks associated with incorporating remote repositories into your workflow (<span class="xref myst">Figure Git cmdline remote</span> b).</p>
+are the main tasks associated with incorporating remote repositories into your workflow (<span class="xref myst">Figure Git cmdline remote</span> ).</p>
 <blockquote>
 <div><p><strong>Amira’s Repository</strong></p>
 <p>Amira’s repository referenced in this section
@@ -1313,6 +1388,30 @@ This file can contain filenames like <code class="docutils literal notranslate">
 </pre></div>
 </div>
 <p>which tells Git to ignore any <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> directory created by Python Section (<a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">Scripting Modules in Python</a>).</p>
+<p>The AQI project’s <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> covers a broader set of patterns,
+since the project includes Python source files, notebooks, and data:</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data — raw files are tracked; large outputs are not
+data/processed/
+
+# Environment
+.env
+.venv/
+</pre></div>
+</div>
+</div></blockquote>
+<p>These patterns keep the repository focused on source files and documentation
+while excluding temporary outputs and environment-specific files.</p>
 <blockquote>
 <div><p><strong>Remember to Ignore</strong></p>
 <p>Don’t forget to commit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> to your repository
