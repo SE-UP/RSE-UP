@@ -485,6 +485,19 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-computational-narrative-the-aqi-example">Building a Computational Narrative: The AQI Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separating-logic-from-narrative">Separating Logic from Narrative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-data">Loading the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-the-data">Preprocessing the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-calculation">Applying the Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-results">Visualizing the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-this-a-good-computational-narrative">What Makes This a Good Computational Narrative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-examples">Further Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -524,7 +537,7 @@ making them a go-to choice for researchers and data scientists aiming to share t
 </section>
 <section id="best-practices">
 <h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">#</a></h2>
-<p>As with many complex thinkgs, developing compelling computational narratives takes time and practice.
+<p>As with many complex things, developing compelling computational narratives takes time and practice.
 Some general rules of thumb are summarized in the following do’s and dont’s:</p>
 <p>Do:</p>
 <ul class="simple">
@@ -541,8 +554,183 @@ Some general rules of thumb are summarized in the following do’s and dont’s:
 <li><p>Overcomplicate visualizations</p></li>
 <li><p>Assume (too much) audience knowledge</p></li>
 </ul>
+</section>
+<section id="building-a-computational-narrative-the-aqi-example">
+<h2>Building a Computational Narrative: The AQI Example<a class="headerlink" href="#building-a-computational-narrative-the-aqi-example" title="Permalink to this heading">#</a></h2>
+<p>The best way to understand what makes a good computational narrative is to build one.
+In this section we walk through the AQI project notebook
+(<code class="docutils literal notranslate"><span class="pre">notebooks/computational_narrative.ipynb</span></code>) step by step,
+connecting each decision to the best practices listed above.
+The notebook analyses hourly air quality measurements from the
+<a class="reference external" href="https://www.umweltbundesamt.de/en">German Federal Environment Agency (UBA)</a>
+and computes the official German Air Quality Index (Luftqualitätsindex, LQI)
+for a Berlin monitoring station.</p>
+<section id="separating-logic-from-narrative">
+<h3>Separating Logic from Narrative<a class="headerlink" href="#separating-logic-from-narrative" title="Permalink to this heading">#</a></h3>
+<p>A common mistake in computational narratives is to put all code — including complex,
+reusable logic — directly in the notebook.
+This makes the notebook hard to test and hard to read.</p>
+<p>In the AQI project, the classification thresholds and the maximum-operator rule
+are implemented in <code class="docutils literal notranslate"><span class="pre">src/aqi_calculator.py</span></code>, which has its own unit tests
+(see Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/testing_programs.html">Testing</a>).
+The notebook simply imports that module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.aqi_calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_row_aqi</span><span class="p">,</span> <span class="n">AQI_LEVELS</span><span class="p">,</span> <span class="n">AQI_SCORE</span>
+</pre></div>
+</div>
+<p>The sys.path adjustment tells Python where to find src/ relative to the
+notebooks/ directory.
+After this single import, the notebook never implements classification logic itself,
+it only calls compute_row_aqi and uses the results.
+This keeps the notebook focused on the narrative (“what does the data show?”)
+rather than on algorithmic details (“how is the index computed?”).</p>
+</section>
+<section id="loading-the-data">
+<h3>Loading the Data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">#</a></h3>
+<p>The UBA exports data as CSV files with two non-standard properties:
+a semicolon (;) delimiter instead of a comma, and datetime strings wrapped in
+single quotes (e.g. ‘2025-08-01 01:00’).
+A brief markdown cell before the loading code tells the reader what to expect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;../data/raw/Grunewald_august.csv&#39;</span>
+<span class="n">df_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw Data Shape:&quot;</span><span class="p">,</span> <span class="n">df_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_raw</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Calling df_raw.head() as the last expression in the cell lets Jupyter render
+the first five rows as a formatted table without any extra print statements.
+Showing the raw data immediately after loading is an example of
+“Document the process, not just the results”:
+the reader can see exactly what arrived from the data portal before any
+transformations are applied.</p>
+</section>
+<section id="preprocessing-the-data">
+<h3>Preprocessing the Data<a class="headerlink" href="#preprocessing-the-data" title="Permalink to this heading">#</a></h3>
+<p>Raw data from external sources rarely arrives in a form that is immediately useful.
+The preprocessing section renames the verbose UBA column headers to short,
+code-friendly names, parses the quoted datetime strings, converts pollutant
+columns to numeric values, and drops rows that are missing both a station code
+and a timestamp:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_raw</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;Particulate matter (PM₁₀) One hour average in µg/m³&quot;</span><span class="p">:</span> <span class="s2">&quot;pm10&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ozone (O₃) One hour average in µg/m³&quot;</span><span class="p">:</span>                <span class="s2">&quot;o3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nitrogen dioxide (NO₂) One hour average in µg/m³&quot;</span><span class="p">:</span>    <span class="s2">&quot;no2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Particulate matter (PM₂,₅) One hour average in µg/m³&quot;</span><span class="p">:</span><span class="s2">&quot;pm25&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sulphur dioxide (SO₂) One hour average in µg/m³&quot;</span><span class="p">:</span>     <span class="s2">&quot;so2&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;datetime_raw&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Each step is preceded by a short markdown cell explaining <em>why</em> that step is
+necessary, not just what it does.
+For example, the cell before the timestamp parsing explains that the UBA portal
+wraps datetime strings in single quotes, which prevents pandas from parsing them
+directly as datetimes.
+This kind of explanation is exactly what separates a computational narrative from
+a script: a reader who has never seen UBA data before can follow the reasoning
+without needing to inspect the raw file themselves.</p>
+<p>The preprocessing section also handles missing pollutant values.
+According to the UBA methodology, the index can be calculated as long as at
+least one of the five pollutants is available.
+Rather than dropping rows with any missing value, the notebook adds a helper column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pollutant_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_pollutants_available&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">pollutant_cols</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;has_any_pollutant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_pollutants_available&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Documenting this decision makes the notebook self-contained: a reader does not
+need to look up the UBA methodology to understand why rows with partial data are kept.</p>
+</section>
+<section id="applying-the-calculation">
+<h3>Applying the Calculation<a class="headerlink" href="#applying-the-calculation" title="Permalink to this heading">#</a></h3>
+<p>With clean data available, calling the AQI module is a single line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;aqi_computed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">compute_row_aqi</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before running the calculation on the full dataset, the notebook first demonstrates
+it on a single row:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">example_row</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example_row</span><span class="p">[[</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="s2">&quot;o3&quot;</span><span class="p">,</span> <span class="s2">&quot;no2&quot;</span><span class="p">,</span> <span class="s2">&quot;so2&quot;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computed AQI:&quot;</span><span class="p">,</span> <span class="n">compute_row_aqi</span><span class="p">(</span><span class="n">example_row</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Official AQI:&quot;</span><span class="p">,</span> <span class="n">example_row</span><span class="p">[</span><span class="s2">&quot;aqi_official&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This single-row example cell serves two purposes.
+First, it shows the reader concretely what input and output look like for one
+measurement, making the subsequent bulk computation easier to trust.
+Second, it provides an immediate sanity check: if the computed value for this
+one row matches the official value, the import and the function call are working
+correctly.
+The full validation across all rows follows naturally from this single-row check.</p>
+</section>
+<section id="visualizing-the-results">
+<h3>Visualizing the Results<a class="headerlink" href="#visualizing-the-results" title="Permalink to this heading">#</a></h3>
+<p>The notebook uses three complementary visualizations, each answering a different
+question about the data.</p>
+<p><strong>Hourly time series</strong> — one subplot per pollutant, sharing a time axis.
+This answers “how did individual pollutant concentrations change over the month?”
+and makes it easy to spot peaks and co-occurring pollution events.</p>
+<p><strong>Bar chart of AQI category frequencies</strong> — counts of how many hours fell into
+each category (very good, good, moderate, poor, very poor).
+This answers “what was the overall air quality picture for August?”
+and illustrates the effect of the maximum-operator rule: even if most pollutants
+are in the “very good” range, a single elevated reading pushes the overall
+category higher.</p>
+<p><strong>Heatmap of AQI score by hour-of-day and date</strong> — a grid where colour encodes
+the AQI score (1 = very good, 5 = very poor).
+This answers “are there systematic time-of-day patterns?”
+Rush-hour NO₂ peaks, for example, would show up as darker rows at 07:00–09:00
+and 17:00–19:00 on weekdays.</p>
+<p>Each visualization is introduced by a markdown cell that explains what the reader
+should look for, not just how the plot was made.
+Following the “Use visualizations effectively” guideline means choosing plot types
+that match the question, and explaining the connection between the visual and
+the conclusion in the surrounding text.</p>
+</section>
+<section id="what-makes-this-a-good-computational-narrative">
+<h3>What Makes This a Good Computational Narrative<a class="headerlink" href="#what-makes-this-a-good-computational-narrative" title="Permalink to this heading">#</a></h3>
+<p>Looking back at the best practices listed earlier, the AQI notebook follows them
+in concrete ways:</p>
+<ul class="simple">
+<li><p><strong>Tell a story for an audience</strong> — the notebook is addressed to a reader who
+understands air quality monitoring but may not know the UBA methodology.
+It explains each concept (the maximum-operator rule, the five pollutant categories)
+before using it in code.</p></li>
+<li><p><strong>Document the process, not just the results</strong> — every data quirk (semicolon
+delimiter, quoted timestamps, missing SO₂ at some stations) is explained in
+the markdown cells where it is first encountered.</p></li>
+<li><p><strong>Keep it simple and focused</strong> — complex logic lives in <code class="docutils literal notranslate"><span class="pre">src/aqi_calculator.py</span></code>.
+The notebook itself never implements a classification threshold.</p></li>
+<li><p><strong>Use visualizations effectively</strong> — three different chart types answer three
+different questions; each is preceded by a cell explaining what to look for.</p></li>
+<li><p><strong>Don’t present code without context</strong> — every code cell is preceded or followed
+by a markdown cell that explains the purpose of that step.</p></li>
+</ul>
+</section>
+</section>
+<section id="further-examples">
+<h2>Further Examples<a class="headerlink" href="#further-examples" title="Permalink to this heading">#</a></h2>
+<p>Here are some links to quite nice examples available at <a class="reference external" href="https://nbviewer.org/">nbviewer.org</a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.org/github/rjtavares/football-crunching/blob/master/notebooks/an%20exploratory%20data%20analysis%20of%20the%20world%20cup%20final.ipynb">An exploratory statistical analysis of the 2014 World Cup Final</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/maayanlab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb">An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/benlaken/Comment_BadruddinAslam2014/blob/master/Monsoon_analysis.ipynb">An open science approach to a recent false-positive between solar activity and the Indian monsoon</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/lalelale/profiles_analysis/blob/master/profiles.ipynb">Analysis and visualization of a public OKCupid profile dataset using python and pandas</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/numerical-mooc/assignment-bank/blob/master/Lessons.and.Assignments/Particle.In.Cell.Simulations/PIC_Bonus_Notebook.ipynb">Particle-In-Cell Plasma Sim</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/visualization_earthquakes.ipynb">Visualization: Mapping Global Earthquake Activity</a></p></li>
+</ul>
 <p>For a deeper dive into computational narratives and storytelling with data, there is specific literature available,
 for example <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-658-38555-2">H. Eckert’s book “Storytelling with Data”</a>.</p>
+<section id="summary">
+<h3>Summary:<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
+<p>This chapter walks through the AQI computational narrative notebook step by step. It covers five topics: separating reusable logic into src/aqi_calculator.py, loading UBA CSV data with its non-standard format, preprocessing and handling missing pollutant values, applying the calculation with a single-row sanity check before the full run, and choosing three visualizations that each answer a different question. Each step is shown with a code snippet and connected back to the Best Practices listed earlier in the chapter.</p>
+</section>
 </section>
 </section>
 
@@ -612,6 +800,19 @@ for example <a class="reference external" href="https://link.springer.com/book/1
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-computational-narrative-the-aqi-example">Building a Computational Narrative: The AQI Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separating-logic-from-narrative">Separating Logic from Narrative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-data">Loading the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-the-data">Preprocessing the Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-calculation">Applying the Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-results">Visualizing the Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-makes-this-a-good-computational-narrative">What Makes This a Good Computational Narrative</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-examples">Further Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
