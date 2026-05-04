@@ -492,6 +492,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-testing">Integration Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-testing">Regression Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test Coverage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-aqi-project">Testing the AQI Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defensive-programming-in-classify-pollutant">Defensive Programming in <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrized-tests">Parametrized Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-for-expected-exceptions">Testing for Expected Exceptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-classes-and-boundary-value-testing">Equivalence Classes and Boundary Value Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rest-of-the-test-suite">The Rest of the Test Suite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests-automatically">Running Tests Automatically</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-write-tests">When to Write Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -507,6 +519,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="testing-software">
 <h1>Testing Software<a class="headerlink" href="#testing-software" title="Permalink to this heading">#</a></h1>
+<p>This chapter demonstrates software testing using two projects: the Zipf’s Law project, and the German AQI Analyzer, our second running example. Both are introduced in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/getting_started.html">Getting Started</a>.</p>
+<p>The first sections use Zipf to introduce core concepts;
+the final section shows how the same concepts apply to the AQI project. Note that some tests might be applicable to one project and not the other, depending on the nature of the project itself.</p>
 <p>Here’s the current structure of our Zipf’s Law project files:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>zipf/
 ├── .gitignore
@@ -1253,6 +1268,189 @@ it’s probably enough to check that it handles tables with:</p>
 These checklists can be a bit daunting for newcomers,
 but they are a great way to pass on hard-earned experience.</p>
 </section>
+<section id="testing-the-aqi-project">
+<h2>Testing the AQI Project<a class="headerlink" href="#testing-the-aqi-project" title="Permalink to this heading">#</a></h2>
+<p>The same testing principles introduced above apply to the AQI project, our second running example.
+The following sections walk through how each concept appears in practice.</p>
+<section id="project-structure">
+<h3>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this heading">#</a></h3>
+<p>Source code lives in <code class="docutils literal notranslate"><span class="pre">src/</span></code> and tests in <code class="docutils literal notranslate"><span class="pre">tests/</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>german-air-quality-index-analyzer/
+├── src
+│   ├── aqi_calculator.py
+│   └── aqi_thresholds.py
+├── tests
+│   └── test_aqi_calculator.py
+└── ...
+</pre></div>
+</div>
+</section>
+<section id="defensive-programming-in-classify-pollutant">
+<h3>Defensive Programming in <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code><a class="headerlink" href="#defensive-programming-in-classify-pollutant" title="Permalink to this heading">#</a></h3>
+<p>The core function <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code> maps a single pollutant concentration
+to one of five AQI categories.
+It uses defensive checks to catch bad input early:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">classify_pollutant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">pollutant</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>                          <span class="c1"># missing sensor reading</span>
+
+    <span class="k">if</span> <span class="n">pollutant</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">THRESHOLDS_BY_POLLUTANT</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown pollutant: </span><span class="si">{</span><span class="n">pollutant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;No threshold found for pollutant &#39;</span><span class="si">{</span><span class="n">pollutant</span><span class="si">}</span><span class="s2">&#39; with value </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The first guard handles missing sensor data gracefully instead of crashing.
+The second raises an error immediately if an unrecognised pollutant name is passed in,
+rather than returning a silently wrong result.
+The final <code class="docutils literal notranslate"><span class="pre">raise</span></code> is a postcondition:
+if execution reaches that point, something is wrong with the threshold definitions themselves.</p>
+</section>
+<section id="unit-tests">
+<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Permalink to this heading">#</a></h3>
+<p>A basic unit test for <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code> follows the same fixture–actual–expected pattern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aqi_calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">classify_pollutant</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_classify_pm10_good</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;pm10&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="parametrized-tests">
+<h3>Parametrized Tests<a class="headerlink" href="#parametrized-tests" title="Permalink to this heading">#</a></h3>
+<p>Because <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code> must work for five pollutants across five categories each,
+<code class="docutils literal notranslate"><span class="pre">pytest.mark.parametrize</span></code> runs one test function across a list of cases
+instead of repeating the same structure for every combination:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aqi_calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">classify_pollutant</span>
+
+<span class="n">CASES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span>  <span class="s2">&quot;good&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span>  <span class="s2">&quot;moderate&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;pm25&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>  <span class="s2">&quot;good&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;o3&quot;</span><span class="p">,</span>  <span class="mi">100</span><span class="p">,</span>  <span class="s2">&quot;moderate&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;no2&quot;</span><span class="p">,</span>  <span class="mi">80</span><span class="p">,</span>  <span class="s2">&quot;poor&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;pollutant,value,expected&quot;</span><span class="p">,</span> <span class="n">CASES</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_classify_pollutant</span><span class="p">(</span><span class="n">pollutant</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">pollutant</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+</div>
+<p>Running <code class="docutils literal notranslate"><span class="pre">pytest</span></code> from the project root collects and runs all 58 tests across the full test file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pytest<span class="w"> </span>tests/
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-7.4.4, pluggy-1.6.0
+rootdir: ~/german-air-quality-index-analyzer
+configfile: pyproject.toml
+plugins: cov-5.0.0, hypothesis-6.131.15, anyio-4.2.0
+collected 58 items
+
+tests/test_aqi_calculator.py ...........................................  [100%]
+
+============================== 58 passed in 0.52s ==============================
+</pre></div>
+</div>
+</section>
+<section id="testing-for-expected-exceptions">
+<h3>Testing for Expected Exceptions<a class="headerlink" href="#testing-for-expected-exceptions" title="Permalink to this heading">#</a></h3>
+<p>The defensive checks in <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code> should also be tested.
+<code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> asserts that a specific exception is raised for bad input:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_invalid_pollutant_raises</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;Unknown pollutant&quot;</span><span class="p">):</span>
+        <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;invalid_pollutant&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This confirms that the function fails loudly on bad input
+rather than silently returning a wrong category.</p>
+</section>
+<section id="equivalence-classes-and-boundary-value-testing">
+<h3>Equivalence Classes and Boundary Value Testing<a class="headerlink" href="#equivalence-classes-and-boundary-value-testing" title="Permalink to this heading">#</a></h3>
+<p>The AQI project uses both techniques together.
+<strong>Equivalence class tests</strong> check that a representative mid-range value in each category
+is classified correctly — the assumption being that if one value in a range works,
+all values in that range work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CLASSIFY_EQUIVALENCE_CLASSES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>  <span class="s2">&quot;very good&quot;</span><span class="p">),</span>   <span class="c1"># mid-range value</span>
+    <span class="p">(</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;good&quot;</span><span class="p">),</span>        <span class="c1"># mid-range value</span>
+    <span class="p">(</span><span class="s2">&quot;pm10&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;moderate&quot;</span><span class="p">),</span>    <span class="c1"># mid-range value</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Boundary value tests</strong> go further by checking the exact thresholds where one category ends
+and the next begins — precisely the values most likely to expose an off-by-one error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_pm10_boundaries</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span>  <span class="s2">&quot;pm10&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;very good&quot;</span>  <span class="c1"># upper boundary</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;pm10&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>        <span class="c1"># first value of next category</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span> <span class="s2">&quot;pm10&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;good&quot;</span>        <span class="c1"># upper boundary</span>
+    <span class="k">assert</span> <span class="n">classify_pollutant</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;pm10&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;moderate&quot;</span>    <span class="c1"># first value of next category</span>
+</pre></div>
+</div>
+<p>There is intentional overlap between the two: some values appear in both sets of tests.
+This is not redundancy — it is complementary coverage.
+Equivalence class tests verify that the classification logic works for typical inputs;
+boundary tests verify that the threshold definitions themselves are correct at the edges.
+A bug could pass one and be caught by the other.</p>
+</section>
+<section id="the-rest-of-the-test-suite">
+<h3>The Rest of the Test Suite<a class="headerlink" href="#the-rest-of-the-test-suite" title="Permalink to this heading">#</a></h3>
+<p>The full test file covers two more functions and uses class-based test organization,
+grouping related tests under <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">TestComputeRowAqi</span></code>, <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">TestComputeAqiForDataframe</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">TestThresholds</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">compute_row_aqi</span></code> applies the <strong>max rule</strong> across all pollutants measured in one hour:
+whichever pollutant falls in the worst category determines the overall AQI for that row.
+Its tests verify single-pollutant cases, multiple pollutants in the same category,
+multiple pollutants in different categories, and missing values —
+<code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">NaN</span></code> readings (common when a sensor is offline) must be skipped gracefully
+rather than raising an error.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TestComputeAqiForDataframe</span></code> serves as an <strong>integration test</strong>:
+it feeds a full DataFrame through the entire pipeline —
+<code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code> → <code class="docutils literal notranslate"><span class="pre">compute_row_aqi</span></code> → <code class="docutils literal notranslate"><span class="pre">compute_aqi_for_dataframe</span></code> —
+and checks that the final output is correct end to end.
+It also includes an empty DataFrame to confirm the pipeline handles that edge case
+without crashing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">TestThresholds</span></code> checks that the <code class="docutils literal notranslate"><span class="pre">AQI_LEVELS</span></code> list and <code class="docutils literal notranslate"><span class="pre">AQI_SCORE</span></code> dictionary
+contain exactly the expected values — a simple but important safeguard,
+since the rest of the logic depends on these constants being correct.</p>
+</section>
+<section id="coverage">
+<h3>Coverage<a class="headerlink" href="#coverage" title="Permalink to this heading">#</a></h3>
+<p>Running the full test suite with <code class="docutils literal notranslate"><span class="pre">coverage</span></code> confirms that all testable lines are exercised.
+The <code class="docutils literal notranslate"><span class="pre">main()</span></code> function is a demonstration script that prints example output —
+it is not part of the calculation logic and is not called during testing.
+It is excluded from coverage with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code>,
+which is why the report reaches 100%.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>coverage<span class="w"> </span>run<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/
+$<span class="w"> </span>coverage<span class="w"> </span>report<span class="w"> </span>-m
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name                           Stmts   Miss  Cover
+--------------------------------------------------
+src/aqi_calculator.py             43      0   100%
+src/aqi_thresholds.py             13      0   100%
+tests/test_aqi_calculator.py     141      0   100%
+--------------------------------------------------
+TOTAL                            197      0   100%
+</pre></div>
+</div>
+</section>
+<section id="running-tests-automatically">
+<h3>Running Tests Automatically<a class="headerlink" href="#running-tests-automatically" title="Permalink to this heading">#</a></h3>
+<p>Running tests manually works well during development,
+but it is easy to forget to run them before pushing changes.
+The AQI project automates this using a CI/CD pipeline defined in a <code class="docutils literal notranslate"><span class="pre">Jenkinsfile</span></code> at the project root —
+every time a commit is pushed, the pipeline runs the full test suite and publishes the coverage report automatically.
+We will cover this in detail in Chapter <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/cicd_basics.html">CI/CD</a>.</p>
+</section>
+</section>
 <section id="when-to-write-tests">
 <h2>When to Write Tests<a class="headerlink" href="#when-to-write-tests" title="Permalink to this heading">#</a></h2>
 <p>We have now met the three major types of test: unit, integration, and regression.
@@ -1323,7 +1521,10 @@ and \gref{verification}{verification},
 which asks whether we have met that specification.
 The difference between them is the difference between
 building the right thing and building something right;
-the practices introduced in this chapter will help with both.</p>
+the practices introduced in this chapter will help with both.
+The AQI project further illustrates that the right testing strategy depends on the nature of the software:
+categorical outputs call for equivalence class and boundary value tests,
+while parametrized tests help manage the growing number of input combinations without repetition.</p>
 <ul class="simple">
 <li><p>Test software to convince people (including yourself) that software is correct enough
 and to make tolerances on “enough” explicit.</p></li>
@@ -1409,6 +1610,18 @@ and to make tolerances on “enough” explicit.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-testing">Integration Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-testing">Regression Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test Coverage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-the-aqi-project">Testing the AQI Project</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-structure">Project Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defensive-programming-in-classify-pollutant">Defensive Programming in <code class="docutils literal notranslate"><span class="pre">classify_pollutant</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-tests">Unit Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrized-tests">Parametrized Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-for-expected-exceptions">Testing for Expected Exceptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalence-classes-and-boundary-value-testing">Equivalence Classes and Boundary Value Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rest-of-the-test-suite">The Rest of the Test Suite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests-automatically">Running Tests Automatically</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-write-tests">When to Write Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
