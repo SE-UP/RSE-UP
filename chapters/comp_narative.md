@@ -12,6 +12,20 @@ Jupyter Notebooks are perhaps the most popular format for creating computational
 They provide an ideal platform for integrating code, data analysis, and explanatory text, 
 making them a go-to choice for researchers and data scientists aiming to share their work in an interactive, transparent, and reproducible way.
 
+## Examples
+The easiest way to understand the idea of computational narratives is probably to look at a few examples. 
+
+We have a [computational narrative version of the Air Quality Index example](https://se-up.github.io/RSE-UP/aqi/notebooks/computational_narrative.html) that you can check out. 
+
+And here are some links to further quite nice examples available at [nbviewer.org](https://nbviewer.org/):
+
+- [An exploratory statistical analysis of the 2014 World Cup Final](https://nbviewer.org/github/rjtavares/football-crunching/blob/master/notebooks/an%20exploratory%20data%20analysis%20of%20the%20world%20cup%20final.ipynb)
+- [An open RNA-Seq data analysis pipeline tutorial with an example of reprocessing data from a recent Zika virus study](https://nbviewer.org/github/maayanlab/Zika-RNAseq-Pipeline/blob/master/Zika.ipynb)
+- [An open science approach to a recent false-positive between solar activity and the Indian monsoon](https://nbviewer.org/github/benlaken/Comment_BadruddinAslam2014/blob/master/Monsoon_analysis.ipynb)
+- [Analysis and visualization of a public OKCupid profile dataset using python and pandas](https://nbviewer.org/github/lalelale/profiles_analysis/blob/master/profiles.ipynb)
+- [Particle-In-Cell Plasma Sim](https://nbviewer.org/github/numerical-mooc/assignment-bank/blob/master/Lessons.and.Assignments/Particle.In.Cell.Simulations/PIC_Bonus_Notebook.ipynb)
+- [Visualization: Mapping Global Earthquake Activity](https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/visualization_earthquakes.ipynb)
+
 ## Best Practices
 As with many complex things, developing compelling computational narratives takes time and practice. 
 Some general rules of thumb are summarized in the following do's and dont's:
