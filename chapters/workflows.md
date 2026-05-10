@@ -136,6 +136,62 @@ Other options include using a project-specific Wiki or integrating them into the
 
 The key is to ensure that requirements are documented in a manner that makes them easily available for everyone involved in the project and for reference during later stages of development. 
 
+### Case Study: A Reproducible Phylogenetic Analysis Pipeline
+
+To see how all three elements — abstract workflow, node requirements, and non-functional requirements — come together in research software project, consider this bioinformatics workflow for [phylogenetic analysis](https://gitup.uni-potsdam.de/mohammedah/phylogenetic-analysis). The project retrieves 16S rRNA bacterial gene sequences from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home), runs them through a multi-step analysis pipeline, and produces phylogenetic trees and summary tables. Two organisms (*E. coli* and *Salmonella enterica*) are processed in parallel through identical steps, allowing direct comparison. The domain biology will be explored later; the main goal here is the engineering problem: turning a research question into a reproducible, automated workflow.
+
+
+#### Applying the Workflow Life Cycle
+
+The project implicitly addresses a scientific question: *Are 16S rRNA gene sequences from E. coli and Salmonella enterica sufficiently divergent to resolve into distinct phylogenetic clades? i.e., do these two bacterial species differ enough in their gene sequences to be reliably told apart by a computational pipeline?* This drives the five lifecycle stages:
+
+1. Scientific question — Compare sequences from two bacterial species stored in the European Nucleotide Archive (ENA).
+2. Abstract workflow — Seven functional steps are identified: fetch metadata, download sequences, preprocess (Quality Control(QC)), align, infer tree, export tree, evaluate. These steps are documented in `docs/requirements.md` as an activity diagram before any code is written, then refined whenever needed.
+3. Logical workflow — Each abstract step is mapped to a concrete tool: ENA Portal API for retrieval, MAFFT for alignment, a custom UPGMA implementation for tree inference, and matplotlib for figure rendering.
+4. Physical workflow — The Snakemake `workflow/Snakefile` encodes exact inputs, outputs, parameters, and two dataset configurations (`ecoli_16S`, `salmonella_16S`) via `workflow/config.yaml`. Workflows with Snakemake will be discussed in more details in [Introduction to Snakemake](https://se-up.github.io/RSE-UP/chapters/intro_snakemake).
+5. Scientific results — Running `snakemake --cores 1` produces evaluation tables and tree figures for both datasets.
+
+Notice that the lifecycle is not linear: evaluation results may reveal QC thresholds need tuning, sending the team back to the abstract workflow stage.
+
+#### Representing the Abstract Workflow as a UML Activity Diagram
+![UML activity diagram](../figures/workflows/Phylo_UML.drawio.png). 
+
+
+The abstract workflow for this project is represented as a UML diagram in the `docs/requirements.md`. It uses a **fork node** after the start to split processing into two parallel streams — one per dataset — and a **join node** before the end to collect all results. Within each stream, the seven activities run sequentially with data flow arrows connecting output files to the next step's input. A **decision node** inside the preprocess activity branches on whether a sequence passes the minimum-length filter, discarding failures without halting the pipeline.
+
+Critically, The diagram describes *what* the pipeline does, not *how*. It contains no Snakemake syntax — replacing Snakemake with any other tool would leave the diagram unchanged.
+
+#### Node Requirements
+The phylogenetic project applies this approach to all seven pipeline steps. Here is the entry for the alignment step as an example; the full table for all activities is available in [`docs/requirements.md`](https://gitup.uni-potsdam.de/mohammedah/phylogenetic-analysis/-/blob/main/docs/requirements.md) in the project repository.
+
+| Field | Value |
+|---|---|
+| **Name** | Align |
+| **Description** | Produce a multiple-sequence alignment from QC-filtered sequences |
+| **Type** | Automatic |
+| **Input** | `cleaned_sequences.fasta` |
+| **Output** | `aligned_sequences.fasta` |
+| **Implementation/Tool** | MAFFT (external binary); wrapped by `src/tree_step_align.py` |
+
+Filling in this table before writing any code surfaces decisions early: what external tools are needed, and how each step should behave when something goes wrong.   
+
+#### Non-Functional Requirements
+
+The project's `docs/requirements.md` lists six NFRs that shaped every subsequent design decision:
+
+- **Reproducibility** — fixed dataset queries, pinned tool versions, Snakemake's file-based dependency tracking
+- **CLI-first** — every `src/` module exposes a `main()` callable from the command line so steps can be run and tested independently
+- **Modularity** — one Python file per pipeline step; shared utilities in `src/tree_common.py`
+- **Robustness** — explicit validation at each step boundary; informative errors on bad input
+- **Testability** — pure functions where possible; external calls (ENA API, MAFFT) isolated behind thin wrappers that can be mocked
+- **Maintainability** — type annotations throughout; ruff + mypy enforced in CI
+
+NFRs written at conception time are constraints, not aspirations. Writing "CLI-first" before coding means every function signature is designed around file paths rather than in-memory objects — a decision that would be expensive to reverse later.
+
+### Documenting Requirements
+
+The project stores its requirements documentation in `docs/requirements.md`, following the structured-project convention. This file is version-controlled alongside the code, to ensure it stays synchronized with the implementation and is reviewed in the same pull request as the corresponding code change.
+
 ## Workflow Composition
 
 (to come)
