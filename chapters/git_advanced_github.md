@@ -135,11 +135,11 @@ files and plot each word's rank versus its frequency.
 Amira commits her changes and pushes them to *her* repository on GitHub:
 
 ```bash
-amira:~/zipf $ git commit -a -m "Adding Sami as a contributor"
+amira:~/zipf $ git commit -a -m "docs: add Sami Virtanen to Contributors section in README"
 ```
 
 ```text
-[master 35fca86] Adding Sami as a contributor
+[master 35fca86] docs: add Sami Virtanen to Contributors section in README
  1 file changed, 1 insertion(+)
 ```
 
@@ -218,11 +218,11 @@ Switched to a new branch 'adding-email'
 then make a change and commit it:
 
 ```bash
-sami:~/zipf $ git commit -a -m "Adding my email address"
+sami:~/zipf $ git commit -a -m "docs: add email address to Contributors section in README"
 ```
 
 ```text
-[adding-email 3e73dc0] Adding my email address
+[adding-email 3e73dc0] docs: add email address to Contributors section in README
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 

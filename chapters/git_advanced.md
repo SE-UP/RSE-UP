@@ -134,11 +134,11 @@ $ echo "# Zipf" > README.md
 
 ```bash
 $ git add README.md
-$ git commit -m "Added readme"
+$ git commit -m "docs: add initial README file with project title"
 ```
 
 ```text
-[new_feature 3b6859d] Added readme
+[new_feature 3b6859d] docs: add initial README file with project title
  1 file changed, 1 insertion(+)
  create mode 100644 zipf/README.md
 ```
@@ -163,7 +163,7 @@ $ git log --oneline -n 2
 
 ```text
 8cd0fc5 (HEAD -> new_feature, origin/new_feature) changes made
-3b6859d Added readme
+3b6859d docs: add initial README file with project title
 ```
 
 (We use `--oneline` and `-n 2` to shorten the log display.) But if we switch back to the `master` branch:
@@ -202,7 +202,7 @@ $ git log --oneline -n 2
 ```text
 
 8cd0fc5 (HEAD -> new_feature, origin/new_feature) changes made
-3b6859d Added readme
+3b6859d docs: add initial README file with project title
 ```
 
 We can also look inside `README.md` and see our changes.
@@ -219,11 +219,11 @@ In this folder you find the necessary data and scripts used in the RSE-UP book t
 
 ```bash
 $ git add README.md
-$ git commit -m "description update"
+$ git commit -m "docs: add project overview and book link to README"
 ```
 
 ```text
-[new_feature 55178f0] description update
+[new_feature 55178f0] docs: add project overview and book link to README
  1 file changed, 2 insertions(+)
 ```
 
@@ -284,9 +284,9 @@ $ git log --oneline -n 4
 
 ```text
 5df6f8f (HEAD -> main) Merge branch 'new_feature'
-55178f0 (origin/new_feature, new_feature) description update
+55178f0 (origin/new_feature, new_feature) docs: add project overview and book link to README
 8cd0fc5 changes made
-3b6859d Added readme
+3b6859d docs: add initial README file with project title
 
 ```
 
@@ -359,11 +359,11 @@ In this folder ....
 
 ```bash
 $ git add README.md
-$ git commit -m "updated readme description"
+$ git commit -m "docs: add Zipf's law description to README"
 ```
 
 ```text
-[docs 0b72d0e] updated readme description
+[docs 0b72d0e] docs: add Zipf's law description to README
  1 file changed, 2 insertions(+)
 ```
 
@@ -402,11 +402,11 @@ In this folder you find the necessary data and scripts used in the RSE-UP book t
 
 ```
 $ git add README.md
-$ git commit -m "Added contributor list"
+$ git commit -m "docs: add Contributors section with initial contributor to README"
 ```
 
 ```text
-[main 885a8c7] Added contributor list
+[main 885a8c7] docs: add Contributors section with initial contributor to README
  1 file changed, 2 insertions(+)
 ```
 
@@ -499,11 +499,11 @@ We can now add the file and commit the change, just as we would after any other 
 
 ```bash
 $ git add README.md
-$ git commit -m "Merging README additions"
+$ git commit -m "docs: resolve merge conflict and combine README additions"
 ```
 
 ```text
-[main 55c63d0] Merging README additions
+[main 55c63d0] docs: resolve merge conflict and combine README additions
 ```
 
 Our branch's history now shows a single sequence of commits, with the `master` changes on top of the earlier `docs` changes:
@@ -513,8 +513,8 @@ $ git log --oneline -n 4
 ```
 
 ```text
-55c63d0 (HEAD -> main) Merging README additions
-45a576b Added contributor list
+55c63d0 (HEAD -> main) docs: resolve merge conflict and combine README additions
+45a576b docs: add Contributors section with initial contributor to README
 a0b88e5 (docs) Added repository overview
 232b564 Initial commit of README file
 ```
@@ -528,8 +528,8 @@ $ git log --oneline --graph -n 4
 ```text
 *   b6954e8 (HEAD -> main) Merge branch 'docs' merge conflict test
 |\
-| * 0b72d0e (docs) updated readme description
-* | 885a8c7 Added contributor list
+| * 0b72d0e (docs) docs: add Zipf's Law script description to README
+* | 885a8c7 docs: add Contributors section with initial contributor to README
 |/
 *   5df6f8f (origin/main, origin/HEAD) Merge branch 'new_feature'
 |\
@@ -700,8 +700,8 @@ $ git log --oneline -n 4
 
 ```text
 55c63d0 (HEAD -> main, origin/main, origin/HEAD) 
-        Merging README additions
-45a576b Added contributor list
+        docs: resolve merge conflict and combine README additions
+45a576b docs: add Contributors section with initial contributor to README
 a0b88e5 Added repository overview
 232b564 Initial commit of README file
 ```
@@ -746,11 +746,11 @@ With this remote in place, you are finally set up. Suppose, for example, that we
 We commit the changes and push them to our repository on Gitlab:
 
 ```bash
-$ git commit -a -m "Adding *you* as a contributor"
+$ git commit -a -m "docs: add yourself to Contributors section in README"
 ```
 
 ```text
-[main 35fca86] Adding you as a contributor
+[main 35fca86] docs: add yourself to Contributors section in README
  1 file changed, 1 insertion(+)
 ```
 
@@ -823,11 +823,11 @@ Switched to a new branch 'adding-email'
 then make a change and commit it:
 
 ```bash
-$ git commit -a -m "Adding my email address"
+$ git commit -a -m "docs: add email address to Contributors section in README"
 ```
 
 ```text
-[adding-email 3e73dc0] Adding my email address
+[adding-email 3e73dc0] docs: add email address to Contributors section in README
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
