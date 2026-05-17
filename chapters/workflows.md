@@ -136,9 +136,9 @@ Other options include using a project-specific Wiki or integrating them into the
 
 The key is to ensure that requirements are documented in a manner that makes them easily available for everyone involved in the project and for reference during later stages of development. 
 
-### Case Study: A Reproducible Phylogenetic Analysis Pipeline
+### Example: A Reproducible Phylogenetic Analysis Pipeline
 
-To see how all three elements — abstract workflow, node requirements, and non-functional requirements — come together in research software project, consider this bioinformatics workflow for [phylogenetic analysis](https://gitup.uni-potsdam.de/mohammedah/phylogenetic-analysis). The project retrieves 16S rRNA bacterial gene sequences from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home), runs them through a multi-step analysis pipeline, and produces phylogenetic trees and summary tables. Two organisms (*E. coli* and *Salmonella enterica*) are processed in parallel through identical steps, allowing direct comparison. The domain biology will be explored later; the main goal here is the engineering problem: turning a research question into a reproducible, automated workflow.
+To see how all three elements — abstract workflow, node requirements, and non-functional requirements — come together in research software project, consider this bioinformatics workflow for [phylogenetic analysis](https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis.git). The project retrieves 16S rRNA bacterial gene sequences from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home), runs them through a multi-step analysis pipeline, and produces phylogenetic trees and summary tables. Two organisms (*E. coli* and *Salmonella enterica*) are processed in parallel through identical steps, allowing direct comparison. The domain biology will be explored later; the main goal here is the engineering problem: turning a research question into a reproducible, automated workflow.
 
 
 #### Applying the Workflow Life Cycle
@@ -162,7 +162,7 @@ The abstract workflow for this project is represented as a UML diagram in the `d
 Critically, The diagram describes *what* the pipeline does, not *how*. It contains no Snakemake syntax — replacing Snakemake with any other tool would leave the diagram unchanged.
 
 #### Node Requirements
-The phylogenetic project applies this approach to all seven pipeline steps. Here is the entry for the alignment step as an example; the full table for all activities is available in [`docs/requirements.md`](https://gitup.uni-potsdam.de/mohammedah/phylogenetic-analysis/-/blob/main/docs/requirements.md) in the project repository.
+The phylogenetic project applies this approach to all seven pipeline steps. Here is the entry for the alignment step as an example; the full table for all activities is available in [`docs/requirements.md`](https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis/-/blob/main/docs/requirements.md) in the project repository.
 
 | Field | Value |
 |---|---|
