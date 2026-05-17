@@ -178,7 +178,7 @@ zipf/
 ### The AQI Project: A Second Running Example
 
 To see how these principles apply beyond Zipf's Law, consider the **German Air Quality Index (AQI) Analyzer** — a second project that runs alongside this book.
-It analyzes hourly pollutant measurements from the [German Federal Environment Agency (UBA)](https://www.umweltbundesamt.de/en) which will also be a Git repository stored on [GitUP](https://gitup.uni-potsdam.de/mohammedah/german-air-quality-index-analyzer.git). And it follows the same {cite:p}`Nobl2009` template, adapted for a Python software package. The following is an abbreviated version of the project directory tree as it appears toward the end of the book:
+It analyzes hourly pollutant measurements from the [German Federal Environment Agency (UBA)](https://www.umweltbundesamt.de/en) which will also be a Git repository stored on [GitUP](https://gitup.uni-potsdam.de/se-up/rse_course/german-air-quality-index-analyzer.git). And it follows the same {cite:p}`Nobl2009` template, adapted for a Python software package. The following is an abbreviated version of the project directory tree as it appears toward the end of the book:
 
 ```text
 german-air-quality-index-analyzer/
