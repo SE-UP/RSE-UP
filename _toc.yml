@@ -60,17 +60,12 @@ parts:
       - file: chapters/license.md  
 
 
-  - caption: Workflows
+  - caption: Workflows, Requirements, Architectures
     chapters:
       - file: chapters/workflows.md
-
-  - caption: Requirements, Architecture and Design
-    chapters:
-      - file: chapters/introduction/requirements_architecture_design.md
-        sections:
-          - file: chapters/application_classes.md
-          - file: chapters/requirements.md
-          - file: chapters/architecture_design.md
+#      - file: chapters/application_classes.md
+      - file: chapters/requirements.md
+      - file: chapters/architecture_design.md
 
   - caption: Building Command-Line Tools
     chapters: 
