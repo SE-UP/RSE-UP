@@ -162,7 +162,7 @@ $ git log --oneline -n 2
 ```
 
 ```text
-8cd0fc5 (HEAD -> new_feature, origin/new_feature) changes made
+8cd0fc5 (HEAD -> new_feature, origin/new_feature) feat: add project overview and book link to README
 3b6859d docs: add initial README file with project title
 ```
 
@@ -186,8 +186,8 @@ $ git log --oneline -n 2
 ```
 
 ```text
-a15777d (HEAD -> main, origin/main, origin/HEAD) fixed spelling
-27775a1 Update weekly_assignments.md
+a15777d (HEAD -> main, origin/main, origin/HEAD) fix: correct spelling in README
+27775a1 docs: update weekly assignments
 ```
 
 We have not lost our work:
@@ -201,7 +201,7 @@ $ git log --oneline -n 2
 
 ```text
 
-8cd0fc5 (HEAD -> new_feature, origin/new_feature) changes made
+8cd0fc5 (HEAD -> new_feature, origin/new_feature) feat: add project overview and book link to README
 3b6859d docs: add initial README file with project title
 ```
 
@@ -285,7 +285,7 @@ $ git log --oneline -n 4
 ```text
 5df6f8f (HEAD -> main) Merge branch 'new_feature'
 55178f0 (origin/new_feature, new_feature) docs: add project overview and book link to README
-8cd0fc5 changes made
+8cd0fc5 feat: add project overview and book link to README
 3b6859d docs: add initial README file with project title
 
 ```
@@ -515,8 +515,8 @@ $ git log --oneline -n 4
 ```text
 55c63d0 (HEAD -> main) docs: resolve merge conflict and combine README additions
 45a576b docs: add Contributors section with initial contributor to README
-a0b88e5 (docs) Added repository overview
-232b564 Initial commit of README file
+a0b88e5 (docs) docs: add repository overview to README
+232b564 docs: add initial README file with project title
 ```
 
 If we want to see what really happened, we can add the `--graph` option to `git log`:
@@ -702,8 +702,8 @@ $ git log --oneline -n 4
 55c63d0 (HEAD -> main, origin/main, origin/HEAD) 
         docs: resolve merge conflict and combine README additions
 45a576b docs: add Contributors section with initial contributor to README
-a0b88e5 Added repository overview
-232b564 Initial commit of README file
+a0b88e5 docs: add repository overview to README
+232b564 docs: add initial README file with project title
 ```
 
 You can also see that Git has automatically created a **remote** for their repository that points back at their repository on Gitlab:

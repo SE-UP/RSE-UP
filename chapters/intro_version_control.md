@@ -245,11 +245,11 @@ We no longer have any untracked files,
 but the tracked files haven't been **committed** (i.e., saved permanently in our project's history). We can do this using `git commit`:
 
 ```bash
-$ git commit -m "Add scripts, novels, word counts, and plots"
+$ git commit -m "feat: Add scripts, novels, word counts, and plots"
 ```
 
 ```text
-[master (root-commit) 173222b] Add scripts, novels, word 
+[master (root-commit) 173222b] feat: add scripts, novels, word 
     counts, and plots
  18 files changed, 145296 insertions(+)
  create mode 100644 bin_pycodestyle/countwords.py
@@ -302,11 +302,11 @@ Changes to be committed:
 We commit this as the starting point of the project's history:
 
 ```bash
-$ git commit -m "Add initial project structure and source files"
+$ git commit -m "feat: add initial project structure and source files"
 ```
 
 ```text
-[main (root-commit) a1b2c3d] Add initial project structure and source files
+[main (root-commit) a1b2c3d] feat: add initial project structure and source files
  13 files changed, 500 insertions(+)
  create mode 100644 .gitignore
  create mode 100644 CITATION.cff
@@ -351,19 +351,13 @@ rather than after we have done some work.
 
 ## Describing Commits
 
-If we run `git commit` *without* the `-m` option, Git opens a text editor so that we can write a longer **commit message**. In this message,
-the first line is referred to as the "subject" and the rest as the "body", just as in an email.
-
-When we use `-m`, we are only writing the subject line; this makes things easier in the short run, but if our project's history fills up with one-liners like "Fixed problem" or "Updated", our future self will wish that we had taken a few extra seconds to explain things in a little more detail.
-Following [these guidelines]( https://chris.beams.io/posts/git-commit/) will help:
-
-1.  Separate the subject from the body with a blank line so that it is easy to spot.
-2.  Limit subject lines to 50 characters so that they are easy to scan.
-3.  Write the subject line in Title Case (like a section heading).
-4.  Do not end the subject line with a period.
-5.  Write as if giving a command (e.g., "Make each plot half the width of the page").
-6.  Wrap the body (i.e., insert line breaks to format text as paragraphs rather than relying on editors to wrap lines automatically).
-7.  Use the body to explain what and why rather than how.
+When we use `-m`, we are only writing the subject line; this makes things easier in the short run, but if our project's history fills up with one-liners like "fixed problem" or "updated", our future self will wish that we had taken a few extra seconds to explain things in a little more detail.
+We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard, which we cover in detail in the [commit messages chapter](https://se-up.github.io/RSE-UP/chapters/commit_messages.html). In short, every commit message should look like:
+```
+<type>: <short description>
+```
+Where `type` is one of `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, and the description is lowercase and concise.
+A longer body explaining *what* and *why* can be added after a blank line.
 
 > **Which Editor?**
 >
@@ -426,11 +420,11 @@ Let's do that with `git add` and then commit our change:
 
 ```bash
 $ git add hello.txt
-$ git commit -m "Jello World"
+$ git commit -m "chore: add hello.txt as example file"
 ```
 
 ```text
-[master 851d590] Jello World
+[master 851d590] chore: add hello.txt as example file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 hello.txt
 ```
@@ -447,7 +441,7 @@ commit 851d590a214c7859eafa0998c6c951f8e0eb359b (HEAD -> main)
 Author: YOU Yu <email@mail.org>
 Date:   Sat Dec 19 09:32:41 2020 -0800
 
-    Jello World
+    chore: add hello.txt as example file
 
 commit 173222bf90216b408c8997f4e143572b99637750
 Author: You Yu <yuyou@mail.org>
@@ -539,7 +533,7 @@ After reviewing our change
 we can commit it just as we did before:
 
 ```bash
-$ git commit -m "Fixed spelling mistake"
+$ git commit -m "fix: correct spelling mistake in hello.txt"
 ```
 
 ```text
@@ -571,11 +565,11 @@ Changes to be committed:
 ```
 
 ```bash
-$ git commit -m "X Message"
+$ git commit -m "fix: correct spelling mistake in hello.txt"
 ```
 
 ```text
-[main 582f7f6] Plot frequency against rank on log-log axes
+[main 582f7f6] fix: correct spelling mistake in hello.txt
 1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -792,13 +786,13 @@ commit ee8684ca123e1e829fc995d672e3d7e4b00f2610
 Author: You Youn <you@mail.org>
 Date:   Sat Dec 19 09:52:04 2020 -0800
 
-    Update test.txt
+    fix: update test.txt
 
 commit 582f7f6f536d520b1328c04c9d41e24b54170656
 Author: You You <you@email.org>
 Date:   Sat Dec 19 09:37:25 2020 -0800
 
-    spelling fix
+    fix: correct spelling mistake in hello.txt
 
 commit 851d590a214c7859eafa0998c6c951f8e0eb359b
 .....
@@ -828,7 +822,7 @@ commit ee8684ca123e1e829fc995d672e3d7e4b00f2610
 Author: You You <you@mail.org>
 Date:   Sat Dec 19 09:52:04 2020 -0800
 
-    Update hello.txt
+    fix: update hello.txt
 
 diff --git a/results/dracula.png b/results/dracula.png
 index c1f62fd..57a7b70 100644

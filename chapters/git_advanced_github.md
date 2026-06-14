@@ -82,10 +82,10 @@ sami:~/zipf $ git log --oneline -n 4
 
 ```text
 55c63d0 (HEAD -> master, origin/master, origin/HEAD) 
-        Merging README additions
-45a576b Added contributor list
-a0b88e5 Added repository overview
-232b564 Initial commit of README file
+        docs: merge README additions from contributors
+45a576b docs: add contributor list to README
+a0b88e5 docs: add repository overview to README
+232b564 docs: add initial README file with project title
 ```
 
 Sami also sees that Git has automatically created a **remote** for their repository that points back at their repository on GitHub:
