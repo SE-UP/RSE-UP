@@ -922,6 +922,234 @@ removes all intermediate and output files. First do a `snakemake all` followed
 by `snakemake clean`. Then check to see if any output files remain and add them
 to the clean rule if required.
 
+## 5 A Second Complete Workflow: Phylogenetic Analysis
+
+Up until now, in this chapter we have built and refined a Snakemake workflow for
+the Zipf's Law project. To go over the points we have covered, this section
+walks through a second complete workflow, The bioinformatics pipeline for
+phylogenetic analysis introduced earlier as part of this course.
+
+The workflow retrieves bacterial DNA sequences from the European Nucleotide
+Archive (ENA), applies quality filtering, aligns sequences with MAFFT,
+infers phylogenetic trees using UPGMA, and exports figures and summary tables.
+The source is available at:
+[phylogenetic-analysis](https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis)
+
+We will start this section by presenting the full config file here, and then use each section of the snakefile linked with the section from this chapter, as we did with the Zipf's.
+
+### The config file
+
+The workflow separates configuration from code using a dedicated config file,
+`workflow/config.yaml`:
+
+```yaml
+datasets:
+  ecoli_16S:
+    # Escherichia coli 16S rRNA gene sequences
+    query: "tax_eq(562) AND description=\"16S\""
+    fields: "accession,description,tax_id,scientific_name"
+    limit: 100
+    result: "sequence"
+
+  salmonella_16S:
+    # Salmonella enterica 16S rRNA gene sequences (tax_id 28901)
+    query: "tax_eq(28901) AND description=\"16S\""
+    fields: "accession,description,tax_id,scientific_name"
+    limit: 100
+    result: "sequence"
+
+# Global settings
+
+# Column in the metadata TSV that holds the accession identifiers.
+ena_accession_column: "accession"
+
+# Sequences shorter than this value (bp) are discarded during QC.
+min_length: 100
+
+# Name or full path to the MAFFT executable.
+mafft_bin: "mafft"
+```
+
+Each named dataset has its own ENA query, field list, and record limit.
+Global settings such as `min_length` and `mafft_bin` apply across all
+datasets. The Snakefile loads this with `configfile: "workflow/config.yaml"`,
+after which `config` is available as a plain Python dictionary. The
+`configfile:` directive is a Snakemake keyword, not standard Python — it
+tells Snakemake to parse the file and expose its contents as the `config`
+dictionary before any rule runs.
+
+### The Snakefile
+
+The snippets below highlight the key Snakemake concepts used in this workflow.
+They are excerpts, the full Snakefile is in `workflow/Snakefile` in the
+project repository.
+
+**`DATASETS` and `expand()` - Section 4**
+
+`DATASETS` is a Python list built from the `config` dictionary, playing the
+same role as `DATS` in the Zipf's workflow. `rule all` uses `expand()` to
+derive the full list of target files before any rule runs, one per dataset
+for each output type:
+
+```python
+DATASETS = list(config["datasets"].keys())
+
+rule all:
+    input:
+        expand("data/raw/{dataset}/ena_metadata.tsv", dataset=DATASETS),
+        expand("data/processed/{dataset}/cleaned_sequences.fasta", dataset=DATASETS),
+        expand("results/trees/{dataset}_upgma.nwk", dataset=DATASETS),
+        expand("results/figures/{dataset}_upgma.png", dataset=DATASETS),
+        expand("results/tables/{dataset}_evaluation_summary.tsv", dataset=DATASETS),
+```
+
+**The `{dataset}` wildcard — Section 3**
+
+Every rule in the workflow uses `{dataset}` as a pattern wildcard. Snakemake
+instantiates each rule twice, once for `ecoli_16S` and once for
+`salmonella_16S`, with no duplication in the Snakefile. This mirrors how
+`{book}` handled multiple texts in the Zipf's workflow:
+
+```python
+rule align:
+    input:
+        "data/processed/{dataset}/cleaned_sequences.fasta",
+    output:
+        "data/processed/{dataset}/aligned_sequences.fasta",
+    params:
+        mafft_bin=config.get("mafft_bin", "mafft"),
+    shell:
+        """
+        PYTHONPATH=src python src/tree_step_align.py \
+            --input-fasta {input} \
+            --output-alignment {output} \
+            --mafft-bin {params.mafft_bin}
+        """
+```
+**`params` with lambda functions**
+
+When a parameter value differs per dataset, a lambda reads the correct entry
+from `config` using the current wildcard value. The `fetch_metadata` rule
+uses this to pass the right ENA query for each organism:
+
+```python
+params:
+    query=lambda wildcards: config["datasets"][wildcards.dataset]["query"],
+    fields=lambda wildcards: config["datasets"][wildcards.dataset].get(
+        "fields", "accession,description,tax_id,scientific_name"
+    ),
+    limit=lambda wildcards: config["datasets"][wildcards.dataset].get("limit", 100),
+```
+
+**Named inputs and outputs — Section 2**
+
+Rules that produce or consume more than one file use named fields so the
+shell block can reference each path individually. The `preprocess` rule
+writes two separate output files:
+
+```python
+rule preprocess:
+    output:
+        fasta="data/processed/{dataset}/cleaned_sequences.fasta",
+        report="results/tables/{dataset}_preprocessing_qc.tsv",
+    shell:
+        """
+        python src/preprocessing.py \
+            --output-fasta {output.fasta} \
+            --report-tsv {output.report}
+        """
+```
+
+The `evaluate` rule uses named fields on both `input:` and `output:`:
+
+```python
+rule evaluate:
+    input:
+        alignment="data/processed/{dataset}/aligned_sequences.fasta",
+        tree="results/trees/{dataset}_upgma.nwk",
+    output:
+        summary="results/tables/{dataset}_evaluation_summary.tsv",
+        per_sequence="results/tables/{dataset}_evaluation_per_sequence.tsv",
+    shell:
+        """
+        python src/evaluation.py \
+            --input-alignment {input.alignment} \
+            --input-tree {input.tree} \
+            --output-summary {output.summary} \
+            --output-per-sequence {output.per_sequence}
+        """
+```
+
+**Parallel execution**
+
+Because the two datasets share no dependencies, Snakemake can run both
+pipelines "or any number of datasets" simultaneously with no changes to the Snakefile:
+
+```bash
+snakemake --snakefile workflow/Snakefile --cores 2
+```
+The output below is trimmed, the `...` markers replace intermediate job blocks
+that follow the same pattern as the ones shown.
+
+```output
+Assuming unrestricted shared filesystem usage.
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count
+------------------  -------
+fetch_metadata            2
+download_sequences        2
+preprocess                2
+align                     2
+infer_tree                2
+evaluate                  2
+export_tree               2
+all                       1
+total                    15
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Jun 17 02:39:48 2026]
+localrule fetch_metadata:
+    output: data/raw/salmonella_16S/ena_metadata.tsv
+    jobid: 2
+    reason: Missing output files: data/raw/salmonella_16S/ena_metadata.tsv
+    wildcards: dataset=salmonella_16S
+[Wed Jun 17 02:39:48 2026]
+localrule fetch_metadata:
+    output: data/raw/ecoli_16S/ena_metadata.tsv
+    jobid: 1
+    reason: Missing output files: data/raw/ecoli_16S/ena_metadata.tsv
+    wildcards: dataset=ecoli_16S
+2026-06-17 02:39:49,313 INFO __main__: Fetching ENA metadata: query='tax_eq(562) AND description="16S"', result=sequence, limit=100
+2026-06-17 02:39:49,313 INFO __main__: Fetching ENA metadata: query='tax_eq(28901) AND description="16S"', result=sequence, limit=100
+2026-06-17 02:39:50,786 INFO __main__: Fetched 100 records → data/raw/ecoli_16S/ena_metadata.tsv
+2026-06-17 02:39:50,837 INFO __main__: Fetched 100 records → data/raw/salmonella_16S/ena_metadata.tsv
+[Wed Jun 17 02:39:50 2026]
+Finished jobid: 1 (Rule: fetch_metadata)
+1 of 15 steps (7%) done
+...
+[Wed Jun 17 02:40:47 2026]
+localrule preprocess:
+    input: data/raw/ecoli_16S/.sequences_downloaded
+    output: data/processed/ecoli_16S/cleaned_sequences.fasta, results/tables/ecoli_16S_preprocessing_qc.tsv
+    jobid: 3
+    reason: Missing output files: data/processed/ecoli_16S/cleaned_sequences.fasta, results/tables/ecoli_16S_preprocessing_qc.tsv; Input files updated by another job: data/raw/ecoli_16S/.sequences_downloaded
+    wildcards: dataset=ecoli_16S
+2026-06-17 02:40:47,188 INFO __main__: Loaded 100 sequence records
+2026-06-17 02:40:47,189 INFO __main__: QC complete: 98 passed, 2 failed
+[Wed Jun 17 02:40:47 2026]
+Finished jobid: 3 (Rule: preprocess)
+4 of 15 steps (27%) done
+...
+[Wed Jun 17 02:41:26 2026]
+Finished jobid: 0 (Rule: all)
+15 of 15 steps (100%) done
+```
 
 ## Next steps
 
