@@ -701,10 +701,10 @@ We will explore this issue further in Chapter &#64;ref(provenance).</p>
 </div></blockquote>
 <p>We no longer have any untracked files,
 but the tracked files haven’t been <strong>committed</strong> (i.e., saved permanently in our project’s history). We can do this using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add scripts, novels, word counts, and plots&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: Add scripts, novels, word counts, and plots&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[master (root-commit) 173222b] Add scripts, novels, word 
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[master (root-commit) 173222b] feat: add scripts, novels, word 
     counts, and plots
  18 files changed, 145296 insertions(+)
  create mode 100644 bin_pycodestyle/countwords.py
@@ -750,10 +750,10 @@ Changes to be committed:
 </pre></div>
 </div>
 <p>We commit this as the starting point of the project’s history:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add initial project structure and source files&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add initial project structure and source files&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main (root-commit) a1b2c3d] Add initial project structure and source files
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main (root-commit) a1b2c3d] feat: add initial project structure and source files
  13 files changed, 500 insertions(+)
  create mode 100644 .gitignore
  create mode 100644 CITATION.cff
@@ -790,19 +790,13 @@ rather than after we have done some work.</p>
 </section>
 <section id="describing-commits">
 <h2>Describing Commits<a class="headerlink" href="#describing-commits" title="Permalink to this heading">#</a></h2>
-<p>If we run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> <em>without</em> the <code class="docutils literal notranslate"><span class="pre">-m</span></code> option, Git opens a text editor so that we can write a longer <strong>commit message</strong>. In this message,
-the first line is referred to as the “subject” and the rest as the “body”, just as in an email.</p>
-<p>When we use <code class="docutils literal notranslate"><span class="pre">-m</span></code>, we are only writing the subject line; this makes things easier in the short run, but if our project’s history fills up with one-liners like “Fixed problem” or “Updated”, our future self will wish that we had taken a few extra seconds to explain things in a little more detail.
-Following <a class="reference external" href="https://chris.beams.io/posts/git-commit/">these guidelines</a> will help:</p>
-<ol class="arabic simple">
-<li><p>Separate the subject from the body with a blank line so that it is easy to spot.</p></li>
-<li><p>Limit subject lines to 50 characters so that they are easy to scan.</p></li>
-<li><p>Write the subject line in Title Case (like a section heading).</p></li>
-<li><p>Do not end the subject line with a period.</p></li>
-<li><p>Write as if giving a command (e.g., “Make each plot half the width of the page”).</p></li>
-<li><p>Wrap the body (i.e., insert line breaks to format text as paragraphs rather than relying on editors to wrap lines automatically).</p></li>
-<li><p>Use the body to explain what and why rather than how.</p></li>
-</ol>
+<p>When we use <code class="docutils literal notranslate"><span class="pre">-m</span></code>, we are only writing the subject line; this makes things easier in the short run, but if our project’s history fills up with one-liners like “fixed problem” or “updated”, our future self will wish that we had taken a few extra seconds to explain things in a little more detail.
+We follow the <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> standard, which we cover in detail in the <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/commit_messages.html">commit messages chapter</a>. In short, every commit message should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">short</span> <span class="n">description</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">type</span></code> is one of <code class="docutils literal notranslate"><span class="pre">feat</span></code>, <code class="docutils literal notranslate"><span class="pre">fix</span></code>, <code class="docutils literal notranslate"><span class="pre">docs</span></code>, <code class="docutils literal notranslate"><span class="pre">chore</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">refactor</span></code>, and the description is lowercase and concise.
+A longer body explaining <em>what</em> and <em>why</em> can be added after a blank line.</p>
 <blockquote>
 <div><p><strong>Which Editor?</strong></p>
 <p>The default editor in the Unix shell is called Vim.
@@ -853,10 +847,10 @@ present (use &quot;git add&quot; to track)
 <p>Git isn’t tracking this file yet because we haven’t told it to.
 Let’s do that with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and then commit our change:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>hello.txt
-$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Jello World&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: add hello.txt as example file&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[master 851d590] Jello World
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[master 851d590] chore: add hello.txt as example file
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 hello.txt
 </pre></div>
@@ -870,7 +864,7 @@ we can display the project’s history using <code class="docutils literal notra
 Author: YOU Yu &lt;email@mail.org&gt;
 Date:   Sat Dec 19 09:32:41 2020 -0800
 
-    Jello World
+    chore: add hello.txt as example file
 
 commit 173222bf90216b408c8997f4e143572b99637750
 Author: You Yu &lt;yuyou@mail.org&gt;
@@ -954,7 +948,7 @@ using the <code class="docutils literal notranslate"><span class="pre">--word-di
 These are particularly useful when running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> on prose rather than code.</p>
 <p>After reviewing our change
 we can commit it just as we did before:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Fixed spelling mistake&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: correct spelling mistake in hello.txt&quot;</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>On branch main
@@ -981,10 +975,10 @@ Changes to be committed:
 	  modified:  hello.txt
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;X Message&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: correct spelling mistake in hello.txt&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main 582f7f6] Plot frequency against rank on log-log axes
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[main 582f7f6] fix: correct spelling mistake in hello.txt
 1 file changed, 1 insertion(+), 1 deletion(-)
 </pre></div>
 </div>
@@ -1177,13 +1171,13 @@ For example, if we run <code class="docutils literal notranslate"><span class="p
 Author: You Youn &lt;you@mail.org&gt;
 Date:   Sat Dec 19 09:52:04 2020 -0800
 
-    Update test.txt
+    fix: update test.txt
 
 commit 582f7f6f536d520b1328c04c9d41e24b54170656
 Author: You You &lt;you@email.org&gt;
 Date:   Sat Dec 19 09:37:25 2020 -0800
 
-    spelling fix
+    fix: correct spelling mistake in hello.txt
 
 commit 851d590a214c7859eafa0998c6c951f8e0eb359b
 .....
@@ -1208,7 +1202,7 @@ since it is very long:</p>
 Author: You You &lt;you@mail.org&gt;
 Date:   Sat Dec 19 09:52:04 2020 -0800
 
-<span class="w"> </span>   Update hello.txt
+<span class="w"> </span>   fix: update hello.txt
 
 <span class="gh">diff --git a/results/dracula.png b/results/dracula.png</span>
 <span class="gh">index c1f62fd..57a7b70 100644</span>

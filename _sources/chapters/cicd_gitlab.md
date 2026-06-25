@@ -7,7 +7,7 @@ cd hello_cicd
 echo "hello world" >> .gitlab-ci.yml
 git checkout -b feature/add-ci
 git add .gitlab-ci.yml
-git commit -m "my first ci/cd"
+git commit -m "feat: add GitLab CI/CD pipeline configuration"
 git push -u origin feature/add-ci
 ```
 
