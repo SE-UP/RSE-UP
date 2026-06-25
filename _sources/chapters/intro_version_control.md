@@ -749,11 +749,11 @@ because the two repositories are already synchronized.
 > Because `git fetch` doesn't alter your local files, 
 > it's used to view changes between local and remote versions.
 
-For the AQI project, we use [GitHub](https://github.com) to host the remote repository.
+For the AQI project, we use [GitUP](https://gitup.uni-potsdam.de/) to host the remote repository.
 After creating a new empty project there, we connect the local repository and push:
 
 > ```bash
-> $ git remote add origin https://github.com/YOU/german-air-quality-index-analyzer.git
+> $ git remote add origin https://gitup.uni-potsdam.de/se-up/rse_course/german-air-quality-index-analyzer.git
 > $ git push origin main
 > ```
 >
@@ -761,7 +761,7 @@ After creating a new empty project there, we connect the local repository and pu
 > Enumerating objects: 15, done.
 > Counting objects: 100% (15/15), done.
 > Writing objects: 100% (15/15), done.
-> To https://github.com/YOU/german-air-quality-index-analyzer.git
+> To https://gitup.uni-potsdam.de/se-up/rse_course/german-air-quality-index-analyzer.git
 >  * [new branch]      main -> main
 > ```
 

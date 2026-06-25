@@ -828,7 +828,7 @@ but they are a great way to pass on hard-earned experience.
 
 ## Testing the AQI Project
 
-The same testing principles introduced above apply to the AQI project, our second running example.
+The same testing principles introduced above apply to the the [AQI project](https://gitup.uni-potsdam.de/se-up/rse_course/german-air-quality-index-analyzer.git), our second running example.
 The following sections walk through how each concept appears in practice.
 
 ### Project Structure
