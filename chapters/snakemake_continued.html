@@ -514,6 +514,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-house">Cleaning House</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-second-complete-workflow-phylogenetic-analysis">5 A Second Complete Workflow: Phylogenetic Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-config-file">The config file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-snakefile">The Snakefile</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
 </ul>
             </nav>
@@ -1337,6 +1342,214 @@ by <code class="docutils literal notranslate"><span class="pre">snakemake</span>
 to the clean rule if required.</p>
 </section>
 </section>
+<section id="a-second-complete-workflow-phylogenetic-analysis">
+<h2>5 A Second Complete Workflow: Phylogenetic Analysis<a class="headerlink" href="#a-second-complete-workflow-phylogenetic-analysis" title="Permalink to this heading">#</a></h2>
+<p>Up until now, in this chapter we have built and refined a Snakemake workflow for
+the Zipf’s Law project. To go over the points we have covered, this section
+walks through a second complete workflow, The bioinformatics pipeline for
+phylogenetic analysis introduced earlier as part of this course.</p>
+<p>The workflow retrieves bacterial DNA sequences from the European Nucleotide
+Archive (ENA), applies quality filtering, aligns sequences with MAFFT,
+infers phylogenetic trees using UPGMA, and exports figures and summary tables.
+The source is available at:
+<a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis">phylogenetic-analysis</a></p>
+<p>We will start this section by presenting the full config file here, and then use each section of the snakefile linked with the section from this chapter, as we did with the Zipf’s.</p>
+<section id="the-config-file">
+<h3>The config file<a class="headerlink" href="#the-config-file" title="Permalink to this heading">#</a></h3>
+<p>The workflow separates configuration from code using a dedicated config file,
+<code class="docutils literal notranslate"><span class="pre">workflow/config.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">datasets</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ecoli_16S</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Escherichia coli 16S rRNA gene sequences</span>
+<span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tax_eq(562)</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">description=\&quot;16S\&quot;&quot;</span>
+<span class="w">    </span><span class="nt">fields</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;accession,description,tax_id,scientific_name&quot;</span>
+<span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sequence&quot;</span>
+
+<span class="w">  </span><span class="nt">salmonella_16S</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Salmonella enterica 16S rRNA gene sequences (tax_id 28901)</span>
+<span class="w">    </span><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tax_eq(28901)</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">description=\&quot;16S\&quot;&quot;</span>
+<span class="w">    </span><span class="nt">fields</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;accession,description,tax_id,scientific_name&quot;</span>
+<span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="nt">result</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sequence&quot;</span>
+
+<span class="c1"># Global settings</span>
+
+<span class="c1"># Column in the metadata TSV that holds the accession identifiers.</span>
+<span class="nt">ena_accession_column</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;accession&quot;</span>
+
+<span class="c1"># Sequences shorter than this value (bp) are discarded during QC.</span>
+<span class="nt">min_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="c1"># Name or full path to the MAFFT executable.</span>
+<span class="nt">mafft_bin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mafft&quot;</span>
+</pre></div>
+</div>
+<p>Each named dataset has its own ENA query, field list, and record limit.
+Global settings such as <code class="docutils literal notranslate"><span class="pre">min_length</span></code> and <code class="docutils literal notranslate"><span class="pre">mafft_bin</span></code> apply across all
+datasets. The Snakefile loads this with <code class="docutils literal notranslate"><span class="pre">configfile:</span> <span class="pre">&quot;workflow/config.yaml&quot;</span></code>,
+after which <code class="docutils literal notranslate"><span class="pre">config</span></code> is available as a plain Python dictionary. The
+<code class="docutils literal notranslate"><span class="pre">configfile:</span></code> directive is a Snakemake keyword, not standard Python — it
+tells Snakemake to parse the file and expose its contents as the <code class="docutils literal notranslate"><span class="pre">config</span></code>
+dictionary before any rule runs.</p>
+</section>
+<section id="the-snakefile">
+<h3>The Snakefile<a class="headerlink" href="#the-snakefile" title="Permalink to this heading">#</a></h3>
+<p>The snippets below highlight the key Snakemake concepts used in this workflow.
+They are excerpts, the full Snakefile is in <code class="docutils literal notranslate"><span class="pre">workflow/Snakefile</span></code> in the
+project repository.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">DATASETS</span></code> and <code class="docutils literal notranslate"><span class="pre">expand()</span></code> - Section 4</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">DATASETS</span></code> is a Python list built from the <code class="docutils literal notranslate"><span class="pre">config</span></code> dictionary, playing the
+same role as <code class="docutils literal notranslate"><span class="pre">DATS</span></code> in the Zipf’s workflow. <code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">all</span></code> uses <code class="docutils literal notranslate"><span class="pre">expand()</span></code> to
+derive the full list of target files before any rule runs, one per dataset
+for each output type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATASETS</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;datasets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">rule</span> <span class="nb">all</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s2">&quot;data/raw/</span><span class="si">{dataset}</span><span class="s2">/ena_metadata.tsv&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">DATASETS</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s2">&quot;data/processed/</span><span class="si">{dataset}</span><span class="s2">/cleaned_sequences.fasta&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">DATASETS</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s2">&quot;results/trees/</span><span class="si">{dataset}</span><span class="s2">_upgma.nwk&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">DATASETS</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s2">&quot;results/figures/</span><span class="si">{dataset}</span><span class="s2">_upgma.png&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">DATASETS</span><span class="p">),</span>
+        <span class="n">expand</span><span class="p">(</span><span class="s2">&quot;results/tables/</span><span class="si">{dataset}</span><span class="s2">_evaluation_summary.tsv&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">DATASETS</span><span class="p">),</span>
+</pre></div>
+</div>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">{dataset}</span></code> wildcard — Section 3</strong></p>
+<p>Every rule in the workflow uses <code class="docutils literal notranslate"><span class="pre">{dataset}</span></code> as a pattern wildcard. Snakemake
+instantiates each rule twice, once for <code class="docutils literal notranslate"><span class="pre">ecoli_16S</span></code> and once for
+<code class="docutils literal notranslate"><span class="pre">salmonella_16S</span></code>, with no duplication in the Snakefile. This mirrors how
+<code class="docutils literal notranslate"><span class="pre">{book}</span></code> handled multiple texts in the Zipf’s workflow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">align</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="s2">&quot;data/processed/</span><span class="si">{dataset}</span><span class="s2">/cleaned_sequences.fasta&quot;</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="s2">&quot;data/processed/</span><span class="si">{dataset}</span><span class="s2">/aligned_sequences.fasta&quot;</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span>
+        <span class="n">mafft_bin</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mafft_bin&quot;</span><span class="p">,</span> <span class="s2">&quot;mafft&quot;</span><span class="p">),</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PYTHONPATH=src python src/tree_step_align.py \</span>
+<span class="sd">            --input-fasta {input} \</span>
+<span class="sd">            --output-alignment {output} \</span>
+<span class="sd">            --mafft-bin {params.mafft_bin}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">params</span></code> with lambda functions</strong></p>
+<p>When a parameter value differs per dataset, a lambda reads the correct entry
+from <code class="docutils literal notranslate"><span class="pre">config</span></code> using the current wildcard value. The <code class="docutils literal notranslate"><span class="pre">fetch_metadata</span></code> rule
+uses this to pass the right ENA query for each organism:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">:</span>
+    <span class="n">query</span><span class="o">=</span><span class="k">lambda</span> <span class="n">wildcards</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;datasets&quot;</span><span class="p">][</span><span class="n">wildcards</span><span class="o">.</span><span class="n">dataset</span><span class="p">][</span><span class="s2">&quot;query&quot;</span><span class="p">],</span>
+    <span class="n">fields</span><span class="o">=</span><span class="k">lambda</span> <span class="n">wildcards</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;datasets&quot;</span><span class="p">][</span><span class="n">wildcards</span><span class="o">.</span><span class="n">dataset</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s2">&quot;fields&quot;</span><span class="p">,</span> <span class="s2">&quot;accession,description,tax_id,scientific_name&quot;</span>
+    <span class="p">),</span>
+    <span class="n">limit</span><span class="o">=</span><span class="k">lambda</span> <span class="n">wildcards</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;datasets&quot;</span><span class="p">][</span><span class="n">wildcards</span><span class="o">.</span><span class="n">dataset</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;limit&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+</pre></div>
+</div>
+<p><strong>Named inputs and outputs — Section 2</strong></p>
+<p>Rules that produce or consume more than one file use named fields so the
+shell block can reference each path individually. The <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> rule
+writes two separate output files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">preprocess</span><span class="p">:</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">fasta</span><span class="o">=</span><span class="s2">&quot;data/processed/</span><span class="si">{dataset}</span><span class="s2">/cleaned_sequences.fasta&quot;</span><span class="p">,</span>
+        <span class="n">report</span><span class="o">=</span><span class="s2">&quot;results/tables/</span><span class="si">{dataset}</span><span class="s2">_preprocessing_qc.tsv&quot;</span><span class="p">,</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        python src/preprocessing.py \</span>
+<span class="sd">            --output-fasta {output.fasta} \</span>
+<span class="sd">            --report-tsv {output.report}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> rule uses named fields on both <code class="docutils literal notranslate"><span class="pre">input:</span></code> and <code class="docutils literal notranslate"><span class="pre">output:</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">evaluate</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">alignment</span><span class="o">=</span><span class="s2">&quot;data/processed/</span><span class="si">{dataset}</span><span class="s2">/aligned_sequences.fasta&quot;</span><span class="p">,</span>
+        <span class="n">tree</span><span class="o">=</span><span class="s2">&quot;results/trees/</span><span class="si">{dataset}</span><span class="s2">_upgma.nwk&quot;</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;results/tables/</span><span class="si">{dataset}</span><span class="s2">_evaluation_summary.tsv&quot;</span><span class="p">,</span>
+        <span class="n">per_sequence</span><span class="o">=</span><span class="s2">&quot;results/tables/</span><span class="si">{dataset}</span><span class="s2">_evaluation_per_sequence.tsv&quot;</span><span class="p">,</span>
+    <span class="n">shell</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        python src/evaluation.py \</span>
+<span class="sd">            --input-alignment {input.alignment} \</span>
+<span class="sd">            --input-tree {input.tree} \</span>
+<span class="sd">            --output-summary {output.summary} \</span>
+<span class="sd">            --output-per-sequence {output.per_sequence}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Parallel execution</strong></p>
+<p>Because the two datasets share no dependencies, Snakemake can run both
+pipelines “or any number of datasets” simultaneously with no changes to the Snakefile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snakemake<span class="w"> </span>--snakefile<span class="w"> </span>workflow/Snakefile<span class="w"> </span>--cores<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>The output below is trimmed, the <code class="docutils literal notranslate"><span class="pre">...</span></code> markers replace intermediate job blocks
+that follow the same pattern as the ones shown.</p>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Assuming unrestricted shared filesystem usage.</span>
+<span class="go">Building DAG of jobs...</span>
+<span class="go">Using shell: /bin/bash</span>
+<span class="go">Provided cores: 2</span>
+<span class="go">Rules claiming more threads will be scaled down.</span>
+<span class="go">Job stats:</span>
+<span class="go">job                   count</span>
+<span class="go">------------------  -------</span>
+<span class="go">fetch_metadata            2</span>
+<span class="go">download_sequences        2</span>
+<span class="go">preprocess                2</span>
+<span class="go">align                     2</span>
+<span class="go">infer_tree                2</span>
+<span class="go">evaluate                  2</span>
+<span class="go">export_tree               2</span>
+<span class="go">all                       1</span>
+<span class="go">total                    15</span>
+
+<span class="go">Select jobs to execute...</span>
+<span class="go">Execute 2 jobs...</span>
+
+<span class="go">[Wed Jun 17 02:39:48 2026]</span>
+<span class="go">localrule fetch_metadata:</span>
+<span class="go">    output: data/raw/salmonella_16S/ena_metadata.tsv</span>
+<span class="go">    jobid: 2</span>
+<span class="go">    reason: Missing output files: data/raw/salmonella_16S/ena_metadata.tsv</span>
+<span class="go">    wildcards: dataset=salmonella_16S</span>
+<span class="go">[Wed Jun 17 02:39:48 2026]</span>
+<span class="go">localrule fetch_metadata:</span>
+<span class="go">    output: data/raw/ecoli_16S/ena_metadata.tsv</span>
+<span class="go">    jobid: 1</span>
+<span class="go">    reason: Missing output files: data/raw/ecoli_16S/ena_metadata.tsv</span>
+<span class="go">    wildcards: dataset=ecoli_16S</span>
+<span class="go">2026-06-17 02:39:49,313 INFO __main__: Fetching ENA metadata: query=&#39;tax_eq(562) AND description=&quot;16S&quot;&#39;, result=sequence, limit=100</span>
+<span class="go">2026-06-17 02:39:49,313 INFO __main__: Fetching ENA metadata: query=&#39;tax_eq(28901) AND description=&quot;16S&quot;&#39;, result=sequence, limit=100</span>
+<span class="go">2026-06-17 02:39:50,786 INFO __main__: Fetched 100 records → data/raw/ecoli_16S/ena_metadata.tsv</span>
+<span class="go">2026-06-17 02:39:50,837 INFO __main__: Fetched 100 records → data/raw/salmonella_16S/ena_metadata.tsv</span>
+<span class="go">[Wed Jun 17 02:39:50 2026]</span>
+<span class="go">Finished jobid: 1 (Rule: fetch_metadata)</span>
+<span class="go">1 of 15 steps (7%) done</span>
+<span class="go">...</span>
+<span class="go">[Wed Jun 17 02:40:47 2026]</span>
+<span class="go">localrule preprocess:</span>
+<span class="go">    input: data/raw/ecoli_16S/.sequences_downloaded</span>
+<span class="go">    output: data/processed/ecoli_16S/cleaned_sequences.fasta, results/tables/ecoli_16S_preprocessing_qc.tsv</span>
+<span class="go">    jobid: 3</span>
+<span class="go">    reason: Missing output files: data/processed/ecoli_16S/cleaned_sequences.fasta, results/tables/ecoli_16S_preprocessing_qc.tsv; Input files updated by another job: data/raw/ecoli_16S/.sequences_downloaded</span>
+<span class="go">    wildcards: dataset=ecoli_16S</span>
+<span class="go">2026-06-17 02:40:47,188 INFO __main__: Loaded 100 sequence records</span>
+<span class="go">2026-06-17 02:40:47,189 INFO __main__: QC complete: 98 passed, 2 failed</span>
+<span class="go">[Wed Jun 17 02:40:47 2026]</span>
+<span class="go">Finished jobid: 3 (Rule: preprocess)</span>
+<span class="go">4 of 15 steps (27%) done</span>
+<span class="go">...</span>
+<span class="go">[Wed Jun 17 02:41:26 2026]</span>
+<span class="go">Finished jobid: 0 (Rule: all)</span>
+<span class="go">15 of 15 steps (100%) done</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="next-steps">
 <h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
 <p>It would be best if you start doing some of the <a class="reference external" href="https://se-up.github.io/RSE-UP/exercises/snakemake.html">exercises</a> now,
@@ -1444,6 +1657,11 @@ especially the exercises related to working with files and outputs before going 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-wildcard-values-with-glob-wildcards">Get wildcard values with glob_wildcards()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-code-as-actions">Using Python code as actions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-house">Cleaning House</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-second-complete-workflow-phylogenetic-analysis">5 A Second Complete Workflow: Phylogenetic Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-config-file">The config file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-snakefile">The Snakefile</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
