@@ -482,6 +482,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-requirements">Node Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-functional-requirements">Non-Functional Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-reproducible-phylogenetic-analysis-pipeline">Example: A Reproducible Phylogenetic Analysis Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-workflow-life-cycle">Applying the Workflow Life Cycle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-abstract-workflow-as-a-uml-activity-diagram">Representing the Abstract Workflow as a UML Activity Diagram</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Node Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Non-Functional Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Documenting Requirements</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-composition">Workflow Composition</a></li>
@@ -596,6 +604,78 @@ For simpler projects, incorporating requirements into the README file might suff
 Other options include using a project-specific Wiki or integrating them into the issue tracker.</p>
 <p>The key is to ensure that requirements are documented in a manner that makes them easily available for everyone involved in the project and for reference during later stages of development.</p>
 </section>
+<section id="example-a-reproducible-phylogenetic-analysis-pipeline">
+<h3>Example: A Reproducible Phylogenetic Analysis Pipeline<a class="headerlink" href="#example-a-reproducible-phylogenetic-analysis-pipeline" title="Permalink to this heading">#</a></h3>
+<p>To see how all three elements — abstract workflow, node requirements, and non-functional requirements — come together in research software project, consider this bioinformatics workflow for <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis.git">phylogenetic analysis</a>. The project retrieves 16S rRNA bacterial gene sequences from the <a class="reference external" href="https://www.ebi.ac.uk/ena/browser/home">European Nucleotide Archive (ENA)</a>, runs them through a multi-step analysis pipeline, and produces phylogenetic trees and summary tables. Two organisms (<em>E. coli</em> and <em>Salmonella enterica</em>) are processed in parallel through identical steps, allowing direct comparison. The domain biology will be explored later; the main goal here is the engineering problem: turning a research question into a reproducible, automated workflow.</p>
+<section id="applying-the-workflow-life-cycle">
+<h4>Applying the Workflow Life Cycle<a class="headerlink" href="#applying-the-workflow-life-cycle" title="Permalink to this heading">#</a></h4>
+<p>The project implicitly addresses a scientific question: <em>Are 16S rRNA gene sequences from E. coli and Salmonella enterica sufficiently divergent to resolve into distinct phylogenetic clades? i.e., do these two bacterial species differ enough in their gene sequences to be reliably told apart by a computational pipeline?</em> This drives the five lifecycle stages:</p>
+<ol class="arabic simple">
+<li><p>Scientific question — Compare sequences from two bacterial species stored in the European Nucleotide Archive (ENA).</p></li>
+<li><p>Abstract workflow — Seven functional steps are identified: fetch metadata, download sequences, preprocess (Quality Control(QC)), align, infer tree, export tree, evaluate. These steps are documented in <code class="docutils literal notranslate"><span class="pre">docs/requirements.md</span></code> as an activity diagram before any code is written, then refined whenever needed.</p></li>
+<li><p>Logical workflow — Each abstract step is mapped to a concrete tool: ENA Portal API for retrieval, MAFFT for alignment, a custom UPGMA implementation for tree inference, and matplotlib for figure rendering.</p></li>
+<li><p>Physical workflow — The Snakemake <code class="docutils literal notranslate"><span class="pre">workflow/Snakefile</span></code> encodes exact inputs, outputs, parameters, and two dataset configurations (<code class="docutils literal notranslate"><span class="pre">ecoli_16S</span></code>, <code class="docutils literal notranslate"><span class="pre">salmonella_16S</span></code>) via <code class="docutils literal notranslate"><span class="pre">workflow/config.yaml</span></code>. Workflows with Snakemake will be discussed in more details in <a class="reference external" href="https://se-up.github.io/RSE-UP/chapters/intro_snakemake">Introduction to Snakemake</a>.</p></li>
+<li><p>Scientific results — Running <code class="docutils literal notranslate"><span class="pre">snakemake</span> <span class="pre">--cores</span> <span class="pre">1</span></code> produces evaluation tables and tree figures for both datasets.</p></li>
+</ol>
+<p>Notice that the lifecycle is not linear: evaluation results may reveal QC thresholds need tuning, sending the team back to the abstract workflow stage.</p>
+</section>
+<section id="representing-the-abstract-workflow-as-a-uml-activity-diagram">
+<h4>Representing the Abstract Workflow as a UML Activity Diagram<a class="headerlink" href="#representing-the-abstract-workflow-as-a-uml-activity-diagram" title="Permalink to this heading">#</a></h4>
+<p><img alt="UML activity diagram" src="../_images/Phylo_UML.drawio.png" />.</p>
+<p>The abstract workflow for this project is represented as a UML diagram in the <code class="docutils literal notranslate"><span class="pre">docs/requirements.md</span></code>. It uses a <strong>fork node</strong> after the start to split processing into two parallel streams — one per dataset — and a <strong>join node</strong> before the end to collect all results. Within each stream, the seven activities run sequentially with data flow arrows connecting output files to the next step’s input. A <strong>decision node</strong> inside the preprocess activity branches on whether a sequence passes the minimum-length filter, discarding failures without halting the pipeline.</p>
+<p>Critically, The diagram describes <em>what</em> the pipeline does, not <em>how</em>. It contains no Snakemake syntax — replacing Snakemake with any other tool would leave the diagram unchanged.</p>
+</section>
+<section id="id1">
+<h4>Node Requirements<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>The phylogenetic project applies this approach to all seven pipeline steps. Here is the entry for the alignment step as an example; the full table for all activities is available in <a class="reference external" href="https://gitup.uni-potsdam.de/se-up/rse_course/phylogenetic-analysis/-/blob/main/docs/requirements.md"><code class="docutils literal notranslate"><span class="pre">docs/requirements.md</span></code></a> in the project repository.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Align</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Description</strong></p></td>
+<td><p>Produce a multiple-sequence alignment from QC-filtered sequences</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Type</strong></p></td>
+<td><p>Automatic</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Input</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cleaned_sequences.fasta</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aligned_sequences.fasta</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Implementation/Tool</strong></p></td>
+<td><p>MAFFT (external binary); wrapped by <code class="docutils literal notranslate"><span class="pre">src/tree_step_align.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Filling in this table before writing any code surfaces decisions early: what external tools are needed, and how each step should behave when something goes wrong.</p>
+</section>
+<section id="id2">
+<h4>Non-Functional Requirements<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<p>The project’s <code class="docutils literal notranslate"><span class="pre">docs/requirements.md</span></code> lists six NFRs that shaped every subsequent design decision:</p>
+<ul class="simple">
+<li><p><strong>Reproducibility</strong> — fixed dataset queries, pinned tool versions, Snakemake’s file-based dependency tracking</p></li>
+<li><p><strong>CLI-first</strong> — every <code class="docutils literal notranslate"><span class="pre">src/</span></code> module exposes a <code class="docutils literal notranslate"><span class="pre">main()</span></code> callable from the command line so steps can be run and tested independently</p></li>
+<li><p><strong>Modularity</strong> — one Python file per pipeline step; shared utilities in <code class="docutils literal notranslate"><span class="pre">src/tree_common.py</span></code></p></li>
+<li><p><strong>Robustness</strong> — explicit validation at each step boundary; informative errors on bad input</p></li>
+<li><p><strong>Testability</strong> — pure functions where possible; external calls (ENA API, MAFFT) isolated behind thin wrappers that can be mocked</p></li>
+<li><p><strong>Maintainability</strong> — type annotations throughout; ruff + mypy enforced in CI</p></li>
+</ul>
+<p>NFRs written at conception time are constraints, not aspirations. Writing “CLI-first” before coding means every function signature is designed around file paths rather than in-memory objects — a decision that would be expensive to reverse later.</p>
+</section>
+</section>
+<section id="id3">
+<h3>Documenting Requirements<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>The project stores its requirements documentation in <code class="docutils literal notranslate"><span class="pre">docs/requirements.md</span></code>, following the structured-project convention. This file is version-controlled alongside the code, to ensure it stays synchronized with the implementation and is reviewed in the same pull request as the corresponding code change.</p>
+</section>
 </section>
 <section id="workflow-composition">
 <h2>Workflow Composition<a class="headerlink" href="#workflow-composition" title="Permalink to this heading">#</a></h2>
@@ -677,6 +757,14 @@ Other options include using a project-specific Wiki or integrating them into the
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-requirements">Node Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-functional-requirements">Non-Functional Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenting-requirements">Documenting Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-a-reproducible-phylogenetic-analysis-pipeline">Example: A Reproducible Phylogenetic Analysis Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-the-workflow-life-cycle">Applying the Workflow Life Cycle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-the-abstract-workflow-as-a-uml-activity-diagram">Representing the Abstract Workflow as a UML Activity Diagram</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Node Requirements</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Non-Functional Requirements</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Documenting Requirements</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-composition">Workflow Composition</a></li>
