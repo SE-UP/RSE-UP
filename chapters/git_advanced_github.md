@@ -82,10 +82,10 @@ sami:~/zipf $ git log --oneline -n 4
 
 ```text
 55c63d0 (HEAD -> master, origin/master, origin/HEAD) 
-        Merging README additions
-45a576b Added contributor list
-a0b88e5 Added repository overview
-232b564 Initial commit of README file
+        docs: merge README additions from contributors
+45a576b docs: add contributor list to README
+a0b88e5 docs: add repository overview to README
+232b564 docs: add initial README file with project title
 ```
 
 Sami also sees that Git has automatically created a **remote** for their repository that points back at their repository on GitHub:
@@ -135,11 +135,11 @@ files and plot each word's rank versus its frequency.
 Amira commits her changes and pushes them to *her* repository on GitHub:
 
 ```bash
-amira:~/zipf $ git commit -a -m "Adding Sami as a contributor"
+amira:~/zipf $ git commit -a -m "docs: add Sami Virtanen to Contributors section in README"
 ```
 
 ```text
-[master 35fca86] Adding Sami as a contributor
+[master 35fca86] docs: add Sami Virtanen to Contributors section in README
  1 file changed, 1 insertion(+)
 ```
 
@@ -218,11 +218,11 @@ Switched to a new branch 'adding-email'
 then make a change and commit it:
 
 ```bash
-sami:~/zipf $ git commit -a -m "Adding my email address"
+sami:~/zipf $ git commit -a -m "docs: add email address to Contributors section in README"
 ```
 
 ```text
-[adding-email 3e73dc0] Adding my email address
+[adding-email 3e73dc0] docs: add email address to Contributors section in README
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
